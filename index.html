@@ -525,7 +525,7 @@ async function buildPPTX(data){
   for(const s of s1barOrder){
     const n=cnt(s); if(!n)continue;
     const segW=s1barW*(n/nActive);
-    s1.addShape(prs.shapes.RECTANGLE,{x:bx,y:s1barY,w:segW,h:s1barH,fill:{color:s1barColors[s]},line:{color:s1barColors[s]}});
+    s1.addShape(prs.shapes.RECTANGLE,{x:s1bx,y:s1barY,w:segW,h:s1barH,fill:{color:s1barColors[s]},line:{color:s1barColors[s]}});
     s1bx+=segW;
   }
 
@@ -540,13 +540,13 @@ async function buildPPTX(data){
   // ── Action cards: Pendente AEGON + Pendente FH ──
   const s1acY=s1cy+s1heroH+0.1, s1acH=s1cbot-s1acY, s1acW=(s1lcw-0.12)/2;
   // AEGON card
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1acY,w:s1acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1acY,w:s1acW,h:s1acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
   s1.addText(String(nPASP),{x:s1lx+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pasp,fontFace:'Calibri',margin:0,charSpacing:-1});
   s1.addText('Pendente AEGON',{x:s1lx+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
   s1.addText('Ação requerida pelo cliente',{x:s1lx+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
   // FH card
   const s1acX2=s1lx+s1acW+0.12;
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1acX2,y:s1acY,w:s1acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1acX2,y:s1acY,w:s1acW,h:s1acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
   s1.addText(String(nPFH),{x:s1acX2+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pfh,fontFace:'Calibri',margin:0,charSpacing:-1});
   s1.addText('Pendente FH',{x:s1acX2+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
   s1.addText('Ação interna requerida',{x:s1acX2+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
