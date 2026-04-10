@@ -497,29 +497,76 @@ async function buildPPTX(data){
   s1.addText(`${total} iniciativas · ${nActive} ativas`,{x:8.4,y:0.41,w:1.25,h:0.13,fontSize:6,color:C.dim,align:'center',fontFace:'Calibri',margin:0});
 
   const cnt=s=>items.filter(d=>d.estado===s).length;
-  const BAR_C_HEX={...BAR_COLOR};
-  Object.keys(BAR_C_HEX).forEach(k=>BAR_C_HEX[k]=BAR_C_HEX[k].replace('#',''));
 
-  // KPI helpers
-  function kpi(slide,x,y,w,h,num,label,sub,ac){
-    slide.addShape(prs.shapes.RECTANGLE,{x,y,w,h,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-    slide.addShape(prs.shapes.RECTANGLE,{x,y,w,h:0.035,fill:{color:ac},line:{color:ac}});
-    slide.addText(String(num),{x:x+0.1,y:y+0.07,w:w-0.2,h:0.4,fontSize:30,bold:true,color:ac,fontFace:'Calibri',margin:0,charSpacing:-1});
-    slide.addText(label,{x:x+0.1,y:y+0.47,w:w-0.2,h:0.13,fontSize:7,color:C.mut,fontFace:'Calibri',margin:0});
-    if(sub)slide.addText(sub,{x:x+0.1,y:y+0.6,w:w-0.2,h:0.11,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0});
+  // ── Vista Focada layout (mirrors HTML dashboard at 70% centred) ──
+  // Slide is 10" x 5.625". Content area: y 0.65 → 5.42 = 4.77" tall
+  // Two columns centred at 70% width = 7" total, starting at x = 1.5"
+  const lx=1.5, rx=5.55;   // left col start, right col start
+  const lcw=3.85, rcw=2.85; // left col width, right col width
+  const cy=0.72;             // content top y
+  const cbot=5.38;           // content bottom y (above footer)
+
+  // ── LEFT COLUMN ──
+  // Hero card: big number + bar + legend
+  const heroH=1.85;
+  s1.addShape(prs.shapes.RECTANGLE,{x:lx,y:cy,w:lcw,h:heroH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  // Big number
+  s1.addText(String(nActive),{x:lx+0.18,y:cy+0.12,w:1.2,h:0.7,fontSize:52,bold:true,color:C.txt,fontFace:'Calibri',margin:0,charSpacing:-2});
+  s1.addText('iniciativas ativas',{x:lx+1.45,y:cy+0.14,w:lcw-1.65,h:0.2,fontSize:9,color:C.mut,fontFace:'Calibri',margin:0});
+  s1.addText('em acompanhamento',{x:lx+1.45,y:cy+0.35,w:lcw-1.65,h:0.16,fontSize:7.5,color:C.dim,fontFace:'Calibri',margin:0});
+
+  // Bar — build proportional segments
+  const barX=lx+0.18, barY=cy+0.92, barW=lcw-0.36, barH=0.1;
+  const barOrder=['Pending ASP','QA Approved','QA Testing','In Progress','Pending FH','On Hold','Business Requirements'];
+  const barColors={'Pending ASP':C.pasp,'QA Approved':C.qa,'QA Testing':C.qt,'In Progress':C.ip,'Pending FH':C.pfh,'On Hold':C.oh,'Business Requirements':C.biz};
+  // background track
+  s1.addShape(prs.shapes.RECTANGLE,{x:barX,y:barY,w:barW,h:barH,fill:{color:C.brd},line:{color:C.brd}});
+  let bx=barX;
+  for(const s of barOrder){
+    const n=cnt(s); if(!n)continue;
+    const segW=barW*(n/nActive);
+    s1.addShape(prs.shapes.RECTANGLE,{x:bx,y:barY,w:segW,h:barH,fill:{color:barColors[s]},line:{color:barColors[s]}});
+    bx+=segW;
   }
-  const r1y=0.95,cw=1.84,ch=1.9,gap=0.055,sx=0.35;
-  kpi(s1,sx+0*(cw+gap),r1y,cw,ch,2,'Em Desenvolvimento','In Progress',C.ip);
-  kpi(s1,sx+1*(cw+gap),r1y,cw,ch,2,'Em Testes','QA Testing',C.qt);
-  kpi(s1,sx+2*(cw+gap),r1y,cw,ch,3,'Aprovado QA','Aguarda deploy',C.qa);
-  kpi(s1,sx+3*(cw+gap),r1y,cw,ch,nPFH,'Pendente FH','Ação interna',C.pfh);
-  kpi(s1,sx+4*(cw+gap),r1y,cw,ch,nPASP,'Pendente AEGON','Awaiting client',C.pasp);
-  const r2y=r1y+ch+0.1,cw2=1.67;
-  kpi(s1,sx+0*(cw2+gap),r2y,cw2,ch,summary['On Hold']||0,'On Hold','Suspenso',C.oh);
-  kpi(s1,sx+1*(cw2+gap),r2y,cw2,ch,summary['Business Requirements']||0,'Business Req.','Em análise',C.biz);
-  kpi(s1,sx+2*(cw2+gap),r2y,cw2,ch,nBacklog,'Backlog','',C.bl);
-  kpi(s1,sx+3*(cw2+gap),r2y,cw2,ch,summary['Canceled']||0,'Cancelado','',C.cx);
-  kpi(s1,sx+4*(cw2+gap),r2y,cw2+0.27,ch,nClosed,'Concluídos',`${Math.round(nClosed/total*100)}% do total`,C.cl);
+
+  // Legend (two rows)
+  const barLabels={'Pending ASP':'Pendente AEGON','QA Approved':'QA Approved','QA Testing':'QA Testing','In Progress':'In Progress','Pending FH':'Pendente FH','On Hold':'On Hold','Business Requirements':'Business Req.'};
+  const legendItems=barOrder.filter(s=>cnt(s)>0).map(s=>`${barLabels[s]} (${cnt(s)})`);
+  const leg1=legendItems.slice(0,4).join('   ');
+  const leg2=legendItems.slice(4).join('   ');
+  s1.addText(leg1,{x:barX,y:barY+0.13,w:barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
+  if(leg2)s1.addText(leg2,{x:barX,y:barY+0.27,w:barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
+
+  // ── Action cards: Pendente AEGON + Pendente FH ──
+  const acY=cy+heroH+0.1, acH=(cbot-acY-0.0)/1, acW=(lcw-0.12)/2;
+  // AEGON card
+  s1.addShape(prs.shapes.RECTANGLE,{x:lx,y:acY,w:acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addText(String(nPASP),{x:lx+0.15,y:acY+0.12,w:acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pasp,fontFace:'Calibri',margin:0,charSpacing:-1});
+  s1.addText('Pendente AEGON',{x:lx+0.15,y:acY+0.75,w:acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
+  s1.addText('Ação requerida pelo cliente',{x:lx+0.15,y:acY+0.93,w:acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
+  // FH card
+  const acX2=lx+acW+0.12;
+  s1.addShape(prs.shapes.RECTANGLE,{x:acX2,y:acY,w:acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addText(String(nPFH),{x:acX2+0.15,y:acY+0.12,w:acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pfh,fontFace:'Calibri',margin:0,charSpacing:-1});
+  s1.addText('Pendente FH',{x:acX2+0.15,y:acY+0.75,w:acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
+  s1.addText('Ação interna requerida',{x:acX2+0.15,y:acY+0.93,w:acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
+
+  // ── RIGHT COLUMN: Total / Backlog / Concluídos ──
+  const statH=(cbot-cy-0.2)/3;
+  const stats=[
+    {num:total, lbl:'Total de Iniciativas', sub:'desde o início',  color:C.fhr},
+    {num:nBacklog,lbl:'Backlog',             sub:'Sem data de início',color:C.bl},
+    {num:nClosed, lbl:'Concluídos',          sub:`${Math.round(nClosed/total*100)}% do total`,color:C.cl},
+  ];
+  stats.forEach((st,i)=>{
+    const sy=cy+i*(statH+0.1);
+    s1.addShape(prs.shapes.RECTANGLE,{x:rx,y:sy,w:rcw,h:statH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+    s1.addText(String(st.num),{x:rx+0.18,y:sy+0.1,w:1.1,h:statH-0.2,fontSize:40,bold:true,color:st.color,fontFace:'Calibri',margin:0,valign:'middle',charSpacing:-1});
+    s1.addText(st.lbl,{x:rx+rcw-1.6,y:sy+0.2,w:1.45,h:0.22,fontSize:9,bold:true,color:C.mut,fontFace:'Calibri',margin:0,align:'right'});
+    s1.addText(st.sub,{x:rx+rcw-1.6,y:sy+0.42,w:1.45,h:0.16,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
+    // accent bar
+    s1.addShape(prs.shapes.RECTANGLE,{x:rx+rcw-0.45,y:sy+statH-0.1,w:0.3,h:0.04,fill:{color:st.color},line:{color:st.color}});
+  });
   // Footer
   s1.addShape(prs.shapes.RECTANGLE,{x:0,y:5.42,w:10,h:0.2,fill:{color:C.surf},line:{color:C.surf}});
   s1.addText(`Future Healthcare  ·  PDS Tecnologia  ·  ${dateStr}`,{x:0.35,y:5.44,w:7,h:0.13,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0});
