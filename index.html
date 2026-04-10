@@ -713,11 +713,23 @@ async function saveToGitHub(){
 
 // ── Init ──
 (function(){
-  // Admin mode: only visible on #admin hash
+  // Admin mode: URL hash OR triple-click on FH logo
   if(window.location.hash==='#admin'){
     document.body.classList.add('admin-mode');
     document.getElementById('btn-pptx').style.display='inline-flex';
   }
+  // Triple-click on logo activates admin
+  let clickCount=0, clickTimer=null;
+  document.querySelector('.fh-logo').addEventListener('click',()=>{
+    clickCount++;
+    if(clickTimer)clearTimeout(clickTimer);
+    clickTimer=setTimeout(()=>clickCount=0,600);
+    if(clickCount>=3){
+      document.body.classList.add('admin-mode');
+      document.getElementById('btn-pptx').style.display='inline-flex';
+      clickCount=0;
+    }
+  });
   const o=localStorage.getItem('gh-owner'),r=localStorage.getItem('gh-repo');
   if(o)document.getElementById('gh-owner').value=o;
   if(r)document.getElementById('gh-repo').value=r;
