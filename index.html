@@ -501,71 +501,71 @@ async function buildPPTX(data){
   // ── Vista Focada layout (mirrors HTML dashboard at 70% centred) ──
   // Slide is 10" x 5.625". Content area: y 0.65 → 5.42 = 4.77" tall
   // Two columns centred at 70% width = 7" total, starting at x = 1.5"
-  const lx=1.5, rx=5.55;   // left col start, right col start
-  const lcw=3.85, rcw=2.85; // left col width, right col width
-  const cy=0.72;             // content top y
-  const cbot=5.38;           // content bottom y (above footer)
+  const s1lx=1.5, s1rx=5.55;   // left col start, right col start
+  const s1lcw=3.85, s1rcw=2.85; // left col width, right col width
+  const s1cy=0.72;             // content top y
+  const s1cbot=5.38;           // content bottom y (above footer)
 
   // ── LEFT COLUMN ──
   // Hero card: big number + bar + legend
-  const heroH=1.85;
-  s1.addShape(prs.shapes.RECTANGLE,{x:lx,y:cy,w:lcw,h:heroH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  const s1heroH=1.85;
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1cy,w:s1lcw,h:s1heroH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
   // Big number
-  s1.addText(String(nActive),{x:lx+0.18,y:cy+0.12,w:1.2,h:0.7,fontSize:52,bold:true,color:C.txt,fontFace:'Calibri',margin:0,charSpacing:-2});
-  s1.addText('iniciativas ativas',{x:lx+1.45,y:cy+0.14,w:lcw-1.65,h:0.2,fontSize:9,color:C.mut,fontFace:'Calibri',margin:0});
-  s1.addText('em acompanhamento',{x:lx+1.45,y:cy+0.35,w:lcw-1.65,h:0.16,fontSize:7.5,color:C.dim,fontFace:'Calibri',margin:0});
+  s1.addText(String(nActive),{x:s1lx+0.18,y:s1cy+0.12,w:1.2,h:0.7,fontSize:52,bold:true,color:C.txt,fontFace:'Calibri',margin:0,charSpacing:-2});
+  s1.addText('iniciativas ativas',{x:s1lx+1.45,y:s1cy+0.14,w:s1lcw-1.65,h:0.2,fontSize:9,color:C.mut,fontFace:'Calibri',margin:0});
+  s1.addText('em acompanhamento',{x:s1lx+1.45,y:s1cy+0.35,w:s1lcw-1.65,h:0.16,fontSize:7.5,color:C.dim,fontFace:'Calibri',margin:0});
 
   // Bar — build proportional segments
-  const barX=lx+0.18, barY=cy+0.92, barW=lcw-0.36, barH=0.1;
-  const barOrder=['Pending ASP','QA Approved','QA Testing','In Progress','Pending FH','On Hold','Business Requirements'];
-  const barColors={'Pending ASP':C.pasp,'QA Approved':C.qa,'QA Testing':C.qt,'In Progress':C.ip,'Pending FH':C.pfh,'On Hold':C.oh,'Business Requirements':C.biz};
+  const s1barX=s1lx+0.18, s1barY=s1cy+0.92, s1barW=s1lcw-0.36, s1barH=0.1;
+  const s1barOrder=['Pending ASP','QA Approved','QA Testing','In Progress','Pending FH','On Hold','Business Requirements'];
+  const s1barColors={'Pending ASP':C.pasp,'QA Approved':C.qa,'QA Testing':C.qt,'In Progress':C.ip,'Pending FH':C.pfh,'On Hold':C.oh,'Business Requirements':C.biz};
   // background track
-  s1.addShape(prs.shapes.RECTANGLE,{x:barX,y:barY,w:barW,h:barH,fill:{color:C.brd},line:{color:C.brd}});
-  let bx=barX;
-  for(const s of barOrder){
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1barX,y:s1barY,w:s1barW,h:s1barH,fill:{color:C.brd},line:{color:C.brd}});
+  let s1bx=s1barX;
+  for(const s of s1barOrder){
     const n=cnt(s); if(!n)continue;
-    const segW=barW*(n/nActive);
-    s1.addShape(prs.shapes.RECTANGLE,{x:bx,y:barY,w:segW,h:barH,fill:{color:barColors[s]},line:{color:barColors[s]}});
-    bx+=segW;
+    const segW=s1barW*(n/nActive);
+    s1.addShape(prs.shapes.RECTANGLE,{x:bx,y:s1barY,w:segW,h:s1barH,fill:{color:s1barColors[s]},line:{color:s1barColors[s]}});
+    s1bx+=segW;
   }
 
   // Legend (two rows)
-  const barLabels={'Pending ASP':'Pendente AEGON','QA Approved':'QA Approved','QA Testing':'QA Testing','In Progress':'In Progress','Pending FH':'Pendente FH','On Hold':'On Hold','Business Requirements':'Business Req.'};
-  const legendItems=barOrder.filter(s=>cnt(s)>0).map(s=>`${barLabels[s]} (${cnt(s)})`);
-  const leg1=legendItems.slice(0,4).join('   ');
-  const leg2=legendItems.slice(4).join('   ');
-  s1.addText(leg1,{x:barX,y:barY+0.13,w:barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
-  if(leg2)s1.addText(leg2,{x:barX,y:barY+0.27,w:barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
+  const s1barLabels={'Pending ASP':'Pendente AEGON','QA Approved':'QA Approved','QA Testing':'QA Testing','In Progress':'In Progress','Pending FH':'Pendente FH','On Hold':'On Hold','Business Requirements':'Business Req.'};
+  const s1legItems=s1barOrder.filter(s=>cnt(s)>0).map(s=>`${s1barLabels[s]} (${cnt(s)})`);
+  const s1leg1=s1legItems.slice(0,4).join('   ');
+  const s1leg2=s1legItems.slice(4).join('   ');
+  s1.addText(s1leg1,{x:s1barX,y:s1barY+0.13,w:s1barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
+  if(s1leg2)s1.addText(s1leg2,{x:s1barX,y:s1barY+0.27,w:s1barW,h:0.14,fontSize:6,color:C.mut,fontFace:'Calibri',margin:0});
 
   // ── Action cards: Pendente AEGON + Pendente FH ──
-  const acY=cy+heroH+0.1, acH=(cbot-acY-0.0)/1, acW=(lcw-0.12)/2;
+  const s1acY=s1cy+s1heroH+0.1, s1acH=s1cbot-s1acY, s1acW=(s1lcw-0.12)/2;
   // AEGON card
-  s1.addShape(prs.shapes.RECTANGLE,{x:lx,y:acY,w:acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-  s1.addText(String(nPASP),{x:lx+0.15,y:acY+0.12,w:acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pasp,fontFace:'Calibri',margin:0,charSpacing:-1});
-  s1.addText('Pendente AEGON',{x:lx+0.15,y:acY+0.75,w:acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
-  s1.addText('Ação requerida pelo cliente',{x:lx+0.15,y:acY+0.93,w:acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1acY,w:s1acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addText(String(nPASP),{x:s1lx+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pasp,fontFace:'Calibri',margin:0,charSpacing:-1});
+  s1.addText('Pendente AEGON',{x:s1lx+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
+  s1.addText('Ação requerida pelo cliente',{x:s1lx+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
   // FH card
-  const acX2=lx+acW+0.12;
-  s1.addShape(prs.shapes.RECTANGLE,{x:acX2,y:acY,w:acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-  s1.addText(String(nPFH),{x:acX2+0.15,y:acY+0.12,w:acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pfh,fontFace:'Calibri',margin:0,charSpacing:-1});
-  s1.addText('Pendente FH',{x:acX2+0.15,y:acY+0.75,w:acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
-  s1.addText('Ação interna requerida',{x:acX2+0.15,y:acY+0.93,w:acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
+  const s1acX2=s1lx+s1acW+0.12;
+  s1.addShape(prs.shapes.RECTANGLE,{x:s1acX2,y:s1acY,w:s1acW,h:acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+  s1.addText(String(nPFH),{x:s1acX2+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pfh,fontFace:'Calibri',margin:0,charSpacing:-1});
+  s1.addText('Pendente FH',{x:s1acX2+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
+  s1.addText('Ação interna requerida',{x:s1acX2+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
 
   // ── RIGHT COLUMN: Total / Backlog / Concluídos ──
-  const statH=(cbot-cy-0.2)/3;
-  const stats=[
+  const s1statH=(s1cbot-s1cy-0.2)/3;
+  const s1stats=[
     {num:total, lbl:'Total de Iniciativas', sub:'desde o início',  color:C.fhr},
     {num:nBacklog,lbl:'Backlog',             sub:'Sem data de início',color:C.bl},
     {num:nClosed, lbl:'Concluídos',          sub:`${Math.round(nClosed/total*100)}% do total`,color:C.cl},
   ];
-  stats.forEach((st,i)=>{
-    const sy=cy+i*(statH+0.1);
-    s1.addShape(prs.shapes.RECTANGLE,{x:rx,y:sy,w:rcw,h:statH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-    s1.addText(String(st.num),{x:rx+0.18,y:sy+0.1,w:1.1,h:statH-0.2,fontSize:40,bold:true,color:st.color,fontFace:'Calibri',margin:0,valign:'middle',charSpacing:-1});
-    s1.addText(st.lbl,{x:rx+rcw-1.6,y:sy+0.2,w:1.45,h:0.22,fontSize:9,bold:true,color:C.mut,fontFace:'Calibri',margin:0,align:'right'});
-    s1.addText(st.sub,{x:rx+rcw-1.6,y:sy+0.42,w:1.45,h:0.16,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
+  s1stats.forEach((st,i)=>{
+    const sy=s1cy+i*(s1statH+0.1);
+    s1.addShape(prs.shapes.RECTANGLE,{x:s1rx,y:sy,w:s1rcw,h:s1statH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
+    s1.addText(String(st.num),{x:s1rx+0.18,y:sy+0.1,w:1.1,h:s1statH-0.2,fontSize:40,bold:true,color:st.color,fontFace:'Calibri',margin:0,valign:'middle',charSpacing:-1});
+    s1.addText(st.lbl,{x:s1rx+s1rcw-1.6,y:sy+0.2,w:1.45,h:0.22,fontSize:9,bold:true,color:C.mut,fontFace:'Calibri',margin:0,align:'right'});
+    s1.addText(st.sub,{x:s1rx+s1rcw-1.6,y:sy+0.42,w:1.45,h:0.16,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
     // accent bar
-    s1.addShape(prs.shapes.RECTANGLE,{x:rx+rcw-0.45,y:sy+statH-0.1,w:0.3,h:0.04,fill:{color:st.color},line:{color:st.color}});
+    s1.addShape(prs.shapes.RECTANGLE,{x:s1rx+s1rcw-0.45,y:sy+s1statH-0.1,w:0.3,h:0.04,fill:{color:st.color},line:{color:st.color}});
   });
   // Footer
   s1.addShape(prs.shapes.RECTANGLE,{x:0,y:5.42,w:10,h:0.2,fill:{color:C.surf},line:{color:C.surf}});
