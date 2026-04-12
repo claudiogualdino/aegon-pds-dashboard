@@ -820,7 +820,7 @@ body.admin-mode #admin-fab{display:flex;}
   <!-- STEP 2 -->
   <div class="ap-step">
     <div class="ap-step-header">
-      <div class="ap-step-num" id="step2-num">2</div>
+      <div class="ap-step-num done" id="step2-num">2</div>
       <div class="ap-step-title">Publicar no GitHub</div>
     </div>
     <input class="ap-input" id="gh-owner" placeholder="Username ou org GitHub" autocomplete="off">
@@ -830,9 +830,7 @@ body.admin-mode #admin-fab{display:flex;}
     <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()" disabled="">
       ☁️ Publicar no GitHub
     </button>
-    <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: none;" id="gh-hint">
-      Importa e valida um Excel primeiro (passo 1)
-    </div>
+    <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: block;" id="gh-hint">Publicado com sucesso ✓</div>
   </div>
 
 </div>
