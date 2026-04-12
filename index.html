@@ -249,8 +249,17 @@ body.admin-mode #admin-fab{display:flex;}
   padding:.45rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.68rem;
   font-weight:600;cursor:pointer;border:none;transition:all .18s;}
 .ap-btn-primary{background:var(--fhr);color:#fff;}
-.ap-btn-primary:hover{background:#a0182f;}
-.ap-btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.ap-btn-primary:hover:not(:disabled){background:#a0182f;}
+.ap-btn-primary:disabled{opacity:.35;cursor:not-allowed;}
+.ap-btn-step{background:var(--surf2);color:var(--txt);border:1px solid var(--brd);}
+.ap-btn-step:hover{border-color:var(--mut);}
+.ap-step{display:flex;flex-direction:column;gap:.35rem;}
+.ap-step-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.1rem;}
+.ap-step-num{width:20px;height:20px;border-radius:50%;background:var(--fhr);
+  color:#fff;font-size:.62rem;font-weight:700;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;}
+.ap-step-num.done{background:var(--c-qa);}
+.ap-step-title{font-size:.68rem;font-weight:600;color:var(--txt);}
 .ap-status{font-size:.6rem;padding:.3rem .55rem;border-radius:5px;text-align:center;
   background:var(--surf2);border:1px solid var(--brd);color:var(--mut);
   display:flex;align-items:center;gap:.4rem;justify-content:center;}
@@ -391,35 +400,55 @@ body.admin-mode #admin-fab{display:flex;}
 
 <div id="admin-panel">
   <div class="ap-title">
-    <div><span>FH</span> · Gestão</div>
+    <div><span>FH</span> · Painel de Gestão</div>
     <button class="ap-close" onclick="toggleAdmin()">✕</button>
   </div>
-  <div>
-    <div class="ap-lbl">📂 Importar Excel</div>
-    <div class="ap-drop" id="ap-drop" style="margin-top:.3rem">
+
+  <!-- STEP 1 -->
+  <div class="ap-step">
+    <div class="ap-step-header">
+      <div class="ap-step-num" id="step1-num">1</div>
+      <div class="ap-step-title">Importar &amp; Validar Excel</div>
+    </div>
+    <div class="ap-drop" id="ap-drop">
       <input type="file" id="ap-file" accept=".xlsx,.xls" onchange="handleFile(this.files[0])">
       <div class="ap-drop-icon">📊</div>
-      <div class="ap-drop-lbl">Arrasta o Excel ou clica</div>
+      <div class="ap-drop-lbl" id="ap-drop-lbl">Arrasta o Excel ou clica</div>
       <div class="ap-drop-sub">PDS_Iniciativas_Tecnologia_DDMMYYYY.xlsx</div>
     </div>
-    <div class="ap-date-row" style="margin-top:.4rem">
-      <label>Data:</label>
+    <div class="ap-date-row">
+      <label>Data da sessão:</label>
       <input type="text" id="ap-date" placeholder="23 / 03 / 2026">
     </div>
+    <button class="ap-btn ap-btn-step" id="btn-validate" onclick="document.getElementById('ap-file').click()" style="margin-top:.4rem">
+      📂 Selecionar ficheiro Excel
+    </button>
+    <div id="ap-status" class="ap-status" style="margin-top:.4rem">
+      <div class="ap-dot idle" id="ap-dot"></div>
+      <span id="ap-status-txt">Aguarda importação...</span>
+    </div>
   </div>
-  <div id="ap-status" class="ap-status">
-    <div class="ap-dot idle" id="ap-dot"></div>
-    <span id="ap-status-txt">Aguarda importação...</span>
-  </div>
+
   <hr class="ap-sep">
-  <div>
-    <div class="ap-lbl">🐙 Guardar no GitHub</div>
+
+  <!-- STEP 2 -->
+  <div class="ap-step">
+    <div class="ap-step-header">
+      <div class="ap-step-num" id="step2-num">2</div>
+      <div class="ap-step-title">Publicar no GitHub</div>
+    </div>
     <input class="ap-input" id="gh-owner" placeholder="Username ou org GitHub" autocomplete="off">
     <input class="ap-input" id="gh-repo"  placeholder="Nome do repositório" autocomplete="off" style="margin-top:.3rem">
     <input class="ap-input" id="gh-token" type="password" placeholder="Personal Access Token (repo)" autocomplete="off" style="margin-top:.3rem">
-    <div style="font-size:.56rem;color:var(--dim);margin-top:3px">Token guardado localmente. Nunca partilhado.</div>
+    <div style="font-size:.56rem;color:var(--dim);margin-top:3px;margin-bottom:.4rem">Token guardado localmente no browser. Nunca partilhado.</div>
+    <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()" disabled>
+      ☁️ Publicar no GitHub
+    </button>
+    <div style="font-size:.56rem;color:var(--dim);margin-top:4px;text-align:center" id="gh-hint">
+      Importa e valida um Excel primeiro (passo 1)
+    </div>
   </div>
-  <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()">☁️ Publicar no GitHub</button>
+
 </div>
 
 <div id="toast">✓ PPTX gerado e descarregado</div>
@@ -496,7 +525,7 @@ function setMode(m){
 }
 
 // ══════════════════════════════════════════
-// CHANGELOG — compare previous vs new data
+// CHANGELOG — GitHub-persisted comparison
 // ══════════════════════════════════════════
 const STATUS_COLORS={
   'In Progress':  {bg:'rgba(31,111,235,.12)',  color:'#1f6feb'},
@@ -516,62 +545,51 @@ function statePill(estado){
   return `<span class="chg-pill" style="background:${c.bg};color:${c.color}">${esc(estado)}</span>`;
 }
 
-function buildChangelog(prevData, newData){
-  if(!prevData||!newData) return;
-
+// Compute changelog between two datasets
+function computeChangelog(prevData, newData){
+  if(!prevData||!newData) return [];
   const prevItems={}, newItems={};
-  for(const d of prevData.items) prevItems[d.item]=d;
-  for(const d of newData.items)  newItems[d.item]=d;
-
-  // Also include inactive items from summary for "moved to active" detection
-  const INACTIVE_SET=new Set(['Backlog','Closed','Canceled']);
+  for(const d of prevData.items||[]) prevItems[d.item]=d;
+  for(const d of newData.items||[])  newItems[d.item]=d;
   const changes=[];
 
-  // 1. Status changes (item active in both, different estado)
+  // 1. Status changes
   for(const id of Object.keys(newItems)){
-    const nw=newItems[id];
-    const pr=prevItems[id];
-    if(pr && pr.estado!==nw.estado){
-      changes.push({type:'state', item:id, tema:nw.tema, from:pr.estado, to:nw.estado});
-    }
+    const nw=newItems[id], pr=prevItems[id];
+    if(pr && pr.estado!==nw.estado)
+      changes.push({type:'state',item:id,tema:nw.tema,from:pr.estado,to:nw.estado});
   }
-
-  // 2. New active items (not in prev active items)
+  // 2. New active items
   for(const id of Object.keys(newItems)){
-    if(!prevItems[id]){
-      changes.push({type:'new', item:id, tema:newItems[id].tema, to:newItems[id].estado});
-    }
+    if(!prevItems[id])
+      changes.push({type:'new',item:id,tema:newItems[id].tema,to:newItems[id].estado});
   }
-
-  // 3. Items that left active (in prev but not in new active)
+  // 3. Items that left active
   for(const id of Object.keys(prevItems)){
-    if(!newItems[id]){
-      changes.push({type:'done', item:id, tema:prevItems[id].tema, from:prevItems[id].estado});
-    }
+    if(!newItems[id])
+      changes.push({type:'done',item:id,tema:prevItems[id].tema,from:prevItems[id].estado});
   }
-
-  // 4. New notes (item in both, new note entries)
+  // 4. New notes
   for(const id of Object.keys(newItems)){
     const nw=newItems[id], pr=prevItems[id];
     if(!pr) continue;
     const prevDates=new Set((pr.notes||[]).map(n=>n.date+'|'+n.text.slice(0,30)));
-    const newNotes=(nw.notes||[]).filter(n=>!prevDates.has(n.date+'|'+n.text.slice(0,30)));
-    for(const note of newNotes){
-      changes.push({type:'note', item:id, tema:nw.tema, date:note.date, text:note.text});
-    }
+    for(const note of (nw.notes||[]).filter(n=>!prevDates.has(n.date+'|'+n.text.slice(0,30))))
+      changes.push({type:'note',item:id,tema:nw.tema,date:note.date,text:note.text});
   }
-
-  // Sort: state changes first, then new, then done, then notes
   const typeOrder={state:0,new:1,done:2,note:3};
-  changes.sort((a,b)=>typeOrder[a.type]-typeOrder[b.type]);
+  return changes.sort((a,b)=>typeOrder[a.type]-typeOrder[b.type]);
+}
 
-  // Render
+// Render changelog into the DOM
+function renderChangelog(changes, prevDateStr, generatedAt){
   const vsEl=document.getElementById('changelog-vs');
   const cntEl=document.getElementById('changelog-count');
   const itemsEl=document.getElementById('changelog-items');
   const footerEl=document.getElementById('changelog-footer');
+  if(!vsEl) return;
 
-  vsEl.textContent=prevData.dateStr ? `vs. ${prevData.dateStr}` : 'vs. versão anterior';
+  vsEl.textContent=prevDateStr ? `vs. ${prevDateStr}` : 'vs. versão anterior';
   cntEl.textContent=changes.length===0 ? 'sem alterações' :
     `${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`;
 
@@ -579,38 +597,29 @@ function buildChangelog(prevData, newData){
     itemsEl.innerHTML=`<div class="changelog-empty">Nenhuma alteração detetada face à versão anterior.</div>`;
   } else {
     itemsEl.innerHTML=changes.map(c=>{
-      const temaShort=c.tema.length>55?c.tema.slice(0,55)+'…':c.tema;
-      if(c.type==='state') return `<div class="chg-item state">
-        <div class="chg-dot"></div>
-        <div class="chg-body">
-          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
-          <div class="chg-detail">${statePill(c.from)}<span style="color:var(--dim)">→</span>${statePill(c.to)}</div>
-        </div></div>`;
-      if(c.type==='note') return `<div class="chg-item note">
-        <div class="chg-dot"></div>
-        <div class="chg-body">
-          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
-          <div class="chg-detail">${c.date?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">${c.date}</span>`:''}${esc(c.text.slice(0,80))}${c.text.length>80?'…':''}</div>
-        </div></div>`;
-      if(c.type==='new') return `<div class="chg-item new">
-        <div class="chg-dot"></div>
-        <div class="chg-body">
-          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
-          <div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> ${statePill(c.to)}</div>
-        </div></div>`;
-      if(c.type==='done') return `<div class="chg-item done">
-        <div class="chg-dot"></div>
-        <div class="chg-body">
-          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
-          <div class="chg-detail"><span style="color:var(--dim)">Saiu do acompanhamento</span> ${statePill(c.from)}</div>
-        </div></div>`;
+      const t=c.tema&&c.tema.length>58?c.tema.slice(0,58)+'…':c.tema||'';
+      if(c.type==='state') return `<div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail">${statePill(c.from)}<span style="color:var(--dim)">→</span>${statePill(c.to)}</div></div></div>`;
+      if(c.type==='note')  return `<div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail">${c.date?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">${c.date}</span> `:''} ${esc((c.text||'').slice(0,80))}${(c.text||'').length>80?'…':''}</div></div></div>`;
+      if(c.type==='new')   return `<div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> ${statePill(c.to)}</div></div></div>`;
+      if(c.type==='done')  return `<div class="chg-item done"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Saiu do acompanhamento →</span> ${statePill(c.from)}</div></div></div>`;
       return '';
     }).join('');
   }
-
-  const savedAt=localStorage.getItem('pds-saved-at')||'';
-  footerEl.textContent=savedAt ? `Comparado com versão guardada em ${savedAt}` : '';
+  footerEl.textContent=generatedAt ? `Gerado em ${generatedAt}` : '';
 }
+
+// Load changelog from GitHub Pages (works for all viewers)
+async function loadChangelogFromGitHub(){
+  try{
+    const res=await fetch('./changelog.json?t='+Date.now());
+    if(!res.ok) return;
+    const cl=await res.json();
+    renderChangelog(cl.changes||[], cl.prevDateStr||'', cl.generatedAt||'');
+  }catch(e){ /* No changelog file yet — silent */ }
+}
+
+// State for pending changelog (computed after Excel import, before publish)
+let _pendingChangelog=null;
 
 // ══════════════════════════════════════════
 // PPTX EXPORT (PptxGenJS browser)
@@ -808,13 +817,26 @@ apDrop.addEventListener('drop',e=>{e.preventDefault();apDrop.classList.remove('d
 function setStatus(state,msg){
   document.getElementById('ap-dot').className='ap-dot '+state;
   document.getElementById('ap-status-txt').textContent=msg;
+  // Enable publish button and update step indicators when import succeeds
+  if(state==='ok'){
+    document.getElementById('btn-gh').disabled=false;
+    document.getElementById('gh-hint').style.display='none';
+    document.getElementById('step1-num').classList.add('done');
+    document.getElementById('btn-validate').textContent='✓ Excel validado — importar outro';
+    document.getElementById('btn-validate').style.borderColor='var(--c-qa)';
+    document.getElementById('btn-validate').style.color='var(--c-qa)';
+  } else if(state==='err'){
+    document.getElementById('btn-gh').disabled=true;
+    document.getElementById('gh-hint').textContent='Corrige o erro no passo 1 antes de publicar';
+    document.getElementById('gh-hint').style.display='block';
+  }
 }
 
 function handleFile(file){
   if(!file)return;
   setStatus('loading','A ler o Excel...');
   const reader=new FileReader();
-  reader.onload=e=>{
+  reader.onload=async e=>{
     try{
       const wb=XLSX.read(e.target.result,{type:'array',cellDates:true});
       const ws=wb.Sheets['ASP'];
@@ -824,27 +846,24 @@ function handleFile(file){
       const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
       newData.dateStr=dateStr;
 
-      // Save current data as "previous" before overwriting
-      const currentRaw=document.getElementById('dashboard-data').textContent;
+      // Fetch previous data.json from GitHub for comparison
+      let prevData=null;
       try{
-        const currentData=JSON.parse(currentRaw);
-        if(currentData && currentData.items && currentData.items.length>0){
-          localStorage.setItem('pds-prev-data', currentRaw);
-          const now=new Date();
-          const ts=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-          localStorage.setItem('pds-saved-at', ts);
-        }
+        const res=await fetch('./data.json?t='+Date.now());
+        if(res.ok) prevData=await res.json();
       }catch(e){}
 
-      // Get previous data for changelog
-      let prevData=null;
-      try{prevData=JSON.parse(localStorage.getItem('pds-prev-data'));}catch(e){}
+      // Compute changelog
+      const changes=computeChangelog(prevData, newData);
+      const now=new Date();
+      const generatedAt=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+      _pendingChangelog={changes, prevDateStr: prevData?.dateStr||'', generatedAt};
 
-      // Update embedded data and render
+      // Update dashboard
       document.getElementById('dashboard-data').textContent=JSON.stringify(newData,null,2);
       render(newData);
-      buildChangelog(prevData, newData);
-      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas`);
+      renderChangelog(changes, prevData?.dateStr||'', generatedAt);
+      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'}`);
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
@@ -878,22 +897,51 @@ async function saveToGitHub(){
   const token=document.getElementById('gh-token').value.trim();
   if(!owner||!repo||!token){setStatus('err','Preenche owner, repo e token.');return;}
   localStorage.setItem('gh-owner',owner); localStorage.setItem('gh-repo',repo); localStorage.setItem('gh-token',token);
-  setStatus('loading','A publicar...');
+  setStatus('loading','A publicar no GitHub...');
   document.getElementById('btn-gh').disabled=true;
+
   try{
     const headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'};
-    const url=`https://api.github.com/repos/${owner}/${repo}/contents/index.html`;
-    const fileRes=await fetch(url,{headers}); let sha='';
-    if(fileRes.ok){const fj=await fileRes.json();sha=fj.sha;}
-    const newHTML=document.documentElement.outerHTML;
-    const b64=btoa(unescape(encodeURIComponent(newHTML)));
-    const parsed=JSON.parse(document.getElementById('dashboard-data').textContent);
-    const body={message:`PDS: atualização ${parsed.dateStr||''}`,content:b64};
-    if(sha)body.sha=sha;
-    const putRes=await fetch(url,{method:'PUT',headers,body:JSON.stringify(body)});
-    if(!putRes.ok){const e=await putRes.json();throw new Error(e.message||putRes.status);}
-    setStatus('ok','✓ Publicado! Atualiza em ~1 min.');
-  }catch(err){setStatus('err','✗ '+err.message);}
+    const base=`https://api.github.com/repos/${owner}/${repo}/contents/`;
+
+    // Helper: get SHA of existing file
+    async function getSha(path){
+      const r=await fetch(base+path,{headers});
+      if(r.ok){const j=await r.json();return j.sha||'';}
+      return '';
+    }
+    // Helper: put file
+    async function putFile(path, content, message, isBinary=false){
+      const sha=await getSha(path);
+      const b64=isBinary ? content : btoa(unescape(encodeURIComponent(content)));
+      const body={message, content:b64};
+      if(sha) body.sha=sha;
+      const r=await fetch(base+path,{method:'PUT',headers,body:JSON.stringify(body)});
+      if(!r.ok){const e=await r.json();throw new Error(path+': '+(e.message||r.status));}
+    }
+
+    const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
+    const dateStr=currentData.dateStr||'';
+    const commitMsg=`PDS: atualização ${dateStr}`;
+
+    // 1. Save index.html
+    await putFile('index.html', document.documentElement.outerHTML, commitMsg);
+
+    // 2. Save data.json (current snapshot — becomes "prev" on next import)
+    await putFile('data.json', JSON.stringify(currentData, null, 2), commitMsg);
+
+    // 3. Save changelog.json (so all viewers see the same changelog)
+    if(_pendingChangelog){
+      await putFile('changelog.json', JSON.stringify(_pendingChangelog, null, 2), commitMsg);
+    }
+
+    setStatus('ok','✓ Publicado! index.html + data.json + changelog.json · ~1 min.');
+    document.getElementById('step2-num').classList.add('done');
+    document.getElementById('gh-hint').textContent='Publicado com sucesso ✓';
+    document.getElementById('gh-hint').style.display='block';
+  }catch(err){
+    setStatus('err','✗ '+err.message);
+  }
   document.getElementById('btn-gh').disabled=false;
 }
 
@@ -925,11 +973,8 @@ async function saveToGitHub(){
   try{
     const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
     render(currentData);
-    // Restore changelog if previous data exists
-    const prevRaw=localStorage.getItem('pds-prev-data');
-    if(prevRaw){
-      try{buildChangelog(JSON.parse(prevRaw), currentData);}catch(e){}
-    }
+    // Load changelog from GitHub (visible to all viewers)
+    loadChangelogFromGitHub();
   }catch(e){console.error(e);}
 })();
 </script>
