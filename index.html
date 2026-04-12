@@ -176,7 +176,7 @@ body.mode-detail .drow-detail{display:grid;}
 .chg-chip:hover{background:rgba(188,140,255,.2);}
 .dd-notes{display:flex;flex-direction:column;gap:2px;}
 
-/* ── Changelog section ── */
+/* ── Changelog section — visible in both modes when populated ── */
 .changelog-wrap{
   display:none;
   flex-direction:column;
@@ -186,6 +186,7 @@ body.mode-detail .drow-detail{display:grid;}
   padding-top:.75rem;
   gap:.4rem;
 }
+.changelog-wrap.has-data{display:flex;}
 body.mode-detail .changelog-wrap{display:flex;}
 .changelog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem;}
 .changelog-title{display:flex;align-items:center;gap:.5rem;}
@@ -633,11 +634,15 @@ function computeChangelog(prevData, newData){
 
 // Render changelog into the DOM
 function renderChangelog(changes, prevDateStr, generatedAt){
+  const wrap=document.getElementById('changelog-wrap');
   const vsEl=document.getElementById('changelog-vs');
   const cntEl=document.getElementById('changelog-count');
   const itemsEl=document.getElementById('changelog-items');
   const footerEl=document.getElementById('changelog-footer');
-  if(!vsEl) return;
+  if(!wrap||!vsEl) return;
+
+  // Always show the section once we have something to say
+  wrap.classList.add('has-data');
 
   vsEl.textContent=prevDateStr ? `vs. ${prevDateStr}` : 'vs. versão anterior';
   cntEl.textContent=changes.length===0 ? 'sem alterações' :
@@ -896,24 +901,39 @@ function handleFile(file){
       const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
       newData.dateStr=dateStr;
 
-      // Fetch previous data.json from GitHub for comparison
+      // Use currently embedded data as "previous" — always available, no network needed
       let prevData=null;
       try{
-        const res=await fetch('./data.json?t='+Date.now());
-        if(res.ok) prevData=await res.json();
+        const embedded=JSON.parse(document.getElementById('dashboard-data').textContent);
+        if(embedded&&embedded.items&&embedded.items.length>0) prevData=embedded;
       }catch(e){}
 
-      // Compute changelog
+      // Fallback: try data.json from GitHub (for viewers who open shared URL)
+      if(!prevData){
+        try{
+          const res=await fetch('./data.json?t='+Date.now());
+          if(res.ok) prevData=await res.json();
+        }catch(e){}
+      }
+
+      // Compute and show changelog immediately
       const changes=computeChangelog(prevData, newData);
       const now=new Date();
       const generatedAt=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
       _pendingChangelog={changes, prevDateStr: prevData?.dateStr||'', generatedAt};
 
-      // Update dashboard
+      // Update dashboard with new data
       document.getElementById('dashboard-data').textContent=JSON.stringify(newData,null,2);
       render(newData);
       renderChangelog(changes, prevData?.dateStr||'', generatedAt);
-      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'}`);
+
+      // Scroll to changelog so user sees it
+      setTimeout(()=>{
+        const cl=document.getElementById('changelog-wrap');
+        if(cl) cl.scrollIntoView({behavior:'smooth',block:'nearest'});
+      },300);
+
+      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`);
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
