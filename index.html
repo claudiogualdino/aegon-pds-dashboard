@@ -1,392 +1,16 @@
-<html lang="pt"><head>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AEGON | Ponto de Situação</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 
-<script id="dashboard-data" type="application/json">{
-  "items": [
-    {
-      "item": 1,
-      "ambito": "Produto",
-      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "estado": "Pending ASP",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "HELP-22263",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "Aguardamos feedback com uses cases para garantir alinhamento de expetativas"
-        }
-      ]
-    },
-    {
-      "item": 11,
-      "ambito": "Subscrição",
-      "tema": "Alteração Subscrição | QC por Produto",
-      "estado": "Business Requirements",
-      "team": "CORE/IBG",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "HELP-25214",
-      "notes": [
-        {
-          "date": "01/02/2026",
-          "text": "MunichRe confirma que podemos enviar coberturas distintas por QC."
-        }
-      ]
-    },
-    {
-      "item": 15,
-      "ambito": "FH2.0",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "estado": "Pending ASP",
-      "team": "INFRAS",
-      "dt_entrega": "30-Jun",
-      "jira": "GDP-1530",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "08/03/2026",
-          "text": "AEGON solicitou manter QA2 até dia 23/03/2026"
-        }
-      ]
-    },
-    {
-      "item": 16,
-      "ambito": "FH2.0",
-      "tema": "Lateralidades nas Exclusões",
-      "estado": "In Progress",
-      "team": "IBG",
-      "dt_entrega": "",
-      "jira": "GDP-1966",
-      "change_id": "HELP-24758",
-      "notes": [
-        {
-          "date": "15/03/2026",
-          "text": "Planeado para testes até final do mês março"
-        }
-      ]
-    },
-    {
-      "item": 17,
-      "ambito": "FH2.0",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "QA Approved",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1681",
-      "change_id": "HELP-22257",
-      "notes": [
-        {
-          "date": "01/02/2026",
-          "text": "aprovado em QA, aguarda data para train"
-        }
-      ]
-    },
-    {
-      "item": 18,
-      "ambito": "FH2.0",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "In Progress",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1749",
-      "change_id": "HELP-22371",
-      "notes": [
-        {
-          "date": "08/02/2026",
-          "text": "Estimado e planeado Sprint 25/02 - 17/03"
-        },
-        {
-          "date": "22/03/2026",
-          "text": "Continua em implementação"
-        }
-      ]
-    },
-    {
-      "item": 19,
-      "ambito": "FH2.0",
-      "tema": "Valores Acima do Plafond",
-      "estado": "Pending FH",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1787",
-      "change_id": "HELP-22261",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "Nova sessão interna dia 18/02"
-        }
-      ]
-    },
-    {
-      "item": 23,
-      "ambito": "FH2.0",
-      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Pending FH",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1962",
-      "change_id": "HELP-22268",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "Ainda sem plano de implementação. Esperamos em breve entregar plano"
-        }
-      ]
-    },
-    {
-      "item": 25,
-      "ambito": "FH2.0",
-      "tema": "Data de Inicio do Risco",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "sem qualquer feedback da ASP"
-        }
-      ]
-    },
-    {
-      "item": 26,
-      "ambito": "FH2.0",
-      "tema": "Acesso Detalhe da Factura",
-      "estado": "QA Testing",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "CREQ-130",
-      "change_id": "HELP-22258",
-      "notes": [
-        {
-          "date": "15/03/2026",
-          "text": "Está em testes"
-        }
-      ]
-    },
-    {
-      "item": 32,
-      "ambito": "Área Pessoal",
-      "tema": "Timeline de Reembolsos ",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "09/01/2026",
-          "text": "Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou"
-        }
-      ]
-    },
-    {
-      "item": 34,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Autorizações | Informação com detalhe",
-      "estado": "Pending ASP",
-      "team": "CI",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
-        }
-      ]
-    },
-    {
-      "item": 36,
-      "ambito": "Área Pessoal",
-      "tema": "Redes por Produto do Cliente",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
-        }
-      ]
-    },
-    {
-      "item": 38,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Reembolsos Filas Submetidos e Criados",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "09/01/2026",
-          "text": "Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou"
-        }
-      ]
-    },
-    {
-      "item": 42,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_entrega": "",
-      "jira": "GDP-1524",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "Documentação Técnica partilhada com AEGON"
-        }
-      ]
-    },
-    {
-      "item": 43,
-      "ambito": "Sinistros",
-      "tema": "Processo de Recuperação da Divida",
-      "estado": "On Hold",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-635",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "Implementação foi interrompida por prioridade de outro projeto/recursos. Preve-se retomar no inicio de Março"
-        }
-      ]
-    },
-    {
-      "item": 55,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "estado": "QA Approved",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1543",
-      "change_id": "HELP-22255",
-      "notes": [
-        {
-          "date": "08/03/2026",
-          "text": "Está em testes"
-        },
-        {
-          "date": "22/03/2026",
-          "text": "Aprovada em QA. Aguardamos data para Train"
-        }
-      ]
-    },
-    {
-      "item": 56,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "estado": "QA Approved",
-      "team": "CORE",
-      "dt_entrega": "",
-      "jira": "GDP-1544",
-      "change_id": "HELP-22256",
-      "notes": [
-        {
-          "date": "01/03/2026",
-          "text": "Está em testes"
-        },
-        {
-          "date": "22/03/2026",
-          "text": "Aprovada em QA. Aguardamos data para Train"
-        }
-      ]
-    },
-    {
-      "item": 59,
-      "ambito": "Área Pessoal",
-      "tema": "API /contract-info/get/contract - add BenefitNumber",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_entrega": "",
-      "jira": "CREQ-136",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "24/10/2025",
-          "text": "Instalado no dia 23/10 fechado do lado da FH"
-        }
-      ]
-    },
-    {
-      "item": 62,
-      "ambito": "Subscrição",
-      "tema": "TUW API Service - add new fields & insured person",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_entrega": "",
-      "jira": "GDP-1667",
-      "change_id": "HELP-22267",
-      "notes": [
-        {
-          "date": "24/10/2025",
-          "text": "Instalado no dia 23/10. Fechado do lado da FH"
-        }
-      ]
-    },
-    {
-      "item": 65,
-      "ambito": "Projecto Sinistros",
-      "tema": "API Get Claims - timeouts - improvements",
-      "estado": "Pending ASP",
-      "team": "ARCH",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "HELP-22450",
-      "notes": [
-        {
-          "date": "29/01/2026",
-          "text": "Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar"
-        }
-      ]
-    },
-    {
-      "item": 67,
-      "ambito": "",
-      "tema": "Migração V2 Reembolsos OneCare",
-      "estado": "Pending ASP",
-      "team": "CI",
-      "dt_entrega": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "12/11/2025",
-          "text": "Ponto pendente de resposta do OneCare"
-        }
-      ]
-    }
-  ],
-  "summary": {
-    "Pending ASP": 12,
-    "Backlog": 18,
-    "Closed": 26,
-    "Business Requirements": 1,
-    "Canceled": 1,
-    "In Progress": 2,
-    "QA Approved": 3,
-    "Pending FH": 2,
-    "QA Testing": 1,
-    "On Hold": 1
-  },
-  "dateStr": "10 / 04 / 2026"
-}</script>
+<script id="dashboard-data" type="application/json">
+{"items": [{"item": 1, "ambito": "Produto", "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA", "estado": "Pending ASP", "team": "CORE", "dt_entrega": "", "jira": "", "change_id": "HELP-22263", "notes": [{"date": "10/02/2026", "text": "Aguardamos feedback com uses cases para garantir alinhamento de expetativas"}]}, {"item": 11, "ambito": "Subscrição", "tema": "Alteração Subscrição | QC por Produto", "estado": "Business Requirements", "team": "CORE/IBG", "dt_entrega": "", "jira": "", "change_id": "HELP-23255", "notes": [{"date": "01/02/2026", "text": "MunichRe confirma que podemos enviar coberturas distintas por QC."}]}, {"item": 15, "ambito": "FH2.0", "tema": "Alinhamento dos Ambientes de Teste", "estado": "Pending ASP", "team": "INFRAS", "dt_entrega": "30/06/2025", "jira": "GDP-1530", "change_id": "", "notes": [{"date": "08/03/2026", "text": "AEGON solicitou manter QA2 até dia 23/03/2026"}]}, {"item": 16, "ambito": "FH2.0", "tema": "Lateralidades nas Exclusões", "estado": "In Progress", "team": "IBG", "dt_entrega": "", "jira": "GDP-1966", "change_id": "HELP-24758", "notes": [{"date": "15/03/2026", "text": "Planeado para testes até final do mês março"}]}, {"item": 17, "ambito": "FH2.0", "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia", "estado": "QA Approved", "team": "CORE", "dt_entrega": "01/03/2025", "jira": "GDP-1681", "change_id": "HELP-22257", "notes": [{"date": "01/02/2026", "text": "aprovado em QA, aguarda data para train"}]}, {"item": 18, "ambito": "FH2.0", "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet", "estado": "In Progress", "team": "CORE", "dt_entrega": "", "jira": "GDP-1749", "change_id": "HELP-22371", "notes": [{"date": "08/02/2026", "text": "Estimado e planeado Sprint 25/02 - 17/03"}, {"date": "22/03/2026", "text": "Continua em implementação"}]}, {"item": 19, "ambito": "FH2.0", "tema": "Valores Acima do Plafond", "estado": "Pending FH", "team": "CORE", "dt_entrega": "", "jira": "GDP-1787", "change_id": "HELP-22261", "notes": [{"date": "10/02/2026", "text": "Nova sessão interna dia 18/02"}]}, {"item": 23, "ambito": "FH2.0", "tema": "Autorização || Estado FH NET - Histórico de Utilização", "estado": "Pending FH", "team": "CORE", "dt_entrega": "", "jira": "GDP-1962", "change_id": "HELP-22268", "notes": [{"date": "10/02/2026", "text": "Ainda sem plano de implementação. Esperamos em breve entregar plano"}]}, {"item": 25, "ambito": "FH2.0", "tema": "Data de Inicio do Risco", "estado": "Pending ASP", "team": "IBG", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "10/02/2026", "text": "sem qualquer feedback da ASP"}]}, {"item": 26, "ambito": "FH2.0", "tema": "Acesso Detalhe da Factura", "estado": "QA Testing", "team": "CORE", "dt_entrega": "", "jira": "CREQ-130", "change_id": "HELP-22258", "notes": [{"date": "15/03/2026", "text": "Está em testes"}]}, {"item": 32, "ambito": "Área Pessoal", "tema": "Timeline de Reembolsos ", "estado": "Pending ASP", "team": "CORE/CI", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "09/01/2026", "text": "Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou"}]}, {"item": 34, "ambito": "Área Pessoal", "tema": "ONECARE | Autorizações | Informação com detalhe", "estado": "Pending ASP", "team": "CI", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "16/06/2025", "text": "API FH já suporta e está do lado da ASP efetuar alterações"}]}, {"item": 36, "ambito": "Área Pessoal", "tema": "Redes por Produto do Cliente", "estado": "Pending ASP", "team": "CORE/CI", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "16/06/2025", "text": "API FH já suporta e está do lado da ASP efetuar alterações"}]}, {"item": 38, "ambito": "Área Pessoal", "tema": "ONECARE | Reembolsos Filas Submetidos e Criados", "estado": "Pending ASP", "team": "CORE/CI", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "09/01/2026", "text": "Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou"}]}, {"item": 42, "ambito": "Área Pessoal", "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)", "estado": "QA Testing", "team": "IBG", "dt_entrega": "", "jira": "GDP-1524", "change_id": "", "notes": [{"date": "15/03/2026", "text": "Documentação Técnica finalizada até 18/03/2026"}, {"date": "22/03/2026", "text": "Ainda aguardamos documentação técnica"}]}, {"item": 43, "ambito": "Sinistros", "tema": "Processo de Recuperação da Divida", "estado": "On Hold", "team": "CORE", "dt_entrega": "", "jira": "GDP-635", "change_id": "", "notes": [{"date": "10/02/2026", "text": "Implementação foi interrompida por prioridade de outro projeto/recursos. Preve-se retomar no inicio de Março"}]}, {"item": 55, "ambito": "Subscrição", "tema": "Melhorias Subscrição ASP - Change Contact Method to Online", "estado": "QA Approved", "team": "CORE", "dt_entrega": "", "jira": "GDP-1543", "change_id": "HELP-22255", "notes": [{"date": "08/03/2026", "text": "Está em testes"}, {"date": "22/03/2026", "text": "Aprovada em QA. Aguardamos data para Train"}]}, {"item": 56, "ambito": "Subscrição", "tema": "Melhorias Subscrição ASP - SMS Token", "estado": "QA Approved", "team": "CORE", "dt_entrega": "", "jira": "GDP-1544", "change_id": "HELP-22256", "notes": [{"date": "01/03/2026", "text": "Está em testes"}, {"date": "22/03/2026", "text": "Aprovada em QA. Aguardamos data para Train"}]}, {"item": 59, "ambito": "Área Pessoal", "tema": "API /contract-info/get/contract - add BenefitNumber", "estado": "Pending ASP", "team": "IBG", "dt_entrega": "", "jira": "CREQ-136", "change_id": "", "notes": [{"date": "24/10/2025", "text": "Instalado no dia 23/10 fechado do lado da FH"}]}, {"item": 62, "ambito": "Subscrição", "tema": "TUW API Service - add new fields & insured person", "estado": "Pending ASP", "team": "IBG", "dt_entrega": "", "jira": "GDP-1667", "change_id": "HELP-22267", "notes": [{"date": "24/10/2025", "text": "Instalado no dia 23/10. Fechado do lado da FH"}]}, {"item": 65, "ambito": "Projecto Sinistros", "tema": "API Get Claims - timeouts - improvements", "estado": "Pending ASP", "team": "ARCH", "dt_entrega": "", "jira": "", "change_id": "HELP-22450", "notes": [{"date": "29/01/2026", "text": "Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar"}]}, {"item": 67, "ambito": "", "tema": "Migração V2 Reembolsos OneCare", "estado": "Pending ASP", "team": "CI", "dt_entrega": "", "jira": "", "change_id": "", "notes": [{"date": "12/11/2025", "text": "Ponto pendente de resposta do OneCare"}]}], "summary": {"Pending ASP": 11, "Backlog": 18, "Closed": 26, "Business Requirements": 1, "Canceled": 1, "In Progress": 2, "QA Approved": 3, "Pending FH": 2, "QA Testing": 2, "On Hold": 1}, "dateStr": "23 / 03 / 2026"}
+</script>
 
 <style>
 :root{
@@ -549,6 +173,42 @@ body.mode-detail .drow-detail{display:grid;}
 .chg-chip{background:rgba(188,140,255,.1);color:#bc8cff;border:1px solid rgba(188,140,255,.25);}
 .chg-chip:hover{background:rgba(188,140,255,.2);}
 .dd-notes{display:flex;flex-direction:column;gap:2px;}
+
+/* ── Changelog section ── */
+.changelog-wrap{
+  display:none;
+  flex-direction:column;
+  flex-shrink:0;
+  margin-top:.8rem;
+  border-top:1.5px solid var(--brd);
+  padding-top:.75rem;
+  gap:.4rem;
+}
+body.mode-detail .changelog-wrap{display:flex;}
+.changelog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem;}
+.changelog-title{display:flex;align-items:center;gap:.5rem;}
+.changelog-bar{width:3px;height:14px;background:var(--fhr);border-radius:2px;flex-shrink:0;}
+.changelog-lbl{font-size:.65rem;font-weight:600;color:var(--txt);}
+.changelog-vs{font-size:.57rem;background:rgba(196,30,58,.1);color:var(--fhr);
+  border:1px solid rgba(196,30,58,.3);border-radius:10px;padding:1px 7px;}
+.changelog-count{font-size:.57rem;color:var(--dim);}
+.changelog-empty{font-size:.62rem;color:var(--dim);padding:.5rem;text-align:center;
+  border:1px dashed var(--brd);border-radius:6px;}
+.chg-item{display:flex;align-items:flex-start;gap:.5rem;padding:5px 8px;border-radius:6px;border:1px solid;}
+.chg-item.state{background:rgba(63,185,80,.07);border-color:rgba(63,185,80,.25);}
+.chg-item.note {background:rgba(56,139,253,.07);border-color:rgba(56,139,253,.25);}
+.chg-item.new  {background:rgba(240,136,62,.07);border-color:rgba(240,136,62,.25);}
+.chg-item.done {background:rgba(139,148,158,.07);border-color:rgba(139,148,158,.25);}
+.chg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:3px;}
+.chg-item.state .chg-dot{background:var(--c-qa);}
+.chg-item.note  .chg-dot{background:var(--c-qt);}
+.chg-item.new   .chg-dot{background:var(--c-pasp);}
+.chg-item.done  .chg-dot{background:var(--c-oh);}
+.chg-body{display:flex;flex-direction:column;gap:2px;}
+.chg-name{font-size:.62rem;font-weight:500;color:var(--txt);}
+.chg-detail{font-size:.58rem;color:var(--mut);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.chg-pill{font-size:.54rem;border-radius:3px;padding:1px 5px;}
+.changelog-footer{font-size:.56rem;color:var(--dim);text-align:center;font-family:'DM Mono',monospace;margin-top:2px;}
 .note-entry{font-size:.6rem;color:var(--mut);line-height:1.4;}
 .note-date{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt);font-weight:500;margin-right:3px;}
 .note-text{color:var(--mut);}
@@ -608,25 +268,25 @@ body.admin-mode #admin-fab{display:flex;}
   padding:.45rem 1rem;border-radius:6px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
-<style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
-<body class="admin-mode">
+</head>
+<body>
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header class="top-header">
   <div class="th-left">
     <div class="fh-logo">FH</div>
     <div>
-      <div class="th-title">AEGON — Ponto de Situação</div>
+      <div class="th-title">AEGON &mdash; Ponto de Situação</div>
       <div class="th-sub">Iniciativas Tecnologia · Future Healthcare</div>
     </div>
   </div>
   <div class="th-right">
-    <span class="date-pill" id="date-pill">10 / 04 / 2026</span>
+    <span class="date-pill" id="date-pill">—</span>
     <div class="view-toggle">
       <button class="vt-opt active" id="btn-resumida" onclick="setMode('resumida')">Resumida</button>
       <button class="vt-opt" id="btn-detalhada" onclick="setMode('detalhada')">＋ Detalhada</button>
     </div>
-    <button class="hbtn hbtn-primary" id="btn-pptx" onclick="exportPPTX()" title="Exportar 2 slides PowerPoint" style="display: inline-flex;">
+    <button class="hbtn hbtn-primary" id="btn-pptx" onclick="exportPPTX()" title="Exportar 2 slides PowerPoint" style="display:none">
       ⬇ Exportar PPTX
     </button>
   </div>
@@ -642,24 +302,24 @@ body.admin-mode #admin-fab{display:flex;}
     <!-- Hero: ativas -->
     <div class="sum-hero">
       <div class="sum-hero-top">
-        <div class="sum-big" id="n-active">22</div>
+        <div class="sum-big" id="n-active">—</div>
         <div class="sum-big-lbl">iniciativas ativas<br>
           <span style="color:var(--dim);font-size:.56rem">em acompanhamento</span>
         </div>
       </div>
-      <div class="bar-track" id="bar-track"><div class="bar-seg" style="width:54.5%;background:#f0883e"></div><div class="bar-seg" style="width:13.6%;background:#3fb950"></div><div class="bar-seg" style="width:4.5%;background:#388bfd"></div><div class="bar-seg" style="width:9.1%;background:#1f6feb"></div><div class="bar-seg" style="width:9.1%;background:#e3b341"></div><div class="bar-seg" style="width:4.5%;background:#8b949e"></div><div class="bar-seg" style="width:4.5%;background:#bc8cff"></div></div>
-      <div class="bar-legend" id="bar-legend"><div class="bl-item"><div class="bl-dot" style="background:#f0883e"></div>Pendente AEGON (12)</div><div class="bl-item"><div class="bl-dot" style="background:#3fb950"></div>QA Approved (3)</div><div class="bl-item"><div class="bl-dot" style="background:#388bfd"></div>QA Testing (1)</div><div class="bl-item"><div class="bl-dot" style="background:#1f6feb"></div>In Progress (2)</div><div class="bl-item"><div class="bl-dot" style="background:#e3b341"></div>Pendente FH (2)</div><div class="bl-item"><div class="bl-dot" style="background:#8b949e"></div>On Hold (1)</div><div class="bl-item"><div class="bl-dot" style="background:#bc8cff"></div>Business Req. (1)</div></div>
+      <div class="bar-track" id="bar-track"></div>
+      <div class="bar-legend" id="bar-legend"></div>
     </div>
 
     <!-- Pendentes -->
     <div class="act-grid">
       <div class="act-card pasp">
-        <div class="act-num" id="n-pasp">12</div>
+        <div class="act-num" id="n-pasp">—</div>
         <div class="act-lbl">Pendente AEGON</div>
         <div class="act-sub">Ação requerida</div>
       </div>
       <div class="act-card pfh">
-        <div class="act-num" id="n-pfh">2</div>
+        <div class="act-num" id="n-pfh">—</div>
         <div class="act-lbl">Pendente FH</div>
         <div class="act-sub">Ação interna</div>
       </div>
@@ -669,7 +329,7 @@ body.admin-mode #admin-fab{display:flex;}
     <div class="panel-section-lbl" style="margin-top:.2rem">Totais</div>
     <div class="stat-stack">
       <div class="stat-card tot">
-        <div class="stat-num" id="n-total">67</div>
+        <div class="stat-num" id="n-total">—</div>
         <div class="stat-info">
           <div class="stat-lbl">Total</div>
           <div class="stat-sub">desde o início</div>
@@ -677,7 +337,7 @@ body.admin-mode #admin-fab{display:flex;}
         </div>
       </div>
       <div class="stat-card bl">
-        <div class="stat-num" id="n-backlog">18</div>
+        <div class="stat-num" id="n-backlog">—</div>
         <div class="stat-info">
           <div class="stat-lbl">Backlog</div>
           <div class="stat-sub">sem data de início</div>
@@ -685,10 +345,10 @@ body.admin-mode #admin-fab{display:flex;}
         </div>
       </div>
       <div class="stat-card cl">
-        <div class="stat-num" id="n-closed">26</div>
+        <div class="stat-num" id="n-closed">—</div>
         <div class="stat-info">
           <div class="stat-lbl">Concluídos</div>
-          <div class="stat-sub" id="pct-closed">39% do total</div>
+          <div class="stat-sub" id="pct-closed">—</div>
           <div class="stat-bar"></div>
         </div>
       </div>
@@ -699,36 +359,28 @@ body.admin-mode #admin-fab{display:flex;}
   <section class="panel-right">
     <div class="detail-header">
       <div class="detail-title-area">
-        <h3 id="detail-title">Iniciativas Ativas (22)</h3>
-        <p id="detail-sub">Excluídos: Backlog (18) · Concluídos (26) · Cancelados (1)</p>
+        <h3 id="detail-title">Iniciativas Ativas</h3>
+        <p id="detail-sub">—</p>
       </div>
     </div>
     <div class="detail-cols">
-      <div class="dcol" id="col-left"><div class="dgroup"><div class="dg-hd"><span class="dpill dp-ip">In Progress</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="drow"><div class="dr-n">16</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Lateralidades nas Exclusões</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1966" target="_blank">GDP-1966</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24758" target="_blank">CHG HELP-24758</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">15/03/2026</span> <span class="note-text">Planeado para testes até final do mês março</span></div></div><div></div></div><div class="drow"><div class="dr-n">18</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Subscrição Clínica - Comunicação com Companhia pelo FHnet</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1749" target="_blank">GDP-1749</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22371" target="_blank">CHG HELP-22371</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">08/02/2026</span> <span class="note-text">Estimado e planeado Sprint 25/02 - 17/03</span></div><div class="note-entry"><span class="note-date">22/03/2026</span> <span class="note-text">Continua em implementação</span></div></div><div></div></div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qt">QA Testing</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="drow"><div class="dr-n">26</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Acesso Detalhe da Factura</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/CREQ-130" target="_blank">CREQ-130</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22258" target="_blank">CHG HELP-22258</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">15/03/2026</span> <span class="note-text">Está em testes</span></div></div><div></div></div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qa">QA Approved</span><span class="dg-cnt">3 · aguardam deploy</span></div><div class="ditems"><div class="drow"><div class="dr-n">17</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1681" target="_blank">GDP-1681</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22257" target="_blank">CHG HELP-22257</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">01/02/2026</span> <span class="note-text">aprovado em QA, aguarda data para train</span></div></div><div></div></div><div class="drow"><div class="dr-n">55</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - Change Contact Method to Online</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1543" target="_blank">GDP-1543</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22255" target="_blank">CHG HELP-22255</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">08/03/2026</span> <span class="note-text">Está em testes</span></div><div class="note-entry"><span class="note-date">22/03/2026</span> <span class="note-text">Aprovada em QA. Aguardamos data para Train</span></div></div><div></div></div><div class="drow"><div class="dr-n">56</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - SMS Token</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1544" target="_blank">GDP-1544</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22256" target="_blank">CHG HELP-22256</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">01/03/2026</span> <span class="note-text">Está em testes</span></div><div class="note-entry"><span class="note-date">22/03/2026</span> <span class="note-text">Aprovada em QA. Aguardamos data para Train</span></div></div><div></div></div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pfh">Pending FH</span><span class="dg-cnt">2 · ação interna</span></div><div class="ditems"><div class="drow"><div class="dr-n">19</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Valores Acima do Plafond</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1787" target="_blank">GDP-1787</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22261" target="_blank">CHG HELP-22261</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">Nova sessão interna dia 18/02</span></div></div><div></div></div><div class="drow"><div class="dr-n">23</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Autorização || Estado FH NET - Histórico de Utilização</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1962" target="_blank">GDP-1962</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22268" target="_blank">CHG HELP-22268</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">Ainda sem plano de implementação. Esperamos em breve entregar plano</span></div></div><div></div></div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-biz">Business Req.</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="drow"><div class="dr-n">11</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Alteração Subscrição | QC por Produto</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE/IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-25214" target="_blank">CHG HELP-25214</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">01/02/2026</span> <span class="note-text">MunichRe confirma que podemos enviar coberturas distintas por QC.</span></div></div><div></div></div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-oh">On Hold</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="drow"><div class="dr-n">43</div><div class="dr-a"><span>Sinistros</span></div><div class="dr-t">Processo de Recuperação da Divida</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-635" target="_blank">GDP-635</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">Implementação foi interrompida por prioridade de outro projeto/recursos. Preve-se retomar no inicio de Março</span></div></div><div></div></div></div></div></div>
+      <div class="dcol" id="col-left"></div>
       <div class="col-div"></div>
-      <div class="dcol" id="col-right"><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pasp">Pending AEGON / ASP</span><span class="dg-cnt">12 · ação requerida pelo cliente</span></div><div class="ditems"><div class="drow"><div class="dr-n">1</div><div class="dr-a"><span>Produto</span></div><div class="dr-t">Jornada de Cliente | Aumento de Capital &amp; Alteração coberturas - PRO RATA</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22263" target="_blank">CHG HELP-22263</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">Aguardamos feedback com uses cases para garantir alinhamento de expetativas</span></div></div><div></div></div><div class="drow"><div class="dr-n">15</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Alinhamento dos Ambientes de Teste</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1530" target="_blank">GDP-1530</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">INFRAS</span><span class="meta-chip dt-chip">📅 30-Jun</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">08/03/2026</span> <span class="note-text">AEGON solicitou manter QA2 até dia 23/03/2026</span></div></div><div></div></div><div class="drow"><div class="dr-n">25</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Data de Inicio do Risco</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">sem qualquer feedback da ASP</span></div></div><div></div></div><div class="drow"><div class="dr-n">32</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Timeline de Reembolsos </div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">09/01/2026</span> <span class="note-text">Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou</span></div></div><div></div></div><div class="drow"><div class="dr-n">34</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Autorizações | Informação com detalhe</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">16/06/2025</span> <span class="note-text">API FH já suporta e está do lado da ASP efetuar alterações</span></div></div><div></div></div><div class="drow"><div class="dr-n">36</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Redes por Produto do Cliente</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">16/06/2025</span> <span class="note-text">API FH já suporta e está do lado da ASP efetuar alterações</span></div></div><div></div></div><div class="drow"><div class="dr-n">38</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Reembolsos Filas Submetidos e Criados</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">09/01/2026</span> <span class="note-text">Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou</span></div></div><div></div></div><div class="drow"><div class="dr-n">42</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Notificações push com alteração de processos (callbacks API)</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1524" target="_blank">GDP-1524</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">Documentação Técnica partilhada com AEGON</span></div></div><div></div></div><div class="drow"><div class="dr-n">59</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">API /contract-info/get/contract - add BenefitNumber</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/CREQ-136" target="_blank">CREQ-136</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/10/2025</span> <span class="note-text">Instalado no dia 23/10 fechado do lado da FH</span></div></div><div></div></div><div class="drow"><div class="dr-n">62</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">TUW API Service - add new fields &amp; insured person</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1667" target="_blank">GDP-1667</a></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22267" target="_blank">CHG HELP-22267</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/10/2025</span> <span class="note-text">Instalado no dia 23/10. Fechado do lado da FH</span></div></div><div></div></div><div class="drow"><div class="dr-n">65</div><div class="dr-a"><span>Projecto Sinistros</span></div><div class="dr-t">API Get Claims - timeouts - improvements</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">ARCH</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22450" target="_blank">CHG HELP-22450</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">29/01/2026</span> <span class="note-text">Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar</span></div></div><div></div></div><div class="drow"><div class="dr-n">67</div><div class="dr-a"><span></span></div><div class="dr-t">Migração V2 Reembolsos OneCare</div><div class="dr-j nj"><span>—</span></div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">12/11/2025</span> <span class="note-text">Ponto pendente de resposta do OneCare</span></div></div><div></div></div></div></div></div>
+      <div class="dcol" id="col-right"></div>
+    </div>
+
+    <!-- Changelog section — only visible in Detalhada mode -->
+    <div class="changelog-wrap" id="changelog-wrap">
+      <div class="changelog-header">
+        <div class="changelog-title">
+          <div class="changelog-bar"></div>
+          <span class="changelog-lbl">Notas de Alterações</span>
+          <span class="changelog-vs" id="changelog-vs"></span>
+        </div>
+        <span class="changelog-count" id="changelog-count"></span>
+      </div>
+      <div id="changelog-items"></div>
+      <div class="changelog-footer" id="changelog-footer"></div>
     </div>
   </section>
 
@@ -737,7 +389,7 @@ body.admin-mode #admin-fab{display:flex;}
 <!-- ══════════════ ADMIN FAB ══════════════ -->
 <button id="admin-fab" title="Painel de gestão" onclick="toggleAdmin()">⚙️</button>
 
-<div id="admin-panel" class="open">
+<div id="admin-panel">
   <div class="ap-title">
     <div><span>FH</span> · Gestão</div>
     <button class="ap-close" onclick="toggleAdmin()">✕</button>
@@ -756,18 +408,18 @@ body.admin-mode #admin-fab{display:flex;}
     </div>
   </div>
   <div id="ap-status" class="ap-status">
-    <div class="ap-dot loading" id="ap-dot"></div>
-    <span id="ap-status-txt">A publicar...</span>
+    <div class="ap-dot idle" id="ap-dot"></div>
+    <span id="ap-status-txt">Aguarda importação...</span>
   </div>
   <hr class="ap-sep">
   <div>
     <div class="ap-lbl">🐙 Guardar no GitHub</div>
     <input class="ap-input" id="gh-owner" placeholder="Username ou org GitHub" autocomplete="off">
-    <input class="ap-input" id="gh-repo" placeholder="Nome do repositório" autocomplete="off" style="margin-top:.3rem">
+    <input class="ap-input" id="gh-repo"  placeholder="Nome do repositório" autocomplete="off" style="margin-top:.3rem">
     <input class="ap-input" id="gh-token" type="password" placeholder="Personal Access Token (repo)" autocomplete="off" style="margin-top:.3rem">
     <div style="font-size:.56rem;color:var(--dim);margin-top:3px">Token guardado localmente. Nunca partilhado.</div>
   </div>
-  <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()" disabled="">☁️ Publicar no GitHub</button>
+  <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()">☁️ Publicar no GitHub</button>
 </div>
 
 <div id="toast">✓ PPTX gerado e descarregado</div>
@@ -841,6 +493,123 @@ function setMode(m){
   document.body.classList.toggle('mode-detail',m==='detalhada');
   document.getElementById('btn-resumida').classList.toggle('active',m==='resumida');
   document.getElementById('btn-detalhada').classList.toggle('active',m==='detalhada');
+}
+
+// ══════════════════════════════════════════
+// CHANGELOG — compare previous vs new data
+// ══════════════════════════════════════════
+const STATUS_COLORS={
+  'In Progress':  {bg:'rgba(31,111,235,.12)',  color:'#1f6feb'},
+  'QA Testing':   {bg:'rgba(56,139,253,.12)',  color:'#388bfd'},
+  'QA Approved':  {bg:'rgba(63,185,80,.12)',   color:'#3fb950'},
+  'Pending FH':   {bg:'rgba(227,179,65,.12)',  color:'#e3b341'},
+  'Pending ASP':  {bg:'rgba(240,136,62,.12)',  color:'#f0883e'},
+  'On Hold':      {bg:'rgba(139,148,158,.12)', color:'#8b949e'},
+  'Business Requirements':{bg:'rgba(188,140,255,.12)',color:'#bc8cff'},
+  'Backlog':      {bg:'rgba(68,76,86,.2)',      color:'#8b949e'},
+  'Closed':       {bg:'rgba(63,185,80,.12)',   color:'#3fb950'},
+  'Canceled':     {bg:'rgba(110,118,129,.12)', color:'#6e7681'},
+};
+
+function statePill(estado){
+  const c=STATUS_COLORS[estado]||{bg:'rgba(139,148,158,.12)',color:'#8b949e'};
+  return `<span class="chg-pill" style="background:${c.bg};color:${c.color}">${esc(estado)}</span>`;
+}
+
+function buildChangelog(prevData, newData){
+  if(!prevData||!newData) return;
+
+  const prevItems={}, newItems={};
+  for(const d of prevData.items) prevItems[d.item]=d;
+  for(const d of newData.items)  newItems[d.item]=d;
+
+  // Also include inactive items from summary for "moved to active" detection
+  const INACTIVE_SET=new Set(['Backlog','Closed','Canceled']);
+  const changes=[];
+
+  // 1. Status changes (item active in both, different estado)
+  for(const id of Object.keys(newItems)){
+    const nw=newItems[id];
+    const pr=prevItems[id];
+    if(pr && pr.estado!==nw.estado){
+      changes.push({type:'state', item:id, tema:nw.tema, from:pr.estado, to:nw.estado});
+    }
+  }
+
+  // 2. New active items (not in prev active items)
+  for(const id of Object.keys(newItems)){
+    if(!prevItems[id]){
+      changes.push({type:'new', item:id, tema:newItems[id].tema, to:newItems[id].estado});
+    }
+  }
+
+  // 3. Items that left active (in prev but not in new active)
+  for(const id of Object.keys(prevItems)){
+    if(!newItems[id]){
+      changes.push({type:'done', item:id, tema:prevItems[id].tema, from:prevItems[id].estado});
+    }
+  }
+
+  // 4. New notes (item in both, new note entries)
+  for(const id of Object.keys(newItems)){
+    const nw=newItems[id], pr=prevItems[id];
+    if(!pr) continue;
+    const prevDates=new Set((pr.notes||[]).map(n=>n.date+'|'+n.text.slice(0,30)));
+    const newNotes=(nw.notes||[]).filter(n=>!prevDates.has(n.date+'|'+n.text.slice(0,30)));
+    for(const note of newNotes){
+      changes.push({type:'note', item:id, tema:nw.tema, date:note.date, text:note.text});
+    }
+  }
+
+  // Sort: state changes first, then new, then done, then notes
+  const typeOrder={state:0,new:1,done:2,note:3};
+  changes.sort((a,b)=>typeOrder[a.type]-typeOrder[b.type]);
+
+  // Render
+  const vsEl=document.getElementById('changelog-vs');
+  const cntEl=document.getElementById('changelog-count');
+  const itemsEl=document.getElementById('changelog-items');
+  const footerEl=document.getElementById('changelog-footer');
+
+  vsEl.textContent=prevData.dateStr ? `vs. ${prevData.dateStr}` : 'vs. versão anterior';
+  cntEl.textContent=changes.length===0 ? 'sem alterações' :
+    `${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`;
+
+  if(changes.length===0){
+    itemsEl.innerHTML=`<div class="changelog-empty">Nenhuma alteração detetada face à versão anterior.</div>`;
+  } else {
+    itemsEl.innerHTML=changes.map(c=>{
+      const temaShort=c.tema.length>55?c.tema.slice(0,55)+'…':c.tema;
+      if(c.type==='state') return `<div class="chg-item state">
+        <div class="chg-dot"></div>
+        <div class="chg-body">
+          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
+          <div class="chg-detail">${statePill(c.from)}<span style="color:var(--dim)">→</span>${statePill(c.to)}</div>
+        </div></div>`;
+      if(c.type==='note') return `<div class="chg-item note">
+        <div class="chg-dot"></div>
+        <div class="chg-body">
+          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
+          <div class="chg-detail">${c.date?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">${c.date}</span>`:''}${esc(c.text.slice(0,80))}${c.text.length>80?'…':''}</div>
+        </div></div>`;
+      if(c.type==='new') return `<div class="chg-item new">
+        <div class="chg-dot"></div>
+        <div class="chg-body">
+          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
+          <div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> ${statePill(c.to)}</div>
+        </div></div>`;
+      if(c.type==='done') return `<div class="chg-item done">
+        <div class="chg-dot"></div>
+        <div class="chg-body">
+          <div class="chg-name">#${c.item} · ${esc(temaShort)}</div>
+          <div class="chg-detail"><span style="color:var(--dim)">Saiu do acompanhamento</span> ${statePill(c.from)}</div>
+        </div></div>`;
+      return '';
+    }).join('');
+  }
+
+  const savedAt=localStorage.getItem('pds-saved-at')||'';
+  footerEl.textContent=savedAt ? `Comparado com versão guardada em ${savedAt}` : '';
 }
 
 // ══════════════════════════════════════════
@@ -1051,12 +820,31 @@ function handleFile(file){
       const ws=wb.Sheets['ASP'];
       if(!ws)throw new Error('Sheet "ASP" não encontrada.');
       const rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:false,dateNF:'dd/mm/yyyy'});
-      const data=parseRows(rows);
+      const newData=parseRows(rows);
       const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
-      data.dateStr=dateStr;
-      document.getElementById('dashboard-data').textContent=JSON.stringify(data,null,2);
-      render(data);
-      setStatus('ok',`✓ ${file.name} · ${data.items.length} ativas`);
+      newData.dateStr=dateStr;
+
+      // Save current data as "previous" before overwriting
+      const currentRaw=document.getElementById('dashboard-data').textContent;
+      try{
+        const currentData=JSON.parse(currentRaw);
+        if(currentData && currentData.items && currentData.items.length>0){
+          localStorage.setItem('pds-prev-data', currentRaw);
+          const now=new Date();
+          const ts=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+          localStorage.setItem('pds-saved-at', ts);
+        }
+      }catch(e){}
+
+      // Get previous data for changelog
+      let prevData=null;
+      try{prevData=JSON.parse(localStorage.getItem('pds-prev-data'));}catch(e){}
+
+      // Update embedded data and render
+      document.getElementById('dashboard-data').textContent=JSON.stringify(newData,null,2);
+      render(newData);
+      buildChangelog(prevData, newData);
+      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas`);
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
@@ -1134,8 +922,16 @@ async function saveToGitHub(){
   if(t)document.getElementById('gh-token').value=t;
   const n=new Date();
   document.getElementById('ap-date').value=String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();
-  try{render(JSON.parse(document.getElementById('dashboard-data').textContent));}catch(e){console.error(e);}
+  try{
+    const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
+    render(currentData);
+    // Restore changelog if previous data exists
+    const prevRaw=localStorage.getItem('pds-prev-data');
+    if(prevRaw){
+      try{buildChangelog(JSON.parse(prevRaw), currentData);}catch(e){}
+    }
+  }catch(e){console.error(e);}
 })();
 </script>
-
-</body><app-ls-content ng-version="17.3.7"></app-ls-content></html>
+</body>
+</html>
