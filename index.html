@@ -943,21 +943,13 @@ function handleFile(file){
       const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
       newData.dateStr=dateStr;
 
-      // PRIORITY: fetch data.json from GitHub (always the last published version)
-      // Fall back to embedded data only if GitHub fetch fails (e.g. offline / first publish)
+      // Get prev data from dashboard-data tag
+      // (already synced with GitHub data.json on page load — see init)
       let prevData=null;
       try{
-        const res=await fetch('./data.json?t='+Date.now());
-        if(res.ok) prevData=await res.json();
+        const embedded=JSON.parse(document.getElementById('dashboard-data').textContent);
+        if(embedded&&embedded.items&&embedded.items.length>0) prevData=embedded;
       }catch(e){}
-
-      // Fallback: use embedded data (only if GitHub data.json not available yet)
-      if(!prevData){
-        try{
-          const embedded=JSON.parse(document.getElementById('dashboard-data').textContent);
-          if(embedded&&embedded.items&&embedded.items.length>0) prevData=embedded;
-        }catch(e){}
-      }
 
       // Compute and show changelog immediately
       const changes=computeChangelog(prevData, newData);
@@ -1083,12 +1075,35 @@ async function saveToGitHub(){
   if(t)document.getElementById('gh-token').value=t;
   const n=new Date();
   document.getElementById('ap-date').value=String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();
+
+  // Render with embedded data immediately (fast)
   try{
-    const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
-    render(currentData);
+    const embeddedData=JSON.parse(document.getElementById('dashboard-data').textContent);
+    render(embeddedData);
+  }catch(e){console.error(e);}
+
+  // Then fetch data.json from GitHub and silently update the embedded data tag
+  // so that when the user imports a new Excel, the comparison is against the
+  // latest PUBLISHED version — not the initial hardcoded 23/03 data
+  (async()=>{
+    try{
+      const res=await fetch('./data.json?t='+Date.now());
+      if(res.ok){
+        const ghData=await res.json();
+        // Update the dashboard-data tag with the latest GitHub data
+        document.getElementById('dashboard-data').textContent=JSON.stringify(ghData,null,2);
+        // Re-render with GitHub data (may differ from embedded)
+        render(ghData);
+        // Show source indicator in date pill if dates differ
+        const embDateStr=JSON.parse(document.getElementById('dashboard-data').textContent).dateStr||'';
+        console.log('✓ Dados sincronizados com data.json do GitHub:',ghData.dateStr);
+      }
+    }catch(e){
+      console.log('ℹ data.json não disponível — a usar dados embebidos');
+    }
     // Load changelog from GitHub (visible to all viewers)
     loadChangelogFromGitHub();
-  }catch(e){console.error(e);}
+  })();
 })();
 </script>
 </body>
