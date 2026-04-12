@@ -1,0 +1,368 @@
+{
+  "items": [
+    {
+      "item": 1,
+      "ambito": "Produto",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "estado": "Pending ASP",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "HELP-22263",
+      "notes": [
+        {
+          "date": "10/02/2026",
+          "text": "Aguardamos feedback com uses cases para garantir alinhamento de expetativas"
+        }
+      ]
+    },
+    {
+      "item": 11,
+      "ambito": "Subscrição",
+      "tema": "Alteração Subscrição | QC por Produto",
+      "estado": "Business Requirements",
+      "team": "CORE/IBG",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "HELP-25214",
+      "notes": [
+        {
+          "date": "",
+          "text": "022026 - MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica"
+        }
+      ]
+    },
+    {
+      "item": 15,
+      "ambito": "FH2.0",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "estado": "Pending ASP",
+      "team": "INFRAS",
+      "dt_entrega": "30-Jun",
+      "jira": "GDP-1530",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "DEV AEGON ligado a TRAIN, a finalizar Testes. PRE AEGON ainda ligado a QA2 e temos erro na criação de QC"
+        }
+      ]
+    },
+    {
+      "item": 16,
+      "ambito": "FH2.0",
+      "tema": "Lateralidades nas Exclusões",
+      "estado": "In Progress",
+      "team": "IBG",
+      "dt_entrega": "",
+      "jira": "GDP-1966",
+      "change_id": "HELP-24758",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Histórico de Estados ainda em revisão de estados. Sessão interrna 13042026"
+        }
+      ]
+    },
+    {
+      "item": 17,
+      "ambito": "FH2.0",
+      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
+      "estado": "Dev Approved",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1681",
+      "change_id": "HELP-22257",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+        }
+      ]
+    },
+    {
+      "item": 18,
+      "ambito": "FH2.0",
+      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
+      "estado": "Dev Approved",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1749",
+      "change_id": "HELP-22371",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+        }
+      ]
+    },
+    {
+      "item": 19,
+      "ambito": "FH2.0",
+      "tema": "Valores Acima do Plafond",
+      "estado": "Pending FH",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1787",
+      "change_id": "HELP-22261",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aguardamos disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento"
+        }
+      ]
+    },
+    {
+      "item": 23,
+      "ambito": "FH2.0",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "estado": "Pending FH",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1962",
+      "change_id": "HELP-22268",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Ainda sem plano de implementação. Está em TechReview"
+        }
+      ]
+    },
+    {
+      "item": 25,
+      "ambito": "FH2.0",
+      "tema": "Data de Inicio do Risco",
+      "estado": "Pending ASP",
+      "team": "IBG",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "10/02/2026",
+          "text": "sem qualquer feedback da ASP"
+        }
+      ]
+    },
+    {
+      "item": 26,
+      "ambito": "FH2.0",
+      "tema": "Acesso Detalhe da Factura",
+      "estado": "Dev Approved",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1746",
+      "change_id": "HELP-22258",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+        }
+      ]
+    },
+    {
+      "item": 32,
+      "ambito": "Área Pessoal",
+      "tema": "Timeline de Reembolsos ",
+      "estado": "Pending ASP",
+      "team": "CORE/CI",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "09/01/2026",
+          "text": "Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou"
+        }
+      ]
+    },
+    {
+      "item": 34,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Autorizações | Informação com detalhe",
+      "estado": "Pending ASP",
+      "team": "CI",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
+        }
+      ]
+    },
+    {
+      "item": 36,
+      "ambito": "Área Pessoal",
+      "tema": "Redes por Produto do Cliente",
+      "estado": "Pending ASP",
+      "team": "CORE/CI",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
+        }
+      ]
+    },
+    {
+      "item": 38,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Reembolsos Filas Submetidos e Criados",
+      "estado": "Pending ASP",
+      "team": "CORE/CI",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "09/01/2026",
+          "text": "Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou"
+        }
+      ]
+    },
+    {
+      "item": 42,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
+      "estado": "Pending ASP",
+      "team": "IBG",
+      "dt_entrega": "",
+      "jira": "GDP-1524",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Documentação Técnica partilhada com AEGON"
+        }
+      ]
+    },
+    {
+      "item": 43,
+      "ambito": "Sinistros",
+      "tema": "Processo de Recuperação da Divida",
+      "estado": "On Hold",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-635",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "10/02/2026",
+          "text": "Implementação foi interrompida por prioridade de outro projeto/recursos. Preve-se retomar no inicio de Março"
+        }
+      ]
+    },
+    {
+      "item": 55,
+      "ambito": "Subscrição",
+      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
+      "estado": "Dev Approved",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1543",
+      "change_id": "HELP-22255",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+        }
+      ]
+    },
+    {
+      "item": 56,
+      "ambito": "Subscrição",
+      "tema": "Melhorias Subscrição ASP - SMS Token",
+      "estado": "Dev Approved",
+      "team": "CORE",
+      "dt_entrega": "",
+      "jira": "GDP-1544",
+      "change_id": "HELP-22256",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+        }
+      ]
+    },
+    {
+      "item": 59,
+      "ambito": "Área Pessoal",
+      "tema": "API /contract-info/get/contract - add BenefitNumber",
+      "estado": "Pending ASP",
+      "team": "IBG",
+      "dt_entrega": "",
+      "jira": "CREQ-136",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "24/10/2025",
+          "text": "Instalado no dia 23/10 fechado do lado da FH"
+        }
+      ]
+    },
+    {
+      "item": 62,
+      "ambito": "Subscrição",
+      "tema": "TUW API Service - add new fields & insured person",
+      "estado": "Pending ASP",
+      "team": "IBG",
+      "dt_entrega": "",
+      "jira": "GDP-1667",
+      "change_id": "HELP-22267",
+      "notes": [
+        {
+          "date": "24/10/2025",
+          "text": "Instalado no dia 23/10. Fechado do lado da FH"
+        }
+      ]
+    },
+    {
+      "item": 65,
+      "ambito": "Projecto Sinistros",
+      "tema": "API Get Claims - timeouts - improvements",
+      "estado": "Pending ASP",
+      "team": "ARCH",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "HELP-22450",
+      "notes": [
+        {
+          "date": "29/01/2026",
+          "text": "Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar"
+        }
+      ]
+    },
+    {
+      "item": 67,
+      "ambito": "",
+      "tema": "Migração V2 Reembolsos OneCare",
+      "estado": "Pending ASP",
+      "team": "CI",
+      "dt_entrega": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "12/11/2025",
+          "text": "Ponto pendente de resposta do OneCare"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "Pending ASP": 12,
+    "Backlog": 18,
+    "Closed": 26,
+    "Business Requirements": 1,
+    "Canceled": 1,
+    "In Progress": 1,
+    "Dev Approved": 5,
+    "Pending FH": 2,
+    "On Hold": 1
+  },
+  "dateStr": "13 / 04 / 2026"
+}
