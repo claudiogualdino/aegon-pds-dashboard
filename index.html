@@ -457,15 +457,50 @@ body.admin-mode #admin-fab{display:flex;}
 'use strict';
 const JIRA='https://future-healthcare.atlassian.net/browse/';
 const INACTIVE=new Set(['Backlog','Closed','Canceled']);
-const STATUS_ORDER=['In Progress','QA Testing','QA Approved','Pending FH','Business Requirements','On Hold'];
-const STATUS_PILL={'In Progress':['dp-ip','In Progress'],'QA Testing':['dp-qt','QA Testing'],
-  'QA Approved':['dp-qa','QA Approved'],'Pending FH':['dp-pfh','Pending FH'],
-  'Business Requirements':['dp-biz','Business Req.'],'On Hold':['dp-oh','On Hold'],
-  'Pending ASP':['dp-pasp','Pending AEGON / ASP']};
-const STATUS_SUFFIX={'QA Approved':'aguardam deploy','Pending FH':'ação interna','Pending ASP':'ação requerida pelo cliente'};
-const BAR_ORDER=['Pending ASP','QA Approved','QA Testing','In Progress','Pending FH','On Hold','Business Requirements'];
-const BAR_COLOR={'Pending ASP':'#f0883e','QA Approved':'#3fb950','QA Testing':'#388bfd','In Progress':'#1f6feb','Pending FH':'#e3b341','On Hold':'#8b949e','Business Requirements':'#bc8cff'};
-const BAR_LABEL={'Pending ASP':'Pendente AEGON','QA Approved':'QA Approved','QA Testing':'QA Testing','In Progress':'In Progress','Pending FH':'Pendente FH','On Hold':'On Hold','Business Requirements':'Business Req.'};
+
+// ── Known state config (used for ordering + styling) ──
+// States NOT in this list are still shown — with a generated colour
+const KNOWN_ORDER=['In Progress','QA Testing','QA Approved','Pending FH','Business Requirements','On Hold'];
+const RIGHT_STATUSES=new Set(['Pending ASP']);
+
+const STATUS_PILL={
+  'In Progress':          ['dp-ip',   'In Progress'],
+  'QA Testing':           ['dp-qt',   'QA Testing'],
+  'QA Approved':          ['dp-qa',   'QA Approved'],
+  'Pending FH':           ['dp-pfh',  'Pending FH'],
+  'Business Requirements':['dp-biz',  'Business Req.'],
+  'On Hold':              ['dp-oh',   'On Hold'],
+  'Pending ASP':          ['dp-pasp', 'Pending AEGON / ASP'],
+};
+const STATUS_SUFFIX={
+  'QA Approved':'aguardam deploy',
+  'Pending FH':'ação interna',
+  'Pending ASP':'ação requerida pelo cliente',
+};
+
+// Palette for dynamically discovered states
+const DYNAMIC_PALETTE=[
+  '#a78bfa','#34d399','#f472b6','#fb923c',
+  '#38bdf8','#facc15','#4ade80','#c084fc',
+];
+const _dynColorMap={};
+let _dynColorIdx=0;
+function getStateColor(estado){
+  const known={
+    'In Progress':'#1f6feb','QA Testing':'#388bfd','QA Approved':'#3fb950',
+    'Pending FH':'#e3b341','Pending ASP':'#f0883e','On Hold':'#8b949e',
+    'Business Requirements':'#bc8cff','Backlog':'#444c56','Closed':'#3fb950','Canceled':'#6e7681',
+  };
+  if(known[estado]) return known[estado];
+  if(!_dynColorMap[estado]) _dynColorMap[estado]=DYNAMIC_PALETTE[_dynColorIdx++%DYNAMIC_PALETTE.length];
+  return _dynColorMap[estado];
+}
+function getStatePillClass(estado){
+  // Return inline style for unknown states instead of a CSS class
+  const c=getStateColor(estado);
+  const alpha=c+'26'; // ~15% opacity
+  return {cls: STATUS_PILL[estado]?STATUS_PILL[estado][0]:null, color:c, bg:alpha};
+}
 
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
@@ -480,11 +515,18 @@ function renderRow(d){
   return `<div class="drow"><div class="dr-n">${d.item}</div><div class="dr-a"><span>${esc(d.ambito)}</span></div><div class="dr-t">${esc(d.tema)}</div><div class="dr-j${j?'':' nj'}">${j?jH:'<span>—</span>'}</div></div>
 <div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">${esc(d.team)}</span>${meta}</div><div class="dd-notes">${notesH}</div><div></div></div>`;
 }
+
 function renderGroup(status,items){
-  const[css,label]=STATUS_PILL[status]||['dp-oh',status];
+  const known=STATUS_PILL[status];
+  const color=getStateColor(status);
+  const label=known?known[1]:status; // use raw status name if unknown
   const suffix=STATUS_SUFFIX[status]||'';
   const ct=items.length+(suffix?' · '+suffix:'');
-  return `<div class="dgroup"><div class="dg-hd"><span class="dpill ${css}">${label}</span><span class="dg-cnt">${ct}</span></div><div class="ditems">${items.map(renderRow).join('')}</div></div>`;
+  // Use CSS class for known states, inline style for unknown
+  const pillHtml=known
+    ? `<span class="dpill ${known[0]}">${label}</span>`
+    : `<span class="dpill" style="background:${color}26;color:${color};border:1px solid ${color}66">${esc(label)}</span>`;
+  return `<div class="dgroup"><div class="dg-hd">${pillHtml}<span class="dg-cnt">${ct}</span></div><div class="ditems">${items.map(renderRow).join('')}</div></div>`;
 }
 
 // ── Main render ──
@@ -504,17 +546,36 @@ function render(data){
   document.getElementById('n-closed').textContent=nClosed;
   document.getElementById('pct-closed').textContent=`${total?Math.round(nClosed/total*100):0}% do total`;
 
+  // Discover all active states from data (not just hardcoded ones)
+  const byStatus={};
+  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
+  const allActiveStates=Object.keys(byStatus);
+
+  // Order: known states first (in defined order), then new/unknown states alphabetically
+  const orderedLeft=[
+    ...KNOWN_ORDER.filter(s=>byStatus[s]&&!RIGHT_STATUSES.has(s)),
+    ...allActiveStates.filter(s=>!KNOWN_ORDER.includes(s)&&!RIGHT_STATUSES.has(s)).sort(),
+  ];
+  const orderedRight=[
+    ...Array.from(RIGHT_STATUSES).filter(s=>byStatus[s]),
+    ...allActiveStates.filter(s=>!KNOWN_ORDER.includes(s)&&RIGHT_STATUSES.has(s)),
+  ];
+
+  // Bar: all active states proportionally
   const cnt=s=>items.filter(d=>d.estado===s).length;
-  document.getElementById('bar-track').innerHTML=BAR_ORDER.filter(s=>cnt(s)>0).map(s=>`<div class="bar-seg" style="width:${(cnt(s)/nActive*100).toFixed(1)}%;background:${BAR_COLOR[s]}"></div>`).join('');
-  document.getElementById('bar-legend').innerHTML=BAR_ORDER.filter(s=>cnt(s)>0).map(s=>`<div class="bl-item"><div class="bl-dot" style="background:${BAR_COLOR[s]}"></div>${BAR_LABEL[s]} (${cnt(s)})</div>`).join('');
+  const barStates=allActiveStates.filter(s=>cnt(s)>0);
+  document.getElementById('bar-track').innerHTML=barStates.map(s=>
+    `<div class="bar-seg" style="width:${(cnt(s)/nActive*100).toFixed(1)}%;background:${getStateColor(s)}"></div>`
+  ).join('');
+  document.getElementById('bar-legend').innerHTML=barStates.map(s=>{
+    const label=STATUS_PILL[s]?STATUS_PILL[s][1]:s;
+    return `<div class="bl-item"><div class="bl-dot" style="background:${getStateColor(s)}"></div>${esc(label)} (${cnt(s)})</div>`;
+  }).join('');
 
   document.getElementById('detail-title').textContent=`Iniciativas Ativas (${nActive})`;
   document.getElementById('detail-sub').textContent=`Excluídos: Backlog (${nBacklog}) · Concluídos (${nClosed}) · Cancelados (${nCancel})`;
-
-  const byStatus={};
-  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
-  document.getElementById('col-left').innerHTML=STATUS_ORDER.filter(s=>byStatus[s]).map(s=>renderGroup(s,byStatus[s])).join('');
-  document.getElementById('col-right').innerHTML=['Pending ASP'].filter(s=>byStatus[s]).map(s=>renderGroup(s,byStatus[s])).join('');
+  document.getElementById('col-left').innerHTML=orderedLeft.map(s=>renderGroup(s,byStatus[s])).join('');
+  document.getElementById('col-right').innerHTML=orderedRight.map(s=>renderGroup(s,byStatus[s])).join('');
 }
 
 // ── View mode toggle ──
@@ -527,22 +588,9 @@ function setMode(m){
 // ══════════════════════════════════════════
 // CHANGELOG — GitHub-persisted comparison
 // ══════════════════════════════════════════
-const STATUS_COLORS={
-  'In Progress':  {bg:'rgba(31,111,235,.12)',  color:'#1f6feb'},
-  'QA Testing':   {bg:'rgba(56,139,253,.12)',  color:'#388bfd'},
-  'QA Approved':  {bg:'rgba(63,185,80,.12)',   color:'#3fb950'},
-  'Pending FH':   {bg:'rgba(227,179,65,.12)',  color:'#e3b341'},
-  'Pending ASP':  {bg:'rgba(240,136,62,.12)',  color:'#f0883e'},
-  'On Hold':      {bg:'rgba(139,148,158,.12)', color:'#8b949e'},
-  'Business Requirements':{bg:'rgba(188,140,255,.12)',color:'#bc8cff'},
-  'Backlog':      {bg:'rgba(68,76,86,.2)',      color:'#8b949e'},
-  'Closed':       {bg:'rgba(63,185,80,.12)',   color:'#3fb950'},
-  'Canceled':     {bg:'rgba(110,118,129,.12)', color:'#6e7681'},
-};
-
 function statePill(estado){
-  const c=STATUS_COLORS[estado]||{bg:'rgba(139,148,158,.12)',color:'#8b949e'};
-  return `<span class="chg-pill" style="background:${c.bg};color:${c.color}">${esc(estado)}</span>`;
+  const c=getStateColor(estado);
+  return `<span class="chg-pill" style="background:${c}26;color:${c}">${esc(estado)}</span>`;
 }
 
 // Compute changelog between two datasets
