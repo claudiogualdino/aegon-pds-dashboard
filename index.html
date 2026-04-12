@@ -559,10 +559,8 @@ function render(data){
     ...KNOWN_ORDER.filter(s=>byStatus[s]&&!RIGHT_STATUSES.has(s)),
     ...allActiveStates.filter(s=>!KNOWN_ORDER.includes(s)&&!RIGHT_STATUSES.has(s)).sort(),
   ];
-  const orderedRight=[
-    ...Array.from(RIGHT_STATUSES).filter(s=>byStatus[s]),
-    ...allActiveStates.filter(s=>!KNOWN_ORDER.includes(s)&&RIGHT_STATUSES.has(s)),
-  ];
+  // Right column: only explicitly defined right-side statuses (no unknown states bleed in)
+  const orderedRight=Array.from(RIGHT_STATUSES).filter(s=>byStatus[s]);
 
   // Bar: all active states proportionally
   const cnt=s=>items.filter(d=>d.estado===s).length;
