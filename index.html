@@ -14,16 +14,16 @@
 
 <style>
 :root{
-  --bg:#0a0e14; --surf:#161b22; --surf2:#1c2330; --brd:#30363d;
-  --txt:#e6edf3; --mut:#8b949e; --dim:#6e7681; --fhr:#C41E3A;
-  --c-ip:#1f6feb; --c-ip-bg:rgba(31,111,235,.13);
-  --c-qt:#388bfd; --c-qt-bg:rgba(56,139,253,.13);
-  --c-qa:#3fb950; --c-qa-bg:rgba(63,185,80,.13);
-  --c-pfh:#e3b341;--c-pfh-bg:rgba(227,179,65,.13);
-  --c-pasp:#f0883e;--c-pasp-bg:rgba(240,136,62,.13);
-  --c-oh:#8b949e; --c-oh-bg:rgba(139,148,158,.13);
-  --c-biz:#bc8cff;--c-biz-bg:rgba(188,140,255,.13);
-  --c-cl:#3fb950; --c-bl:#444c56;
+  --bg:#f5f6f8; --surf:#ffffff; --surf2:#f0f1f4; --brd:#e0e2e8;
+  --txt:#1a1d23; --mut:#6b7280; --dim:#9ca3af; --fhr:#C41E3A;
+  --c-ip:#1d4ed8; --c-ip-bg:rgba(29,78,216,.1);
+  --c-qt:#2563eb; --c-qt-bg:rgba(37,99,235,.1);
+  --c-qa:#166534; --c-qa-bg:rgba(22,101,52,.08);
+  --c-pfh:#854d0e;--c-pfh-bg:rgba(133,77,14,.08);
+  --c-pasp:#9a3412;--c-pasp-bg:rgba(154,52,18,.08);
+  --c-oh:#4b5563; --c-oh-bg:rgba(75,85,99,.08);
+  --c-biz:#6d28d9;--c-biz-bg:rgba(109,40,217,.08);
+  --c-cl:#166534; --c-bl:#6b7280;
   --radius:10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -140,13 +140,13 @@ a{color:inherit;text-decoration:none;}
 .dgroup{display:flex;flex-direction:column;margin-bottom:.25rem;}
 .dg-hd{display:flex;align-items:center;gap:.35rem;margin-bottom:2px;}
 .dpill{font-size:.54rem;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:10px;white-space:nowrap;}
-.dp-ip  {background:var(--c-ip-bg);  color:var(--c-ip);  border:1px solid rgba(31,111,235,.3);}
-.dp-qt  {background:var(--c-qt-bg);  color:var(--c-qt);  border:1px solid rgba(56,139,253,.3);}
-.dp-qa  {background:var(--c-qa-bg);  color:var(--c-qa);  border:1px solid rgba(63,185,80,.3);}
-.dp-pfh {background:var(--c-pfh-bg); color:var(--c-pfh); border:1px solid rgba(227,179,65,.3);}
-.dp-pasp{background:var(--c-pasp-bg);color:var(--c-pasp);border:1px solid rgba(240,136,62,.3);}
-.dp-oh  {background:var(--c-oh-bg);  color:var(--c-oh);  border:1px solid rgba(139,148,158,.3);}
-.dp-biz {background:var(--c-biz-bg); color:var(--c-biz); border:1px solid rgba(188,140,255,.3);}
+.dp-ip  {background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;}
+.dp-qt  {background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd;}
+.dp-qa  {background:#dcfce7;color:#166534;border:1px solid #86efac;}
+.dp-pfh {background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
+.dp-pasp{background:#ffedd5;color:#9a3412;border:1px solid #fdba74;}
+.dp-oh  {background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;}
+.dp-biz {background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
 .dg-cnt{font-size:.54rem;color:var(--dim);}
 .ditems{display:flex;flex-direction:column;}
 .drow{display:grid;grid-template-columns:20px 72px 1fr auto;gap:0 5px;
@@ -157,7 +157,7 @@ body.mode-detail .drow{border-bottom:none;}
 .dr-a span{font-size:.51rem;background:var(--surf2);border:1px solid var(--brd);
   border-radius:3px;padding:1px 4px;color:var(--mut);white-space:nowrap;}
 .dr-t{color:var(--txt);font-weight:500;line-height:1.3;}
-.dr-j a{font-family:'DM Mono',monospace;font-size:.51rem;color:var(--c-qt);
+.dr-j a{font-family:'DM Mono',monospace;font-size:.51rem;color:#2563eb;
   border:1px solid rgba(56,139,253,.25);border-radius:3px;padding:1px 4px;
   background:rgba(56,139,253,.07);white-space:nowrap;display:inline-block;}
 .dr-j a:hover{background:rgba(56,139,253,.18);}
@@ -167,7 +167,7 @@ body.mode-detail .drow{border-bottom:none;}
 body.mode-detail .drow-detail{display:grid;}
 .dd-sp{}.dd-l{display:flex;flex-direction:column;gap:3px;padding-top:2px;}
 .team-badge{font-size:.52rem;font-weight:600;padding:2px 6px;border-radius:3px;
-  background:rgba(139,148,158,.1);color:var(--mut);border:1px solid rgba(139,148,158,.2);
+  background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;
   white-space:nowrap;display:inline-block;align-self:flex-start;}
 .meta-chip{font-size:.52rem;font-weight:500;padding:2px 6px;border-radius:3px;
   white-space:nowrap;display:inline-block;align-self:flex-start;}
@@ -186,8 +186,7 @@ body.mode-detail .drow-detail{display:grid;}
   padding-top:.75rem;
   gap:.4rem;
 }
-.changelog-wrap.has-data{display:flex;}
-body.mode-detail .changelog-wrap{display:flex;}
+body.mode-detail .changelog-wrap.has-data{display:flex;}
 .changelog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem;}
 .changelog-title{display:flex;align-items:center;gap:.5rem;}
 .changelog-bar{width:3px;height:14px;background:var(--fhr);border-radius:2px;flex-shrink:0;}
@@ -218,12 +217,12 @@ body.mode-detail .changelog-wrap{display:flex;}
 
 /* ══ ADMIN PANEL ══ */
 #admin-fab{position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;border-radius:50%;
-  background:var(--surf);border:1px solid var(--brd);display:none;align-items:center;
+  background:#ffffff;border:1px solid var(--brd);display:none;align-items:center;
   justify-content:center;font-size:1rem;cursor:pointer;z-index:100;
   box-shadow:0 4px 20px rgba(0,0,0,.4);transition:all .2s;color:var(--dim);}
 #admin-fab:hover{border-color:var(--fhr);color:var(--fhr);transform:rotate(30deg);}
 body.admin-mode #admin-fab{display:flex;}
-#admin-panel{position:fixed;bottom:4.2rem;right:1.5rem;width:320px;background:var(--surf);
+#admin-panel{position:fixed;bottom:4.2rem;right:1.5rem;width:320px;background:#ffffff;
   border:1px solid var(--brd);border-radius:12px;padding:1.1rem;z-index:99;
   box-shadow:0 8px 32px rgba(0,0,0,.5);display:none;flex-direction:column;gap:.7rem;}
 #admin-panel.open{display:flex;}
@@ -276,7 +275,7 @@ body.admin-mode #admin-fab{display:flex;}
 
 /* ══ PPTX TOAST ══ */
 #toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(10px);
-  background:var(--c-qa);color:#000;font-size:.7rem;font-weight:600;
+  background:#166534;color:#fff;font-size:.7rem;font-weight:600;
   padding:.45rem 1rem;border-radius:6px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
@@ -631,7 +630,7 @@ function computeChangelog(prevData, newData){
 }
 
 // Render changelog into the DOM
-function renderChangelog(changes, prevDateStr, generatedAt){
+function renderChangelog(changes, prevDateStr, generatedAt, importedFile, importedAt){
   const wrap=document.getElementById('changelog-wrap');
   const vsEl=document.getElementById('changelog-vs');
   const cntEl=document.getElementById('changelog-count');
@@ -642,7 +641,12 @@ function renderChangelog(changes, prevDateStr, generatedAt){
   // Always show the section once we have something to say
   wrap.classList.add('has-data');
 
-  vsEl.textContent=prevDateStr ? `vs. ${prevDateStr}` : 'vs. versão anterior';
+  let vsLabel='Versão anterior';
+  if(importedAt) vsLabel+=` · importado a ${importedAt}`;
+  if(prevDateStr) vsLabel+=` · sessão: ${prevDateStr}`;
+  vsEl.textContent=vsLabel;
+  // Show filename below
+  if(footerEl && importedFile) footerEl.textContent=`Ficheiro: ${importedFile}${generatedAt?' · gerado em '+generatedAt:''}`;
   cntEl.textContent=changes.length===0 ? 'sem alterações' :
     `${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`;
 
@@ -658,7 +662,7 @@ function renderChangelog(changes, prevDateStr, generatedAt){
       return '';
     }).join('');
   }
-  footerEl.textContent=generatedAt ? `Gerado em ${generatedAt}` : '';
+  if(!importedFile && generatedAt) footerEl.textContent=`Gerado em ${generatedAt}`;
 }
 
 // Load changelog from GitHub Pages (works for all viewers)
@@ -667,7 +671,7 @@ async function loadChangelogFromGitHub(){
     const res=await fetch('./changelog.json?t='+Date.now());
     if(!res.ok) return;
     const cl=await res.json();
-    renderChangelog(cl.changes||[], cl.prevDateStr||'', cl.generatedAt||'');
+    renderChangelog(cl.changes||[], cl.prevDateStr||'', cl.generatedAt||'', cl.prevMeta?.importedFile||'', cl.prevMeta?.importedAt||'');
   }catch(e){ /* No changelog file yet — silent */ }
 }
 
@@ -942,6 +946,9 @@ function handleFile(file){
       const newData=parseRows(rows);
       const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
       newData.dateStr=dateStr;
+      const importedAt=(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+'/'+String(n.getMonth()+1).padStart(2,'0')+'/'+n.getFullYear()+' às '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');})();
+      newData.importedFile=file.name;
+      newData.importedAt=importedAt;
 
       // Get prev data from dashboard-data tag
       // (already synced with GitHub data.json on page load — see init)
@@ -955,12 +962,13 @@ function handleFile(file){
       const changes=computeChangelog(prevData, newData);
       const now=new Date();
       const generatedAt=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-      _pendingChangelog={changes, prevDateStr: prevData?.dateStr||'', generatedAt};
+      const prevMeta={dateStr:prevData?.dateStr||'',importedFile:prevData?.importedFile||'',importedAt:prevData?.importedAt|''};
+      _pendingChangelog={changes, prevDateStr: prevMeta.dateStr, prevMeta, generatedAt};
 
       // Update dashboard with new data
       document.getElementById('dashboard-data').textContent=JSON.stringify(newData,null,2);
       render(newData);
-      renderChangelog(changes, prevData?.dateStr||'', generatedAt);
+      renderChangelog(changes, prevData?.dateStr||'', generatedAt, prevData?.importedFile||'', prevData?.importedAt||'');
 
       // Scroll to changelog so user sees it
       setTimeout(()=>{
