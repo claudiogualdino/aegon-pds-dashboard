@@ -620,7 +620,27 @@ function computeChangelog(prevData, newData){
     if(!newItems[id])
       changes.push({type:'done',item:id,tema:prevItems[id].tema,from:prevItems[id].estado});
   }
-  // 4. New notes
+  // 4. Field changes (team, jira, change_id, dt_train, dt_prod, ambito, tema)
+  const fieldDefs=[
+    {key:'team',      label:'Equipa'},
+    {key:'jira',      label:'Jira'},
+    {key:'change_id', label:'Change Id'},
+    {key:'dt_train',  label:'Data Train'},
+    {key:'dt_prod',   label:'Data Produção'},
+    {key:'ambito',    label:'Âmbito'},
+    {key:'tema',      label:'Tema'},
+  ];
+  for(const id of Object.keys(newItems)){
+    const nw=newItems[id], pr=prevItems[id];
+    if(!pr) continue;
+    for(const {key,label} of fieldDefs){
+      const vPrev=(pr[key]||'').trim();
+      const vNew =(nw[key]||'').trim();
+      if(vPrev!==vNew)
+        changes.push({type:'field',item:id,tema:nw.tema,field:label,from:vPrev,to:vNew});
+    }
+  }
+  // 5. New notes
   for(const id of Object.keys(newItems)){
     const nw=newItems[id], pr=prevItems[id];
     if(!pr) continue;
@@ -628,7 +648,7 @@ function computeChangelog(prevData, newData){
     for(const note of (nw.notes||[]).filter(n=>!prevDates.has(n.date+'|'+n.text.slice(0,30))))
       changes.push({type:'note',item:id,tema:nw.tema,date:note.date,text:note.text});
   }
-  const typeOrder={state:0,new:1,done:2,note:3};
+  const typeOrder={state:0,new:1,done:2,field:3,note:4};
   return changes.sort((a,b)=>typeOrder[a.type]-typeOrder[b.type]);
 }
 
@@ -662,6 +682,10 @@ function renderChangelog(changes, prevDateStr, generatedAt, importedFile, import
       if(c.type==='note')  return `<div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail">${c.date?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">${c.date}</span> `:''} ${esc((c.text||'').slice(0,80))}${(c.text||'').length>80?'…':''}</div></div></div>`;
       if(c.type==='new')   return `<div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> ${statePill(c.to)}</div></div></div>`;
       if(c.type==='done')  return `<div class="chg-item done"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Saiu do acompanhamento →</span> ${statePill(c.from)}</div></div></div>`;
+      if(c.type==='field'){
+        const fv=v=>v?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;background:#f5f6f8;border:1px solid #e0e2e8;border-radius:3px;padding:1px 5px">${esc(v)}</span>`:`<span style="color:var(--dim);font-size:.56rem;font-style:italic">vazio</span>`;
+        return `<div class="chg-item" style="background:rgba(99,102,241,.06);border-color:rgba(99,102,241,.25)"><div class="chg-dot" style="background:#6366f1"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">${esc(c.field)}:</span> ${fv(c.from)}<span style="color:var(--dim)">→</span>${fv(c.to)}</div></div></div>`;
+      }
       return '';
     }).join('');
   }
@@ -1018,12 +1042,29 @@ function parseRows(rows){
   function cleanDate(v){
     if(!v) return '';
     const s=String(v).trim();
-    if(!s||s==='-') return '';
-    // Already formatted DD/MM/YYYY
+    if(!s||s==='-'||s==='null'||s==='undefined') return '';
+    // Already DD/MM/YYYY
     if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)) return s;
-    // Date object serialised as YYYY-MM-DD or similar
-    const m=s.match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})/);
-    if(m) return m[1].padStart(2,'0')+'/'+m[2].padStart(2,'0')+'/'+(m[3].length===2?'20'+m[3]:m[3]);
+    // YYYY-MM-DD (ISO)
+    const iso=s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if(iso) return `${iso[3]}/${iso[2]}/${iso[1]}`;
+    // DD-MM-YYYY or D/M/YYYY or D-M-YYYY
+    const dmy=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+    if(dmy) return dmy[1].padStart(2,'0')+'/'+dmy[2].padStart(2,'0')+'/'+(dmy[3].length===2?'20'+dmy[3]:dmy[3]);
+    // MM/DD/YYYY (US format from some Excel locales) — heuristic: month >12 means it's DD/MM
+    const us=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if(us){
+      const [,a,b,y]=us;
+      if(parseInt(a)>12) return a.padStart(2,'0')+'/'+b.padStart(2,'0')+'/'+y;
+      return a.padStart(2,'0')+'/'+b.padStart(2,'0')+'/'+y;
+    }
+    // JS Date string (e.g. "Mon Apr 13 2026 00:00:00 GMT...")
+    const d=new Date(s);
+    if(!isNaN(d.getTime())){
+      return String(d.getDate()).padStart(2,'0')+'/'
+           +String(d.getMonth()+1).padStart(2,'0')+'/'
+           +d.getFullYear();
+    }
     return '';
   }
 
