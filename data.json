@@ -6,7 +6,8 @@
       "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
       "estado": "Pending ASP",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "HELP-22263",
       "notes": [
@@ -22,7 +23,8 @@
       "tema": "Alteração Subscrição | QC por Produto",
       "estado": "Business Requirements",
       "team": "CORE/IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "HELP-25214",
       "notes": [
@@ -38,7 +40,8 @@
       "tema": "Alinhamento dos Ambientes de Teste",
       "estado": "Pending ASP",
       "team": "INFRAS",
-      "dt_entrega": "30-Jun",
+      "dt_prod": "30/06/2025",
+      "dt_train": "",
       "jira": "GDP-1530",
       "change_id": "",
       "notes": [
@@ -50,17 +53,18 @@
     },
     {
       "item": 16,
-      "ambito": "FH2.0",
+      "ambito": "Subscrição",
       "tema": "Lateralidades nas Exclusões",
-      "estado": "In Progress",
+      "estado": "Train Testing",
       "team": "IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "13/04/2026",
       "jira": "GDP-1966",
       "change_id": "HELP-24758",
       "notes": [
         {
           "date": "10/04/2026",
-          "text": "Histórico de Estados ainda em revisão de estados. Sessão interrna 13042026"
+          "text": "em Train Testing para AEGON poder testar"
         }
       ]
     },
@@ -70,7 +74,8 @@
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
       "estado": "Dev Approved",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1681",
       "change_id": "HELP-22257",
       "notes": [
@@ -86,7 +91,8 @@
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
       "estado": "Dev Approved",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1749",
       "change_id": "HELP-22371",
       "notes": [
@@ -102,7 +108,8 @@
       "tema": "Valores Acima do Plafond",
       "estado": "Pending FH",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "GDP-1787",
       "change_id": "HELP-22261",
       "notes": [
@@ -116,15 +123,16 @@
       "item": 23,
       "ambito": "FH2.0",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Pending FH",
+      "estado": "Implemented",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1962",
       "change_id": "HELP-22268",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Ainda sem plano de implementação. Está em TechReview"
+          "date": "13/04/2026",
+          "text": "Está implementado e aguardar colocar em Dev Testing (Tech Review)"
         }
       ]
     },
@@ -134,7 +142,8 @@
       "tema": "Data de Inicio do Risco",
       "estado": "Pending ASP",
       "team": "IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -150,7 +159,8 @@
       "tema": "Acesso Detalhe da Factura",
       "estado": "Dev Approved",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1746",
       "change_id": "HELP-22258",
       "notes": [
@@ -166,7 +176,8 @@
       "tema": "Timeline de Reembolsos ",
       "estado": "Pending ASP",
       "team": "CORE/CI",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -182,7 +193,8 @@
       "tema": "ONECARE | Autorizações | Informação com detalhe",
       "estado": "Pending ASP",
       "team": "CI",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -198,7 +210,8 @@
       "tema": "Redes por Produto do Cliente",
       "estado": "Pending ASP",
       "team": "CORE/CI",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -214,7 +227,8 @@
       "tema": "ONECARE | Reembolsos Filas Submetidos e Criados",
       "estado": "Pending ASP",
       "team": "CORE/CI",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -230,7 +244,8 @@
       "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
       "estado": "Pending ASP",
       "team": "IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "GDP-1524",
       "change_id": "",
       "notes": [
@@ -246,13 +261,14 @@
       "tema": "Processo de Recuperação da Divida",
       "estado": "On Hold",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "GDP-635",
       "change_id": "",
       "notes": [
         {
-          "date": "10/02/2026",
-          "text": "Implementação foi interrompida por prioridade de outro projeto/recursos. Preve-se retomar no inicio de Março"
+          "date": "13/04/2026",
+          "text": "a ser retomado a 20/04/2026"
         }
       ]
     },
@@ -262,7 +278,8 @@
       "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
       "estado": "Dev Approved",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1543",
       "change_id": "HELP-22255",
       "notes": [
@@ -278,7 +295,8 @@
       "tema": "Melhorias Subscrição ASP - SMS Token",
       "estado": "Dev Approved",
       "team": "CORE",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "28/04/2026",
       "jira": "GDP-1544",
       "change_id": "HELP-22256",
       "notes": [
@@ -294,7 +312,8 @@
       "tema": "API /contract-info/get/contract - add BenefitNumber",
       "estado": "Pending ASP",
       "team": "IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "CREQ-136",
       "change_id": "",
       "notes": [
@@ -310,7 +329,8 @@
       "tema": "TUW API Service - add new fields & insured person",
       "estado": "Pending ASP",
       "team": "IBG",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "GDP-1667",
       "change_id": "HELP-22267",
       "notes": [
@@ -326,7 +346,8 @@
       "tema": "API Get Claims - timeouts - improvements",
       "estado": "Pending ASP",
       "team": "ARCH",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "HELP-22450",
       "notes": [
@@ -342,7 +363,8 @@
       "tema": "Migração V2 Reembolsos OneCare",
       "estado": "Pending ASP",
       "team": "CI",
-      "dt_entrega": "",
+      "dt_prod": "",
+      "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
@@ -351,18 +373,38 @@
           "text": "Ponto pendente de resposta do OneCare"
         }
       ]
+    },
+    {
+      "item": 68,
+      "ambito": "Subscrição",
+      "tema": "Histórico de Estados",
+      "estado": "Business Requirements",
+      "team": "IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "GDP-1966",
+      "change_id": "HELP-24759",
+      "notes": [
+        {
+          "date": "13/04/2026",
+          "text": "Histórico de Estados ainda em revisão de estados. Sessão interrna 15042026"
+        }
+      ]
     }
   ],
   "summary": {
     "Pending ASP": 12,
     "Backlog": 18,
     "Closed": 26,
-    "Business Requirements": 1,
+    "Business Requirements": 2,
     "Canceled": 1,
-    "In Progress": 1,
+    "Train Testing": 1,
     "Dev Approved": 5,
-    "Pending FH": 2,
+    "Pending FH": 1,
+    "Implemented": 1,
     "On Hold": 1
   },
-  "dateStr": "13 / 04 / 2026"
+  "dateStr": "13 / 04 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 13042026.xlsx",
+  "importedAt": "13/04/2026 às 16:07"
 }
