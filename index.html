@@ -148,32 +148,42 @@ a{color:inherit;text-decoration:none;}
 .dp-oh  {background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;}
 .dp-biz {background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
 .dg-cnt{font-size:.54rem;color:var(--dim);}
-.ditems{display:flex;flex-direction:column;}
-.drow{display:grid;grid-template-columns:20px 72px 1fr auto;gap:0 5px;
-  padding:2.5px 0;border-bottom:1px solid rgba(48,54,61,.4);align-items:start;font-size:.61rem;}
-.drow:last-child{border-bottom:none;}
-body.mode-detail .drow{border-bottom:none;}
+.ditems{display:flex;flex-direction:column;gap:4px;}
+
+/* Each initiative = card with border */
+.init-card{
+  background:#fff;
+  border:1px solid #e0e2e8;
+  border-radius:7px;
+  overflow:hidden;
+}
+.drow{display:grid;grid-template-columns:22px 74px 1fr auto;gap:0 6px;
+  padding:6px 10px;align-items:start;font-size:.61rem;}
 .dr-n{color:var(--dim);font-family:'DM Mono',monospace;font-size:.53rem;padding-top:1px;}
-.dr-a span{font-size:.51rem;background:var(--surf2);border:1px solid var(--brd);
-  border-radius:3px;padding:1px 4px;color:var(--mut);white-space:nowrap;}
+.dr-a span{font-size:.51rem;background:#f5f6f8;border:1px solid #e0e2e8;
+  border-radius:3px;padding:1px 5px;color:var(--mut);white-space:nowrap;}
 .dr-t{color:var(--txt);font-weight:500;line-height:1.3;}
 .dr-j a{font-family:'DM Mono',monospace;font-size:.51rem;color:#2563eb;
-  border:1px solid rgba(56,139,253,.25);border-radius:3px;padding:1px 4px;
-  background:rgba(56,139,253,.07);white-space:nowrap;display:inline-block;}
-.dr-j a:hover{background:rgba(56,139,253,.18);}
+  border:1px solid #bfdbfe;border-radius:3px;padding:1px 5px;
+  background:#eff6ff;white-space:nowrap;display:inline-block;}
+.dr-j a:hover{background:#dbeafe;}
 .dr-j.nj{visibility:hidden;}
-.drow-detail{display:none;grid-template-columns:20px 72px 1fr auto;gap:0 5px;
-  padding:2px 0 6px;border-bottom:1px solid rgba(48,54,61,.4);background:rgba(22,27,34,.5);}
-body.mode-detail .drow-detail{display:grid;}
-.dd-sp{}.dd-l{display:flex;flex-direction:column;gap:3px;padding-top:2px;}
+
+/* Detail block — inside card, white bg, separated by top border */
+.drow-detail{display:none;flex-direction:column;gap:4px;
+  padding:6px 10px 8px 10px;
+  border-top:1px solid #f0f1f4;
+  background:#ffffff;}
+body.mode-detail .drow-detail{display:flex;}
+.dd-sp{}.dd-l{display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;align-items:center;}
 .team-badge{font-size:.52rem;font-weight:600;padding:2px 6px;border-radius:3px;
   background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;
   white-space:nowrap;display:inline-block;align-self:flex-start;}
 .meta-chip{font-size:.52rem;font-weight:500;padding:2px 6px;border-radius:3px;
   white-space:nowrap;display:inline-block;align-self:flex-start;}
-.dt-chip{background:rgba(227,179,65,.1);color:#e3b341;border:1px solid rgba(227,179,65,.25);}
-.chg-chip{background:rgba(188,140,255,.1);color:#bc8cff;border:1px solid rgba(188,140,255,.25);}
-.chg-chip:hover{background:rgba(188,140,255,.2);}
+.dt-chip{background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
+.chg-chip{background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
+.chg-chip:hover{background:#ddd6fe;}
 .dd-notes{display:flex;flex-direction:column;gap:2px;}
 
 /* ── Changelog section — visible in both modes when populated ── */
@@ -211,8 +221,8 @@ body.mode-detail .changelog-wrap.has-data{display:flex;}
 .chg-detail{font-size:.58rem;color:var(--mut);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 .chg-pill{font-size:.54rem;border-radius:3px;padding:1px 5px;}
 .changelog-footer{font-size:.56rem;color:var(--dim);text-align:center;font-family:'DM Mono',monospace;margin-top:2px;}
-.note-entry{font-size:.6rem;color:var(--mut);line-height:1.4;}
-.note-date{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt);font-weight:500;margin-right:3px;}
+.note-entry{font-size:.6rem;color:#374151;line-height:1.4;}
+.note-date{font-family:'DM Mono',monospace;font-size:.56rem;color:#2563eb;font-weight:500;margin-right:3px;}
 .note-text{color:var(--mut);}
 
 /* ══ ADMIN PANEL ══ */
@@ -514,8 +524,10 @@ function renderRow(d){
   let meta='';
   if(dt) meta+=`<span class="meta-chip dt-chip">📅 ${esc(dt)}</span>`;
   if(c)  meta+=`<a class="meta-chip chg-chip" href="${JIRA}${c}" target="_blank">CHG ${esc(c)}</a>`;
-  return `<div class="drow"><div class="dr-n">${d.item}</div><div class="dr-a"><span>${esc(d.ambito)}</span></div><div class="dr-t">${esc(d.tema)}</div><div class="dr-j${j?'':' nj'}">${j?jH:'<span>—</span>'}</div></div>
-<div class="drow-detail"><div class="dd-sp"></div><div class="dd-l"><span class="team-badge">${esc(d.team)}</span>${meta}</div><div class="dd-notes">${notesH}</div><div></div></div>`;
+  return `<div class="init-card">
+  <div class="drow"><div class="dr-n">${d.item}</div><div class="dr-a"><span>${esc(d.ambito)}</span></div><div class="dr-t">${esc(d.tema)}</div><div class="dr-j${j?'':' nj'}">${j?jH:'<span>—</span>'}</div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">${esc(d.team)}</span>${meta}</div><div class="dd-notes">${notesH}</div></div>
+</div>`;
 }
 
 function renderGroup(status,items){
@@ -704,17 +716,17 @@ async function buildPPTX(data){
   prs.title='AEGON – Ponto de Situação';
 
   const{items,summary,dateStr}=data;
-  const C={bg:'0d1117',surf:'161b22',surf2:'1c2330',brd:'30363d',txt:'e6edf3',
-    mut:'8b949e',dim:'6e7681',fhr:'C41E3A',
-    ip:'1f6feb',qt:'388bfd',qa:'3fb950',pfh:'e3b341',pasp:'f0883e',
-    oh:'8b949e',biz:'bc8cff',cl:'3fb950',bl:'444c56',cx:'6e7681'};
+  const C={bg:'f5f6f8',surf:'ffffff',surf2:'f0f1f4',brd:'e0e2e8',txt:'1a1d23',
+    mut:'6b7280',dim:'9ca3af',fhr:'C41E3A',
+    ip:'1d4ed8',qt:'2563eb',qa:'166534',pfh:'854d0e',pasp:'9a3412',
+    oh:'4b5563',biz:'6d28d9',cl:'166534',bl:'6b7280',cx:'9ca3af'};
 
   const total=Object.values(summary).reduce((a,b)=>a+b,0);
   const nActive=items.length,nClosed=summary['Closed']||0,nBacklog=summary['Backlog']||0,nCancel=summary['Canceled']||0;
   const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
   const nPFH =items.filter(d=>d.estado==='Pending FH').length;
 
-  const ms=()=>({type:'outer',color:'000000',blur:6,offset:2,angle:135,opacity:0.18});
+  const ms=()=>({type:'outer',color:'000000',blur:4,offset:1,angle:135,opacity:0.08});
 
   // ── SLIDE 1 ──
   const s1=prs.addSlide();
