@@ -172,7 +172,9 @@ body.mode-detail .drow-detail{display:flex;}
   white-space:nowrap;display:inline-block;align-self:flex-start;}
 .meta-chip{font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;
   white-space:nowrap;display:inline-block;align-self:flex-start;}
-.dt-chip{background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
+.prod-chip{background:#dcfce7;color:#166534;border:1px solid #86efac;}
+.train-chip{background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
+.chip-label{font-weight:700;margin-right:3px;opacity:.8;}
 .chg-chip{background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
 .chg-chip:hover{background:#ddd6fe;}
 .dd-notes{display:flex;flex-direction:column;gap:2px;}
@@ -506,12 +508,13 @@ function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 
 // ── Render helpers ──
 function renderRow(d){
-  const j=d.jira,c=d.change_id,dt=d.dt_entrega;
+  const j=d.jira,c=d.change_id,dtTrain=d.dt_train||'',dtProd=d.dt_prod||'';
   const jH=j?`<a href="${JIRA}${j}" target="_blank">${j}</a>`:'';
   const notesH=(d.notes||[]).map(n=>`<div class="note-entry">${n.date?`<span class="note-date">${esc(n.date)}</span> `:''}<span class="note-text">${esc(n.text)}</span></div>`).join('');
   let meta='';
-  if(dt) meta+=`<span class="meta-chip dt-chip">📅 ${esc(dt)}</span>`;
-  if(c)  meta+=`<a class="meta-chip chg-chip" href="${JIRA}${c}" target="_blank">CHG ${esc(c)}</a>`;
+  if(c)       meta+=`<a class="meta-chip chg-chip" href="${JIRA}${c}" target="_blank">CHG ${esc(c)}</a>`;
+  if(dtTrain) meta+=`<span class="meta-chip train-chip"><span class="chip-label">Train</span>${esc(dtTrain)}</span>`;
+  if(dtProd)  meta+=`<span class="meta-chip prod-chip"><span class="chip-label">Produção</span>${esc(dtProd)}</span>`;
   return `<div class="init-card">
   <div class="drow"><div class="dr-n">${d.item}</div><div class="dr-a"><span>${esc(d.ambito)}</span></div><div class="dr-t">${esc(d.tema)}</div><div class="dr-j${j?'':' nj'}">${j?jH:'<span>—</span>'}</div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">${esc(d.team)}</span>${meta}</div><div class="dd-notes">${notesH}</div></div>
@@ -984,13 +987,53 @@ function handleFile(file){
 
 function parseRows(rows){
   const items=[],summary={};
+  // Detect column positions from header row (row 0)
+  const hdr=rows[0]||[];
+  function colIdx(names){
+    for(const n of names){
+      const i=hdr.findIndex(h=>h&&String(h).toLowerCase().includes(n.toLowerCase()));
+      if(i>=0) return i;
+    }
+    return -1;
+  }
+  const iJira    = colIdx(['jira','nº jira']);
+  const iChange  = colIdx(['change id','change_id']);
+  const iObs     = colIdx(['observ']);
+  const iTeam    = colIdx(['team']);
+  const iEstado  = colIdx(['estado']);
+  const iAmbito  = colIdx(['âmbito','ambito']);
+  const iTema    = colIdx(['tema']);
+  const iDtProd  = colIdx(['data produção','data producao','dt entrega','data prod']);
+  const iDtTrain = colIdx(['data train','dt train']);
+  // Fallback to original fixed indices if headers not found
+  const fJira    = iJira   >=0 ? iJira   : 17;
+  const fChange  = iChange >=0 ? iChange : 18;
+  const fObs     = iObs    >=0 ? iObs    : 16;
+  const fTeam    = iTeam   >=0 ? iTeam   : 11;
+  const fEstado  = iEstado >=0 ? iEstado : 10;
+  const fAmbito  = iAmbito >=0 ? iAmbito : 1;
+  const fTema    = iTema   >=0 ? iTema   : 2;
+  const fDtProd  = iDtProd >=0 ? iDtProd : 9;
+
+  function cleanDate(v){
+    if(!v) return '';
+    const s=String(v).trim();
+    if(!s||s==='-') return '';
+    // Already formatted DD/MM/YYYY
+    if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)) return s;
+    // Date object serialised as YYYY-MM-DD or similar
+    const m=s.match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})/);
+    if(m) return m[1].padStart(2,'0')+'/'+m[2].padStart(2,'0')+'/'+(m[3].length===2?'20'+m[3]:m[3]);
+    return '';
+  }
+
   for(let i=1;i<rows.length;i++){
     const r=rows[i]; const item=parseInt(r[0]);
     if(!item||isNaN(item))continue;
-    const estado=(r[10]||'').trim();
+    const estado=(r[fEstado]||'').trim();
     summary[estado]=(summary[estado]||0)+1;
     if(INACTIVE.has(estado))continue;
-    const obs=(r[16]||'').trim(); const notes=[];
+    const obs=(r[fObs]||'').trim(); const notes=[];
     for(const line of obs.split('\n')){
       const t=line.trim(); if(!t)continue;
       const m=t.match(/^(\d{8})\s*[-–]\s*(.*)/);
@@ -998,8 +1041,15 @@ function parseRows(rows){
       else if(notes.length)notes[notes.length-1].text+=' '+t;
       else notes.push({date:'',text:t});
     }
-    items.push({item,ambito:r[1]||'',tema:r[2]||'',estado,team:(r[11]||'').trim(),
-      dt_entrega:(r[9]||'').trim().replace(/^-$/,''),jira:(r[17]||'').trim(),change_id:(r[18]||'').trim(),notes});
+    items.push({
+      item, ambito:r[fAmbito]||'', tema:r[fTema]||'', estado,
+      team:(r[fTeam]||'').trim(),
+      dt_prod:  cleanDate(r[fDtProd]),
+      dt_train: iDtTrain>=0 ? cleanDate(r[iDtTrain]) : '',
+      jira:(r[fJira]||'').trim(),
+      change_id:(r[fChange]||'').trim(),
+      notes
+    });
   }
   return{items,summary};
 }
