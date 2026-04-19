@@ -936,8 +936,8 @@ const INACTIVE=new Set(['Backlog','Closed','Canceled']);
 
 // ── Known state config (used for ordering + styling) ──
 // States NOT in this list are still shown — with a generated colour
-const KNOWN_ORDER=['In Progress','QA Testing','QA Approved','Pending FH','Business Requirements','On Hold'];
-const RIGHT_STATUSES=new Set(['Pending ASP']);
+const KNOWN_ORDER=['In Progress','QA Testing','QA Approved','Business Requirements','On Hold'];
+const RIGHT_STATUSES=new Set(['Pending ASP','Pending FH']);
 
 const STATUS_PILL={
   'In Progress':          ['dp-ip',   'In Progress'],
@@ -1408,8 +1408,8 @@ async function buildPPTX(data){
   function getPPTXLabel(s){ return KNOWN_LABEL[s]||s; }
 
   // Order: known states (left col order), then unknown alphabetically; right col = Pending ASP
-  const RIGHT_SET=new Set(['Pending ASP']);
-  const LEFT_ORDER=['In Progress','QA Testing','QA Approved','Pending FH','Business Requirements','On Hold'];
+  const RIGHT_SET=new Set(['Pending ASP','Pending FH']);
+  const LEFT_ORDER=['In Progress','QA Testing','QA Approved','Business Requirements','On Hold'];
   const orderedLeft=[
     ...LEFT_ORDER.filter(s=>byStatus[s]&&!RIGHT_SET.has(s)),
     ...allStates.filter(s=>!LEFT_ORDER.includes(s)&&!RIGHT_SET.has(s)).sort(),
