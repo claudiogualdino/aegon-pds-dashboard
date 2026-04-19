@@ -4,7 +4,7 @@
       "item": 1,
       "ambito": "Produto",
       "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "estado": "Pending ASP",
+      "estado": "Pending FH",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "10/02/2026",
-          "text": "Aguardamos feedback com uses cases para garantir alinhamento de expetativas"
+          "date": "17/04/2026",
+          "text": "AEGON já respondeu com requisitos/expetativa de output desta solução. Aguarda disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento. Está com João Marques"
         }
       ]
     },
@@ -46,8 +46,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "DEV AEGON ligado a TRAIN, a finalizar Testes. PRE AEGON ainda ligado a QA2 e temos erro na criação de QC"
+          "date": "17/04/2026",
+          "text": "erro QA2 resolvido no dia 14/04/2026. Demos nova data para migrar PRE AEGON. Dia 23/04/2026"
         }
       ]
     },
@@ -115,7 +115,7 @@
       "notes": [
         {
           "date": "10/04/2026",
-          "text": "Aguardamos disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento"
+          "text": "Aguardamos disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento. Está com João Marques"
         }
       ]
     },
@@ -123,7 +123,7 @@
       "item": 23,
       "ambito": "FH2.0",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Implemented",
+      "estado": "Dev Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "28/04/2026",
@@ -131,8 +131,8 @@
       "change_id": "HELP-22268",
       "notes": [
         {
-          "date": "13/04/2026",
-          "text": "Está implementado e aguardar colocar em Dev Testing (Tech Review)"
+          "date": "17/04/2026",
+          "text": "Está em dev testing."
         }
       ]
     },
@@ -378,7 +378,7 @@
       "item": 68,
       "ambito": "Subscrição",
       "tema": "Histórico de Estados",
-      "estado": "Business Requirements",
+      "estado": "Ready for Development",
       "team": "IBG",
       "dt_prod": "",
       "dt_train": "",
@@ -386,25 +386,26 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "13/04/2026",
-          "text": "Histórico de Estados ainda em revisão de estados. Sessão interrna 15042026"
+          "date": "17/04/2026",
+          "text": "Sessão realizada. Aguardamos Documentação Técnica e calendário de execução"
         }
       ]
     }
   ],
   "summary": {
-    "Pending ASP": 12,
+    "Pending FH": 2,
     "Backlog": 18,
     "Closed": 26,
-    "Business Requirements": 2,
+    "Business Requirements": 1,
     "Canceled": 1,
+    "Pending ASP": 11,
     "Train Testing": 1,
     "Dev Approved": 5,
-    "Pending FH": 1,
-    "Implemented": 1,
-    "On Hold": 1
+    "Dev Testing": 1,
+    "On Hold": 1,
+    "Ready for Development": 1
   },
-  "dateStr": "13 / 04 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 13042026.xlsx",
-  "importedAt": "13/04/2026 às 16:07"
+  "dateStr": "19 / 04 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 20042026.xlsx",
+  "importedAt": "19/04/2026 às 17:34"
 }
