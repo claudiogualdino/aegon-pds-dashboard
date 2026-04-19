@@ -2,123 +2,59 @@
   "changes": [
     {
       "type": "state",
-      "item": "16",
-      "tema": "Lateralidades nas Exclusões",
-      "from": "In Progress",
-      "to": "Train Testing"
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "from": "Pending ASP",
+      "to": "Pending FH"
     },
     {
       "type": "state",
       "item": "23",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "from": "Pending FH",
-      "to": "Implemented"
+      "from": "Implemented",
+      "to": "Dev Testing"
     },
     {
-      "type": "new",
+      "type": "state",
       "item": "68",
       "tema": "Histórico de Estados",
-      "to": "Business Requirements"
+      "from": "Business Requirements",
+      "to": "Ready for Development"
     },
     {
-      "type": "field",
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "17/04/2026",
+      "text": "AEGON já respondeu com requisitos/expetativa de output desta solução. Aguarda disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento. Está com João Marques"
+    },
+    {
+      "type": "note",
       "item": "15",
       "tema": "Alinhamento dos Ambientes de Teste",
-      "field": "Data Produção",
-      "from": "",
-      "to": "30/06/2025"
-    },
-    {
-      "type": "field",
-      "item": "16",
-      "tema": "Lateralidades nas Exclusões",
-      "field": "Data Train",
-      "from": "",
-      "to": "13/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "16",
-      "tema": "Lateralidades nas Exclusões",
-      "field": "Âmbito",
-      "from": "FH2.0",
-      "to": "Subscrição"
-    },
-    {
-      "type": "field",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "23",
-      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "field",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "field": "Data Train",
-      "from": "",
-      "to": "28/04/2026"
-    },
-    {
-      "type": "note",
-      "item": "16",
-      "tema": "Lateralidades nas Exclusões",
-      "date": "10/04/2026",
-      "text": "em Train Testing para AEGON poder testar"
+      "date": "17/04/2026",
+      "text": "erro QA2 resolvido no dia 14/04/2026. Demos nova data para migrar PRE AEGON. Dia 23/04/2026"
     },
     {
       "type": "note",
       "item": "23",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "date": "13/04/2026",
-      "text": "Está implementado e aguardar colocar em Dev Testing (Tech Review)"
+      "date": "17/04/2026",
+      "text": "Está em dev testing."
     },
     {
       "type": "note",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "date": "13/04/2026",
-      "text": "a ser retomado a 20/04/2026"
+      "item": "68",
+      "tema": "Histórico de Estados",
+      "date": "17/04/2026",
+      "text": "Sessão realizada. Aguardamos Documentação Técnica e calendário de execução"
     }
   ],
   "prevDateStr": "13 / 04 / 2026",
   "prevMeta": {
     "dateStr": "13 / 04 / 2026",
-    "importedFile": "",
+    "importedFile": "PDS Iniciativas Tecnologia 13042026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "13/04/2026 às 16:07"
+  "generatedAt": "19/04/2026 às 17:34"
 }
