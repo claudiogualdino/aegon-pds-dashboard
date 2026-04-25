@@ -46,8 +46,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "17/04/2026",
-          "text": "erro QA2 resolvido no dia 14/04/2026. Demos nova data para migrar PRE AEGON. Dia 23/04/2026"
+          "date": "24/04/2026",
+          "text": "AEGON ainda não respondeu com data fim dos testes de Dev - Train"
         }
       ]
     },
@@ -72,16 +72,16 @@
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "04/05/2026",
       "jira": "GDP-1681",
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+          "date": "17/10/2026",
+          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
         }
       ]
     },
@@ -89,16 +89,16 @@
       "item": 18,
       "ambito": "FH2.0",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "04/05/2026",
       "jira": "GDP-1749",
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+          "date": "17/10/2026",
+          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
         }
       ]
     },
@@ -157,16 +157,16 @@
       "item": 26,
       "ambito": "FH2.0",
       "tema": "Acesso Detalhe da Factura",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "04/05/2026",
       "jira": "GDP-1746",
       "change_id": "HELP-22258",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+          "date": "17/10/2026",
+          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
         }
       ]
     },
@@ -276,16 +276,16 @@
       "item": 55,
       "ambito": "Subscrição",
       "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "04/05/2026",
       "jira": "GDP-1543",
       "change_id": "HELP-22255",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+          "date": "17/10/2026",
+          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
         }
       ]
     },
@@ -293,16 +293,16 @@
       "item": 56,
       "ambito": "Subscrição",
       "tema": "Melhorias Subscrição ASP - SMS Token",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "04/05/2026",
       "jira": "GDP-1544",
       "change_id": "HELP-22256",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aprovada em Dev. Aguardamos data para QA Global"
+          "date": "17/10/2026",
+          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
         }
       ]
     },
@@ -400,12 +400,12 @@
     "Canceled": 1,
     "Pending ASP": 11,
     "Train Testing": 1,
-    "Dev Approved": 5,
+    "QA Testing": 5,
     "Dev Testing": 1,
     "On Hold": 1,
     "Ready for Development": 1
   },
-  "dateStr": "19 / 04 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 20042026.xlsx",
-  "importedAt": "19/04/2026 às 17:34"
+  "dateStr": "27 / 04 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 27042026.xlsx",
+  "importedAt": "25/04/2026 às 21:06"
 }
