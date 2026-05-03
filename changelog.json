@@ -2,127 +2,52 @@
   "changes": [
     {
       "type": "state",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "from": "Dev Approved",
-      "to": "QA Testing"
+      "item": "43",
+      "tema": "Processo de Recuperação da Divida",
+      "from": "On Hold",
+      "to": "In Progress"
     },
     {
       "type": "state",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "from": "Dev Approved",
-      "to": "QA Testing"
-    },
-    {
-      "type": "state",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "from": "Dev Approved",
-      "to": "QA Testing"
-    },
-    {
-      "type": "state",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "from": "Dev Approved",
-      "to": "QA Testing"
-    },
-    {
-      "type": "state",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "from": "Dev Approved",
-      "to": "QA Testing"
-    },
-    {
-      "type": "field",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "field": "Data Train",
-      "from": "28/04/2026",
-      "to": "04/05/2026"
-    },
-    {
-      "type": "field",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "field": "Data Train",
-      "from": "28/04/2026",
-      "to": "04/05/2026"
-    },
-    {
-      "type": "field",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "field": "Data Train",
-      "from": "28/04/2026",
-      "to": "04/05/2026"
-    },
-    {
-      "type": "field",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "field": "Data Train",
-      "from": "28/04/2026",
-      "to": "04/05/2026"
-    },
-    {
-      "type": "field",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "field": "Data Train",
-      "from": "28/04/2026",
-      "to": "04/05/2026"
+      "item": "68",
+      "tema": "Histórico de Estados",
+      "from": "Ready for Development",
+      "to": "In Progress"
     },
     {
       "type": "note",
-      "item": "15",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "24/04/2026",
-      "text": "AEGON ainda não respondeu com data fim dos testes de Dev - Train"
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "04/05/2026",
+      "text": "agendada sessão interna para 11/05/2026"
     },
     {
       "type": "note",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "24/04/2026",
-      "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "date": "04/05/2026",
+      "text": "agendada sessão interna para 07/05/2026"
     },
     {
       "type": "note",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "date": "24/04/2026",
-      "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
+      "item": "43",
+      "tema": "Processo de Recuperação da Divida",
+      "date": "04/05/2026",
+      "text": "agendada sessão para clarificação do plano de implementação e entrega da funcionalidade"
     },
     {
       "type": "note",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "date": "24/04/2026",
-      "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-    },
-    {
-      "type": "note",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "date": "24/04/2026",
-      "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-    },
-    {
-      "type": "note",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "date": "24/04/2026",
-      "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
+      "item": "68",
+      "tema": "Histórico de Estados",
+      "date": "04/05/2026",
+      "text": "Está em progesso. Em testes até 07/05/2026"
     }
   ],
-  "prevDateStr": "19 / 04 / 2026",
+  "prevDateStr": "27 / 04 / 2026",
   "prevMeta": {
-    "dateStr": "19 / 04 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 20042026.xlsx",
+    "dateStr": "27 / 04 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 27042026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "25/04/2026 às 21:06"
+  "generatedAt": "04/05/2026 às 00:51"
 }
