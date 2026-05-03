@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "17/04/2026",
-          "text": "AEGON já respondeu com requisitos/expetativa de output desta solução. Aguarda disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento. Está com João Marques"
+          "date": "04/05/2026",
+          "text": "agendada sessão interna para 11/05/2026"
         }
       ]
     },
@@ -114,8 +114,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "10/04/2026",
-          "text": "Aguardamos disponibilidade da equipa Arch (Tiago) para ter sessão de revisão e passagem de conhecimento. Está com João Marques"
+          "date": "04/05/2026",
+          "text": "agendada sessão interna para 07/05/2026"
         }
       ]
     },
@@ -259,7 +259,7 @@
       "item": 43,
       "ambito": "Sinistros",
       "tema": "Processo de Recuperação da Divida",
-      "estado": "On Hold",
+      "estado": "In Progress",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -267,8 +267,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "13/04/2026",
-          "text": "a ser retomado a 20/04/2026"
+          "date": "04/05/2026",
+          "text": "agendada sessão para clarificação do plano de implementação e entrega da funcionalidade"
         }
       ]
     },
@@ -378,7 +378,7 @@
       "item": 68,
       "ambito": "Subscrição",
       "tema": "Histórico de Estados",
-      "estado": "Ready for Development",
+      "estado": "In Progress",
       "team": "IBG",
       "dt_prod": "",
       "dt_train": "",
@@ -386,8 +386,8 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "17/04/2026",
-          "text": "Sessão realizada. Aguardamos Documentação Técnica e calendário de execução"
+          "date": "04/05/2026",
+          "text": "Está em progesso. Em testes até 07/05/2026"
         }
       ]
     }
@@ -402,10 +402,9 @@
     "Train Testing": 1,
     "QA Testing": 5,
     "Dev Testing": 1,
-    "On Hold": 1,
-    "Ready for Development": 1
+    "In Progress": 2
   },
-  "dateStr": "27 / 04 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 27042026.xlsx",
-  "importedAt": "25/04/2026 às 21:06"
+  "dateStr": "04 / 05 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 04052026.xlsx",
+  "importedAt": "04/05/2026 às 00:51"
 }
