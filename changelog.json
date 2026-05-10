@@ -2,52 +2,51 @@
   "changes": [
     {
       "type": "state",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "from": "On Hold",
-      "to": "In Progress"
+      "item": "17",
+      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
+      "from": "QA Testing",
+      "to": "QA Approved"
     },
     {
       "type": "state",
-      "item": "68",
-      "tema": "Histórico de Estados",
-      "from": "Ready for Development",
-      "to": "In Progress"
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "from": "Pending FH",
+      "to": "Business Requirements"
+    },
+    {
+      "type": "new",
+      "item": "57",
+      "tema": "Medical Network Search - Service not required",
+      "to": "Train Testing"
     },
     {
       "type": "note",
-      "item": "1",
-      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "date": "04/05/2026",
-      "text": "agendada sessão interna para 11/05/2026"
+      "item": "17",
+      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
+      "date": "10/05/2026",
+      "text": "Aguarda aprovação release QA Global e passagem a Train"
     },
     {
       "type": "note",
       "item": "19",
       "tema": "Valores Acima do Plafond",
-      "date": "04/05/2026",
-      "text": "agendada sessão interna para 07/05/2026"
-    },
-    {
-      "type": "note",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "date": "04/05/2026",
-      "text": "agendada sessão para clarificação do plano de implementação e entrega da funcionalidade"
+      "date": "10/05/2026",
+      "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
     },
     {
       "type": "note",
       "item": "68",
       "tema": "Histórico de Estados",
-      "date": "04/05/2026",
-      "text": "Está em progesso. Em testes até 07/05/2026"
+      "date": "10/05/2026",
+      "text": "Está em tech review. Aguardamos ok para testes."
     }
   ],
-  "prevDateStr": "27 / 04 / 2026",
+  "prevDateStr": "04 / 05 / 2026",
   "prevMeta": {
-    "dateStr": "27 / 04 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 27042026.xlsx",
+    "dateStr": "04 / 05 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 04052026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "04/05/2026 às 00:51"
+  "generatedAt": "10/05/2026 às 18:48"
 }
