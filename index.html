@@ -974,7 +974,7 @@ body.admin-mode #admin-fab{display:flex;}
       <div class="ap-step-title">Executive Report</div>
     </div>
     <button class="ap-btn ap-btn-step" id="btn-gen-report" onclick="generateExecReport()" disabled style="font-size:.63rem">
-      ✨ Gerar rascunho com IA
+      ↻ Regenerar rascunho
     </button>
     <div id="exec-report-loading" style="display:none;font-size:.58rem;color:var(--mut);text-align:center;padding:.3rem 0">
       <span style="display:inline-block">⏳ A gerar com IA…</span>
@@ -1576,10 +1576,9 @@ function handleFile(file){
         if(cl) cl.scrollIntoView({behavior:'smooth',block:'nearest'});
       },300);
 
-      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`);
-      // Enable AI report generation
-      const genBtn=document.getElementById('btn-gen-report');
-      if(genBtn){genBtn.disabled=false;genBtn.textContent='✨ Gerar rascunho com IA';}
+      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'} · ✨ a gerar executive report…`);
+      // Auto-generate AI executive report immediately
+      generateExecReport();
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
@@ -1802,6 +1801,7 @@ Max 200 words. Professional tone. No opening greeting. No closing.`;
     const numEl=document.getElementById('exec-step-num');
     if(numEl){numEl.classList.add('done');numEl.textContent='✨';}
     renderExecReport(text, data.dateStr||'');
+    setStatus('ok',`✓ Dados importados · Executive Report gerado ✨`);
   }catch(err){
     if(loading) loading.style.display='none';
     btn.disabled=false;
