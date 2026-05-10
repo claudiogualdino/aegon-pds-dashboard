@@ -72,7 +72,7 @@
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "QA Testing",
+      "estado": "QA Approved",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -80,8 +80,8 @@
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
+          "date": "10/05/2026",
+          "text": "Aguarda aprovação release QA Global e passagem a Train"
         }
       ]
     },
@@ -106,7 +106,7 @@
       "item": 19,
       "ambito": "FH2.0",
       "tema": "Valores Acima do Plafond",
-      "estado": "Pending FH",
+      "estado": "Business Requirements",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -114,8 +114,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "agendada sessão interna para 07/05/2026"
+          "date": "10/05/2026",
+          "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
         }
       ]
     },
@@ -307,6 +307,23 @@
       ]
     },
     {
+      "item": 57,
+      "ambito": "Área Pessoal",
+      "tema": "Medical Network Search - Service not required",
+      "estado": "Train Testing",
+      "team": "CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "GDP-1546",
+      "change_id": "HELP-22259",
+      "notes": [
+        {
+          "date": "10/05/2026",
+          "text": "em testes com AEGON"
+        }
+      ]
+    },
+    {
       "item": 59,
       "ambito": "Área Pessoal",
       "tema": "API /contract-info/get/contract - add BenefitNumber",
@@ -386,25 +403,26 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "Está em progesso. Em testes até 07/05/2026"
+          "date": "10/05/2026",
+          "text": "Está em tech review. Aguardamos ok para testes."
         }
       ]
     }
   ],
   "summary": {
-    "Pending FH": 2,
-    "Backlog": 18,
+    "Pending FH": 1,
+    "Backlog": 16,
     "Closed": 26,
-    "Business Requirements": 1,
-    "Canceled": 1,
+    "Business Requirements": 2,
+    "Canceled": 2,
     "Pending ASP": 11,
-    "Train Testing": 1,
-    "QA Testing": 5,
+    "Train Testing": 2,
+    "QA Approved": 1,
+    "QA Testing": 4,
     "Dev Testing": 1,
     "In Progress": 2
   },
-  "dateStr": "04 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 04052026.xlsx",
-  "importedAt": "04/05/2026 às 00:51"
+  "dateStr": "10 / 05 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 11052026.xlsx",
+  "importedAt": "10/05/2026 às 18:48"
 }
