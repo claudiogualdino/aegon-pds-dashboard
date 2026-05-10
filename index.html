@@ -80,7 +80,7 @@
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "QA Testing",
+      "estado": "QA Approved",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -88,8 +88,8 @@
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
+          "date": "10/05/2026",
+          "text": "Aguarda aprovação release QA Global e passagem a Train"
         }
       ]
     },
@@ -114,7 +114,7 @@
       "item": 19,
       "ambito": "FH2.0",
       "tema": "Valores Acima do Plafond",
-      "estado": "Pending FH",
+      "estado": "Business Requirements",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -122,8 +122,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "agendada sessão interna para 07/05/2026"
+          "date": "10/05/2026",
+          "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
         }
       ]
     },
@@ -315,6 +315,23 @@
       ]
     },
     {
+      "item": 57,
+      "ambito": "Área Pessoal",
+      "tema": "Medical Network Search - Service not required",
+      "estado": "Train Testing",
+      "team": "CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "GDP-1546",
+      "change_id": "HELP-22259",
+      "notes": [
+        {
+          "date": "10/05/2026",
+          "text": "em testes com AEGON"
+        }
+      ]
+    },
+    {
       "item": 59,
       "ambito": "Área Pessoal",
       "tema": "API /contract-info/get/contract - add BenefitNumber",
@@ -394,27 +411,28 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "Está em progesso. Em testes até 07/05/2026"
+          "date": "10/05/2026",
+          "text": "Está em tech review. Aguardamos ok para testes."
         }
       ]
     }
   ],
   "summary": {
-    "Pending FH": 2,
-    "Backlog": 18,
+    "Pending FH": 1,
+    "Backlog": 16,
     "Closed": 26,
-    "Business Requirements": 1,
-    "Canceled": 1,
+    "Business Requirements": 2,
+    "Canceled": 2,
     "Pending ASP": 11,
-    "Train Testing": 1,
-    "QA Testing": 5,
+    "Train Testing": 2,
+    "QA Approved": 1,
+    "QA Testing": 4,
     "Dev Testing": 1,
     "In Progress": 2
   },
-  "dateStr": "04 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 04052026.xlsx",
-  "importedAt": "04/05/2026 às 00:51"
+  "dateStr": "10 / 05 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 11052026.xlsx",
+  "importedAt": "10/05/2026 às 18:48"
 }</script>
 
 <style>
@@ -688,7 +706,7 @@ body.admin-mode #admin-fab{display:flex;}
   padding:.45rem 1rem;border-radius:6px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 </style>
-<style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
+<style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
 <body class="mode-detail admin-mode">
 
 <!-- ══════════════ HEADER ══════════════ -->
@@ -701,7 +719,7 @@ body.admin-mode #admin-fab{display:flex;}
     </div>
   </div>
   <div class="th-right">
-    <span class="date-pill" id="date-pill">04 / 05 / 2026</span>
+    <span class="date-pill" id="date-pill">10 / 05 / 2026</span>
     <div class="view-toggle">
       <button class="vt-opt" id="btn-resumida" onclick="setMode('resumida')">Resumida</button>
       <button class="vt-opt active" id="btn-detalhada" onclick="setMode('detalhada')">＋ Detalhada</button>
@@ -723,13 +741,13 @@ body.admin-mode #admin-fab{display:flex;}
       <!-- Hero: ativas -->
       <div class="sum-hero">
         <div class="sum-hero-top">
-          <div class="sum-big" id="n-active">23</div>
+          <div class="sum-big" id="n-active">24</div>
           <div class="sum-big-lbl">iniciativas ativas<br>
             <span style="color:var(--dim);font-size:11px">em acompanhamento</span>
           </div>
         </div>
-        <div class="bar-track" id="bar-track"><div class="bar-seg" style="width:8.7%;background:#e3b341"></div><div class="bar-seg" style="width:4.3%;background:#bc8cff"></div><div class="bar-seg" style="width:47.8%;background:#f0883e"></div><div class="bar-seg" style="width:4.3%;background:#a78bfa"></div><div class="bar-seg" style="width:21.7%;background:#388bfd"></div><div class="bar-seg" style="width:4.3%;background:#34d399"></div><div class="bar-seg" style="width:8.7%;background:#1f6feb"></div></div>
-        <div class="bar-legend" id="bar-legend"><div class="bl-item"><div class="bl-dot" style="background:#e3b341"></div>Pending FH (2)</div><div class="bl-item"><div class="bl-dot" style="background:#bc8cff"></div>Business Req. (1)</div><div class="bl-item"><div class="bl-dot" style="background:#f0883e"></div>Pending AEGON / ASP (11)</div><div class="bl-item"><div class="bl-dot" style="background:#a78bfa"></div>Train Testing (1)</div><div class="bl-item"><div class="bl-dot" style="background:#388bfd"></div>QA Testing (5)</div><div class="bl-item"><div class="bl-dot" style="background:#34d399"></div>Dev Testing (1)</div><div class="bl-item"><div class="bl-dot" style="background:#1f6feb"></div>In Progress (2)</div></div>
+        <div class="bar-track" id="bar-track"><div class="bar-seg" style="width:4.2%;background:#e3b341"></div><div class="bar-seg" style="width:8.3%;background:#bc8cff"></div><div class="bar-seg" style="width:45.8%;background:#f0883e"></div><div class="bar-seg" style="width:8.3%;background:#a78bfa"></div><div class="bar-seg" style="width:4.2%;background:#3fb950"></div><div class="bar-seg" style="width:16.7%;background:#388bfd"></div><div class="bar-seg" style="width:4.2%;background:#34d399"></div><div class="bar-seg" style="width:8.3%;background:#1f6feb"></div></div>
+        <div class="bar-legend" id="bar-legend"><div class="bl-item"><div class="bl-dot" style="background:#e3b341"></div>Pending FH (1)</div><div class="bl-item"><div class="bl-dot" style="background:#bc8cff"></div>Business Req. (2)</div><div class="bl-item"><div class="bl-dot" style="background:#f0883e"></div>Pending AEGON / ASP (11)</div><div class="bl-item"><div class="bl-dot" style="background:#a78bfa"></div>Train Testing (2)</div><div class="bl-item"><div class="bl-dot" style="background:#3fb950"></div>QA Approved (1)</div><div class="bl-item"><div class="bl-dot" style="background:#388bfd"></div>QA Testing (4)</div><div class="bl-item"><div class="bl-dot" style="background:#34d399"></div>Dev Testing (1)</div><div class="bl-item"><div class="bl-dot" style="background:#1f6feb"></div>In Progress (2)</div></div>
       </div>
 
       <!-- Pendente AEGON -->
@@ -741,14 +759,14 @@ body.admin-mode #admin-fab{display:flex;}
 
       <!-- Pendente FH -->
       <div class="act-card pfh">
-        <div class="act-num" id="n-pfh">2</div>
+        <div class="act-num" id="n-pfh">1</div>
         <div class="act-lbl">Pendente FH</div>
         <div class="act-sub">Ação interna requerida</div>
       </div>
 
       <!-- Backlog -->
       <div class="stat-card bl">
-        <div class="stat-num" id="n-backlog">18</div>
+        <div class="stat-num" id="n-backlog">16</div>
         <div class="stat-lbl">Backlog</div>
         <div class="stat-sub">sem data de início</div>
       </div>
@@ -774,8 +792,8 @@ body.admin-mode #admin-fab{display:flex;}
   <section class="panel-right">
     <div class="detail-header">
       <div class="detail-title-area">
-        <h3 id="detail-title">Iniciativas Ativas (23)</h3>
-        <p id="detail-sub">Excluídos: Backlog (18) · Concluídos (26) · Cancelados (1)</p>
+        <h3 id="detail-title">Iniciativas Ativas (24)</h3>
+        <p id="detail-sub">Excluídos: Backlog (16) · Concluídos (26) · Cancelados (2)</p>
       </div>
       <div class="view-toggle" style="display:none" id="inline-toggle">
       </div>
@@ -786,31 +804,37 @@ body.admin-mode #admin-fab{display:flex;}
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">agendada sessão para clarificação do plano de implementação e entrega da funcionalidade</span></div></div></div>
 </div><div class="init-card">
   <div class="drow"><div class="dr-n">68</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Histórico de Estados</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1966" target="_blank">GDP-1966</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24759" target="_blank">CHG HELP-24759</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">Está em progesso. Em testes até 07/05/2026</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qt">QA Testing</span><span class="dg-cnt">5</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">17</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1681" target="_blank">GDP-1681</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22257" target="_blank">CHG HELP-22257</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div><div class="init-card">
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24759" target="_blank">CHG HELP-24759</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Está em tech review. Aguardamos ok para testes.</span></div></div></div>
+</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qt">QA Testing</span><span class="dg-cnt">4</span></div><div class="ditems"><div class="init-card">
   <div class="drow"><div class="dr-n">18</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Subscrição Clínica - Comunicação com Companhia pelo FHnet</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1749" target="_blank">GDP-1749</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22371" target="_blank">CHG HELP-22371</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22371" target="_blank">CHG HELP-22371</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
 </div><div class="init-card">
   <div class="drow"><div class="dr-n">26</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Acesso Detalhe da Factura</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1746" target="_blank">GDP-1746</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22258" target="_blank">CHG HELP-22258</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22258" target="_blank">CHG HELP-22258</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
 </div><div class="init-card">
   <div class="drow"><div class="dr-n">55</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - Change Contact Method to Online</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1543" target="_blank">GDP-1543</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22255" target="_blank">CHG HELP-22255</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22255" target="_blank">CHG HELP-22255</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
 </div><div class="init-card">
   <div class="drow"><div class="dr-n">56</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - SMS Token</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1544" target="_blank">GDP-1544</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22256" target="_blank">CHG HELP-22256</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-biz">Business Req.</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="init-card">
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22256" target="_blank">CHG HELP-22256</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
+</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qa">QA Approved</span><span class="dg-cnt">1 · aguardam deploy</span></div><div class="ditems"><div class="init-card">
+  <div class="drow"><div class="dr-n">17</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1681" target="_blank">GDP-1681</a></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22257" target="_blank">CHG HELP-22257</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Aguarda aprovação release QA Global e passagem a Train</span></div></div></div>
+</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-biz">Business Req.</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="init-card">
   <div class="drow"><div class="dr-n">11</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Alteração Subscrição | QC por Produto</div><div class="dr-j nj"><span>—</span></div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE/IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-25214" target="_blank">CHG HELP-25214</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica</span></div></div></div>
+</div><div class="init-card">
+  <div class="drow"><div class="dr-n">19</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Valores Acima do Plafond</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1787" target="_blank">GDP-1787</a></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22261" target="_blank">CHG HELP-22261</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON</span></div></div></div>
 </div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill" style="background:#34d39926;color:#34d399;border:1px solid #34d39966">Dev Testing</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="init-card">
   <div class="drow"><div class="dr-n">23</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Autorização || Estado FH NET - Histórico de Utilização</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1962" target="_blank">GDP-1962</a></div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22268" target="_blank">CHG HELP-22268</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>28/04/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">17/04/2026</span> <span class="note-text">Está em dev testing.</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill" style="background:#a78bfa26;color:#a78bfa;border:1px solid #a78bfa66">Train Testing</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="init-card">
+</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill" style="background:#a78bfa26;color:#a78bfa;border:1px solid #a78bfa66">Train Testing</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="init-card">
   <div class="drow"><div class="dr-n">16</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Lateralidades nas Exclusões</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1966" target="_blank">GDP-1966</a></div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24758" target="_blank">CHG HELP-24758</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>13/04/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">em Train Testing para AEGON poder testar</span></div></div></div>
+</div><div class="init-card">
+  <div class="drow"><div class="dr-n">57</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Medical Network Search - Service not required</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1546" target="_blank">GDP-1546</a></div></div>
+  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CI</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22259" target="_blank">CHG HELP-22259</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">em testes com AEGON</span></div></div></div>
 </div></div></div></div>
       <div class="col-div"></div>
       <div class="dcol" id="col-right"><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pasp">Pending AEGON / ASP</span><span class="dg-cnt">11 · ação requerida pelo cliente</span></div><div class="ditems"><div class="init-card">
@@ -846,12 +870,9 @@ body.admin-mode #admin-fab{display:flex;}
 </div><div class="init-card">
   <div class="drow"><div class="dr-n">67</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Migração V2 Reembolsos OneCare</div><div class="dr-j nj"><span>—</span></div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">12/11/2025</span> <span class="note-text">Ponto pendente de resposta do OneCare</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pfh">Pending FH</span><span class="dg-cnt">2 · ação interna</span></div><div class="ditems"><div class="init-card">
+</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pfh">Pending FH</span><span class="dg-cnt">1 · ação interna</span></div><div class="ditems"><div class="init-card">
   <div class="drow"><div class="dr-n">1</div><div class="dr-a"><span>Produto</span></div><div class="dr-t">Jornada de Cliente | Aumento de Capital &amp; Alteração coberturas - PRO RATA</div><div class="dr-j nj"><span>—</span></div></div>
   <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22263" target="_blank">CHG HELP-22263</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">agendada sessão interna para 11/05/2026</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">19</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Valores Acima do Plafond</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1787" target="_blank">GDP-1787</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22261" target="_blank">CHG HELP-22261</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">agendada sessão interna para 07/05/2026</span></div></div></div>
 </div></div></div></div>
     </div>
 
@@ -861,12 +882,12 @@ body.admin-mode #admin-fab{display:flex;}
         <div class="changelog-title">
           <div class="changelog-bar"></div>
           <span class="changelog-lbl">Notas de Alterações</span>
-          <span class="changelog-vs" id="changelog-vs">Versão anterior · importado a 25/04/2026 às 21:06 · sessão: 27 / 04 / 2026</span>
+          <span class="changelog-vs" id="changelog-vs">Versão anterior · importado a 04/05/2026 às 00:51 · sessão: 04 / 05 / 2026</span>
         </div>
         <span class="changelog-count" id="changelog-count">6 alterações detetadas</span>
       </div>
-      <div id="changelog-items"><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#43 · Processo de Recuperação da Divida</div><div class="chg-detail"><span class="chg-pill" style="background:#8b949e26;color:#8b949e">On Hold</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#1f6feb26;color:#1f6feb">In Progress</span></div></div></div><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#68 · Histórico de Estados</div><div class="chg-detail"><span class="chg-pill" style="background:#f472b626;color:#f472b6">Ready for Development</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#1f6feb26;color:#1f6feb">In Progress</span></div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#1 · Jornada de Cliente | Aumento de Capital &amp; Alteração cobert…</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">04/05/2026</span>  agendada sessão interna para 11/05/2026</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">04/05/2026</span>  agendada sessão interna para 07/05/2026</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#43 · Processo de Recuperação da Divida</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">04/05/2026</span>  agendada sessão para clarificação do plano de implementação e entrega da funcionalidade</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#68 · Histórico de Estados</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">04/05/2026</span>  Está em progesso. Em testes até 07/05/2026</div></div></div></div>
-      <div class="changelog-footer" id="changelog-footer">Ficheiro: PDS Iniciativas Tecnologia 27042026.xlsx · gerado em 04/05/2026 às 00:51</div>
+      <div id="changelog-items"><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail"><span class="chg-pill" style="background:#388bfd26;color:#388bfd">QA Testing</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#3fb95026;color:#3fb950">QA Approved</span></div></div></div><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail"><span class="chg-pill" style="background:#e3b34126;color:#e3b341">Pending FH</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#bc8cff26;color:#bc8cff">Business Requirements</span></div></div></div><div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#57 · Medical Network Search - Service not required</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> <span class="chg-pill" style="background:#a78bfa26;color:#a78bfa">Train Testing</span></div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Aguarda aprovação release QA Global e passagem a Train</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#68 · Histórico de Estados</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Está em tech review. Aguardamos ok para testes.</div></div></div></div>
+      <div class="changelog-footer" id="changelog-footer">Ficheiro: PDS Iniciativas Tecnologia 04052026.xlsx · gerado em 10/05/2026 às 18:48</div>
     </div>
   </section>
 
@@ -919,9 +940,7 @@ body.admin-mode #admin-fab{display:flex;}
     <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()" disabled="">
       ☁️ Publicar no GitHub
     </button>
-    <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: none;" id="gh-hint">
-      Importa e valida um Excel primeiro (passo 1)
-    </div>
+    <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: block;" id="gh-hint">Corrige o erro no passo 1 antes de publicar</div>
   </div>
 
 </div>
@@ -1714,4 +1733,4 @@ async function saveToGitHub(){
 </script>
 
 <app-ls-content ng-version="17.3.7"></app-ls-content><app-ls-content></app-ls-content><app-ls-content></app-ls-content>
-</body><app-ls-content></app-ls-content></html>
+<app-ls-content></app-ls-content></body><app-ls-content></app-ls-content></html>
