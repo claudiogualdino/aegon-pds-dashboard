@@ -642,6 +642,30 @@ body.mode-detail .changelog-wrap.has-data{display:flex;}
 .note-date{font-family:'DM Mono',monospace;font-size:11px;color:#2563eb;font-weight:500;margin-right:5px;}
 .note-text{color:var(--mut);}
 
+/* ── Executive Report section ── */
+.exec-report-wrap{display:none;flex-direction:column;flex-shrink:0;
+  margin-top:.8rem;border-top:1.5px solid var(--brd);padding-top:.75rem;gap:.35rem;}
+body.mode-detail .exec-report-wrap.has-report{display:flex;}
+.exec-report-header{display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;user-select:none;margin-bottom:.1rem;}
+.exec-report-title{display:flex;align-items:center;gap:.5rem;}
+.exec-report-lbl{font-size:.65rem;font-weight:600;color:var(--txt);}
+.exec-report-badge{font-size:.57rem;background:rgba(196,30,58,.1);color:var(--fhr);
+  border:1px solid rgba(196,30,58,.3);border-radius:10px;padding:1px 7px;}
+.exec-report-toggle{font-size:.62rem;color:var(--mut);transition:transform .2s;}
+.exec-report-body{display:flex;flex-direction:column;}
+.exec-report-wrap.collapsed .exec-report-body{display:none;}
+.exec-report-wrap.collapsed .exec-report-toggle{transform:rotate(-180deg);}
+.exec-report-text-display{font-size:.73rem;line-height:1.7;color:var(--txt);
+  padding:.85rem 1.1rem;background:var(--surf2);border-radius:7px;
+  border:1px solid var(--brd);width:100%;box-sizing:border-box;}
+.ap-exec-textarea{width:100%;min-height:95px;font-family:'DM Sans',sans-serif;
+  font-size:.62rem;line-height:1.5;padding:.4rem .5rem;background:var(--surf2);
+  border:1px solid var(--brd);border-radius:6px;color:var(--txt);resize:vertical;
+  margin-top:.3rem;box-sizing:border-box;}
+.ap-exec-textarea::placeholder{color:var(--dim);}
+.ap-exec-textarea:focus{outline:none;border-color:var(--fhr);}
+
 /* ══ ADMIN PANEL ══ */
 #admin-fab{position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;border-radius:50%;
   background:#ffffff;border:1px solid var(--brd);display:none;align-items:center;
@@ -889,6 +913,22 @@ body.admin-mode #admin-fab{display:flex;}
       <div id="changelog-items"><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail"><span class="chg-pill" style="background:#388bfd26;color:#388bfd">QA Testing</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#3fb95026;color:#3fb950">QA Approved</span></div></div></div><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail"><span class="chg-pill" style="background:#e3b34126;color:#e3b341">Pending FH</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#bc8cff26;color:#bc8cff">Business Requirements</span></div></div></div><div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#57 · Medical Network Search - Service not required</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> <span class="chg-pill" style="background:#a78bfa26;color:#a78bfa">Train Testing</span></div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Aguarda aprovação release QA Global e passagem a Train</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#68 · Histórico de Estados</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Está em tech review. Aguardamos ok para testes.</div></div></div></div>
       <div class="changelog-footer" id="changelog-footer">Ficheiro: PDS Iniciativas Tecnologia 04052026.xlsx · gerado em 10/05/2026 às 18:48</div>
     </div>
+
+  <!-- ══ EXECUTIVE REPORT ══ -->
+  <div class="exec-report-wrap" id="exec-report-wrap">
+    <div class="exec-report-header" onclick="toggleExecReport()">
+      <div class="exec-report-title">
+        <div class="changelog-bar"></div>
+        <span class="exec-report-lbl">Executive Report</span>
+        <span class="exec-report-badge" id="exec-report-badge"></span>
+      </div>
+      <span class="exec-report-toggle" id="exec-report-toggle">▲</span>
+    </div>
+    <div class="exec-report-body" id="exec-report-body">
+      <div id="exec-report-display"></div>
+    </div>
+  </div>
+
   </section>
 
 </div><!-- /main-layout -->
@@ -923,6 +963,23 @@ body.admin-mode #admin-fab{display:flex;}
       <div class="ap-dot loading" id="ap-dot"></div>
       <span id="ap-status-txt">A publicar no GitHub...</span>
     </div>
+  </div>
+
+  <hr class="ap-sep">
+
+  <!-- AI REPORT -->
+  <div class="ap-step" id="exec-report-step">
+    <div class="ap-step-header">
+      <div class="ap-step-num" id="exec-step-num" style="font-size:.7rem">✨</div>
+      <div class="ap-step-title">Executive Report</div>
+    </div>
+    <button class="ap-btn ap-btn-step" id="btn-gen-report" onclick="generateExecReport()" disabled style="font-size:.63rem">
+      ✨ Gerar rascunho com IA
+    </button>
+    <div id="exec-report-loading" style="display:none;font-size:.58rem;color:var(--mut);text-align:center;padding:.3rem 0">
+      <span style="display:inline-block">⏳ A gerar com IA…</span>
+    </div>
+    <textarea class="ap-exec-textarea" id="exec-report-text" placeholder="O rascunho aparece aqui. Podes editar antes de publicar." oninput="onExecReportEdit()"></textarea>
   </div>
 
   <hr class="ap-sep">
@@ -979,6 +1036,8 @@ const DYNAMIC_PALETTE=[
 ];
 const _dynColorMap={};
 let _dynColorIdx=0;
+let _execReportText='';
+let _pendingChangelog=null;
 function getStateColor(estado){
   const known={
     'In Progress':'#1f6feb','QA Testing':'#388bfd','QA Approved':'#3fb950',
@@ -1218,9 +1277,6 @@ async function loadChangelogFromGitHub(){
     renderChangelog(cl.changes||[], cl.prevDateStr||'', cl.generatedAt||'', cl.prevMeta?.importedFile||'', cl.prevMeta?.importedAt||'');
   }catch(e){ /* No changelog file yet — silent */ }
 }
-
-// State for pending changelog (computed after Excel import, before publish)
-let _pendingChangelog=null;
 
 // ══════════════════════════════════════════
 // PPTX EXPORT (PptxGenJS browser)
@@ -1521,6 +1577,9 @@ function handleFile(file){
       },300);
 
       setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`);
+      // Enable AI report generation
+      const genBtn=document.getElementById('btn-gen-report');
+      if(genBtn){genBtn.disabled=false;genBtn.textContent='✨ Gerar rascunho com IA';}
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
@@ -1621,6 +1680,135 @@ function parseRows(rows){
   return{items,summary};
 }
 
+// ══════════════════════════════════════════
+// EXECUTIVE REPORT — AI-powered
+// ══════════════════════════════════════════
+function toggleExecReport(){
+  const wrap=document.getElementById('exec-report-wrap');
+  const tog=document.getElementById('exec-report-toggle');
+  if(!wrap) return;
+  wrap.classList.toggle('collapsed');
+  if(tog) tog.textContent=wrap.classList.contains('collapsed')?'▲':'▲';
+}
+
+function onExecReportEdit(){
+  const ta=document.getElementById('exec-report-text');
+  _execReportText=ta.value;
+  const data=JSON.parse(document.getElementById('dashboard-data').textContent);
+  renderExecReport(_execReportText, data.dateStr||'');
+}
+
+function renderExecReport(text, dateStr){
+  const wrap=document.getElementById('exec-report-wrap');
+  const display=document.getElementById('exec-report-display');
+  const badge=document.getElementById('exec-report-badge');
+  if(!wrap||!display) return;
+  if(!text||!text.trim()){wrap.classList.remove('has-report');return;}
+  wrap.classList.add('has-report');
+  if(badge&&dateStr) badge.textContent=dateStr;
+  const formatted=esc(text)
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\n/g,'<br>');
+  display.innerHTML=`<div class="exec-report-text-display">${formatted}</div>`;
+}
+
+async function generateExecReport(){
+  const dd=document.getElementById('dashboard-data');
+  const data=JSON.parse(dd.textContent);
+  const btn=document.getElementById('btn-gen-report');
+  const loading=document.getElementById('exec-report-loading');
+  const ta=document.getElementById('exec-report-text');
+  btn.disabled=true;
+  if(loading) loading.style.display='block';
+  ta.value='';
+
+  const items=data.items||[];
+  const summary=data.summary||{};
+  const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
+  const nPFH =items.filter(d=>d.estado==='Pending FH').length;
+  const nClosed=summary['Closed']||0;
+  const nBacklog=summary['Backlog']||0;
+  const nTotal=Object.values(summary).reduce((a,b)=>a+b,0);
+
+  const overdueItems=items.filter(d=>{
+    const tl=d.dt_train&&isOverdue(d.dt_train)&&!TRAIN_DONE_STATES.has(d.estado);
+    const pl=d.dt_prod &&isOverdue(d.dt_prod) &&!PROD_DONE_STATES.has(d.estado);
+    return tl||pl;
+  });
+
+  const changes=(_pendingChangelog&&_pendingChangelog.changes)||[];
+  const stateChanges=changes.filter(c=>c.type==='state');
+  const newActives  =changes.filter(c=>c.type==='new');
+  const completed   =changes.filter(c=>c.type==='done');
+
+  const byStatus={};
+  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
+  const statusSummary=Object.entries(byStatus)
+    .sort((a,b)=>b[1].length-a[1].length)
+    .map(([s,arr])=>`${s}: ${arr.length}`).join(', ');
+
+  const fmt=arr=>arr.length?arr.map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
+  const fmtState=arr=>arr.length?arr.map(c=>`• #${c.item} ${c.tema}: ${c.from} → ${c.to}`).join('\n'):'None';
+  const fmtOverdue=arr=>arr.length
+    ?arr.map(d=>`• #${d.item} ${d.tema}${d.dt_train?' (Train: '+d.dt_train+')':''}${d.dt_prod?' (Prod: '+d.dt_prod+')':''}`).join('\n')
+    :'None';
+
+  const prompt=`You are a Product Owner at Future Healthcare writing a weekly executive update to present to insurance client AEGON in a joint status meeting. Write a concise, professional Executive Report in English.
+
+Session date: ${data.dateStr||'this week'}
+
+PORTFOLIO SNAPSHOT:
+Active initiatives: ${items.length} | Pending AEGON: ${nPASP} | Pending FH: ${nPFH} | Backlog: ${nBacklog} | Completed: ${nClosed}/${nTotal}
+Status breakdown: ${statusSummary}
+
+CHANGES SINCE LAST SESSION:
+State transitions:
+${fmtState(stateChanges)}
+New active initiatives:
+${fmt(newActives)}
+Completed/closed:
+${fmt(completed)}
+
+OVERDUE MILESTONES:
+${fmtOverdue(overdueItems)}
+
+Write the Executive Report with exactly 3 sections using **bold** labels (no # headers):
+
+**Overall Status** — One paragraph on portfolio health (2–3 sentences).
+
+**This Week's Progress** — 2–4 bullet points (•) on what advanced, referencing initiative numbers.
+
+**Key Actions Required** — 2–3 bullet points (•) flagging what needs AEGON's attention or decision.
+
+Max 200 words. Professional tone. No opening greeting. No closing.`;
+
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const json=await resp.json();
+    const text=(json.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    ta.value=text;
+    _execReportText=text;
+    if(loading) loading.style.display='none';
+    btn.disabled=false;
+    btn.textContent='↻ Regenerar rascunho';
+    const numEl=document.getElementById('exec-step-num');
+    if(numEl){numEl.classList.add('done');numEl.textContent='✨';}
+    renderExecReport(text, data.dateStr||'');
+  }catch(err){
+    if(loading) loading.style.display='none';
+    btn.disabled=false;
+    ta.value='⚠ Erro ao gerar rascunho: '+err.message;
+  }
+}
+
 async function saveToGitHub(){
   const owner=document.getElementById('gh-owner').value.trim();
   const repo=document.getElementById('gh-repo').value.trim();
@@ -1651,6 +1839,10 @@ async function saveToGitHub(){
     }
 
     const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
+    // Inject exec report text before saving
+    if(_execReportText) currentData.execReport=_execReportText;
+    // Update the embedded script tag so outerHTML captures it
+    document.getElementById('dashboard-data').textContent=JSON.stringify(currentData,null,2);
     const dateStr=currentData.dateStr||'';
     const commitMsg=`PDS: atualização ${dateStr}`;
 
@@ -1705,6 +1897,13 @@ async function saveToGitHub(){
   try{
     const embeddedData=JSON.parse(document.getElementById('dashboard-data').textContent);
     render(embeddedData);
+    // Load exec report if present in embedded data
+    if(embeddedData.execReport){
+      _execReportText=embeddedData.execReport;
+      renderExecReport(embeddedData.execReport, embeddedData.dateStr||'');
+      const ta=document.getElementById('exec-report-text');
+      if(ta) ta.value=embeddedData.execReport;
+    }
   }catch(e){console.error(e);}
 
   // Then fetch data.json from GitHub and silently update the embedded data tag
@@ -1719,8 +1918,13 @@ async function saveToGitHub(){
         document.getElementById('dashboard-data').textContent=JSON.stringify(ghData,null,2);
         // Re-render with GitHub data (may differ from embedded)
         render(ghData);
-        // Show source indicator in date pill if dates differ
-        const embDateStr=JSON.parse(document.getElementById('dashboard-data').textContent).dateStr||'';
+        // Load exec report from GitHub data
+        if(ghData.execReport){
+          _execReportText=ghData.execReport;
+          renderExecReport(ghData.execReport, ghData.dateStr||'');
+          const ta=document.getElementById('exec-report-text');
+          if(ta) ta.value=ghData.execReport;
+        }
         console.log('✓ Dados sincronizados com data.json do GitHub:',ghData.dateStr);
       }
     }catch(e){
