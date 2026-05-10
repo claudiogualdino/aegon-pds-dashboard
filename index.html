@@ -970,16 +970,17 @@ body.admin-mode #admin-fab{display:flex;}
   <!-- AI REPORT -->
   <div class="ap-step" id="exec-report-step">
     <div class="ap-step-header">
-      <div class="ap-step-num" id="exec-step-num" style="font-size:.7rem">✨</div>
+      <div class="ap-step-num done" id="exec-step-num" style="font-size:.7rem">✨</div>
       <div class="ap-step-title">Executive Report</div>
     </div>
-    <button class="ap-btn ap-btn-step" id="btn-gen-report" onclick="generateExecReport()" disabled style="font-size:.63rem">
-      ↻ Regenerar rascunho
+    <button class="ap-btn ap-btn-step" id="btn-gen-report" onclick="copyReportPrompt()" style="font-size:.63rem">
+      📋 Copiar prompt → Claude.ai
     </button>
     <div id="exec-report-loading" style="display:none;font-size:.58rem;color:var(--mut);text-align:center;padding:.3rem 0">
-      <span style="display:inline-block">⏳ A gerar com IA…</span>
+      <span style="display:inline-block">⏳ A gerar…</span>
     </div>
-    <textarea class="ap-exec-textarea" id="exec-report-text" placeholder="O rascunho aparece aqui. Podes editar antes de publicar." oninput="onExecReportEdit()"></textarea>
+    <textarea class="ap-exec-textarea" id="exec-report-text" placeholder="Cola aqui o report gerado no Claude.ai, ou edita o existente." oninput="onExecReportEdit()"></textarea>
+    <div style="font-size:.55rem;color:var(--dim);margin-top:2px">Gerado no Claude.ai · editável antes de publicar</div>
   </div>
 
   <hr class="ap-sep">
@@ -1576,9 +1577,7 @@ function handleFile(file){
         if(cl) cl.scrollIntoView({behavior:'smooth',block:'nearest'});
       },300);
 
-      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'} · ✨ a gerar executive report…`);
-      // Auto-generate AI executive report immediately
-      generateExecReport();
+      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`);
     }catch(err){setStatus('err','✗ '+err.message);}
   };
   reader.readAsArrayBuffer(file);
@@ -1711,16 +1710,8 @@ function renderExecReport(text, dateStr){
   display.innerHTML=`<div class="exec-report-text-display">${formatted}</div>`;
 }
 
-async function generateExecReport(){
-  const dd=document.getElementById('dashboard-data');
-  const data=JSON.parse(dd.textContent);
-  const btn=document.getElementById('btn-gen-report');
-  const loading=document.getElementById('exec-report-loading');
-  const ta=document.getElementById('exec-report-text');
-  btn.disabled=true;
-  if(loading) loading.style.display='block';
-  ta.value='';
-
+function copyReportPrompt(){
+  const data=JSON.parse(document.getElementById('dashboard-data').textContent);
   const items=data.items||[];
   const summary=data.summary||{};
   const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
@@ -1728,85 +1719,50 @@ async function generateExecReport(){
   const nClosed=summary['Closed']||0;
   const nBacklog=summary['Backlog']||0;
   const nTotal=Object.values(summary).reduce((a,b)=>a+b,0);
-
+  const byStatus={};
+  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
+  const statusSummary=Object.entries(byStatus).sort((a,b)=>b[1].length-a[1].length)
+    .map(([s,arr])=>`${s}: ${arr.length}`).join(', ');
   const overdueItems=items.filter(d=>{
     const tl=d.dt_train&&isOverdue(d.dt_train)&&!TRAIN_DONE_STATES.has(d.estado);
     const pl=d.dt_prod &&isOverdue(d.dt_prod) &&!PROD_DONE_STATES.has(d.estado);
     return tl||pl;
   });
-
   const changes=(_pendingChangelog&&_pendingChangelog.changes)||[];
-  const stateChanges=changes.filter(c=>c.type==='state');
-  const newActives  =changes.filter(c=>c.type==='new');
-  const completed   =changes.filter(c=>c.type==='done');
+  const fmtState=arr=>arr.length?arr.filter(c=>c.type==='state').map(c=>`• #${c.item} ${c.tema}: ${c.from} → ${c.to}`).join('\n'):'None';
+  const fmtNew  =arr=>arr.length?arr.filter(c=>c.type==='new').map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
+  const fmtDone =arr=>arr.length?arr.filter(c=>c.type==='done').map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
+  const fmtOverdue=arr=>arr.length?arr.map(d=>`• #${d.item} ${d.tema}${d.dt_train?' (Train: '+d.dt_train+')':''}${d.dt_prod?' (Prod: '+d.dt_prod+')':''}`).join('\n'):'None';
+  const prompt=`Gera um Executive Report em inglês para a sessão semanal AEGON–Future Healthcare.
 
-  const byStatus={};
-  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
-  const statusSummary=Object.entries(byStatus)
-    .sort((a,b)=>b[1].length-a[1].length)
-    .map(([s,arr])=>`${s}: ${arr.length}`).join(', ');
-
-  const fmt=arr=>arr.length?arr.map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
-  const fmtState=arr=>arr.length?arr.map(c=>`• #${c.item} ${c.tema}: ${c.from} → ${c.to}`).join('\n'):'None';
-  const fmtOverdue=arr=>arr.length
-    ?arr.map(d=>`• #${d.item} ${d.tema}${d.dt_train?' (Train: '+d.dt_train+')':''}${d.dt_prod?' (Prod: '+d.dt_prod+')':''}`).join('\n')
-    :'None';
-
-  const prompt=`You are a Product Owner at Future Healthcare writing a weekly executive update to present to insurance client AEGON in a joint status meeting. Write a concise, professional Executive Report in English.
-
-Session date: ${data.dateStr||'this week'}
-
-PORTFOLIO SNAPSHOT:
-Active initiatives: ${items.length} | Pending AEGON: ${nPASP} | Pending FH: ${nPFH} | Backlog: ${nBacklog} | Completed: ${nClosed}/${nTotal}
-Status breakdown: ${statusSummary}
+SESSION: ${data.dateStr||'this week'}
+PORTFOLIO: Active: ${items.length} | Pending AEGON: ${nPASP} | Pending FH: ${nPFH} | Backlog: ${nBacklog} | Completed: ${nClosed}/${nTotal}
+STATUS: ${statusSummary}
 
 CHANGES SINCE LAST SESSION:
-State transitions:
-${fmtState(stateChanges)}
-New active initiatives:
-${fmt(newActives)}
-Completed/closed:
-${fmt(completed)}
+State: ${fmtState(changes)}
+New: ${fmtNew(changes)}
+Done: ${fmtDone(changes)}
+Overdue milestones: ${fmtOverdue(overdueItems)}
 
-OVERDUE MILESTONES:
-${fmtOverdue(overdueItems)}
+3 secções com **bold** labels (sem # headers, sem saudação):
+**Overall Status** — 2-3 frases sobre saúde do portfolio.
+**This Week's Progress** — 2-4 bullet points (•) com nºs das iniciativas.
+**Key Actions Required** — 2-3 bullet points (•) para ação da AEGON.
+Max 200 palavras. Tom executivo profissional em inglês.`;
 
-Write the Executive Report with exactly 3 sections using **bold** labels (no # headers):
+  navigator.clipboard.writeText(prompt).then(()=>{
+    const btn=document.getElementById('btn-gen-report');
+    const orig=btn.textContent;
+    btn.textContent='✓ Prompt copiado!';
+    btn.style.borderColor='var(--c-qa)';btn.style.color='var(--c-qa)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.borderColor='';btn.style.color='';},2500);
+  }).catch(()=>alert('Copia manualmente:\n\n'+prompt));
+}
 
-**Overall Status** — One paragraph on portfolio health (2–3 sentences).
-
-**This Week's Progress** — 2–4 bullet points (•) on what advanced, referencing initiative numbers.
-
-**Key Actions Required** — 2–3 bullet points (•) flagging what needs AEGON's attention or decision.
-
-Max 200 words. Professional tone. No opening greeting. No closing.`;
-
-  try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        messages:[{role:'user',content:prompt}]
-      })
-    });
-    const json=await resp.json();
-    const text=(json.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
-    ta.value=text;
-    _execReportText=text;
-    if(loading) loading.style.display='none';
-    btn.disabled=false;
-    btn.textContent='↻ Regenerar rascunho';
-    const numEl=document.getElementById('exec-step-num');
-    if(numEl){numEl.classList.add('done');numEl.textContent='✨';}
-    renderExecReport(text, data.dateStr||'');
-    setStatus('ok',`✓ Dados importados · Executive Report gerado ✨`);
-  }catch(err){
-    if(loading) loading.style.display='none';
-    btn.disabled=false;
-    ta.value='⚠ Erro ao gerar rascunho: '+err.message;
-  }
+async function generateExecReport(){
+  // Legacy: kept for backward compat — just calls copyReportPrompt
+  copyReportPrompt();
 }
 
 async function saveToGitHub(){
