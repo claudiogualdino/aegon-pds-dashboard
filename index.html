@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <script id="dashboard-data" type="application/json">{
   "items": [
@@ -729,6 +730,80 @@ body.admin-mode #admin-fab{display:flex;}
   background:#166534;color:#fff;font-size:.7rem;font-weight:600;
   padding:.45rem 1rem;border-radius:6px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ══ TAB NAVIGATION ══ */
+.tab-nav{display:flex;background:#161b22;border-bottom:1px solid #30363d;padding:0 1.5rem;gap:2px}
+.tab-nav-btn{border:none;background:transparent;padding:10px 18px;font-family:inherit;font-size:.82rem;
+  font-weight:500;cursor:pointer;color:#8b949e;border-bottom:2px solid transparent;transition:.15s}
+.tab-nav-btn.active{color:#fff;border-bottom-color:var(--fhr,#c41e3a)}
+.tab-nav-btn:hover:not(.active){color:#c9d1d9}
+
+/* ══ EFFORT TAB ══ */
+#tab-effort{display:none;padding:1.5rem;max-width:1200px;margin:0 auto}
+.effort-banner{padding:10px 16px;border-radius:8px;font-size:.8rem;margin-bottom:18px;
+  display:flex;align-items:center;gap:10px}
+.effort-banner.no-data{background:#2d1f1f;color:#f0883e;border:1px solid #3d2a2a}
+.effort-banner.has-data{background:#1a2d1a;color:#3fb950;border:1px solid #2a3d2a}
+.effort-filters-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.effort-sel{background:#161b22;border:1px solid #30363d;border-radius:7px;padding:7px 12px;
+  font-family:inherit;font-size:.8rem;color:#c9d1d9;cursor:pointer;min-width:200px}
+.effort-sel:focus{outline:none;border-color:#58a6ff}
+.effort-clear-btn{border:1px solid #30363d;background:transparent;padding:7px 13px;
+  border-radius:7px;font-family:inherit;font-size:.8rem;cursor:pointer;color:#8b949e}
+.effort-clear-btn:hover{border-color:#8b949e;color:#c9d1d9}
+.effort-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.eff-kpi{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:14px 16px;
+  flex:1;min-width:110px}
+.eff-kpi.wide{flex:3;min-width:240px}
+.eff-kpi-num{font-size:1.5rem;font-weight:700;color:#c9d1d9;line-height:1}
+.eff-kpi-lbl{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:#8b949e;margin-top:4px}
+.wt-pills-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.wt-pill-sm{font-size:.68rem;font-weight:600;padding:2px 9px;border-radius:10px;color:#fff}
+.effort-list{display:flex;flex-direction:column;gap:8px}
+.eff-init{background:#0d1117;border:1px solid #30363d;border-radius:8px;overflow:hidden}
+.eff-init-hdr{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;
+  user-select:none;transition:.12s}
+.eff-init-hdr:hover{background:#161b22}
+.eff-chev{font-size:.68rem;color:#8b949e;transition:transform .2s;flex-shrink:0}
+.eff-chev.open{transform:rotate(90deg)}
+.eff-init-key{font-family:'DM Mono',monospace;font-size:.74rem;background:#161b22;
+  color:#58a6ff;padding:2px 8px;border-radius:6px;flex-shrink:0;border:1px solid #30363d}
+.eff-init-name{font-size:.84rem;font-weight:500;color:#c9d1d9;flex:1;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eff-mini-bar{flex:1;max-width:100px;height:4px;border-radius:2px;display:flex;
+  overflow:hidden;gap:1px;margin:0 6px}
+.eff-mini-seg{height:100%;border-radius:1px}
+.eff-init-pct{font-size:.67rem;color:#8b949e;flex-shrink:0;min-width:34px;text-align:right}
+.eff-init-hours{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:600;
+  color:#c9d1d9;flex-shrink:0;background:#161b22;padding:2px 8px;border-radius:6px;
+  border:1px solid #30363d}
+.eff-init-body{display:none;padding:0 16px 14px;flex-direction:column;gap:8px;
+  border-top:1px solid #21262d}
+.eff-init-body.open{display:flex}
+.eff-epic{background:#161b22;border:1px solid #21262d;border-radius:6px;padding:11px 13px}
+.eff-epic-hdr{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+.eff-epic-key{font-family:'DM Mono',monospace;font-size:.69rem;color:#8b949e;flex-shrink:0}
+.eff-epic-key-link{font-family:'DM Mono',monospace;font-size:.69rem;color:#58a6ff;
+  text-decoration:none;flex-shrink:0}
+.eff-epic-key-link:hover{text-decoration:underline}
+.eff-epic-name{font-size:.79rem;font-weight:500;color:#c9d1d9;flex:1}
+.eff-epic-h{font-family:'DM Mono',monospace;font-size:.75rem;color:#8b949e;flex-shrink:0}
+.eff-wt-row{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.eff-wt-row:last-child{margin-bottom:0}
+.eff-wt-label{font-size:.67rem;font-weight:700;padding:2px 8px;border-radius:9px;
+  color:#fff;min-width:86px;text-align:center;flex-shrink:0}
+.eff-wt-bar-wrap{flex:1;height:5px;background:#21262d;border-radius:3px;overflow:hidden}
+.eff-wt-bar{height:100%;border-radius:3px}
+.eff-wt-h{font-family:'DM Mono',monospace;font-size:.69rem;color:#8b949e;
+  min-width:48px;text-align:right;flex-shrink:0}
+.eff-wt-pct{font-size:.66rem;color:#6e7681;min-width:30px;text-align:right;flex-shrink:0}
+
+/* ══ ADMIN SECTION B ══ */
+.ap-section-b-title{font-size:.62rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.07em;color:#8b949e;margin-bottom:10px;padding:6px 0 6px;
+  border-bottom:1px solid #21262d;display:flex;align-items:center;gap:7px}
+
 </style>
 <style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
 <body class="mode-detail admin-mode">
@@ -754,7 +829,14 @@ body.admin-mode #admin-fab{display:flex;}
   </div>
 </header>
 
+<!-- ══ TAB NAVIGATION ══ -->
+<nav class="tab-nav">
+  <button class="tab-nav-btn active" id="tbn-pds" onclick="switchTab('pds')">📊 Ponto de Situação</button>
+  <button class="tab-nav-btn" id="tbn-effort" onclick="switchTab('effort')">💼 Custo por Iniciativa</button>
+</nav>
+
 <!-- ══════════════ MAIN LAYOUT ══════════════ -->
+<div id="tab-pds">
 <div class="main-layout">
 
   <!-- SECÇÃO 1: RESUMO GERAL -->
@@ -932,6 +1014,48 @@ body.admin-mode #admin-fab{display:flex;}
   </section>
 
 </div><!-- /main-layout -->
+</div><!-- /tab-pds -->
+
+<!-- ══ EFFORT TAB ══ -->
+<div id="tab-effort">
+
+  <!-- Banner -->
+  <div class="effort-banner no-data" id="effort-banner">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" stroke="#f0883e" stroke-width="1.5"/>
+      <rect x="7.25" y="4" width="1.5" height="4.5" rx=".5" fill="#f0883e"/>
+      <circle cx="8" cy="11" r=".75" fill="#f0883e"/>
+    </svg>
+    Sem dados de esforço. Importe um CSV do Tempo no painel de gestão (⚙️ botão inferior direito).
+  </div>
+
+  <!-- Filters -->
+  <div class="effort-filters-row" id="effort-filters-row" style="display:none">
+    <select class="effort-sel" id="effort-flt-init" onchange="applyEffortFilters()">
+      <option value="">Todas as iniciativas</option>
+    </select>
+    <select class="effort-sel" id="effort-flt-wt" onchange="applyEffortFilters()">
+      <option value="">Todos os work types</option>
+    </select>
+    <button class="effort-clear-btn" onclick="clearEffortFilters()">✕ Limpar</button>
+    <span style="font-size:.72rem;color:#8b949e;margin-left:auto" id="effort-ctr"></span>
+  </div>
+
+  <!-- KPIs -->
+  <div class="effort-kpis" id="effort-kpis" style="display:none"></div>
+
+  <!-- Expand/Collapse all -->
+  <div style="display:flex;gap:8px;margin-bottom:10px" id="effort-expand-row" style="display:none">
+    <button class="effort-clear-btn" onclick="setAllEffortAccordions(true)">⊞ Expandir tudo</button>
+    <button class="effort-clear-btn" onclick="setAllEffortAccordions(false)">⊟ Colapsar tudo</button>
+  </div>
+
+  <!-- Accordion list -->
+  <div class="effort-list" id="effort-list"></div>
+
+</div><!-- /tab-effort -->
+
+
 
 <!-- ══════════════ ADMIN FAB ══════════════ -->
 <button id="admin-fab" title="Painel de gestão" onclick="toggleAdmin()">⚙️</button>
@@ -999,6 +1123,32 @@ body.admin-mode #admin-fab{display:flex;}
       ☁️ Publicar no GitHub
     </button>
     <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: block;" id="gh-hint">Corrige o erro no passo 1 antes de publicar</div>
+  </div>
+
+
+  <hr class="ap-sep">
+
+  <!-- ── SECÇÃO B: ESFORÇO ── -->
+  <div class="ap-step">
+    <div class="ap-section-b-title">
+      💼 Esforço por Iniciativa
+      <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.58rem;color:#6e7681">atualização mensal · independente</span>
+    </div>
+    <div class="ap-drop" id="effort-ap-drop">
+      <input type="file" id="effort-ap-file" accept=".csv" onchange="handleEffortFile(this.files[0])">
+      <div class="ap-drop-icon">📊</div>
+      <div class="ap-drop-lbl" id="effort-ap-drop-lbl">Arrasta o CSV Tempo ou clica</div>
+      <div class="ap-drop-sub">Export Jira Tempo · .csv</div>
+    </div>
+    <div id="effort-ap-status" class="ap-status" style="display:none">
+      <div class="ap-dot" id="effort-ap-dot"></div>
+      <span id="effort-ap-status-txt"></span>
+    </div>
+    <div style="font-size:.56rem;color:var(--dim);margin:3px 0 .4rem">Usa as mesmas credenciais GitHub da secção acima.</div>
+    <button class="ap-btn ap-btn-primary" id="btn-effort-gh" onclick="saveEffortToGitHub()" disabled>
+      ☁️ Publicar Esforço no GitHub
+    </button>
+    <div style="font-size:.54rem;color:var(--dim);margin-top:3px;text-align:center">Publica apenas <code>effort.json</code></div>
   </div>
 
 </div>
@@ -1886,10 +2036,345 @@ async function saveToGitHub(){
     }catch(e){
       console.log('ℹ data.json não disponível — a usar dados embebidos');
     }
+
+    // Load effort.json from GitHub (separate from data.json)
+    try{
+      const efRes=await fetch('./effort.json?t='+Date.now());
+      if(efRes.ok){
+        effortData=await efRes.json();
+        renderEffortTab(effortData);
+      }
+    }catch(e){
+      console.log('ℹ effort.json não disponível — sem dados de esforço');
+    }
+
     // Load changelog from GitHub (visible to all viewers)
     loadChangelogFromGitHub();
   })();
 })();
+
+
+// ══════════════════════════════════════════════════════════════
+// EFFORT TAB — State
+// ══════════════════════════════════════════════════════════════
+let effortData = null;      // loaded from effort.json on GitHub
+let pendingEffort = null;   // staged after CSV import
+
+// Work-type colour map (auto-palette for unknowns)
+const WT_COLORS = {
+  'Story':'#388bfd','Bug':'#f85149','Task':'#3fb950',
+  'Sub-task':'#a78bfa','Specification':'#e3b341','Epic':'#bc8cff'
+};
+const WT_PAL = ['#58a6ff','#3fb950','#ffa657','#ff7b72','#d2a8ff','#79c0ff','#56d364','#e3b341'];
+function wtColor(wt, i){ return WT_COLORS[wt] || WT_PAL[i % WT_PAL.length]; }
+function fmtH(h){ return (h == null || isNaN(h)) ? '—' : Number(h).toFixed(1) + 'h'; }
+function nowStr(){
+  const n=new Date(),p=x=>String(x).padStart(2,'0');
+  return `${p(n.getDate())}/${p(n.getMonth()+1)}/${n.getFullYear()} às ${p(n.getHours())}:${p(n.getMinutes())}`;
+}
+
+// ── TAB SWITCHING ─────────────────────────────────────────────
+function switchTab(t){
+  document.getElementById('tab-pds').style.display    = t==='pds'    ? '' : 'none';
+  document.getElementById('tab-effort').style.display = t==='effort' ? '' : 'none';
+  document.getElementById('tbn-pds').classList.toggle('active',    t==='pds');
+  document.getElementById('tbn-effort').classList.toggle('active', t==='effort');
+}
+
+// ── EFFORT CSV PARSING (Tempo format) ─────────────────────────
+function parseTempoCSV(csvText){
+  const parsed = Papa.parse(csvText,{header:true,skipEmptyLines:true,transformHeader:h=>h.trim()});
+  const initiatives = {};
+  let curInit='', curEpicKey='', curEpicName='';
+
+  for(const row of parsed.data){
+    const rawInit  = String(row['Initiative']           || '').trim();
+    const epicRisk = String(row['Epic / Risk']          || '').trim();
+    const user     = String(row['User']                 || '').trim();
+    const issType  = String(row['Issue Type Category']  || '').trim();
+    const key      = String(row['Key']                  || '').trim();
+    const logged   = parseFloat(String(row['Logged']    || '0').replace(',','.')) || 0;
+
+    // Carry-forward Initiative (only set on first row of each initiative group)
+    if(rawInit){
+      const m = rawInit.match(/GDP-\d+/i);
+      curInit = m ? m[0].toUpperCase() : rawInit;
+    }
+    if(!curInit) continue;
+
+    // Aggregate row (epic header): no User, no IssueType
+    if(!user && !issType){
+      if(key && key.includes('-')){ curEpicKey=key; curEpicName=epicRisk; }
+      continue;
+    }
+
+    // Leaf row — actual worklog
+    if(logged <= 0) continue;
+    const epicName = epicRisk || curEpicName;
+    const epicId   = curEpicKey || epicName || 'unknown';
+    const wt       = issType || 'Epic';
+
+    if(!initiatives[curInit])
+      initiatives[curInit] = {key:curInit, totalHours:0, epics:{}};
+    const ini = initiatives[curInit];
+
+    if(!ini.epics[epicId])
+      ini.epics[epicId] = {key:curEpicKey||'', name:epicName, totalHours:0, workTypes:{}};
+    const ep = ini.epics[epicId];
+    ep.totalHours += logged;
+    ep.workTypes[wt] = (ep.workTypes[wt]||0) + logged;
+    ini.totalHours += logged;
+  }
+  return initiatives;
+}
+
+// ── EFFORT FILE HANDLER ───────────────────────────────────────
+function handleEffortFile(file){
+  if(!file) return;
+  setEffortApStatus('loading','A ler o CSV...');
+  const reader = new FileReader();
+  reader.onload = e => {
+    try{
+      const inits = parseTempoCSV(e.target.result);
+      const nInits = Object.keys(inits).length;
+      if(!nInits) throw new Error('Nenhuma iniciativa GDP encontrada. Verificar formato CSV Tempo.');
+      const nEpics = Object.values(inits).reduce((s,i)=>s+Object.keys(i.epics).length,0);
+      const totalH = Object.values(inits).reduce((s,i)=>s+i.totalHours,0);
+      pendingEffort = {importedAt:nowStr(), fileName:file.name, initiatives:inits};
+      setEffortApStatus('ok',`✓ ${file.name} · ${nInits} iniciativas · ${nEpics} epics · ${fmtH(totalH)}`);
+      document.getElementById('btn-effort-gh').disabled = false;
+      document.getElementById('effort-ap-drop-lbl').textContent = '✓ ' + file.name;
+      // Live preview on effort tab
+      effortData = pendingEffort;
+      renderEffortTab(effortData);
+    }catch(err){
+      setEffortApStatus('err','✗ '+err.message);
+    }
+  };
+  reader.readAsText(file,'UTF-8');
+}
+
+function setEffortApStatus(state, msg){
+  const el=document.getElementById('effort-ap-status');
+  const dot=document.getElementById('effort-ap-dot');
+  const txt=document.getElementById('effort-ap-status-txt');
+  if(!el) return;
+  el.style.display='flex';
+  dot.className='ap-dot '+state;
+  txt.textContent=msg;
+}
+
+// ── RENDER EFFORT TAB ─────────────────────────────────────────
+function getInitName(gdpKey){
+  try{
+    const d=JSON.parse(document.getElementById('dashboard-data').textContent);
+    const it=(d.items||[]).find(i=>i.jira===gdpKey);
+    return it?(it.tema||it.ambito||''):'';
+  }catch{ return ''; }
+}
+
+function renderEffortTab(data){
+  const banner  = document.getElementById('effort-banner');
+  const filtersRow = document.getElementById('effort-filters-row');
+  const kpisEl  = document.getElementById('effort-kpis');
+  const expRow  = document.getElementById('effort-expand-row');
+
+  if(!data||!data.initiatives){
+    banner.className='effort-banner no-data';
+    banner.innerHTML=`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#f0883e" stroke-width="1.5"/><rect x="7.25" y="4" width="1.5" height="4.5" rx=".5" fill="#f0883e"/><circle cx="8" cy="11" r=".75" fill="#f0883e"/></svg>
+      Sem dados de esforço. Importe um CSV do Tempo no painel de gestão (⚙️ botão inferior direito).`;
+    filtersRow.style.display='none'; kpisEl.style.display='none';
+    if(expRow) expRow.style.display='none';
+    document.getElementById('effort-list').innerHTML='';
+    return;
+  }
+
+  // Banner
+  banner.className='effort-banner has-data';
+  banner.innerHTML=`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#1a2d1a"/><path d="M4.5 8.5l2.5 2.5 4.5-5" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Dados de esforço atualizados em <strong style="margin:0 3px">${data.importedAt}</strong> · ${data.fileName}`;
+
+  filtersRow.style.display=''; kpisEl.style.display='';
+  if(expRow) expRow.style.display='flex';
+
+  // Populate filters (preserve current selection)
+  const fltInit = document.getElementById('effort-flt-init');
+  const fltWt   = document.getElementById('effort-flt-wt');
+  const curI=fltInit.value, curW=fltWt.value;
+  const allWTs=new Set();
+  Object.values(data.initiatives).forEach(i=>Object.values(i.epics).forEach(ep=>Object.keys(ep.workTypes).forEach(wt=>allWTs.add(wt))));
+
+  fltInit.innerHTML='<option value="">Todas as iniciativas</option>'
+    +Object.keys(data.initiatives).sort().map(k=>{
+      const name=getInitName(k);
+      return `<option value="${k}" ${k===curI?'selected':''}>${k}${name?' — '+name.slice(0,35):''}</option>`;
+    }).join('');
+
+  fltWt.innerHTML='<option value="">Todos os work types</option>'
+    +[...allWTs].sort().map(wt=>`<option value="${wt}" ${wt===curW?'selected':''}>${wt}</option>`).join('');
+
+  applyEffortFilters();
+}
+
+function applyEffortFilters(){
+  if(!effortData) return;
+  const fI=document.getElementById('effort-flt-init').value;
+  const fW=document.getElementById('effort-flt-wt').value;
+  const entries=Object.entries(effortData.initiatives).filter(([k])=>!fI||k===fI);
+
+  // Collect all work types for consistent coloring
+  const wtSet=new Set();
+  entries.forEach(([,ini])=>Object.values(ini.epics).forEach(ep=>Object.keys(ep.workTypes).forEach(wt=>wtSet.add(wt))));
+  const wtList=[...wtSet];
+  const wtColorMap={};
+  wtList.forEach((wt,i)=>{wtColorMap[wt]=wtColor(wt,i);});
+
+  // Grand total for % calculation
+  let grandTotal=0;
+  entries.forEach(([,ini])=>Object.values(ini.epics).forEach(ep=>
+    Object.entries(ep.workTypes).forEach(([wt,h])=>{if(!fW||wt===fW) grandTotal+=h;})
+  ));
+
+  // KPIs
+  let totalH=0; const wtTot={};
+  entries.forEach(([,ini])=>Object.values(ini.epics).forEach(ep=>
+    Object.entries(ep.workTypes).forEach(([wt,h])=>{if(!fW||wt===fW){totalH+=h;wtTot[wt]=(wtTot[wt]||0)+h;}})
+  ));
+  const nEpics=entries.reduce((s,[,i])=>s+Object.keys(i.epics).length,0);
+  const topWT=Object.entries(wtTot).sort(([,a],[,b])=>b-a);
+  const pills=topWT.map(([wt,h],i)=>{
+    const pct=totalH?(h/totalH*100).toFixed(0):0;
+    return `<span class="wt-pill-sm" style="background:${wtColorMap[wt]}">${wt} ${fmtH(h)} (${pct}%)</span>`;
+  }).join('');
+  document.getElementById('effort-kpis').innerHTML=`
+    <div class="eff-kpi"><div class="eff-kpi-num">${fmtH(totalH)}</div><div class="eff-kpi-lbl">Total Horas</div></div>
+    <div class="eff-kpi"><div class="eff-kpi-num">${entries.length}</div><div class="eff-kpi-lbl">Iniciativas</div></div>
+    <div class="eff-kpi"><div class="eff-kpi-num">${nEpics}</div><div class="eff-kpi-lbl">Epics</div></div>
+    <div class="eff-kpi wide"><div class="eff-kpi-lbl" style="margin-bottom:6px">Por Work Type</div><div class="wt-pills-row">${pills||'—'}</div></div>`;
+  document.getElementById('effort-ctr').textContent=`${entries.length} de ${Object.keys(effortData.initiatives).length} iniciativas`;
+
+  // Sort initiatives by total hours desc
+  const sorted=[...entries].sort(([,a],[,b])=>{
+    const ah=Object.entries(a.epics).reduce((s,[,ep])=>s+Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW).reduce((ss,[,h])=>ss+h,0),0);
+    const bh=Object.entries(b.epics).reduce((s,[,ep])=>s+Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW).reduce((ss,[,h])=>ss+h,0),0);
+    return bh-ah;
+  });
+
+  // Build accordion
+  const html=sorted.map(([key,ini])=>{
+    let initH=0;
+    const sortedEpics=Object.entries(ini.epics).map(([eid,ep])=>{
+      const filtered=Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW);
+      const epicH=filtered.reduce((s,[,h])=>s+h,0);
+      return{eid,ep,filtered,epicH};
+    }).filter(e=>e.epicH>0).sort((a,b)=>b.epicH-a.epicH);
+    if(!sortedEpics.length) return '';
+    sortedEpics.forEach(e=>{initH+=e.epicH;});
+    const pct=grandTotal?(initH/grandTotal*100).toFixed(0)+'%':'—';
+    const name=getInitName(key);
+    // Mini stacked bar
+    const initWTTot={};
+    sortedEpics.forEach(({filtered})=>filtered.forEach(([wt,h])=>{initWTTot[wt]=(initWTTot[wt]||0)+h;}));
+    const miniSegs=Object.entries(initWTTot).sort(([,a],[,b])=>b-a).map(([wt,h])=>
+      `<div class="eff-mini-seg" style="flex:${initH?(h/initH*100).toFixed(1):0};background:${wtColorMap[wt]||'#8b949e'}" title="${wt}: ${fmtH(h)}"></div>`
+    ).join('');
+    const epicsHtml=sortedEpics.map(({eid,ep,filtered,epicH})=>{
+      const maxH=Math.max(...filtered.map(([,h])=>h));
+      const jiraLink=ep.key
+        ?`<a class="eff-epic-key-link" href="https://future-healthcare.atlassian.net/browse/${ep.key}" target="_blank">${ep.key}</a>`
+        :`<span class="eff-epic-key">${ep.key||''}</span>`;
+      const wtRows=filtered.sort(([,a],[,b])=>b-a).map(([wt,h])=>{
+        const pctBar=maxH?(h/maxH*100).toFixed(1):0;
+        const pctEpic=epicH?(h/epicH*100).toFixed(0):0;
+        const col=wtColorMap[wt]||'#8b949e';
+        return `<div class="eff-wt-row">
+          <div class="eff-wt-label" style="background:${col}">${wt}</div>
+          <div class="eff-wt-bar-wrap"><div class="eff-wt-bar" style="width:${pctBar}%;background:${col}"></div></div>
+          <div class="eff-wt-h">${fmtH(h)}</div>
+          <div class="eff-wt-pct">${pctEpic}%</div>
+        </div>`;
+      }).join('');
+      return `<div class="eff-epic">
+        <div class="eff-epic-hdr">${jiraLink}<span class="eff-epic-name">${ep.name||eid}</span><span class="eff-epic-h">${fmtH(epicH)}</span></div>
+        ${wtRows}
+      </div>`;
+    }).join('');
+    return `<div class="eff-init">
+      <div class="eff-init-hdr" onclick="toggleEffortAccordion(this)">
+        <span class="eff-chev open">▶</span>
+        <span class="eff-init-key">${key}</span>
+        <span class="eff-init-name">${name||''}</span>
+        <div class="eff-mini-bar">${miniSegs}</div>
+        <span class="eff-init-pct">${pct}</span>
+        <span class="eff-init-hours">${fmtH(initH)}</span>
+      </div>
+      <div class="eff-init-body open">${epicsHtml}</div>
+    </div>`;
+  }).filter(Boolean).join('');
+  document.getElementById('effort-list').innerHTML=html||
+    '<div style="font-size:.8rem;color:#8b949e;padding:20px 0;text-align:center">Sem dados para os filtros selecionados.</div>';
+}
+
+function toggleEffortAccordion(hdr){
+  const chev=hdr.querySelector('.eff-chev');
+  const body=hdr.nextElementSibling;
+  const open=body.classList.toggle('open');
+  chev.classList.toggle('open',open);
+}
+function setAllEffortAccordions(expand){
+  document.querySelectorAll('.eff-init-body').forEach(b=>b.classList.toggle('open',expand));
+  document.querySelectorAll('.eff-chev').forEach(c=>c.classList.toggle('open',expand));
+}
+function clearEffortFilters(){
+  document.getElementById('effort-flt-init').value='';
+  document.getElementById('effort-flt-wt').value='';
+  applyEffortFilters();
+}
+
+// ── SAVE EFFORT TO GITHUB (only effort.json) ──────────────────
+async function saveEffortToGitHub(){
+  const owner=document.getElementById('gh-owner').value.trim();
+  const repo =document.getElementById('gh-repo').value.trim();
+  const token=document.getElementById('gh-token').value.trim();
+  if(!owner||!repo||!token){setEffortApStatus('err','Preenche credenciais GitHub na secção acima.');return;}
+  if(!pendingEffort&&!effortData){setEffortApStatus('err','Sem dados de esforço para publicar.');return;}
+  const btn=document.getElementById('btn-effort-gh');
+  btn.disabled=true; btn.textContent='A publicar…';
+  setEffortApStatus('loading','A publicar effort.json…');
+  try{
+    const headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'};
+    const base=`https://api.github.com/repos/${owner}/${repo}/contents/`;
+    async function getSha(path){const r=await fetch(base+path,{headers});if(r.ok){const j=await r.json();return j.sha||'';}return '';}
+    async function putFile(path,content,msg){
+      const sha=await getSha(path);
+      const b64=btoa(unescape(encodeURIComponent(content)));
+      const body={message:msg,content:b64};if(sha)body.sha=sha;
+      const r=await fetch(base+path,{method:'PUT',headers,body:JSON.stringify(body)});
+      if(!r.ok){const e=await r.json();throw new Error(path+': '+(e.message||r.status));}
+    }
+    const payload=JSON.stringify(pendingEffort||effortData,null,2);
+    await putFile('effort.json',payload,'chore: update effort data');
+    effortData=pendingEffort||effortData;
+    setEffortApStatus('ok','✓ effort.json publicado com sucesso');
+    btn.textContent='✓ Publicado!';
+    setTimeout(()=>{btn.textContent='☁️ Publicar Esforço no GitHub';btn.disabled=false;},3000);
+  }catch(err){
+    setEffortApStatus('err','✗ '+err.message);
+    btn.textContent='☁️ Publicar Esforço no GitHub'; btn.disabled=false;
+  }
+}
+
+// ── DROP ZONE for effort CSV ──────────────────────────────────
+(function(){
+  const dz=document.getElementById('effort-ap-drop');
+  if(!dz) return;
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');
+    const f=e.dataTransfer?.files?.[0]; if(f) handleEffortFile(f);});
+})();
+
+
 </script>
 
 <app-ls-content ng-version="17.3.7"></app-ls-content><app-ls-content></app-ls-content><app-ls-content></app-ls-content>
