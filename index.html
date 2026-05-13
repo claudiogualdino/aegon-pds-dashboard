@@ -92,6 +92,17 @@ body{font-family:'DM Sans',sans-serif;background:#f5f6f8;color:#1a1d23;min-heigh
 /* ════════════════════════════════
    EFFORT TAB
 ════════════════════════════════ */
+.expand-row{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.btn-expand{border:1px solid #e0e2e8;background:#fff;padding:5px 12px;border-radius:7px;
+  font-family:inherit;font-size:.75rem;cursor:pointer;color:#6b7280}
+.btn-expand:hover{background:#f0f1f4;color:#1a1d23}
+.eff-mini-bar{flex:1;max-width:120px;height:5px;border-radius:3px;display:flex;
+  overflow:hidden;gap:1px;margin:0 6px}
+.eff-mini-seg{height:100%;border-radius:1px}
+.eff-init-pct{font-size:.68rem;color:#9ca3af;flex-shrink:0;min-width:38px;text-align:right}
+.eff-epic-link{font-family:'DM Mono',monospace;font-size:.7rem;color:#3b82f6;
+  text-decoration:none;flex-shrink:0}
+.eff-epic-link:hover{text-decoration:underline}
 .effort-banner{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:12px 16px;
   display:flex;align-items:center;gap:10px;font-size:.81rem;color:#4b5563;margin-bottom:16px}
 .effort-banner.no-data{border-color:#fed7aa;background:#fff7ed;color:#92400e}
@@ -257,6 +268,12 @@ body{font-family:'DM Sans',sans-serif;background:#f5f6f8;color:#1a1d23;min-heigh
 
     <!-- KPIs -->
     <div class="effort-kpis" id="effort-kpis"></div>
+
+    <!-- Expand/Collapse all -->
+    <div class="expand-row">
+      <button class="btn-expand" onclick="setAllAccordions(true)">⊞ Expandir tudo</button>
+      <button class="btn-expand" onclick="setAllAccordions(false)">⊟ Colapsar tudo</button>
+    </div>
 
     <!-- Accordion -->
     <div class="effort-list" id="effort-list"></div>
@@ -762,7 +779,13 @@ function applyEffortFilters(){
 
   const entries=Object.entries(effortData.initiatives).filter(([k])=>!fI||k===fI);
 
-  // Aggregate KPIs
+  // Grand total (for % calculation)
+  let grandTotal=0;
+  entries.forEach(([,ini])=>Object.values(ini.epics).forEach(ep=>{
+    Object.entries(ep.workTypes).forEach(([wt,h])=>{if(!fW||wt===fW)grandTotal+=h;});
+  }));
+
+  // KPI aggregates
   let totalH=0; const wtTot={};
   entries.forEach(([,ini])=>{
     Object.values(ini.epics).forEach(ep=>{
@@ -786,46 +809,79 @@ function applyEffortFilters(){
     <div class="eff-kpi wide"><div style="font-size:.72rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Por Work Type</div><div class="wt-pills">${pills||'—'}</div></div>
   `;
 
-  // Accordion
-  const html=entries.map(([key,ini])=>{
+  // Build accordion — sorted by total hours desc
+  const sortedEntries=[...entries].sort(([,a],[,b])=>{
+    const aH=Object.values(a.epics).reduce((s,ep)=>s+Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW).reduce((ss,[,h])=>ss+h,0),0);
+    const bH=Object.values(b.epics).reduce((s,ep)=>s+Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW).reduce((ss,[,h])=>ss+h,0),0);
+    return bH-aH;
+  });
+
+  // Collect all work types in order for consistent colouring
+  const allWTs=[...new Set(entries.flatMap(([,i])=>Object.values(i.epics).flatMap(ep=>Object.keys(ep.workTypes))))];
+  const wtColorMap={};
+  allWTs.forEach((wt,i)=>{ wtColorMap[wt]=wtCol(wt,i); });
+
+  const html=sortedEntries.map(([key,ini])=>{
     const name=getPDSName(key);
     let initH=0;
-    const epicsHtml=Object.entries(ini.epics).map(([eid,ep])=>{
+
+    // Sort epics by hours desc
+    const sortedEpics=Object.entries(ini.epics).map(([eid,ep])=>{
       const filtered=Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW);
-      if(!filtered.length) return '';
       const epicH=filtered.reduce((s,[,h])=>s+h,0);
-      initH+=epicH;
+      return {eid,ep,filtered,epicH};
+    }).filter(e=>e.epicH>0).sort((a,b)=>b.epicH-a.epicH);
+
+    if(!sortedEpics.length) return '';
+    sortedEpics.forEach(e=>{ initH+=e.epicH; });
+
+    const pctOfTotal=grandTotal?(initH/grandTotal*100).toFixed(0)+'%':'—';
+
+    // Mini stacked bar — work type breakdown for this initiative
+    const initWTTot={};
+    sortedEpics.forEach(({filtered})=>filtered.forEach(([wt,h])=>{initWTTot[wt]=(initWTTot[wt]||0)+h;}));
+    const miniSegs=Object.entries(initWTTot).sort(([,a],[,b])=>b-a).map(([wt,h])=>{
+      const segPct=initH?(h/initH*100).toFixed(1):0;
+      return `<div class="eff-mini-seg" style="flex:${segPct};background:${wtColorMap[wt]||'#9ca3af'}" title="${wt}: ${fmtH(h)}"></div>`;
+    }).join('');
+
+    const epicsHtml=sortedEpics.map(({eid,ep,filtered,epicH})=>{
       const maxH=Math.max(...filtered.map(([,h])=>h));
-      const wtRows=filtered.sort(([,a],[,b])=>b-a).map(([wt,h],i)=>{
+      const jiraLink=ep.key
+        ?`<a class="eff-epic-link" href="https://future-healthcare.atlassian.net/browse/${ep.key}" target="_blank">${ep.key}</a>`
+        :'';
+      const wtRows=filtered.sort(([,a],[,b])=>b-a).map(([wt,h])=>{
         const barPct=maxH?(h/maxH*100).toFixed(1):0;
-        const pct=epicH?(h/epicH*100).toFixed(0):0;
+        const pctEp=epicH?(h/epicH*100).toFixed(0):0;
+        const col=wtColorMap[wt]||'#9ca3af';
         return `<div class="wt-row">
-          <div class="wt-label" style="background:${wtCol(wt,i)}">${wt}</div>
-          <div class="wt-bar-wrap"><div class="wt-bar" style="width:${barPct}%;background:${wtCol(wt,i)}"></div></div>
+          <div class="wt-label" style="background:${col}">${wt}</div>
+          <div class="wt-bar-wrap"><div class="wt-bar" style="width:${barPct}%;background:${col}"></div></div>
           <div class="wt-h">${fmtH(h)}</div>
-          <div class="wt-pct">${pct}%</div>
+          <div class="wt-pct">${pctEp}%</div>
         </div>`;
       }).join('');
       return `<div class="eff-epic">
         <div class="eff-epic-hdr">
-          ${ep.key?`<span class="eff-epic-key">${ep.key}</span>`:''}
+          ${jiraLink}
           <span class="eff-epic-name">${ep.name||eid}</span>
           <span class="eff-epic-h">${fmtH(epicH)}</span>
         </div>
         ${wtRows}
       </div>`;
-    }).filter(Boolean).join('');
+    }).join('');
 
-    if(!initH) return '';
-
+    // Start expanded
     return `<div class="eff-init">
       <div class="eff-init-hdr" onclick="toggleAccordion(this)">
-        <span class="eff-chev">▶</span>
+        <span class="eff-chev open">▶</span>
         <span class="eff-init-key">${key}</span>
         <span class="eff-init-name">${name||''}</span>
+        <div class="eff-mini-bar">${miniSegs}</div>
+        <span class="eff-init-pct">${pctOfTotal}</span>
         <span class="eff-init-h">${fmtH(initH)}</span>
       </div>
-      <div class="eff-init-body">${epicsHtml}</div>
+      <div class="eff-init-body open">${epicsHtml}</div>
     </div>`;
   }).filter(Boolean).join('');
 
@@ -838,6 +894,11 @@ function toggleAccordion(hdr){
   const body=hdr.nextElementSibling;
   const open=body.classList.toggle('open');
   chev.classList.toggle('open',open);
+}
+
+function setAllAccordions(expand){
+  document.querySelectorAll('.eff-init-body').forEach(b=>b.classList.toggle('open',expand));
+  document.querySelectorAll('.eff-chev').forEach(c=>c.classList.toggle('open',expand));
 }
 
 function clearEffortFilters(){
@@ -877,9 +938,15 @@ async function saveToGitHub(){
   const btn=document.getElementById('btn-pub-pds');
   btn.disabled=true;btn.textContent='A publicar…';
   try{
+    // Embed current data in the HTML before publishing (ensures file works when opened locally)
+    const dataTag=document.getElementById('dashboard-data');
+    dataTag.textContent=JSON.stringify(dashData);
+    const htmlToPublish=document.documentElement.outerHTML;
+    dataTag.textContent='[]'; // restore local state
+
     await ghPut(u,r,'data.json',JSON.stringify(dashData,null,2),t,'chore: update PDS data');
     await ghPut(u,r,'changelog.json',JSON.stringify({changes:changeLog,meta:changesMeta,generatedAt:fmtNow()},null,2),t,'chore: update changelog');
-    await ghPut(u,r,'index.html',document.documentElement.outerHTML,t,'feat: update PDS dashboard');
+    await ghPut(u,r,'index.html',htmlToPublish,t,'feat: update PDS dashboard');
     setAdmStatus('pds','✓ Publicado com sucesso no GitHub Pages','ok');
     btn.textContent='✓ Publicado!';
     setTimeout(()=>{btn.textContent='☁️ Publicar Iniciativas no GitHub';btn.disabled=false;},3000);
