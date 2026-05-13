@@ -52,12 +52,35 @@ body{font-family:'DM Sans',sans-serif;background:#f5f6f8;color:#1a1d23;min-heigh
 
 /* INITIATIVE COLS */
 .init-cols{display:flex;gap:0}
-.init-col{flex:1;padding:0 12px;display:flex;flex-direction:column;gap:9px}
+.init-col{flex:1;padding:0 12px;display:flex;flex-direction:column;gap:0}
 .init-col:first-child{padding-left:0}
 .init-col:last-child{padding-right:0}
 .col-sep{width:1px;background:#e0e2e8;margin:0 2px;flex-shrink:0}
-.col-hdr{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-  color:#9ca3af;padding-bottom:8px;border-bottom:1px solid #e0e2e8;margin-bottom:2px}
+
+/* STATUS GROUP */
+.sg-hdr{display:flex;align-items:center;gap:7px;padding:10px 0 6px;
+  border-bottom:1px solid #f0f1f4;margin-bottom:4px;margin-top:10px}
+.sg-hdr:first-child{margin-top:0}
+.sg-badge{font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:12px;
+  color:#fff;white-space:nowrap;flex-shrink:0}
+.sg-count{font-size:.82rem;font-weight:700;color:#1a1d23}
+.sg-sub{font-size:.72rem;color:#9ca3af}
+
+/* COMPACT ROW (resumida) */
+.row-item{display:flex;align-items:center;gap:8px;padding:7px 4px;
+  border-bottom:1px solid #f8f9fb;min-height:34px}
+.row-item:last-child{border-bottom:none}
+.row-item:hover{background:#fafafa;border-radius:6px}
+.row-nr{font-family:'DM Mono',monospace;font-size:.68rem;color:#c0c7d0;
+  min-width:22px;flex-shrink:0;text-align:right}
+.row-ambito{font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:10px;
+  background:#f0f1f4;color:#4b5563;flex-shrink:0;white-space:nowrap;
+  max-width:90px;overflow:hidden;text-overflow:ellipsis}
+.row-tema{font-size:.8rem;color:#1a1d23;flex:1;min-width:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row-jira-link{font-family:'DM Mono',monospace;font-size:.71rem;
+  color:#3b82f6;text-decoration:none;flex-shrink:0;white-space:nowrap}
+.row-jira-link:hover{text-decoration:underline}
 
 /* INITIATIVE CARD */
 .row-card{background:#fff;border:1px solid #e0e2e8;border-radius:7px;padding:11px 13px}
@@ -233,6 +256,7 @@ body{font-family:'DM Sans',sans-serif;background:#f5f6f8;color:#1a1d23;min-heigh
 <div id="panel-pds" class="tab-panel">
   <div class="kpi-row" id="sec-kpi"></div>
   <div id="sec-init">
+    <div id="sec-summary"></div>
     <div class="init-cols">
       <div class="init-col" id="col-left"></div>
       <div class="col-sep"></div>
@@ -363,8 +387,20 @@ let pendingEffort = null; // staged after CSV import
 // Colour palette
 const STATE_COLORS = {
   'In Progress':'#1d4ed8','QA Testing':'#2563eb','QA Approved':'#166534',
+  'Dev Testing':'#0891b2','Train Testing':'#d97706',
   'Pending FH':'#854d0e','Pending ASP':'#9a3412','On Hold':'#4b5563',
   'Business Requirements':'#6d28d9'
+};
+
+// Status display names and subtitles (shown in group headers)
+const STATUS_DISPLAY = {
+  'Business Requirements':'Business Req.',
+  'Pending ASP':'Pending AEGON / ASP',
+};
+const STATUS_SUBS = {
+  'QA Approved':'aguardam deploy',
+  'Pending ASP':'ação requerida pelo cliente',
+  'Pending FH':'ação interna',
 };
 const INACTIVE = new Set(['Backlog','Closed','Canceled']);
 const RIGHT    = new Set(['Pending ASP','Pending FH']);
@@ -454,6 +490,7 @@ function parseRows(wb){
   const hdr=(raw[hi]||[]).map(c=>String(c||'').toLowerCase().trim());
   const col=(...names)=>{ for(const n of names){ const i=hdr.findIndex(h=>h.includes(n)); if(i>=0)return i; } return -1; };
   const ci={
+    nr:       col('nº','n.','num','#','nr'),
     ambito:   col('âmbito','ambito'),
     tema:     col('tema'),
     dtProd:   col('data produção','data producao','dt entrega','data prod'),
@@ -469,6 +506,7 @@ function parseRows(wb){
     const r=raw[i]; if(!r||!r.length) continue;
     const estado=String(r[ci.estado]||'').trim(); if(!estado) continue;
     rows.push({
+      nr:      ci.nr>=0&&r[ci.nr]?String(r[ci.nr]).trim():(i-hi),
       ambito:  String(r[ci.ambito]||'').trim(),
       tema:    String(r[ci.tema]||'').trim(),
       dtProd:  cleanDate(r[ci.dtProd]),
@@ -501,13 +539,14 @@ function render(data){
     document.getElementById('col-right').innerHTML='';
     return;
   }
+
   const active  =data.filter(r=>!INACTIVE.has(r.estado));
   const closed  =data.filter(r=>r.estado==='Closed'||r.estado==='Canceled').length;
   const backlog =data.filter(r=>r.estado==='Backlog').length;
   const pendASP =active.filter(r=>r.estado==='Pending ASP').length;
   const pendFH  =active.filter(r=>r.estado==='Pending FH').length;
 
-  // State breakdown
+  // State breakdown for KPI bar
   const sc={};
   active.forEach(r=>{sc[r.estado]=(sc[r.estado]||0)+1;});
   const states=Object.entries(sc).sort(([a],[b])=>{
@@ -538,6 +577,7 @@ function render(data){
     <div class="kpi-card"><div class="kpi-num">${data.length}</div><div class="kpi-label">Total</div><div class="kpi-sub">Todas as iniciativas</div></div>
   `;
 
+  // Sort active: pending to right
   const si={};
   states.forEach(([s],i)=>{si[s]=i;});
   const sortedActive=[...active].sort((a,b)=>{
@@ -552,42 +592,87 @@ function render(data){
   const leftR=[],rightR=[];
   sortedActive.forEach(r=>(RIGHT.has(r.estado)?rightR:leftR).push(r));
 
-  document.getElementById('col-left').innerHTML =renderCol('Em Progresso',leftR,si);
-  document.getElementById('col-right').innerHTML=renderCol('Pendente ASP / FH',rightR,si);
+  // Section summary line — "Iniciativas Ativas (N) · Excluídos: Backlog(N) · Concluídos(N) · Cancelados(N)"
+  const canceled=data.filter(r=>r.estado==='Canceled').length;
+  document.getElementById('sec-summary').innerHTML=
+    `<div style="font-size:.75rem;color:#9ca3af;margin-bottom:14px">
+      <b style="color:#4b5563">Iniciativas Ativas (${active.length})</b>
+      &nbsp;·&nbsp;Excluídos: Backlog (${backlog}) · Concluídos (${closed}) · Cancelados (${canceled})
+    </div>`;
+
+  // LEFT COLUMN — group by status (Image 2 layout)
+  const leftGroups={};
+  leftR.forEach(r=>{ if(!leftGroups[r.estado]) leftGroups[r.estado]=[]; leftGroups[r.estado].push(r); });
+  document.getElementById('col-left').innerHTML =
+    Object.entries(leftGroups)
+      .sort(([a],[b])=>{ const oa=S_ORDER.indexOf(a),ob=S_ORDER.indexOf(b); return (oa>-1?oa:99)-(ob>-1?ob:99); })
+      .map(([s,rows])=>renderStatusGroup(s,rows,si))
+      .join('') || `<div style="font-size:.76rem;color:#9ca3af;padding:10px 0">Sem iniciativas</div>`;
+
+  // RIGHT COLUMN — Pending ASP + Pending FH as separate groups
+  const pendASPRows=rightR.filter(r=>r.estado==='Pending ASP');
+  const pendFHRows =rightR.filter(r=>r.estado==='Pending FH');
+  const otherRight =rightR.filter(r=>r.estado!=='Pending ASP'&&r.estado!=='Pending FH');
+  let rightHtml='';
+  if(pendASPRows.length) rightHtml+=renderStatusGroup('Pending ASP',pendASPRows,si);
+  if(pendFHRows.length)  rightHtml+=renderStatusGroup('Pending FH', pendFHRows,si);
+  if(otherRight.length)  otherRight.forEach(r=>{ if(!rightHtml.includes(r.estado)) rightHtml+=renderStatusGroup(r.estado,otherRight.filter(x=>x.estado===r.estado),si); });
+  document.getElementById('col-right').innerHTML = rightHtml || `<div style="font-size:.76rem;color:#9ca3af;padding:10px 0">Sem iniciativas</div>`;
 
   const cl=document.getElementById('sec-changelog');
   if(mode==='long'&&changeLog.length){ cl.style.display=''; renderChangelog(changeLog,changesMeta); }
   else cl.style.display='none';
 }
 
-function renderCol(title,rows,si){
-  if(!rows.length)
-    return `<div class="col-hdr">${title}</div><div style="font-size:.76rem;color:#9ca3af;padding:10px 0">Sem iniciativas</div>`;
-  return `<div class="col-hdr">${title} (${rows.length})</div>`+rows.map(r=>renderRow(r,si[r.estado]||0)).join('');
+// Render one status group (header + rows)
+function renderStatusGroup(status,rows,si){
+  const col=sCol(status,si[status]||0);
+  const displayName=STATUS_DISPLAY[status]||status;
+  const sub=STATUS_SUBS[status]||'';
+  const hdr=`<div class="sg-hdr">
+    <span class="sg-badge" style="background:${col}">${displayName}</span>
+    <span class="sg-count">${rows.length}</span>
+    ${sub?`<span class="sg-sub">· ${sub}</span>`:''}
+  </div>`;
+  return hdr + rows.map(r=>renderRow(r,si[r.estado]||0)).join('');
 }
 
 function renderRow(r,ci){
   const col=sCol(r.estado,ci);
   const jLink=r.jira
-    ?`<a class="row-jira" href="https://future-healthcare.atlassian.net/browse/${r.jira}" target="_blank">${r.jira}</a>`:'';
+    ?`<a class="row-jira-link" href="https://future-healthcare.atlassian.net/browse/${r.jira}" target="_blank">${r.jira}</a>`:'';
+  const nr=r.nr!==undefined?r.nr:'';
+
+  if(mode==='short'){
+    // Compact row — Image 2 layout: [nr] [ambito-chip] [tema] [jira]
+    return `<div class="row-item">
+      ${nr?`<span class="row-nr">${nr}</span>`:''}
+      <span class="row-ambito">${r.ambito||'—'}</span>
+      <span class="row-tema">${r.tema||'—'}</span>
+      ${jLink}
+    </div>`;
+  }
+
+  // Detalhada mode — full card
   const tLate=r.dtTrain&&isLate(r.dtTrain)&&!['Train Testing','Ready for Go Live','Closed','Canceled'].includes(r.estado);
   const pLate=r.dtProd&&isLate(r.dtProd)&&!['Closed','Canceled'].includes(r.estado);
   const tChip=r.dtTrain?`<span class="chip ${tLate?'date-late':'train-chip'}">🚂 ${r.dtTrain}</span>`:'';
   const pChip=r.dtProd?`<span class="chip ${pLate?'date-late':'prod-chip'}">🚀 ${r.dtProd}</span>`:'';
   const cChip=r.changeId?`<span class="chip chip-changeid">${r.changeId}</span>`:'';
   const obsHtml=r.obs?`<div class="row-notes">${r.obs.replace(/(\d{2}\/\d{2}\/\d{4})/g,'<span class="note-date">$1</span>')}</div>`:'';
-  const detail=mode==='long'?`<div class="row-detail">
-      <div class="meta-line">
-        ${r.equipa?`<span class="badge-team">${r.equipa}</span>`:''}
-        ${cChip}${tChip}${pChip}
-      </div>${obsHtml}</div>`:'';
   return `<div class="row-card">
     <div class="row-top">
+      ${nr?`<span class="row-nr" style="margin-right:2px">${nr}</span>`:''}
       <span class="row-scope">${r.ambito||'—'}</span>
       <span class="row-theme">${r.tema||'—'}</span>
       ${jLink}
-      <span class="state-badge" style="background:${col}">${r.estado}</span>
-    </div>${detail}
+    </div>
+    <div class="row-detail">
+      <div class="meta-line">
+        ${r.equipa?`<span class="badge-team">${r.equipa}</span>`:''}
+        ${cChip}${tChip}${pChip}
+      </div>${obsHtml}
+    </div>
   </div>`;
 }
 
@@ -1117,31 +1202,47 @@ window.addEventListener('load',async()=>{
 
   let loaded=false;
 
-  // 1. Try embedded data first (fast fallback when opened locally)
+  // 1. Try embedded data first (works offline / after local open)
   try{
     const emb=JSON.parse(document.getElementById('dashboard-data').textContent||'[]');
     if(Array.isArray(emb)&&emb.length){render(emb);loaded=true;}
   }catch{}
 
-  // 2. Fetch data.json from GitHub Pages (authoritative source)
-  const base='https://claudiogualdino.github.io/aegon-pds-dashboard';
-  try{
-    const res=await fetch(base+'/data.json',{cache:'no-store'});
-    if(res.ok){
-      const d=await res.json();
-      if(Array.isArray(d)&&d.length){render(d);loaded=true;}
+  // 2. Fetch data.json — try GitHub Pages first, raw.githubusercontent.com as fallback
+  if(!loaded){
+    const urls=[
+      'https://claudiogualdino.github.io/aegon-pds-dashboard/data.json',
+      'https://raw.githubusercontent.com/claudiogualdino/aegon-pds-dashboard/main/data.json'
+    ];
+    for(const url of urls){
+      if(loaded) break;
+      try{
+        const res=await fetch(url,{cache:'no-store'});
+        if(res.ok){
+          const d=await res.json();
+          if(Array.isArray(d)&&d.length){render(d);loaded=true;}
+        }
+      }catch{}
     }
-  }catch{}
+  }
 
   // 3. If nothing loaded, show helpful empty state
   if(!loaded) render([]);
 
-  // 4. Fetch effort data
-  try{
-    const res=await fetch(base+'/effort.json',{cache:'no-store'});
-    if(res.ok){effortData=await res.json();renderEffortTab(effortData);}
-    else renderEffortTab(null);
-  }catch{renderEffortTab(null);}
+  // 4. Fetch effort data (same dual-URL approach)
+  let effortLoaded=false;
+  const effortUrls=[
+    'https://claudiogualdino.github.io/aegon-pds-dashboard/effort.json',
+    'https://raw.githubusercontent.com/claudiogualdino/aegon-pds-dashboard/main/effort.json'
+  ];
+  for(const url of effortUrls){
+    if(effortLoaded) break;
+    try{
+      const res=await fetch(url,{cache:'no-store'});
+      if(res.ok){effortData=await res.json();renderEffortTab(effortData);effortLoaded=true;}
+    }catch{}
+  }
+  if(!effortLoaded) renderEffortTab(null);
 });
 </script>
 </body>
