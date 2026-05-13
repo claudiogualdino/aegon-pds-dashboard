@@ -1,0 +1,1248 @@
+{
+  "importedAt": "14/05/2026 às 00:37",
+  "fileName": "AEGON_Logged_Time_01_Jan_25_30_Apr_26 (1).csv",
+  "initiatives": {
+    "Unified Medical Procedures Table": {
+      "key": "Unified Medical Procedures Table",
+      "totalHours": 21.75,
+      "epics": {
+        "GDP-1560": {
+          "key": "GDP-1560",
+          "name": "No Epic / Risk",
+          "totalHours": 21.75,
+          "workTypes": {
+            "Epic": 21.75
+          }
+        }
+      }
+    },
+    "Transform Document Architecture with AI & Automation": {
+      "key": "Transform Document Architecture with AI & Automation",
+      "totalHours": 600.75,
+      "epics": {
+        "GDP-935": {
+          "key": "GDP-935",
+          "name": "JMS Webservice Integration",
+          "totalHours": 15,
+          "workTypes": {
+            "Epic": 15
+          }
+        },
+        "GDP-1278": {
+          "key": "GDP-1278",
+          "name": "Document Gateway - Technical Improvements",
+          "totalHours": 585.75,
+          "workTypes": {
+            "Epic": 585.75
+          }
+        }
+      }
+    },
+    "RO | Market Gaps": {
+      "key": "RO | Market Gaps",
+      "totalHours": 18.75,
+      "epics": {
+        "GDP-429": {
+          "key": "GDP-429",
+          "name": "[FH12] Romania Market Features",
+          "totalHours": 18.75,
+          "workTypes": {
+            "Epic": 18.75
+          }
+        }
+      }
+    },
+    "Reinforce and Develop Core Features": {
+      "key": "Reinforce and Develop Core Features",
+      "totalHours": 110.25,
+      "epics": {
+        "GDP-886": {
+          "key": "GDP-886",
+          "name": "No Epic / Risk",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        },
+        "GDP-842": {
+          "key": "GDP-842",
+          "name": "Login Masks",
+          "totalHours": 6.75,
+          "workTypes": {
+            "Epic": 6.75
+          }
+        },
+        "GDP-1319": {
+          "key": "GDP-1319",
+          "name": "Company Process Approval on FHNET",
+          "totalHours": 84.75,
+          "workTypes": {
+            "Epic": 84.75
+          }
+        },
+        "GDP-649": {
+          "key": "GDP-649",
+          "name": "[VB??] Ecuador Market Features",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        },
+        "GDP-780": {
+          "key": "GDP-780",
+          "name": "[PL08] Medical Network Cross Border",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        },
+        "GDP-837": {
+          "key": "GDP-837",
+          "name": "[OB31-08-01] Mapping Products to Online Medical Networks",
+          "totalHours": 12,
+          "workTypes": {
+            "Epic": 12
+          }
+        },
+        "GDP-582": {
+          "key": "GDP-582",
+          "name": "[FH??] Encrypted Authorizations Responsibility Terms",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-570": {
+          "key": "GDP-570",
+          "name": "[FH???] Card Elegibility Evolution",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-767": {
+          "key": "GDP-767",
+          "name": "[AM???] Word Templates in FH",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        }
+      }
+    },
+    "Policy Management System": {
+      "key": "Policy Management System",
+      "totalHours": 18,
+      "epics": {
+        "GDP-1555": {
+          "key": "GDP-1555",
+          "name": "No Epic / Risk",
+          "totalHours": 18,
+          "workTypes": {
+            "Epic": 18
+          }
+        }
+      }
+    },
+    "No Initiative": {
+      "key": "No Initiative",
+      "totalHours": 2757.2299999999996,
+      "epics": {
+        "GDP-1555": {
+          "key": "GDP-1555",
+          "name": "No Epic / Risk",
+          "totalHours": 2757.2299999999996,
+          "workTypes": {
+            "Epic": 2757.2299999999996
+          }
+        }
+      }
+    },
+    "New Contract Management System": {
+      "key": "New Contract Management System",
+      "totalHours": 1179,
+      "epics": {
+        "GDP-560": {
+          "key": "GDP-560",
+          "name": "No Epic / Risk",
+          "totalHours": 33,
+          "workTypes": {
+            "Epic": 33
+          }
+        },
+        "GDP-1519": {
+          "key": "GDP-1519",
+          "name": "FHClients Front-ends",
+          "totalHours": 720.75,
+          "workTypes": {
+            "Epic": 720.75
+          }
+        },
+        "GDP-1789": {
+          "key": "GDP-1789",
+          "name": "Contract Administration",
+          "totalHours": 425.25,
+          "workTypes": {
+            "Epic": 425.25
+          }
+        }
+      }
+    },
+    "FH Architecture: Components maintenance & evolution": {
+      "key": "FH Architecture: Components maintenance & evolution",
+      "totalHours": 645,
+      "epics": {
+        "GDP-1307": {
+          "key": "GDP-1307",
+          "name": "Platform management evolution",
+          "totalHours": 645,
+          "workTypes": {
+            "Epic": 645
+          }
+        }
+      }
+    },
+    "Evolutive Projects": {
+      "key": "Evolutive Projects",
+      "totalHours": 4999.23,
+      "epics": {
+        "GDP-1521": {
+          "key": "GDP-1521",
+          "name": "UW questionnaire list adaptations",
+          "totalHours": 15.75,
+          "workTypes": {
+            "Epic": 15.75
+          }
+        },
+        "GDP-1651": {
+          "key": "GDP-1651",
+          "name": "User Limit amount for open procedures",
+          "totalHours": 93.75,
+          "workTypes": {
+            "Epic": 93.75
+          }
+        },
+        "CREQ-139": {
+          "key": "CREQ-139",
+          "name": "Subscription - Questionnaire detail - show Provider.Questionnaire.Id value",
+          "totalHours": 21,
+          "workTypes": {
+            "Epic": 21
+          }
+        },
+        "GDP-1627": {
+          "key": "GDP-1627",
+          "name": "Standardize Claims date information to include date/time",
+          "totalHours": 454.5,
+          "workTypes": {
+            "Epic": 454.5
+          }
+        },
+        "GDP-336": {
+          "key": "GDP-336",
+          "name": "Solution Delivery - Application Support",
+          "totalHours": 132.25,
+          "workTypes": {
+            "Epic": 132.25
+          }
+        },
+        "CREQ-63": {
+          "key": "CREQ-63",
+          "name": "Separador Prémio Apólice - Revisão cálculo",
+          "totalHours": 47.25,
+          "workTypes": {
+            "Epic": 47.25
+          }
+        },
+        "GDP-1652": {
+          "key": "GDP-1652",
+          "name": "Provider Config change over required fields",
+          "totalHours": 155.25,
+          "workTypes": {
+            "Epic": 155.25
+          }
+        },
+        "GDP-1516": {
+          "key": "GDP-1516",
+          "name": "Process decision - fhnet automatic opinion detail",
+          "totalHours": 460.72999999999996,
+          "workTypes": {
+            "Epic": 460.72999999999996
+          }
+        },
+        "GDP-1781": {
+          "key": "GDP-1781",
+          "name": "Partial Auth - Close Provisions of non-billed procedures",
+          "totalHours": 266.48999999999995,
+          "workTypes": {
+            "Epic": 266.48999999999995
+          }
+        },
+        "GDP-1102": {
+          "key": "GDP-1102",
+          "name": "Otimização da plataforma FHNET - temas arquitetura",
+          "totalHours": 8.25,
+          "workTypes": {
+            "Epic": 8.25
+          }
+        },
+        "CREQ-60": {
+          "key": "CREQ-60",
+          "name": "Mensagens ao utilizador - Questionário Clinico Online",
+          "totalHours": 262.5,
+          "workTypes": {
+            "Epic": 262.5
+          }
+        },
+        "GDP-1663": {
+          "key": "GDP-1663",
+          "name": "manage clinical data between separators",
+          "totalHours": 162.75,
+          "workTypes": {
+            "Epic": 162.75
+          }
+        },
+        "GDP-1518": {
+          "key": "GDP-1518",
+          "name": "include Product on fhnet claims list",
+          "totalHours": 1125.75,
+          "workTypes": {
+            "Epic": 1125.75
+          }
+        },
+        "GDP-1723": {
+          "key": "GDP-1723",
+          "name": "Improve Bulk Import Prices",
+          "totalHours": 93,
+          "workTypes": {
+            "Epic": 93
+          }
+        },
+        "GDP-963": {
+          "key": "GDP-963",
+          "name": "Gestão Redes por Médico",
+          "totalHours": 12.75,
+          "workTypes": {
+            "Epic": 12.75
+          }
+        },
+        "GDP-1640": {
+          "key": "GDP-1640",
+          "name": "filter related questionnaires for the same company",
+          "totalHours": 53.25,
+          "workTypes": {
+            "Epic": 53.25
+          }
+        },
+        "GDP-1630": {
+          "key": "GDP-1630",
+          "name": "Doctor assignation to InPatient/ OutPatient validation on Claims",
+          "totalHours": 75,
+          "workTypes": {
+            "Epic": 75
+          }
+        },
+        "GDP-1620": {
+          "key": "GDP-1620",
+          "name": "CORE APIs - Layer Evolution",
+          "totalHours": 371.25,
+          "workTypes": {
+            "Epic": 371.25
+          }
+        },
+        "GDP-1656": {
+          "key": "GDP-1656",
+          "name": "Claims - Columns List with order possibility",
+          "totalHours": 240,
+          "workTypes": {
+            "Epic": 240
+          }
+        },
+        "GDP-1291": {
+          "key": "GDP-1291",
+          "name": "CashBack  - Cancel Claim with discount",
+          "totalHours": 72,
+          "workTypes": {
+            "Epic": 72
+          }
+        },
+        "GDP-1632": {
+          "key": "GDP-1632",
+          "name": "Allow editing accross the underwriting process without require saving process.",
+          "totalHours": 109.5,
+          "workTypes": {
+            "Epic": 109.5
+          }
+        },
+        "GDP-635": {
+          "key": "GDP-635",
+          "name": "[AM02-11] Debt Recovery – Insurers",
+          "totalHours": 177,
+          "workTypes": {
+            "Epic": 177
+          }
+        },
+        "GDP-840": {
+          "key": "GDP-840",
+          "name": "[???] Claims Audit Module",
+          "totalHours": 589.2599999999999,
+          "workTypes": {
+            "Epic": 589.2599999999999
+          }
+        }
+      }
+    },
+    "Document Management": {
+      "key": "Document Management",
+      "totalHours": 6000.51,
+      "epics": {
+        "GDP-1985": {
+          "key": "GDP-1985",
+          "name": "Support new report provider in BI report Management",
+          "totalHours": 122.25,
+          "workTypes": {
+            "Epic": 122.25
+          }
+        },
+        "GDP-2012": {
+          "key": "GDP-2012",
+          "name": "Support DocumentGateway new codes model on FHnet integrator",
+          "totalHours": 11.25,
+          "workTypes": {
+            "Epic": 11.25
+          }
+        },
+        "GDP-1409": {
+          "key": "GDP-1409",
+          "name": "Support Client Revision after OCR",
+          "totalHours": 13.5,
+          "workTypes": {
+            "Epic": 13.5
+          }
+        },
+        "GDP-1392": {
+          "key": "GDP-1392",
+          "name": "Documents Gateway  - Support FH DIgitizer OCR",
+          "totalHours": 5852.76,
+          "workTypes": {
+            "Epic": 5852.76
+          }
+        },
+        "GDP-1407": {
+          "key": "GDP-1407",
+          "name": "Classifier Integration",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        }
+      }
+    },
+    "Develop and Consolidate the Digital Health Solutions": {
+      "key": "Develop and Consolidate the Digital Health Solutions",
+      "totalHours": 6,
+      "epics": {
+        "DHCM-1856": {
+          "key": "DHCM-1856",
+          "name": "Clinical Management Maintenance Tasks",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        }
+      }
+    },
+    "Cross-cutting Components of CI": {
+      "key": "Cross-cutting Components of CI",
+      "totalHours": 28.5,
+      "epics": {
+        "GDP-354": {
+          "key": "GDP-354",
+          "name": "[FH02-02] FH PAY",
+          "totalHours": 28.5,
+          "workTypes": {
+            "Epic": 28.5
+          }
+        }
+      }
+    },
+    "Core Platform Innovation": {
+      "key": "Core Platform Innovation",
+      "totalHours": 4158.75,
+      "epics": {
+        "GDP-1357": {
+          "key": "GDP-1357",
+          "name": "Security Core Improvements",
+          "totalHours": 1587.75,
+          "workTypes": {
+            "Epic": 1587.75
+          }
+        },
+        "GDP-1405": {
+          "key": "GDP-1405",
+          "name": "Migration of Config Screens to FH2",
+          "totalHours": 2281.5,
+          "workTypes": {
+            "Epic": 2281.5
+          }
+        },
+        "GDP-1655": {
+          "key": "GDP-1655",
+          "name": "MFA and Password Management - Phase 2",
+          "totalHours": 284.25,
+          "workTypes": {
+            "Epic": 284.25
+          }
+        },
+        "GDP-1721": {
+          "key": "GDP-1721",
+          "name": "Manage Public/Private Translations",
+          "totalHours": 3.75,
+          "workTypes": {
+            "Epic": 3.75
+          }
+        },
+        "GDP-1403": {
+          "key": "GDP-1403",
+          "name": "FH2 Translations Management",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        }
+      }
+    },
+    "Client Portal": {
+      "key": "Client Portal",
+      "totalHours": 396.75,
+      "epics": {
+        "GDP-1363": {
+          "key": "GDP-1363",
+          "name": "Support to Issue group policies on Sales Portal",
+          "totalHours": 4.5,
+          "workTypes": {
+            "Epic": 4.5
+          }
+        },
+        "GDP-1390": {
+          "key": "GDP-1390",
+          "name": "Price Simulator API's",
+          "totalHours": 4.5,
+          "workTypes": {
+            "Epic": 4.5
+          }
+        },
+        "GDP-703": {
+          "key": "GDP-703",
+          "name": "Price Simulator (Phase II)",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        },
+        "GDP-1447": {
+          "key": "GDP-1447",
+          "name": "Mapping Products to Online Medical Networks",
+          "totalHours": 47.25,
+          "workTypes": {
+            "Epic": 47.25
+          }
+        },
+        "GDP-1397": {
+          "key": "GDP-1397",
+          "name": "Client Portal API's - get data adaptations",
+          "totalHours": 256.5,
+          "workTypes": {
+            "Epic": 256.5
+          }
+        },
+        "CREQ-164": {
+          "key": "CREQ-164",
+          "name": "Check authorization details",
+          "totalHours": 78,
+          "workTypes": {
+            "Epic": 78
+          }
+        }
+      }
+    },
+    "Client Onboarding Gaps": {
+      "key": "Client Onboarding Gaps",
+      "totalHours": 24777.47000000001,
+      "epics": {
+        "GDP-1280": {
+          "key": "GDP-1280",
+          "name": "WF Notifications Process",
+          "totalHours": 141,
+          "workTypes": {
+            "Epic": 141
+          }
+        },
+        "GDP-1431": {
+          "key": "GDP-1431",
+          "name": "Provider Payment Method adapt/new settings",
+          "totalHours": 457.74,
+          "workTypes": {
+            "Epic": 457.74
+          }
+        },
+        "GDP-1223": {
+          "key": "GDP-1223",
+          "name": "Provider bank account history",
+          "totalHours": 136.74,
+          "workTypes": {
+            "Epic": 136.74
+          }
+        },
+        "GDP-1225": {
+          "key": "GDP-1225",
+          "name": "Percapita Evolution",
+          "totalHours": 2085,
+          "workTypes": {
+            "Epic": 2085
+          }
+        },
+        "GDP-2008": {
+          "key": "GDP-2008",
+          "name": "Percapita Change Requests",
+          "totalHours": 88.5,
+          "workTypes": {
+            "Epic": 88.5
+          }
+        },
+        "GDP-1216": {
+          "key": "GDP-1216",
+          "name": "New person and policy data",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        },
+        "GDP-1497": {
+          "key": "GDP-1497",
+          "name": "New column 'Active' on insured person advanced search",
+          "totalHours": 132,
+          "workTypes": {
+            "Epic": 132
+          }
+        },
+        "GDP-1803": {
+          "key": "GDP-1803",
+          "name": "Networks, Subservice and Codes in Provider Integration API",
+          "totalHours": 123.25,
+          "workTypes": {
+            "Epic": 123.25
+          }
+        },
+        "GDP-1293": {
+          "key": "GDP-1293",
+          "name": "Multi Factor Authentication and Password Management",
+          "totalHours": 1338.25,
+          "workTypes": {
+            "Epic": 1338.25
+          }
+        },
+        "GDP-1226": {
+          "key": "GDP-1226",
+          "name": "Mexican Market Configurations",
+          "totalHours": 155.25,
+          "workTypes": {
+            "Epic": 155.25
+          }
+        },
+        "GDP-1421": {
+          "key": "GDP-1421",
+          "name": "Invoicing Improvements",
+          "totalHours": 656.25,
+          "workTypes": {
+            "Epic": 656.25
+          }
+        },
+        "GDP-1745": {
+          "key": "GDP-1745",
+          "name": "Invoice Fiscal Version Validation",
+          "totalHours": 129,
+          "workTypes": {
+            "Epic": 129
+          }
+        },
+        "GDP-1448": {
+          "key": "GDP-1448",
+          "name": "Invoice - Amounts validations",
+          "totalHours": 660,
+          "workTypes": {
+            "Epic": 660
+          }
+        },
+        "CREQ-116": {
+          "key": "CREQ-116",
+          "name": "Insert translations for API observations registration on FHNet",
+          "totalHours": 796.5,
+          "workTypes": {
+            "Epic": 796.5
+          }
+        },
+        "GDP-1637": {
+          "key": "GDP-1637",
+          "name": "include patient data on claims panel",
+          "totalHours": 322.5,
+          "workTypes": {
+            "Epic": 322.5
+          }
+        },
+        "GDP-1394": {
+          "key": "GDP-1394",
+          "name": "Incident's for Rollout",
+          "totalHours": 9,
+          "workTypes": {
+            "Epic": 9
+          }
+        },
+        "GDP-1757": {
+          "key": "GDP-1757",
+          "name": "Front-End adaptations to support Account and Family Policy Number",
+          "totalHours": 746.7599999999999,
+          "workTypes": {
+            "Epic": 746.7599999999999
+          }
+        },
+        "GDP-1200": {
+          "key": "GDP-1200",
+          "name": "Form Improvements for Authorization Submission on Client Portal",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        },
+        "CREQ-110": {
+          "key": "CREQ-110",
+          "name": "Field adaptations for Invoice Process",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-1173": {
+          "key": "GDP-1173",
+          "name": "Facility codes mapping",
+          "totalHours": 123,
+          "workTypes": {
+            "Epic": 123
+          }
+        },
+        "GDP-1227": {
+          "key": "GDP-1227",
+          "name": "Extraordinary Elegibility",
+          "totalHours": 214.5,
+          "workTypes": {
+            "Epic": 214.5
+          }
+        },
+        "GDP-1168": {
+          "key": "GDP-1168",
+          "name": "Eligibility - New profile setting to managed attach of documents",
+          "totalHours": 50.739999999999995,
+          "workTypes": {
+            "Epic": 50.739999999999995
+          }
+        },
+        "GDP-1169": {
+          "key": "GDP-1169",
+          "name": "Elegibility - path to autorization request",
+          "totalHours": 294.75,
+          "workTypes": {
+            "Epic": 294.75
+          }
+        },
+        "GDP-1234": {
+          "key": "GDP-1234",
+          "name": "Document Gateway Evolution (API)",
+          "totalHours": 46.5,
+          "workTypes": {
+            "Epic": 46.5
+          }
+        },
+        "GDP-1515": {
+          "key": "GDP-1515",
+          "name": "Display copayment percentage in a Eligibility",
+          "totalHours": 12.75,
+          "workTypes": {
+            "Epic": 12.75
+          }
+        },
+        "GDP-1904": {
+          "key": "GDP-1904",
+          "name": "Dental - Surface State Management",
+          "totalHours": 144,
+          "workTypes": {
+            "Epic": 144
+          }
+        },
+        "GDP-1631": {
+          "key": "GDP-1631",
+          "name": "Credit Note Management",
+          "totalHours": 1933.5,
+          "workTypes": {
+            "Epic": 1933.5
+          }
+        },
+        "GDP-1322": {
+          "key": "GDP-1322",
+          "name": "CORE Internal APIs - ReimbursementBilling",
+          "totalHours": 435,
+          "workTypes": {
+            "Epic": 435
+          }
+        },
+        "GDP-1232": {
+          "key": "GDP-1232",
+          "name": "Control Folios (API)",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        },
+        "GDP-1354": {
+          "key": "GDP-1354",
+          "name": "Config Screens for Provider Fiscal Information",
+          "totalHours": 60.75,
+          "workTypes": {
+            "Epic": 60.75
+          }
+        },
+        "GDP-1178": {
+          "key": "GDP-1178",
+          "name": "Client Portal Approval Process",
+          "totalHours": 27,
+          "workTypes": {
+            "Epic": 27
+          }
+        },
+        "GDP-1741": {
+          "key": "GDP-1741",
+          "name": "Claim Validation Report Management",
+          "totalHours": 282.75,
+          "workTypes": {
+            "Epic": 282.75
+          }
+        },
+        "GDP-1461": {
+          "key": "GDP-1461",
+          "name": "Claim taxes calculation after billing encounter",
+          "totalHours": 279,
+          "workTypes": {
+            "Epic": 279
+          }
+        },
+        "GDP-1456": {
+          "key": "GDP-1456",
+          "name": "Claim Invoice Status History",
+          "totalHours": 51,
+          "workTypes": {
+            "Epic": 51
+          }
+        },
+        "GDP-1183": {
+          "key": "GDP-1183",
+          "name": "Chronic / Acute Illness / Acident Management",
+          "totalHours": 27.75,
+          "workTypes": {
+            "Epic": 27.75
+          }
+        },
+        "CREQ-117": {
+          "key": "CREQ-117",
+          "name": "Change Requests for Vitamedica (Soft Launch)",
+          "totalHours": 37.260000000000005,
+          "workTypes": {
+            "Epic": 37.260000000000005
+          }
+        },
+        "CREQ-118": {
+          "key": "CREQ-118",
+          "name": "Change Requests for Allianz (Rollout)",
+          "totalHours": 2707.5,
+          "workTypes": {
+            "Epic": 2707.5
+          }
+        },
+        "CREQ-113": {
+          "key": "CREQ-113",
+          "name": "Change Prescription Validation",
+          "totalHours": 3325.25,
+          "workTypes": {
+            "Epic": 3325.25
+          }
+        },
+        "GDP-1790": {
+          "key": "GDP-1790",
+          "name": "Benefit Plan Reference Date",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-1201": {
+          "key": "GDP-1201",
+          "name": "Benefit Plan Management Improvements",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-1220": {
+          "key": "GDP-1220",
+          "name": "Beneficiary card number history",
+          "totalHours": 1113.24,
+          "workTypes": {
+            "Epic": 1113.24
+          }
+        },
+        "GDP-1449": {
+          "key": "GDP-1449",
+          "name": "Authorizations - Partial Consumption",
+          "totalHours": 1568.25,
+          "workTypes": {
+            "Epic": 1568.25
+          }
+        },
+        "GDP-1742": {
+          "key": "GDP-1742",
+          "name": "Authorization Separation for Multiple Specialties",
+          "totalHours": 501.75,
+          "workTypes": {
+            "Epic": 501.75
+          }
+        },
+        "GDP-1743": {
+          "key": "GDP-1743",
+          "name": "Authorization Separation for Multiple Facilities",
+          "totalHours": 1151.49,
+          "workTypes": {
+            "Epic": 1151.49
+          }
+        },
+        "GDP-1217": {
+          "key": "GDP-1217",
+          "name": "Association of Procedures to Diagnosis",
+          "totalHours": 502.5,
+          "workTypes": {
+            "Epic": 502.5
+          }
+        },
+        "GDP-1228": {
+          "key": "GDP-1228",
+          "name": "1st atencion speciality and doctor Management",
+          "totalHours": 115.5,
+          "workTypes": {
+            "Epic": 115.5
+          }
+        },
+        "GDP-1678": {
+          "key": "GDP-1678",
+          "name": "'Remessas' Management Change Requests",
+          "totalHours": 378.75,
+          "workTypes": {
+            "Epic": 378.75
+          }
+        },
+        "GDP-1364": {
+          "key": "GDP-1364",
+          "name": "'Remessas' Management",
+          "totalHours": 1399.5,
+          "workTypes": {
+            "Epic": 1399.5
+          }
+        }
+      }
+    },
+    "API Evolution to Support Digital Capablities": {
+      "key": "API Evolution to Support Digital Capablities",
+      "totalHours": 221.25,
+      "epics": {
+        "GDP-1905": {
+          "key": "GDP-1905",
+          "name": "Update Authorization API",
+          "totalHours": 177,
+          "workTypes": {
+            "Epic": 177
+          }
+        },
+        "GDP-1969": {
+          "key": "GDP-1969",
+          "name": "appointment - new observation structure",
+          "totalHours": 44.25,
+          "workTypes": {
+            "Epic": 44.25
+          }
+        }
+      }
+    },
+    "(RO) Evolutive Projects": {
+      "key": "(RO) Evolutive Projects",
+      "totalHours": 3098.75,
+      "epics": {
+        "GDP-1654": {
+          "key": "GDP-1654",
+          "name": "Show clinicCase field on claims list as a standard",
+          "totalHours": 53.25,
+          "workTypes": {
+            "Epic": 53.25
+          }
+        },
+        "GDP-1625": {
+          "key": "GDP-1625",
+          "name": "Origin Filter for Claims",
+          "totalHours": 60,
+          "workTypes": {
+            "Epic": 60
+          }
+        },
+        "GDP-1591": {
+          "key": "GDP-1591",
+          "name": "Improve Facility Valorization Module",
+          "totalHours": 479.25,
+          "workTypes": {
+            "Epic": 479.25
+          }
+        },
+        "GDP-1758": {
+          "key": "GDP-1758",
+          "name": "Feature to Download all documents from claim process",
+          "totalHours": 70.5,
+          "workTypes": {
+            "Epic": 70.5
+          }
+        },
+        "GDP-1699": {
+          "key": "GDP-1699",
+          "name": "Facility Codes Mapping Improvements",
+          "totalHours": 1543.9999999999998,
+          "workTypes": {
+            "Epic": 1543.9999999999998
+          }
+        },
+        "GDP-1318": {
+          "key": "GDP-1318",
+          "name": "Cover limit reached must refused medical procedure",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-1653": {
+          "key": "GDP-1653",
+          "name": "Authorization - Allow search codes only for specific specialty",
+          "totalHours": 47.25,
+          "workTypes": {
+            "Epic": 47.25
+          }
+        },
+        "GDP-1628": {
+          "key": "GDP-1628",
+          "name": "Allow process association to team member to all modules",
+          "totalHours": 843.75,
+          "workTypes": {
+            "Epic": 843.75
+          }
+        }
+      }
+    },
+    "(PT) Evolutive Maintenance & Support": {
+      "key": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 6791.24,
+      "epics": {
+        "GDP-1662": {
+          "key": "GDP-1662",
+          "name": "UW service - minor notifications",
+          "totalHours": 48.739999999999995,
+          "workTypes": {
+            "Epic": 48.739999999999995
+          }
+        },
+        "GDP-1966": {
+          "key": "GDP-1966",
+          "name": "TUW Get Status api - get QC status history & affected parts concatenated field",
+          "totalHours": 169.5,
+          "workTypes": {
+            "Epic": 169.5
+          }
+        },
+        "GDP-1633": {
+          "key": "GDP-1633",
+          "name": "Token generation at questionnaire reserved area and change of method",
+          "totalHours": 1027.5,
+          "workTypes": {
+            "Epic": 1027.5
+          }
+        },
+        "GDP-1746": {
+          "key": "GDP-1746",
+          "name": "Payment Entity Access Control",
+          "totalHours": 4872,
+          "workTypes": {
+            "Epic": 4872
+          }
+        },
+        "GDP-668": {
+          "key": "GDP-668",
+          "name": "Management of Capital Increase & Coverage Inclusion",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        },
+        "GDP-1749": {
+          "key": "GDP-1749",
+          "name": "Company Process Approval - UW",
+          "totalHours": 339,
+          "workTypes": {
+            "Epic": 339
+          }
+        },
+        "GDP-1681": {
+          "key": "GDP-1681",
+          "name": "Company Process Approval - change of status",
+          "totalHours": 294,
+          "workTypes": {
+            "Epic": 294
+          }
+        },
+        "GDP-1993": {
+          "key": "GDP-1993",
+          "name": "ASP Support - Data Analytics & Engineering",
+          "totalHours": 22.5,
+          "workTypes": {
+            "Epic": 22.5
+          }
+        },
+        "OB-1591": {
+          "key": "OB-1591",
+          "name": "AEGON Claims API- timeout /claims/integration/result",
+          "totalHours": 12,
+          "workTypes": {
+            "Epic": 12
+          }
+        }
+      }
+    },
+    "(PT) AEGON/SANTANDER": {
+      "key": "(PT) AEGON/SANTANDER",
+      "totalHours": 4762.77,
+      "epics": {
+        "GDP-1532": {
+          "key": "GDP-1532",
+          "name": "XML | ClaimData | Extra Payment Reason",
+          "totalHours": 111,
+          "workTypes": {
+            "Epic": 111
+          }
+        },
+        "GDP-1368": {
+          "key": "GDP-1368",
+          "name": "WKF notification - configuration by Company/multi product",
+          "totalHours": 151.74,
+          "workTypes": {
+            "Epic": 151.74
+          }
+        },
+        "GDP-1526": {
+          "key": "GDP-1526",
+          "name": "TUW | New Slot option",
+          "totalHours": 6,
+          "workTypes": {
+            "Epic": 6
+          }
+        },
+        "GDP-1545": {
+          "key": "GDP-1545",
+          "name": "TUW Client Flow - SMS reminder",
+          "totalHours": 203.00999999999996,
+          "workTypes": {
+            "Epic": 203.00999999999996
+          }
+        },
+        "GDP-1667": {
+          "key": "GDP-1667",
+          "name": "TUW API Service - add new fields & insured person context",
+          "totalHours": 168.75,
+          "workTypes": {
+            "Epic": 168.75
+          }
+        },
+        "GDP-1525": {
+          "key": "GDP-1525",
+          "name": "ONECARE | TUW | Reopen Case",
+          "totalHours": 135.5,
+          "workTypes": {
+            "Epic": 135.5
+          }
+        },
+        "CREQ-176": {
+          "key": "CREQ-176",
+          "name": "Medical Network Search - Service field not required",
+          "totalHours": 12,
+          "workTypes": {
+            "Epic": 12
+          }
+        },
+        "GDP-1638": {
+          "key": "GDP-1638",
+          "name": "Improvements in the ASP subscription process - WF",
+          "totalHours": 87.75,
+          "workTypes": {
+            "Epic": 87.75
+          }
+        },
+        "CREQ-130": {
+          "key": "CREQ-130",
+          "name": "Claims Management - invoicing menu access by Billing entity",
+          "totalHours": 0.75,
+          "workTypes": {
+            "Epic": 0.75
+          }
+        },
+        "GDP-1753": {
+          "key": "GDP-1753",
+          "name": "Claims API AEGON - Integration report - Encounter Detail",
+          "totalHours": 1.5,
+          "workTypes": {
+            "Epic": 1.5
+          }
+        },
+        "GDP-1524": {
+          "key": "GDP-1524",
+          "name": "Callback API Client Area - Encounter Changes (push notifications)",
+          "totalHours": 693.51,
+          "workTypes": {
+            "Epic": 693.51
+          }
+        },
+        "CREQ-136": {
+          "key": "CREQ-136",
+          "name": "API /contract-info/get/contract - add BenefitNumber in Response",
+          "totalHours": 117,
+          "workTypes": {
+            "Epic": 117
+          }
+        },
+        "CREQ-125": {
+          "key": "CREQ-125",
+          "name": "AEGON - Claims API Pre Validation",
+          "totalHours": 168,
+          "workTypes": {
+            "Epic": 168
+          }
+        },
+        "GDP-1265": {
+          "key": "GDP-1265",
+          "name": "[OB65] - AEGON - Client Management & maintenance",
+          "totalHours": 2906.26,
+          "workTypes": {
+            "Epic": 2906.26
+          }
+        }
+      }
+    }
+  }
+}
