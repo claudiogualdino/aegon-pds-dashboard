@@ -1,1896 +1,1045 @@
-<html lang="pt"><head>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AEGON | Ponto de Situação</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AEGON · Ponto de Situação</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
-
-<script id="dashboard-data" type="application/json">{
-  "items": [
-    {
-      "item": 1,
-      "ambito": "Produto",
-      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "estado": "Pending FH",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "HELP-22263",
-      "notes": [
-        {
-          "date": "04/05/2026",
-          "text": "agendada sessão interna para 11/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 11,
-      "ambito": "Subscrição",
-      "tema": "Alteração Subscrição | QC por Produto",
-      "estado": "Business Requirements",
-      "team": "CORE/IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "HELP-25214",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica"
-        }
-      ]
-    },
-    {
-      "item": 15,
-      "ambito": "FH2.0",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "estado": "Pending ASP",
-      "team": "INFRAS",
-      "dt_prod": "30/06/2025",
-      "dt_train": "",
-      "jira": "GDP-1530",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "24/04/2026",
-          "text": "AEGON ainda não respondeu com data fim dos testes de Dev - Train"
-        }
-      ]
-    },
-    {
-      "item": 16,
-      "ambito": "Subscrição",
-      "tema": "Lateralidades nas Exclusões",
-      "estado": "Train Testing",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "13/04/2026",
-      "jira": "GDP-1966",
-      "change_id": "HELP-24758",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "em Train Testing para AEGON poder testar"
-        }
-      ]
-    },
-    {
-      "item": 17,
-      "ambito": "FH2.0",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "QA Approved",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1681",
-      "change_id": "HELP-22257",
-      "notes": [
-        {
-          "date": "10/05/2026",
-          "text": "Aguarda aprovação release QA Global e passagem a Train"
-        }
-      ]
-    },
-    {
-      "item": 18,
-      "ambito": "FH2.0",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "QA Testing",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1749",
-      "change_id": "HELP-22371",
-      "notes": [
-        {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 19,
-      "ambito": "FH2.0",
-      "tema": "Valores Acima do Plafond",
-      "estado": "Business Requirements",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-1787",
-      "change_id": "HELP-22261",
-      "notes": [
-        {
-          "date": "10/05/2026",
-          "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
-        }
-      ]
-    },
-    {
-      "item": 23,
-      "ambito": "FH2.0",
-      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Dev Testing",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "28/04/2026",
-      "jira": "GDP-1962",
-      "change_id": "HELP-22268",
-      "notes": [
-        {
-          "date": "17/04/2026",
-          "text": "Está em dev testing."
-        }
-      ]
-    },
-    {
-      "item": 25,
-      "ambito": "FH2.0",
-      "tema": "Data de Inicio do Risco",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "10/02/2026",
-          "text": "sem qualquer feedback da ASP"
-        }
-      ]
-    },
-    {
-      "item": 26,
-      "ambito": "FH2.0",
-      "tema": "Acesso Detalhe da Factura",
-      "estado": "QA Testing",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1746",
-      "change_id": "HELP-22258",
-      "notes": [
-        {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 32,
-      "ambito": "Área Pessoal",
-      "tema": "Timeline de Reembolsos ",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "09/01/2026",
-          "text": "Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou"
-        }
-      ]
-    },
-    {
-      "item": 34,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Autorizações | Informação com detalhe",
-      "estado": "Pending ASP",
-      "team": "CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
-        }
-      ]
-    },
-    {
-      "item": 36,
-      "ambito": "Área Pessoal",
-      "tema": "Redes por Produto do Cliente",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
-        }
-      ]
-    },
-    {
-      "item": 38,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Reembolsos Filas Submetidos e Criados",
-      "estado": "Pending ASP",
-      "team": "CORE/CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "09/01/2026",
-          "text": "Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou"
-        }
-      ]
-    },
-    {
-      "item": 42,
-      "ambito": "Área Pessoal",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-1524",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "Documentação Técnica partilhada com AEGON"
-        }
-      ]
-    },
-    {
-      "item": 43,
-      "ambito": "Sinistros",
-      "tema": "Processo de Recuperação da Divida",
-      "estado": "In Progress",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-635",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "04/05/2026",
-          "text": "agendada sessão para clarificação do plano de implementação e entrega da funcionalidade"
-        }
-      ]
-    },
-    {
-      "item": 55,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "estado": "QA Testing",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1543",
-      "change_id": "HELP-22255",
-      "notes": [
-        {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 56,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "estado": "QA Testing",
-      "team": "CORE",
-      "dt_prod": "",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1544",
-      "change_id": "HELP-22256",
-      "notes": [
-        {
-          "date": "24/04/2026",
-          "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 57,
-      "ambito": "Área Pessoal",
-      "tema": "Medical Network Search - Service not required",
-      "estado": "Train Testing",
-      "team": "CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-1546",
-      "change_id": "HELP-22259",
-      "notes": [
-        {
-          "date": "10/05/2026",
-          "text": "em testes com AEGON"
-        }
-      ]
-    },
-    {
-      "item": 59,
-      "ambito": "Área Pessoal",
-      "tema": "API /contract-info/get/contract - add BenefitNumber",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "CREQ-136",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "24/10/2025",
-          "text": "Instalado no dia 23/10 fechado do lado da FH"
-        }
-      ]
-    },
-    {
-      "item": 62,
-      "ambito": "Subscrição",
-      "tema": "TUW API Service - add new fields & insured person",
-      "estado": "Pending ASP",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-1667",
-      "change_id": "HELP-22267",
-      "notes": [
-        {
-          "date": "24/10/2025",
-          "text": "Instalado no dia 23/10. Fechado do lado da FH"
-        }
-      ]
-    },
-    {
-      "item": 65,
-      "ambito": "Projecto Sinistros",
-      "tema": "API Get Claims - timeouts - improvements",
-      "estado": "Pending ASP",
-      "team": "ARCH",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "HELP-22450",
-      "notes": [
-        {
-          "date": "29/01/2026",
-          "text": "Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar"
-        }
-      ]
-    },
-    {
-      "item": 67,
-      "ambito": "Área Pessoal",
-      "tema": "Migração V2 Reembolsos OneCare",
-      "estado": "Pending ASP",
-      "team": "CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "12/11/2025",
-          "text": "Ponto pendente de resposta do OneCare"
-        }
-      ]
-    },
-    {
-      "item": 68,
-      "ambito": "Subscrição",
-      "tema": "Histórico de Estados",
-      "estado": "In Progress",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "GDP-1966",
-      "change_id": "HELP-24759",
-      "notes": [
-        {
-          "date": "10/05/2026",
-          "text": "Está em tech review. Aguardamos ok para testes."
-        }
-      ]
-    }
-  ],
-  "summary": {
-    "Pending FH": 1,
-    "Backlog": 16,
-    "Closed": 26,
-    "Business Requirements": 2,
-    "Canceled": 2,
-    "Pending ASP": 11,
-    "Train Testing": 2,
-    "QA Approved": 1,
-    "QA Testing": 4,
-    "Dev Testing": 1,
-    "In Progress": 2
-  },
-  "dateStr": "10 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 11052026.xlsx",
-  "importedAt": "10/05/2026 às 18:48"
-}</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
-:root{
-  --bg:#f5f6f8; --surf:#ffffff; --surf2:#f0f1f4; --brd:#e0e2e8;
-  --txt:#1a1d23; --mut:#6b7280; --dim:#9ca3af; --fhr:#C41E3A;
-  --c-ip:#1d4ed8; --c-ip-bg:rgba(29,78,216,.1);
-  --c-qt:#2563eb; --c-qt-bg:rgba(37,99,235,.1);
-  --c-qa:#166534; --c-qa-bg:rgba(22,101,52,.08);
-  --c-pfh:#854d0e;--c-pfh-bg:rgba(133,77,14,.08);
-  --c-pasp:#9a3412;--c-pasp-bg:rgba(154,52,18,.08);
-  --c-oh:#4b5563; --c-oh-bg:rgba(75,85,99,.08);
-  --c-biz:#6d28d9;--c-biz-bg:rgba(109,40,217,.08);
-  --c-cl:#166534; --c-bl:#6b7280;
-  --radius:10px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--txt);
-  display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f5f6f8;color:#1a1d23;min-height:100vh}
 
-/* ══ TOP HEADER ══ */
-.top-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.75rem 1.5rem;
-  background:var(--surf);border-bottom:1px solid var(--brd);
-  flex-shrink:0;gap:1rem;
-}
-.th-left{display:flex;align-items:center;gap:.7rem;}
-.fh-logo{width:34px;height:34px;background:var(--fhr);border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:.8rem;color:#fff;flex-shrink:0;}
-.th-title{font-size:.95rem;font-weight:700;letter-spacing:-.2px;line-height:1.2;}
-.th-sub{font-size:.62rem;color:var(--mut);margin-top:1px;}
-.th-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0;}
-.date-pill{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--mut);
-  background:var(--surf2);border:1px solid var(--brd);border-radius:5px;padding:3px 9px;}
+/* HEADER */
+#hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 24px;background:#fff;
+  border-bottom:1px solid #e0e2e8;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.hdr-left{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none}
+.hdr-title{font-weight:700;font-size:.97rem;color:#1a1d23}
+.hdr-sub{font-size:.72rem;color:#9ca3af;margin-top:1px}
+.hdr-right{display:flex;align-items:center;gap:10px}
+.tog-group{display:flex;background:#f0f1f4;border-radius:8px;padding:3px}
+.tog-btn{border:none;background:transparent;padding:5px 14px;border-radius:6px;font-family:inherit;
+  font-size:.78rem;font-weight:500;cursor:pointer;color:#6b7280;transition:.15s}
+.tog-btn.active{background:#fff;color:#1a1d23;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.btn-pptx{border:1px solid #e0e2e8;background:#fff;padding:6px 13px;border-radius:8px;
+  font-family:inherit;font-size:.78rem;font-weight:500;cursor:pointer;color:#1a1d23;display:none}
+.btn-pptx.vis{display:block}
 
-/* ══ HEADER BUTTONS ══ */
-.hbtn{display:inline-flex;align-items:center;gap:.35rem;padding:.38rem .85rem;
-  border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;
-  cursor:pointer;border:none;transition:all .18s;white-space:nowrap;}
-.hbtn-primary{background:var(--fhr);color:#fff;}
-.hbtn-primary:hover{background:#a0182f;}
-.hbtn-primary:disabled{opacity:.45;cursor:not-allowed;}
-.hbtn-ghost{background:transparent;color:var(--mut);border:1px solid var(--brd);}
-.hbtn-ghost:hover{border-color:var(--mut);color:var(--txt);}
-.view-toggle{display:flex;background:var(--surf2);border:1px solid var(--brd);border-radius:6px;overflow:hidden;}
-.vt-opt{font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:600;padding:.32rem .85rem;
-  color:var(--mut);border:none;background:transparent;cursor:pointer;transition:all .18s;}
-.vt-opt.active{background:var(--fhr);color:#fff;}
+/* TAB NAV */
+.tab-nav{display:flex;background:#fff;border-bottom:1px solid #e0e2e8;padding:0 24px;gap:2px}
+.tab-btn{border:none;background:transparent;padding:11px 16px;font-family:inherit;font-size:.83rem;
+  font-weight:500;cursor:pointer;color:#6b7280;border-bottom:2px solid transparent;transition:.15s}
+.tab-btn.active{color:#C41E3A;border-bottom-color:#C41E3A}
+.tab-btn:hover:not(.active){color:#1a1d23}
 
-/* ══ MAIN TWO-COLUMN LAYOUT ══ */
-/* ══ VERTICAL LAYOUT ══ */
-.main-layout{
-  display:flex;flex-direction:column;
-  overflow-y:auto;
-  padding:1.5rem 2rem 2rem;
-  gap:1.5rem;
-}
+/* PANELS */
+.tab-panel{padding:22px 24px}
 
-/* Section label */
-.panel-section-lbl{
-  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:12px;
-}
+/* KPI CARDS */
+.kpi-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.kpi-card{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:16px 18px;flex:1;min-width:130px}
+.kpi-card.hero{flex:2;min-width:240px}
+.kpi-num{font-size:1.9rem;font-weight:700;line-height:1}
+.kpi-label{font-size:.7rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-top:5px}
+.kpi-sub{font-size:.72rem;color:#9ca3af;margin-top:3px}
+.breakdown-bar{height:7px;border-radius:4px;display:flex;overflow:hidden;margin:12px 0 8px;gap:2px}
+.breakdown-seg{height:100%;border-radius:2px}
+.breakdown-legend{display:flex;flex-wrap:wrap;gap:5px 10px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:.7rem;color:#4b5563}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
-/* ── RESUMO GERAL: horizontal row of cards ── */
-.resumo-row{display:flex;gap:12px;align-items:stretch;}
+/* INITIATIVE COLS */
+.init-cols{display:flex;gap:0}
+.init-col{flex:1;padding:0 12px;display:flex;flex-direction:column;gap:9px}
+.init-col:first-child{padding-left:0}
+.init-col:last-child{padding-right:0}
+.col-sep{width:1px;background:#e0e2e8;margin:0 2px;flex-shrink:0}
+.col-hdr{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:#9ca3af;padding-bottom:8px;border-bottom:1px solid #e0e2e8;margin-bottom:2px}
 
-.sum-hero{background:var(--surf);border:1px solid var(--brd);border-radius:var(--radius);
-  padding:18px 22px;flex:2;min-width:0;}
-.sum-hero-top{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
-.sum-big{font-size:3.2rem;font-weight:700;letter-spacing:-2px;line-height:1;color:var(--txt);}
-.sum-big-lbl{font-size:14px;color:var(--mut);line-height:1.4;}
-.bar-track{height:10px;border-radius:5px;background:var(--brd);overflow:hidden;display:flex;margin-bottom:10px;}
-.bar-seg{height:100%;}
-.bar-legend{display:flex;flex-wrap:wrap;gap:6px 16px;}
-.bl-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mut);}
-.bl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+/* INITIATIVE CARD */
+.row-card{background:#fff;border:1px solid #e0e2e8;border-radius:7px;padding:11px 13px}
+.row-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row-scope{font-weight:600;font-size:.83rem}
+.row-theme{font-size:.78rem;color:#4b5563}
+.row-jira{font-size:.73rem;color:#3b82f6;text-decoration:none}
+.row-jira:hover{text-decoration:underline}
+.state-badge{font-size:.67rem;font-weight:700;padding:2px 8px;border-radius:12px;color:#fff;margin-left:auto;white-space:nowrap}
+.row-detail{margin-top:9px;padding-top:9px;border-top:1px solid #f0f1f4}
+.meta-line{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.badge-team{background:#f0f1f4;color:#4b5563;font-size:.68rem;font-weight:500;padding:2px 8px;border-radius:12px}
+.chip{font-size:.68rem;font-weight:500;padding:2px 8px;border-radius:12px;border:1px solid}
+.train-chip{background:#fef9c3;color:#854d0e;border-color:#fde047}
+.prod-chip{background:#dcfce7;color:#166534;border-color:#86efac}
+.date-late{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+.chip-changeid{background:#ede9fe;color:#6d28d9;border-color:#c4b5fd}
+.row-notes{font-size:.76rem;color:#4b5563;line-height:1.55}
+.row-notes .note-date{color:#3b82f6;font-weight:500}
 
-/* Action cards (Pendente AEGON / FH) */
-.act-card{background:var(--surf);border:1px solid var(--brd);border-radius:var(--radius);
-  padding:16px 20px;flex:1;}
-.act-num{font-size:2.4rem;font-weight:700;letter-spacing:-1px;line-height:1;}
-.act-card.pasp .act-num{color:var(--c-pasp);}
-.act-card.pfh  .act-num{color:var(--c-pfh);}
-.act-lbl{font-size:13px;color:var(--txt);margin-top:5px;font-weight:600;}
-.act-sub{font-size:11px;color:var(--dim);margin-top:2px;}
+/* CHANGELOG */
+#sec-changelog{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:16px 20px;margin-top:20px}
+.cl-header{font-size:.82rem;font-weight:700;margin-bottom:12px}
+.cl-badge{display:inline-flex;align-items:center;font-size:.67rem;font-weight:600;
+  padding:3px 10px;border-radius:12px;margin-bottom:10px}
+.cl-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
+.cl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.cl-body{font-size:.78rem;color:#4b5563;line-height:1.5}
+.cl-detail{font-size:.74rem;color:#6b7280;white-space:normal;line-height:1.5}
+.cl-footer{font-size:.68rem;color:#9ca3af;margin-top:10px;padding-top:10px;border-top:1px solid #f0f1f4}
 
-/* Stat cards (Total / Backlog / Concluídos) */
-.stat-card{background:var(--surf);border:1px solid var(--brd);border-radius:var(--radius);
-  padding:16px 20px;flex:1;}
-.stat-num{font-size:2.4rem;font-weight:700;letter-spacing:-1.5px;line-height:1;}
-.stat-card.tot .stat-num{color:var(--fhr);}
-.stat-card.bl  .stat-num{color:var(--dim);}
-.stat-card.cl  .stat-num{color:var(--c-cl);}
-.stat-lbl{font-size:13px;color:var(--txt);font-weight:600;margin-top:5px;}
-.stat-sub{font-size:11px;color:var(--dim);margin-top:2px;}
-.stat-bar{display:none;}
+/* ════════════════════════════════
+   EFFORT TAB
+════════════════════════════════ */
+.effort-banner{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;font-size:.81rem;color:#4b5563;margin-bottom:16px}
+.effort-banner.no-data{border-color:#fed7aa;background:#fff7ed;color:#92400e}
 
-/* ── INICIATIVAS: section below resumo ── */
-.panel-right{
-  display:flex;flex-direction:column;
-  min-width:0;
-}
-.detail-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:12px;flex-shrink:0;
-}
-.detail-title-area h3{font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--txt);}
-.detail-title-area p{font-size:12px;color:var(--mut);margin-top:3px;}
-.detail-cols{display:flex;gap:16px;align-items:flex-start;}
-.dcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;}
-.col-div{width:1px;background:var(--brd);flex-shrink:0;align-self:stretch;}
+.effort-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.eff-select{border:1px solid #e0e2e8;border-radius:8px;padding:7px 12px;font-family:inherit;
+  font-size:.8rem;background:#fff;color:#1a1d23;cursor:pointer;min-width:180px}
+.btn-clear{border:1px solid #e0e2e8;background:#fff;padding:7px 13px;border-radius:8px;
+  font-family:inherit;font-size:.8rem;cursor:pointer;color:#6b7280}
+.btn-clear:hover{background:#f0f1f4}
 
-/* Groups & rows */
-.dgroup{display:flex;flex-direction:column;margin-bottom:12px;}
-.dg-hd{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
-.dpill{font-size:11px;font-weight:700;letter-spacing:.03em;padding:3px 10px;border-radius:10px;white-space:nowrap;}
-.dp-ip  {background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;}
-.dp-qt  {background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd;}
-.dp-qa  {background:#dcfce7;color:#166534;border:1px solid #86efac;}
-.dp-pfh {background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
-.dp-pasp{background:#ffedd5;color:#9a3412;border:1px solid #fdba74;}
-.dp-oh  {background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;}
-.dp-biz {background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
-.dg-cnt{font-size:11px;color:var(--dim);}
-.ditems{display:flex;flex-direction:column;gap:4px;}
+.effort-kpis{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.eff-kpi{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:14px 16px;flex:1;min-width:110px}
+.eff-kpi.wide{flex:3;min-width:250px}
+.eff-kpi-num{font-size:1.45rem;font-weight:700;line-height:1}
+.eff-kpi-label{font-size:.68rem;font-weight:700;color:#6b7280;text-transform:uppercase;
+  letter-spacing:.05em;margin-top:4px}
+.wt-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.wt-pill-sm{font-size:.68rem;font-weight:600;padding:2px 9px;border-radius:12px;color:#fff}
 
-/* Each initiative = card with border */
-.init-card{
-  background:#fff;
-  border:1px solid #e0e2e8;
-  border-radius:7px;
-  overflow:hidden;
-}
-.drow{display:grid;grid-template-columns:22px 74px 1fr auto;gap:0 6px;
-  padding:6px 10px;align-items:start;font-size:.61rem;}
-.dr-n{color:var(--dim);font-family:'DM Mono',monospace;font-size:11px;padding-top:1px;}
-.dr-a span{font-size:11px;background:#f5f6f8;border:1px solid #e0e2e8;
-  border-radius:3px;padding:2px 6px;color:var(--mut);white-space:nowrap;}
-.dr-t{color:var(--txt);font-weight:500;line-height:1.35;font-size:13px;}
-.dr-j a{font-family:'DM Mono',monospace;font-size:11px;color:#2563eb;
-  border:1px solid #bfdbfe;border-radius:3px;padding:2px 6px;
-  background:#eff6ff;white-space:nowrap;display:inline-block;}
-.dr-j a:hover{background:#dbeafe;}
-.dr-j.nj{visibility:hidden;}
+.effort-list{display:flex;flex-direction:column;gap:9px}
 
-/* Detail block — inside card, white bg, separated by top border */
-.drow-detail{display:none;flex-direction:column;gap:5px;
-  padding:8px 12px 10px 12px;
-  border-top:1px solid #f0f1f4;
-  background:#ffffff;}
-body.mode-detail .drow-detail{display:flex;}
-.dd-sp{}.dd-l{display:flex;flex-direction:row;gap:5px;flex-wrap:wrap;align-items:center;}
-.team-badge{font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;
-  background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db;
-  white-space:nowrap;display:inline-block;align-self:flex-start;}
-.meta-chip{font-size:11px;font-weight:500;padding:3px 8px;border-radius:4px;
-  white-space:nowrap;display:inline-block;align-self:flex-start;}
-.prod-chip{background:#dcfce7;color:#166534;border:1px solid #86efac;}
-.train-chip{background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
-.date-late{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;}
-.chip-label{font-weight:700;margin-right:3px;opacity:.8;}
-.chg-chip{background:#ede9fe;color:#6d28d9;border:1px solid #c4b5fd;}
-.chg-chip:hover{background:#ddd6fe;}
-.dd-notes{display:flex;flex-direction:column;gap:2px;}
+/* Initiative accordion */
+.eff-init{background:#fff;border:1px solid #e0e2e8;border-radius:10px;overflow:hidden}
+.eff-init-hdr{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;user-select:none;transition:.12s}
+.eff-init-hdr:hover{background:#fafafa}
+.eff-chev{font-size:.7rem;color:#9ca3af;transition:transform .2s;flex-shrink:0}
+.eff-chev.open{transform:rotate(90deg)}
+.eff-init-key{font-family:'DM Mono',monospace;font-size:.75rem;background:#f0f1f4;color:#4b5563;
+  padding:2px 8px;border-radius:6px;flex-shrink:0}
+.eff-init-name{font-weight:600;font-size:.85rem;flex:1;min-width:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eff-init-h{font-family:'DM Mono',monospace;font-size:.8rem;color:#6b7280;
+  font-weight:600;flex-shrink:0;background:#f0f1f4;padding:2px 8px;border-radius:6px}
+.eff-init-body{border-top:1px solid #f0f1f4;display:none;padding:12px 16px;flex-direction:column;gap:9px}
+.eff-init-body.open{display:flex}
 
-/* ── Changelog section — visible in both modes when populated ── */
-.changelog-wrap{
-  display:none;
-  flex-direction:column;
-  flex-shrink:0;
-  margin-top:.8rem;
-  border-top:1.5px solid var(--brd);
-  padding-top:.75rem;
-  gap:.4rem;
-}
-body.mode-detail .changelog-wrap.has-data{display:flex;}
-.changelog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.35rem;}
-.changelog-title{display:flex;align-items:center;gap:.5rem;}
-.changelog-bar{width:3px;height:14px;background:var(--fhr);border-radius:2px;flex-shrink:0;}
-.changelog-lbl{font-size:.65rem;font-weight:600;color:var(--txt);}
-.changelog-vs{font-size:.57rem;background:rgba(196,30,58,.1);color:var(--fhr);
-  border:1px solid rgba(196,30,58,.3);border-radius:10px;padding:1px 7px;}
-.changelog-count{font-size:.57rem;color:var(--dim);}
-.changelog-empty{font-size:.62rem;color:var(--dim);padding:.5rem;text-align:center;
-  border:1px dashed var(--brd);border-radius:6px;}
-.chg-item{display:flex;align-items:flex-start;gap:.5rem;padding:5px 8px;border-radius:6px;border:1px solid;}
-.chg-item.state{background:rgba(63,185,80,.07);border-color:rgba(63,185,80,.25);}
-.chg-item.note {background:rgba(56,139,253,.07);border-color:rgba(56,139,253,.25);}
-.chg-item.new  {background:rgba(240,136,62,.07);border-color:rgba(240,136,62,.25);}
-.chg-item.done {background:rgba(139,148,158,.07);border-color:rgba(139,148,158,.25);}
-.chg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:3px;}
-.chg-item.state .chg-dot{background:var(--c-qa);}
-.chg-item.note  .chg-dot{background:var(--c-qt);}
-.chg-item.new   .chg-dot{background:var(--c-pasp);}
-.chg-item.done  .chg-dot{background:var(--c-oh);}
-.chg-body{display:flex;flex-direction:column;gap:2px;}
-.chg-name{font-size:.62rem;font-weight:500;color:var(--txt);}
-.chg-detail{font-size:.58rem;color:var(--mut);display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
-.chg-pill{font-size:.54rem;border-radius:3px;padding:1px 5px;}
-.changelog-footer{font-size:.56rem;color:var(--dim);text-align:center;font-family:'DM Mono',monospace;margin-top:2px;}
-.note-entry{font-size:12px;color:#374151;line-height:1.45;}
-.note-date{font-family:'DM Mono',monospace;font-size:11px;color:#2563eb;font-weight:500;margin-right:5px;}
-.note-text{color:var(--mut);}
+/* Epic block */
+.eff-epic{background:#f8f9fb;border:1px solid #eaecf0;border-radius:8px;padding:12px 13px}
+.eff-epic-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.eff-epic-key{font-family:'DM Mono',monospace;font-size:.7rem;color:#9ca3af;flex-shrink:0}
+.eff-epic-name{font-size:.8rem;font-weight:600;flex:1;min-width:0}
+.eff-epic-h{font-family:'DM Mono',monospace;font-size:.76rem;color:#6b7280;flex-shrink:0}
 
-/* ── Executive Report section ── */
-.exec-report-wrap{display:none;flex-direction:column;flex-shrink:0;
-  margin-top:.8rem;border-top:1.5px solid var(--brd);padding-top:.75rem;gap:.35rem;}
-body.mode-detail .exec-report-wrap.has-report{display:flex;}
-.exec-report-header{display:flex;align-items:center;justify-content:space-between;
-  cursor:pointer;user-select:none;margin-bottom:.1rem;}
-.exec-report-title{display:flex;align-items:center;gap:.5rem;}
-.exec-report-lbl{font-size:.65rem;font-weight:600;color:var(--txt);}
-.exec-report-badge{font-size:.57rem;background:rgba(196,30,58,.1);color:var(--fhr);
-  border:1px solid rgba(196,30,58,.3);border-radius:10px;padding:1px 7px;}
-.exec-report-toggle{font-size:.62rem;color:var(--mut);transition:transform .2s;}
-.exec-report-body{display:flex;flex-direction:column;}
-.exec-report-wrap.collapsed .exec-report-body{display:none;}
-.exec-report-wrap.collapsed .exec-report-toggle{transform:rotate(-180deg);}
-.exec-report-text-display{font-size:.73rem;line-height:1.7;color:var(--txt);
-  padding:.85rem 1.1rem;background:var(--surf2);border-radius:7px;
-  border:1px solid var(--brd);width:100%;box-sizing:border-box;}
-.ap-exec-textarea{width:100%;min-height:95px;font-family:'DM Sans',sans-serif;
-  font-size:.62rem;line-height:1.5;padding:.4rem .5rem;background:var(--surf2);
-  border:1px solid var(--brd);border-radius:6px;color:var(--txt);resize:vertical;
-  margin-top:.3rem;box-sizing:border-box;}
-.ap-exec-textarea::placeholder{color:var(--dim);}
-.ap-exec-textarea:focus{outline:none;border-color:var(--fhr);}
+/* Work type rows */
+.wt-row{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.wt-row:last-child{margin-bottom:0}
+.wt-label{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;
+  min-width:88px;text-align:center;flex-shrink:0}
+.wt-bar-wrap{flex:1;height:5px;background:#e9eaee;border-radius:3px;overflow:hidden}
+.wt-bar{height:100%;border-radius:3px}
+.wt-h{font-family:'DM Mono',monospace;font-size:.7rem;color:#6b7280;min-width:50px;text-align:right;flex-shrink:0}
+.wt-pct{font-size:.67rem;color:#9ca3af;min-width:32px;text-align:right;flex-shrink:0}
 
-/* ══ ADMIN PANEL ══ */
-#admin-fab{position:fixed;bottom:1.5rem;right:1.5rem;width:40px;height:40px;border-radius:50%;
-  background:#ffffff;border:1px solid var(--brd);display:none;align-items:center;
-  justify-content:center;font-size:1rem;cursor:pointer;z-index:100;
-  box-shadow:0 4px 20px rgba(0,0,0,.4);transition:all .2s;color:var(--dim);}
-#admin-fab:hover{border-color:var(--fhr);color:var(--fhr);transform:rotate(30deg);}
-body.admin-mode #admin-fab{display:flex;}
-#admin-panel{position:fixed;bottom:4.2rem;right:1.5rem;width:320px;background:#ffffff;
-  border:1px solid var(--brd);border-radius:12px;padding:1.1rem;z-index:99;
-  box-shadow:0 8px 32px rgba(0,0,0,.5);display:none;flex-direction:column;gap:.7rem;}
-#admin-panel.open{display:flex;}
-.ap-title{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--dim);border-bottom:1px solid var(--brd);padding-bottom:.45rem;
-  display:flex;align-items:center;justify-content:space-between;}
-.ap-title span{color:var(--fhr);}
-.ap-close{background:none;border:none;color:var(--dim);cursor:pointer;font-size:.85rem;}
-.ap-close:hover{color:var(--txt);}
-.ap-lbl{font-size:.6rem;font-weight:600;color:var(--mut);}
-.ap-drop{border:1.5px dashed var(--brd);border-radius:7px;padding:.8rem;
-  text-align:center;cursor:pointer;transition:all .2s;position:relative;}
-.ap-drop:hover,.ap-drop.drag-over{border-color:var(--fhr);background:rgba(196,30,58,.05);}
-.ap-drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.ap-drop-icon{font-size:1.2rem;margin-bottom:2px;}
-.ap-drop-lbl{font-size:.66rem;font-weight:600;color:var(--txt);}
-.ap-drop-sub{font-size:.58rem;color:var(--mut);margin-top:1px;}
-.ap-date-row{display:flex;align-items:center;gap:.4rem;}
-.ap-date-row label{font-size:.6rem;color:var(--mut);white-space:nowrap;}
-.ap-date-row input{flex:1;font-family:'DM Mono',monospace;font-size:.64rem;padding:.28rem .45rem;
-  background:var(--surf2);border:1px solid var(--brd);border-radius:5px;color:var(--txt);}
-.ap-input{width:100%;font-family:'DM Mono',monospace;font-size:.62rem;padding:.28rem .45rem;
-  background:var(--surf2);border:1px solid var(--brd);border-radius:5px;color:var(--txt);margin-top:2px;}
-.ap-input::placeholder{color:var(--dim);}
-.ap-btn{display:flex;align-items:center;justify-content:center;gap:.35rem;width:100%;
-  padding:.45rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.68rem;
-  font-weight:600;cursor:pointer;border:none;transition:all .18s;}
-.ap-btn-primary{background:var(--fhr);color:#fff;}
-.ap-btn-primary:hover:not(:disabled){background:#a0182f;}
-.ap-btn-primary:disabled{opacity:.35;cursor:not-allowed;}
-.ap-btn-step{background:var(--surf2);color:var(--txt);border:1px solid var(--brd);}
-.ap-btn-step:hover{border-color:var(--mut);}
-.ap-step{display:flex;flex-direction:column;gap:.35rem;}
-.ap-step-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.1rem;}
-.ap-step-num{width:20px;height:20px;border-radius:50%;background:var(--fhr);
-  color:#fff;font-size:.62rem;font-weight:700;display:flex;align-items:center;
-  justify-content:center;flex-shrink:0;}
-.ap-step-num.done{background:var(--c-qa);}
-.ap-step-title{font-size:.68rem;font-weight:600;color:var(--txt);}
-.ap-status{font-size:.6rem;padding:.3rem .55rem;border-radius:5px;text-align:center;
-  background:var(--surf2);border:1px solid var(--brd);color:var(--mut);
-  display:flex;align-items:center;gap:.4rem;justify-content:center;}
-.ap-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.ap-dot.idle{background:var(--dim);}
-.ap-dot.loading{background:var(--c-pfh);animation:pulse 1s infinite;}
-.ap-dot.ok{background:var(--c-qa);}
-.ap-dot.err{background:var(--fhr);}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.ap-sep{border:none;border-top:1px solid var(--brd);}
-
-/* ══ PPTX TOAST ══ */
-#toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(10px);
-  background:#166534;color:#fff;font-size:.7rem;font-weight:600;
-  padding:.45rem 1rem;border-radius:6px;opacity:0;pointer-events:none;transition:all .3s;z-index:200;}
-#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+/* ════════════════════════════════
+   ADMIN PANEL
+════════════════════════════════ */
+#admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;
+  display:none;align-items:center;justify-content:center}
+.admin-panel{background:#fff;border-radius:14px;width:580px;max-width:96vw;
+  max-height:90vh;overflow-y:auto;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.admin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.admin-hdr h3{font-size:.97rem;font-weight:700}
+.admin-hdr button{border:none;background:none;font-size:1.1rem;cursor:pointer;color:#6b7280;
+  padding:4px 6px;border-radius:6px}
+.admin-hdr button:hover{background:#f0f1f4}
+.admin-section{border:1px solid #e0e2e8;border-radius:10px;padding:16px;margin-bottom:14px}
+.admin-sec-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+  color:#6b7280;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.admin-sec-note{font-weight:400;text-transform:none;letter-spacing:0;font-size:.68rem;color:#9ca3af}
+.adm-field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.adm-field label{font-size:.73rem;font-weight:600;color:#4b5563}
+.adm-field input{border:1px solid #e0e2e8;border-radius:8px;padding:7px 11px;font-family:inherit;
+  font-size:.8rem;color:#1a1d23;outline:none}
+.adm-field input:focus{border-color:#6b7280}
+.adm-row{display:flex;gap:10px}
+.adm-row .adm-field{flex:1;margin-bottom:0}
+.drop-zone{border:2px dashed #e0e2e8;border-radius:9px;padding:18px;text-align:center;
+  cursor:pointer;transition:.15s;margin-bottom:10px;position:relative}
+.drop-zone:hover,.drop-zone.drag{border-color:#C41E3A;background:#fef2f2}
+.dz-icon{font-size:1.4rem;margin-bottom:5px}
+.dz-text{font-size:.78rem;color:#6b7280}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.adm-status{font-size:.76rem;padding:8px 12px;border-radius:8px;margin-bottom:10px;display:none}
+.adm-status.ok{background:#dcfce7;color:#166534;display:block}
+.adm-status.err{background:#fee2e2;color:#991b1b;display:block}
+.adm-note{font-size:.7rem;color:#9ca3af;margin-bottom:8px}
+.btn-pub{display:block;width:100%;padding:9px;border-radius:8px;font-family:inherit;
+  font-size:.83rem;font-weight:600;cursor:pointer;text-align:center;border:none;transition:.15s;margin-top:6px}
+.btn-pub:disabled{background:#e0e2e8;color:#9ca3af;cursor:not-allowed}
+.btn-dark{background:#1a1d23;color:#fff}
+.btn-dark:not(:disabled):hover{background:#374151}
+.btn-red{background:#C41E3A;color:#fff}
+.btn-red:not(:disabled):hover{background:#a01830}
 </style>
-<style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style><style>[_nghost-ng-c2697620354]{font-family:Open Sans,sans-serif;color:#121212}</style></head>
-<body class="mode-detail admin-mode">
+</head>
+<body>
 
-<!-- ══════════════ HEADER ══════════════ -->
-<header class="top-header">
-  <div class="th-left">
-    <div class="fh-logo">FH</div>
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header id="hdr">
+  <div class="hdr-left" id="fh-logo">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="7" fill="#C41E3A"/>
+      <text x="18" y="25" text-anchor="middle" fill="white"
+        font-family="DM Sans,sans-serif" font-weight="700" font-size="16">FH</text>
+    </svg>
     <div>
-      <div class="th-title">AEGON — Ponto de Situação</div>
-      <div class="th-sub">Iniciativas Tecnologia · Future Healthcare</div>
+      <div class="hdr-title">AEGON · Ponto de Situação</div>
+      <div class="hdr-sub">Future Healthcare · Digital Health</div>
     </div>
   </div>
-  <div class="th-right">
-    <span class="date-pill" id="date-pill">10 / 05 / 2026</span>
-    <div class="view-toggle">
-      <button class="vt-opt" id="btn-resumida" onclick="setMode('resumida')">Resumida</button>
-      <button class="vt-opt active" id="btn-detalhada" onclick="setMode('detalhada')">＋ Detalhada</button>
+  <div class="hdr-right">
+    <div class="tog-group">
+      <button class="tog-btn active" id="tog-short" onclick="setMode('short')">Resumida</button>
+      <button class="tog-btn" id="tog-long" onclick="setMode('long')">+ Detalhada</button>
     </div>
-    <button class="hbtn hbtn-primary" id="btn-pptx" onclick="exportPPTX()" title="Exportar 2 slides PowerPoint" style="display: inline-flex;">
-      ⬇ Exportar PPTX
-    </button>
+    <button class="btn-pptx" id="btn-pptx" onclick="buildPPTX()">⬇ PPTX</button>
   </div>
 </header>
 
-<!-- ══════════════ MAIN LAYOUT ══════════════ -->
-<div class="main-layout">
+<!-- ══ TAB NAV ═════════════════════════════════════════════ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" id="tbn-pds"    onclick="switchTab('pds')">📊 Ponto de Situação</button>
+  <button class="tab-btn"        id="tbn-effort" onclick="switchTab('effort')">💼 Custo por Iniciativa</button>
+</nav>
 
-  <!-- SECÇÃO 1: RESUMO GERAL -->
-  <div>
-    <div class="panel-section-lbl">Resumo Geral</div>
-    <div class="resumo-row">
-
-      <!-- Hero: ativas -->
-      <div class="sum-hero">
-        <div class="sum-hero-top">
-          <div class="sum-big" id="n-active">24</div>
-          <div class="sum-big-lbl">iniciativas ativas<br>
-            <span style="color:var(--dim);font-size:11px">em acompanhamento</span>
-          </div>
-        </div>
-        <div class="bar-track" id="bar-track"><div class="bar-seg" style="width:4.2%;background:#e3b341"></div><div class="bar-seg" style="width:8.3%;background:#bc8cff"></div><div class="bar-seg" style="width:45.8%;background:#f0883e"></div><div class="bar-seg" style="width:8.3%;background:#a78bfa"></div><div class="bar-seg" style="width:4.2%;background:#3fb950"></div><div class="bar-seg" style="width:16.7%;background:#388bfd"></div><div class="bar-seg" style="width:4.2%;background:#34d399"></div><div class="bar-seg" style="width:8.3%;background:#1f6feb"></div></div>
-        <div class="bar-legend" id="bar-legend"><div class="bl-item"><div class="bl-dot" style="background:#e3b341"></div>Pending FH (1)</div><div class="bl-item"><div class="bl-dot" style="background:#bc8cff"></div>Business Req. (2)</div><div class="bl-item"><div class="bl-dot" style="background:#f0883e"></div>Pending AEGON / ASP (11)</div><div class="bl-item"><div class="bl-dot" style="background:#a78bfa"></div>Train Testing (2)</div><div class="bl-item"><div class="bl-dot" style="background:#3fb950"></div>QA Approved (1)</div><div class="bl-item"><div class="bl-dot" style="background:#388bfd"></div>QA Testing (4)</div><div class="bl-item"><div class="bl-dot" style="background:#34d399"></div>Dev Testing (1)</div><div class="bl-item"><div class="bl-dot" style="background:#1f6feb"></div>In Progress (2)</div></div>
-      </div>
-
-      <!-- Pendente AEGON -->
-      <div class="act-card pasp">
-        <div class="act-num" id="n-pasp">11</div>
-        <div class="act-lbl">Pendente AEGON</div>
-        <div class="act-sub">Ação requerida pelo cliente</div>
-      </div>
-
-      <!-- Pendente FH -->
-      <div class="act-card pfh">
-        <div class="act-num" id="n-pfh">1</div>
-        <div class="act-lbl">Pendente FH</div>
-        <div class="act-sub">Ação interna requerida</div>
-      </div>
-
-      <!-- Backlog -->
-      <div class="stat-card bl">
-        <div class="stat-num" id="n-backlog">16</div>
-        <div class="stat-lbl">Backlog</div>
-        <div class="stat-sub">sem data de início</div>
-      </div>
-
-      <!-- Concluídos -->
-      <div class="stat-card cl">
-        <div class="stat-num" id="n-closed">26</div>
-        <div class="stat-lbl">Concluídos</div>
-        <div class="stat-sub" id="pct-closed">38% do total</div>
-      </div>
-
-      <!-- Total -->
-      <div class="stat-card tot">
-        <div class="stat-num" id="n-total">68</div>
-        <div class="stat-lbl">Total</div>
-        <div class="stat-sub">desde o início</div>
-      </div>
-
+<!-- ══ TAB 1: PDS ══════════════════════════════════════════ -->
+<div id="panel-pds" class="tab-panel">
+  <div class="kpi-row" id="sec-kpi"></div>
+  <div id="sec-init">
+    <div class="init-cols">
+      <div class="init-col" id="col-left"></div>
+      <div class="col-sep"></div>
+      <div class="init-col" id="col-right"></div>
     </div>
   </div>
-
-  <!-- SECÇÃO 2: INICIATIVAS ATIVAS -->
-  <section class="panel-right">
-    <div class="detail-header">
-      <div class="detail-title-area">
-        <h3 id="detail-title">Iniciativas Ativas (24)</h3>
-        <p id="detail-sub">Excluídos: Backlog (16) · Concluídos (26) · Cancelados (2)</p>
-      </div>
-      <div class="view-toggle" style="display:none" id="inline-toggle">
-      </div>
-    </div>
-    <div class="detail-cols">
-      <div class="dcol" id="col-left"><div class="dgroup"><div class="dg-hd"><span class="dpill dp-ip">In Progress</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">43</div><div class="dr-a"><span>Sinistros</span></div><div class="dr-t">Processo de Recuperação da Divida</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-635" target="_blank">GDP-635</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">agendada sessão para clarificação do plano de implementação e entrega da funcionalidade</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">68</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Histórico de Estados</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1966" target="_blank">GDP-1966</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24759" target="_blank">CHG HELP-24759</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Está em tech review. Aguardamos ok para testes.</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qt">QA Testing</span><span class="dg-cnt">4</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">18</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Subscrição Clínica - Comunicação com Companhia pelo FHnet</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1749" target="_blank">GDP-1749</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22371" target="_blank">CHG HELP-22371</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">26</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Acesso Detalhe da Factura</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1746" target="_blank">GDP-1746</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22258" target="_blank">CHG HELP-22258</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">55</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - Change Contact Method to Online</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1543" target="_blank">GDP-1543</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22255" target="_blank">CHG HELP-22255</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">56</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Melhorias Subscrição ASP - SMS Token</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1544" target="_blank">GDP-1544</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22256" target="_blank">CHG HELP-22256</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">Já está em QA testing. Previsto passagem a Train a 04/05/2026</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-qa">QA Approved</span><span class="dg-cnt">1 · aguardam deploy</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">17</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1681" target="_blank">GDP-1681</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22257" target="_blank">CHG HELP-22257</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>04/05/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Aguarda aprovação release QA Global e passagem a Train</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-biz">Business Req.</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">11</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Alteração Subscrição | QC por Produto</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE/IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-25214" target="_blank">CHG HELP-25214</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">19</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Valores Acima do Plafond</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1787" target="_blank">GDP-1787</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22261" target="_blank">CHG HELP-22261</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill" style="background:#34d39926;color:#34d399;border:1px solid #34d39966">Dev Testing</span><span class="dg-cnt">1</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">23</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Autorização || Estado FH NET - Histórico de Utilização</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1962" target="_blank">GDP-1962</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22268" target="_blank">CHG HELP-22268</a><span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>28/04/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">17/04/2026</span> <span class="note-text">Está em dev testing.</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill" style="background:#a78bfa26;color:#a78bfa;border:1px solid #a78bfa66">Train Testing</span><span class="dg-cnt">2</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">16</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">Lateralidades nas Exclusões</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1966" target="_blank">GDP-1966</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-24758" target="_blank">CHG HELP-24758</a><span class="meta-chip train-chip"><span class="chip-label">Train</span>13/04/2026</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">em Train Testing para AEGON poder testar</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">57</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Medical Network Search - Service not required</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1546" target="_blank">GDP-1546</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CI</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22259" target="_blank">CHG HELP-22259</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/05/2026</span> <span class="note-text">em testes com AEGON</span></div></div></div>
-</div></div></div></div>
-      <div class="col-div"></div>
-      <div class="dcol" id="col-right"><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pasp">Pending AEGON / ASP</span><span class="dg-cnt">11 · ação requerida pelo cliente</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">15</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Alinhamento dos Ambientes de Teste</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1530" target="_blank">GDP-1530</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">INFRAS</span><span class="meta-chip date-late" title="Data Produção em atraso"><span class="chip-label">Produção</span>30/06/2025</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/04/2026</span> <span class="note-text">AEGON ainda não respondeu com data fim dos testes de Dev - Train</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">25</div><div class="dr-a"><span>FH2.0</span></div><div class="dr-t">Data de Inicio do Risco</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/02/2026</span> <span class="note-text">sem qualquer feedback da ASP</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">32</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Timeline de Reembolsos </div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">09/01/2026</span> <span class="note-text">Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">34</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Autorizações | Informação com detalhe</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">16/06/2025</span> <span class="note-text">API FH já suporta e está do lado da ASP efetuar alterações</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">36</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Redes por Produto do Cliente</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">16/06/2025</span> <span class="note-text">API FH já suporta e está do lado da ASP efetuar alterações</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">38</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Reembolsos Filas Submetidos e Criados</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE/CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">09/01/2026</span> <span class="note-text">Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">42</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">ONECARE | Notificações push com alteração de processos (callbacks API)</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1524" target="_blank">GDP-1524</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">10/04/2026</span> <span class="note-text">Documentação Técnica partilhada com AEGON</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">59</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">API /contract-info/get/contract - add BenefitNumber</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/CREQ-136" target="_blank">CREQ-136</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/10/2025</span> <span class="note-text">Instalado no dia 23/10 fechado do lado da FH</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">62</div><div class="dr-a"><span>Subscrição</span></div><div class="dr-t">TUW API Service - add new fields &amp; insured person</div><div class="dr-j"><a href="https://future-healthcare.atlassian.net/browse/GDP-1667" target="_blank">GDP-1667</a></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">IBG</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22267" target="_blank">CHG HELP-22267</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">24/10/2025</span> <span class="note-text">Instalado no dia 23/10. Fechado do lado da FH</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">65</div><div class="dr-a"><span>Projecto Sinistros</span></div><div class="dr-t">API Get Claims - timeouts - improvements</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">ARCH</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22450" target="_blank">CHG HELP-22450</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">29/01/2026</span> <span class="note-text">Ainda a aguardar ambient de teste CLEVA/AEGON. AEGON escalou tema internamente para conseguirmos avançar</span></div></div></div>
-</div><div class="init-card">
-  <div class="drow"><div class="dr-n">67</div><div class="dr-a"><span>Área Pessoal</span></div><div class="dr-t">Migração V2 Reembolsos OneCare</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CI</span></div><div class="dd-notes"><div class="note-entry"><span class="note-date">12/11/2025</span> <span class="note-text">Ponto pendente de resposta do OneCare</span></div></div></div>
-</div></div></div><div class="dgroup"><div class="dg-hd"><span class="dpill dp-pfh">Pending FH</span><span class="dg-cnt">1 · ação interna</span></div><div class="ditems"><div class="init-card">
-  <div class="drow"><div class="dr-n">1</div><div class="dr-a"><span>Produto</span></div><div class="dr-t">Jornada de Cliente | Aumento de Capital &amp; Alteração coberturas - PRO RATA</div><div class="dr-j nj"><span>—</span></div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">CORE</span><a class="meta-chip chg-chip" href="https://future-healthcare.atlassian.net/browse/HELP-22263" target="_blank">CHG HELP-22263</a></div><div class="dd-notes"><div class="note-entry"><span class="note-date">04/05/2026</span> <span class="note-text">agendada sessão interna para 11/05/2026</span></div></div></div>
-</div></div></div></div>
-    </div>
-
-    <!-- Changelog section — only visible in Detalhada mode -->
-    <div class="changelog-wrap has-data" id="changelog-wrap">
-      <div class="changelog-header">
-        <div class="changelog-title">
-          <div class="changelog-bar"></div>
-          <span class="changelog-lbl">Notas de Alterações</span>
-          <span class="changelog-vs" id="changelog-vs">Versão anterior · importado a 04/05/2026 às 00:51 · sessão: 04 / 05 / 2026</span>
-        </div>
-        <span class="changelog-count" id="changelog-count">6 alterações detetadas</span>
-      </div>
-      <div id="changelog-items"><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail"><span class="chg-pill" style="background:#388bfd26;color:#388bfd">QA Testing</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#3fb95026;color:#3fb950">QA Approved</span></div></div></div><div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail"><span class="chg-pill" style="background:#e3b34126;color:#e3b341">Pending FH</span><span style="color:var(--dim)">→</span><span class="chg-pill" style="background:#bc8cff26;color:#bc8cff">Business Requirements</span></div></div></div><div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#57 · Medical Network Search - Service not required</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> <span class="chg-pill" style="background:#a78bfa26;color:#a78bfa">Train Testing</span></div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#17 · Fluxo de Pré-Autorizações e Reembolsos com a Companhia</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Aguarda aprovação release QA Global e passagem a Train</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#19 · Valores Acima do Plafond</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON</div></div></div><div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#68 · Histórico de Estados</div><div class="chg-detail" style="white-space:normal;line-height:1.5"><span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">10/05/2026</span>  Está em tech review. Aguardamos ok para testes.</div></div></div></div>
-      <div class="changelog-footer" id="changelog-footer">Ficheiro: PDS Iniciativas Tecnologia 04052026.xlsx · gerado em 10/05/2026 às 18:48</div>
-    </div>
-
-  <!-- ══ EXECUTIVE REPORT ══ -->
-  <div class="exec-report-wrap" id="exec-report-wrap">
-    <div class="exec-report-header" onclick="toggleExecReport()">
-      <div class="exec-report-title">
-        <div class="changelog-bar"></div>
-        <span class="exec-report-lbl">Executive Report</span>
-        <span class="exec-report-badge" id="exec-report-badge"></span>
-      </div>
-      <span class="exec-report-toggle" id="exec-report-toggle">▲</span>
-    </div>
-    <div class="exec-report-body" id="exec-report-body">
-      <div id="exec-report-display"></div>
-    </div>
-  </div>
-
-  </section>
-
-</div><!-- /main-layout -->
-
-<!-- ══════════════ ADMIN FAB ══════════════ -->
-<button id="admin-fab" title="Painel de gestão" onclick="toggleAdmin()">⚙️</button>
-
-<div id="admin-panel" class="open">
-  <div class="ap-title">
-    <div><span>FH</span> · Painel de Gestão</div>
-    <button class="ap-close" onclick="toggleAdmin()">✕</button>
-  </div>
-
-  <!-- STEP 1 -->
-  <div class="ap-step">
-    <div class="ap-step-header">
-      <div class="ap-step-num done" id="step1-num">1</div>
-      <div class="ap-step-title">Importar &amp; Validar Excel</div>
-    </div>
-    <div class="ap-drop" id="ap-drop">
-      <input type="file" id="ap-file" accept=".xlsx,.xls" onchange="handleFile(this.files[0])">
-      <div class="ap-drop-icon">📊</div>
-      <div class="ap-drop-lbl" id="ap-drop-lbl">Arrasta o Excel ou clica</div>
-      <div class="ap-drop-sub">PDS_Iniciativas_Tecnologia_DDMMYYYY.xlsx</div>
-    </div>
-    <div class="ap-date-row">
-      <label>Data da sessão:</label>
-      <input type="text" id="ap-date" placeholder="23 / 03 / 2026">
-    </div>
-    <button class="ap-btn ap-btn-step" id="btn-validate" onclick="document.getElementById('ap-file').click()" style="margin-top: 0.4rem; border-color: var(--c-qa); color: var(--c-qa);">✓ Excel validado — importar outro</button>
-    <div id="ap-status" class="ap-status" style="margin-top:.4rem">
-      <div class="ap-dot loading" id="ap-dot"></div>
-      <span id="ap-status-txt">A publicar no GitHub...</span>
-    </div>
-  </div>
-
-  <hr class="ap-sep">
-
-  <!-- AI REPORT -->
-  <div class="ap-step" id="exec-report-step">
-    <div class="ap-step-header">
-      <div class="ap-step-num done" id="exec-step-num" style="font-size:.7rem">✨</div>
-      <div class="ap-step-title">Executive Report</div>
-    </div>
-    <button class="ap-btn ap-btn-step" id="btn-gen-report" onclick="copyReportPrompt()" style="font-size:.63rem">
-      📋 Copiar prompt → Claude.ai
-    </button>
-    <div id="exec-report-loading" style="display:none;font-size:.58rem;color:var(--mut);text-align:center;padding:.3rem 0">
-      <span style="display:inline-block">⏳ A gerar…</span>
-    </div>
-    <textarea class="ap-exec-textarea" id="exec-report-text" placeholder="Cola aqui o report gerado no Claude.ai, ou edita o existente." oninput="onExecReportEdit()"></textarea>
-    <div style="font-size:.55rem;color:var(--dim);margin-top:2px">Gerado no Claude.ai · editável antes de publicar</div>
-  </div>
-
-  <hr class="ap-sep">
-
-  <!-- STEP 2 -->
-  <div class="ap-step">
-    <div class="ap-step-header">
-      <div class="ap-step-num" id="step2-num">2</div>
-      <div class="ap-step-title">Publicar no GitHub</div>
-    </div>
-    <input class="ap-input" id="gh-owner" placeholder="Username ou org GitHub" autocomplete="off">
-    <input class="ap-input" id="gh-repo" placeholder="Nome do repositório" autocomplete="off" style="margin-top:.3rem">
-    <input class="ap-input" id="gh-token" type="password" placeholder="Personal Access Token (repo)" autocomplete="off" style="margin-top:.3rem">
-    <div style="font-size:.56rem;color:var(--dim);margin-top:3px;margin-bottom:.4rem">Token guardado localmente no browser. Nunca partilhado.</div>
-    <button class="ap-btn ap-btn-primary" id="btn-gh" onclick="saveToGitHub()" disabled="">
-      ☁️ Publicar no GitHub
-    </button>
-    <div style="font-size: 0.56rem; color: var(--dim); margin-top: 4px; text-align: center; display: block;" id="gh-hint">Corrige o erro no passo 1 antes de publicar</div>
-  </div>
-
+  <div id="sec-changelog" style="display:none"></div>
 </div>
 
-<div id="toast">✓ PPTX gerado e descarregado</div>
+<!-- ══ TAB 2: EFFORT ═══════════════════════════════════════ -->
+<div id="panel-effort" class="tab-panel" style="display:none">
+  <div id="effort-banner" class="effort-banner no-data">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" stroke="#92400e" stroke-width="1.5"/>
+      <rect x="7.25" y="4" width="1.5" height="4.5" rx=".5" fill="#92400e"/>
+      <circle cx="8" cy="11" r=".8" fill="#92400e"/>
+    </svg>
+    Sem dados de esforço. Importe um CSV do Tempo no painel de gestão
+    (triplo-clique no logo FH).
+  </div>
+
+  <div id="effort-body" style="display:none">
+    <!-- Filters -->
+    <div class="effort-top">
+      <select class="eff-select" id="flt-init" onchange="applyEffortFilters()">
+        <option value="">Todas as iniciativas</option>
+      </select>
+      <select class="eff-select" id="flt-wt" onchange="applyEffortFilters()">
+        <option value="">Todos os work types</option>
+      </select>
+      <button class="btn-clear" onclick="clearEffortFilters()">✕ Limpar filtros</button>
+    </div>
+
+    <!-- KPIs -->
+    <div class="effort-kpis" id="effort-kpis"></div>
+
+    <!-- Accordion -->
+    <div class="effort-list" id="effort-list"></div>
+  </div>
+</div>
+
+<!-- ══ ADMIN OVERLAY ═══════════════════════════════════════ -->
+<div id="admin-overlay" onclick="if(event.target===this)hideAdmin()">
+  <div class="admin-panel">
+    <div class="admin-hdr">
+      <h3>⚙️ Painel de Gestão</h3>
+      <button onclick="hideAdmin()">✕</button>
+    </div>
+
+    <!-- ─── SECTION A: Initiatives ─────────────────────── -->
+    <div class="admin-section">
+      <div class="admin-sec-title">
+        📋 Iniciativas
+        <span class="admin-sec-note">atualização semanal</span>
+      </div>
+
+      <div class="adm-row" style="margin-bottom:10px">
+        <div class="adm-field">
+          <label>Data da Sessão</label>
+          <input type="date" id="inp-sess">
+        </div>
+      </div>
+
+      <div class="drop-zone" id="dz-pds">
+        <div class="dz-icon">📂</div>
+        <div class="dz-text">Arrastar Excel PDS aqui ou clique para selecionar</div>
+        <input type="file" accept=".xlsx,.xls" onchange="handleFile(this.files[0])">
+      </div>
+      <div id="pds-status" class="adm-status"></div>
+
+      <div class="adm-field"><label>GitHub Username</label>
+        <input type="text" id="inp-ghuser" placeholder="claudiogualdino"></div>
+      <div class="adm-field"><label>Repositório</label>
+        <input type="text" id="inp-ghrepo" placeholder="aegon-pds-dashboard"></div>
+      <div class="adm-field"><label>Token GitHub</label>
+        <input type="password" id="inp-ghtoken" placeholder="ghp_..."></div>
+
+      <button class="btn-pub btn-dark" id="btn-pub-pds" onclick="saveToGitHub()" disabled>
+        ☁️ Publicar Iniciativas no GitHub
+      </button>
+    </div>
+
+    <!-- ─── SECTION B: Effort ──────────────────────────── -->
+    <div class="admin-section">
+      <div class="admin-sec-title">
+        💼 Esforço
+        <span class="admin-sec-note">atualização mensal · publicação independente</span>
+      </div>
+
+      <div class="drop-zone" id="dz-effort">
+        <div class="dz-icon">📊</div>
+        <div class="dz-text">Arrastar CSV Tempo aqui ou clique para selecionar</div>
+        <input type="file" accept=".csv" onchange="handleEffortFile(this.files[0])">
+      </div>
+      <div id="effort-status" class="adm-status"></div>
+
+      <p class="adm-note">Usa as mesmas credenciais GitHub da secção acima.</p>
+
+      <button class="btn-pub btn-red" id="btn-pub-effort" onclick="saveEffortToGitHub()" disabled>
+        ☁️ Publicar Esforço no GitHub
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- embedded data (fallback) -->
+<script id="dashboard-data" type="application/json">[]</script>
 
 <script>
-'use strict';
-const JIRA='https://future-healthcare.atlassian.net/browse/';
-const INACTIVE=new Set(['Backlog','Closed','Canceled']);
+// ════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════
+let dashData    = [];   // current PDS rows
+let changeLog   = [];   // computed changelog
+let changesMeta = null;
+let mode        = 'short';
+let isAdmin     = false;
+let logoClicks  = 0, logoTimer = null;
+let effortData  = null;   // {importedAt, fileName, initiatives}
+let pendingEffort = null; // staged after CSV import
 
-// ── Known state config (used for ordering + styling) ──
-// States NOT in this list are still shown — with a generated colour
-const KNOWN_ORDER=['In Progress','QA Testing','QA Approved','Business Requirements','On Hold'];
-const RIGHT_STATUSES=new Set(['Pending ASP','Pending FH']);
-
-const STATUS_PILL={
-  'In Progress':          ['dp-ip',   'In Progress'],
-  'QA Testing':           ['dp-qt',   'QA Testing'],
-  'QA Approved':          ['dp-qa',   'QA Approved'],
-  'Pending FH':           ['dp-pfh',  'Pending FH'],
-  'Business Requirements':['dp-biz',  'Business Req.'],
-  'On Hold':              ['dp-oh',   'On Hold'],
-  'Pending ASP':          ['dp-pasp', 'Pending AEGON / ASP'],
+// Colour palette
+const STATE_COLORS = {
+  'In Progress':'#1d4ed8','QA Testing':'#2563eb','QA Approved':'#166534',
+  'Pending FH':'#854d0e','Pending ASP':'#9a3412','On Hold':'#4b5563',
+  'Business Requirements':'#6d28d9'
 };
-const STATUS_SUFFIX={
-  'QA Approved':'aguardam deploy',
-  'Pending FH':'ação interna',
-  'Pending ASP':'ação requerida pelo cliente',
+const INACTIVE = new Set(['Backlog','Closed','Canceled']);
+const RIGHT    = new Set(['Pending ASP','Pending FH']);
+const S_ORDER  = ['In Progress','QA Testing','QA Approved','Business Requirements','On Hold'];
+const AUTO_PAL = ['#0891b2','#0d9488','#7c3aed','#db2777','#ea580c','#65a30d','#4338ca','#dc8a0e'];
+const WT_COLORS = {
+  'Story':'#3b82f6','Bug':'#ef4444','Task':'#22c55e',
+  'Sub-task':'#6366f1','Specification':'#f59e0b','Epic':'#9333ea'
 };
 
-// Palette for dynamically discovered states
-const DYNAMIC_PALETTE=[
-  '#a78bfa','#34d399','#f472b6','#fb923c',
-  '#38bdf8','#facc15','#4ade80','#c084fc',
-];
-const _dynColorMap={};
-let _dynColorIdx=0;
-let _execReportText='';
-let _pendingChangelog=null;
-function getStateColor(estado){
-  const known={
-    'In Progress':'#1f6feb','QA Testing':'#388bfd','QA Approved':'#3fb950',
-    'Pending FH':'#e3b341','Pending ASP':'#f0883e','On Hold':'#8b949e',
-    'Business Requirements':'#bc8cff','Backlog':'#444c56','Closed':'#3fb950','Canceled':'#6e7681',
-  };
-  if(known[estado]) return known[estado];
-  if(!_dynColorMap[estado]) _dynColorMap[estado]=DYNAMIC_PALETTE[_dynColorIdx++%DYNAMIC_PALETTE.length];
-  return _dynColorMap[estado];
+function sCol(s,i=0){ return STATE_COLORS[s]||AUTO_PAL[i%AUTO_PAL.length]; }
+function wtCol(wt,i=0){ return WT_COLORS[wt]||AUTO_PAL[i%AUTO_PAL.length]; }
+
+// ════════════════════════════════════════════════════════════
+// UTILITY
+// ════════════════════════════════════════════════════════════
+function cleanDate(v){
+  if(!v) return '';
+  if(v instanceof Date){
+    if(isNaN(v)) return '';
+    return `${pad(v.getDate())}/${pad(v.getMonth()+1)}/${v.getFullYear()}`;
+  }
+  if(typeof v==='number'){
+    return cleanDate(new Date(Math.round((v-25569)*864e5)));
+  }
+  if(typeof v==='string'){
+    if(/^\d{2}\/\d{2}\/\d{4}$/.test(v)) return v;
+    const m=v.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if(m) return `${m[3]}/${m[2]}/${m[1]}`;
+    const d=new Date(v); if(!isNaN(d)) return cleanDate(d);
+  }
+  return String(v);
 }
-function getStatePillClass(estado){
-  // Return inline style for unknown states instead of a CSS class
-  const c=getStateColor(estado);
-  const alpha=c+'26'; // ~15% opacity
-  return {cls: STATUS_PILL[estado]?STATUS_PILL[estado][0]:null, color:c, bg:alpha};
+function pad(n){ return String(n).padStart(2,'0'); }
+function fmtH(h){ return h==null||isNaN(h)?'—':Number(h).toFixed(1)+'h'; }
+function fmtNow(){
+  const n=new Date();
+  return `${pad(n.getDate())}/${pad(n.getMonth()+1)}/${n.getFullYear()} às ${pad(n.getHours())}:${pad(n.getMinutes())}`;
 }
-
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-// ── Render helpers ──
-
-// States where Train date being past is NOT an overdue signal
-const TRAIN_DONE_STATES=new Set(['Train Testing','Ready for Go Live','Closed','Canceled']);
-// States where Prod date being past is NOT an overdue signal
-const PROD_DONE_STATES=new Set(['Closed','Canceled']);
-
-function isOverdue(dateStr){
-  if(!dateStr) return false;
-  // Parse DD/MM/YYYY
-  const p=dateStr.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if(!p) return false;
-  const d=new Date(parseInt(p[3]),parseInt(p[2])-1,parseInt(p[1]));
-  return d<new Date(new Date().toDateString()); // compare date only (no time)
+function isLate(ds){
+  if(!ds) return false;
+  const[d,m,y]=ds.split('/');
+  return new Date(+y,+m-1,+d)<new Date();
 }
-
-function renderRow(d){
-  const j=d.jira,c=d.change_id,dtTrain=d.dt_train||'',dtProd=d.dt_prod||'';
-  const jH=j?`<a href="${JIRA}${j}" target="_blank">${j}</a>`:'';
-  const notesH=(d.notes||[]).map(n=>`<div class="note-entry">${n.date?`<span class="note-date">${esc(n.date)}</span> `:''}<span class="note-text">${esc(n.text)}</span></div>`).join('');
-
-  // Determine if dates are overdue
-  const trainLate = dtTrain && isOverdue(dtTrain) && !TRAIN_DONE_STATES.has(d.estado);
-  const prodLate  = dtProd  && isOverdue(dtProd)  && !PROD_DONE_STATES.has(d.estado);
-
-  let meta='';
-  if(c) meta+=`<a class="meta-chip chg-chip" href="${JIRA}${c}" target="_blank">CHG ${esc(c)}</a>`;
-  if(dtTrain) meta+=trainLate
-    ? `<span class="meta-chip date-late" title="Data Train em atraso"><span class="chip-label">Train</span>${esc(dtTrain)}</span>`
-    : `<span class="meta-chip train-chip"><span class="chip-label">Train</span>${esc(dtTrain)}</span>`;
-  if(dtProd) meta+=prodLate
-    ? `<span class="meta-chip date-late" title="Data Produção em atraso"><span class="chip-label">Produção</span>${esc(dtProd)}</span>`
-    : `<span class="meta-chip prod-chip"><span class="chip-label">Produção</span>${esc(dtProd)}</span>`;
-
-  return `<div class="init-card">
-  <div class="drow"><div class="dr-n">${d.item}</div><div class="dr-a"><span>${esc(d.ambito)}</span></div><div class="dr-t">${esc(d.tema)}</div><div class="dr-j${j?'':' nj'}">${j?jH:'<span>—</span>'}</div></div>
-  <div class="drow-detail"><div class="dd-l"><span class="team-badge">${esc(d.team)}</span>${meta}</div><div class="dd-notes">${notesH}</div></div>
-</div>`;
+function extractGDP(s){
+  const m=(s||'').match(/GDP-\d+/i);
+  return m?m[0].toUpperCase():null;
+}
+function toB64(str){
+  const bytes=new TextEncoder().encode(str);
+  let bin=''; bytes.forEach(b=>bin+=String.fromCharCode(b));
+  return btoa(bin);
 }
 
-function renderGroup(status,items){
-  const known=STATUS_PILL[status];
-  const color=getStateColor(status);
-  const label=known?known[1]:status; // use raw status name if unknown
-  const suffix=STATUS_SUFFIX[status]||'';
-  const ct=items.length+(suffix?' · '+suffix:'');
-  // Use CSS class for known states, inline style for unknown
-  const pillHtml=known
-    ? `<span class="dpill ${known[0]}">${label}</span>`
-    : `<span class="dpill" style="background:${color}26;color:${color};border:1px solid ${color}66">${esc(label)}</span>`;
-  return `<div class="dgroup"><div class="dg-hd">${pillHtml}<span class="dg-cnt">${ct}</span></div><div class="ditems">${items.map(renderRow).join('')}</div></div>`;
+// ════════════════════════════════════════════════════════════
+// TAB SWITCH
+// ════════════════════════════════════════════════════════════
+function switchTab(t){
+  document.getElementById('panel-pds').style.display    = t==='pds'?'':'none';
+  document.getElementById('panel-effort').style.display = t==='effort'?'':'none';
+  document.getElementById('tbn-pds').classList.toggle('active',   t==='pds');
+  document.getElementById('tbn-effort').classList.toggle('active',t==='effort');
 }
 
-// ── Main render ──
-function render(data){
-  const{items,summary,dateStr}=data;
-  const total=Object.values(summary).reduce((a,b)=>a+b,0);
-  const nActive=items.length,nClosed=summary['Closed']||0,nBacklog=summary['Backlog']||0,nCancel=summary['Canceled']||0;
-  const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
-  const nPFH =items.filter(d=>d.estado==='Pending FH').length;
-
-  document.getElementById('date-pill').textContent=dateStr;
-  document.getElementById('n-active').textContent=nActive;
-  document.getElementById('n-pasp').textContent=nPASP;
-  document.getElementById('n-pfh').textContent=nPFH;
-  document.getElementById('n-total').textContent=total;
-  document.getElementById('n-backlog').textContent=nBacklog;
-  document.getElementById('n-closed').textContent=nClosed;
-  document.getElementById('pct-closed').textContent=`${total?Math.round(nClosed/total*100):0}% do total`;
-
-  // Discover all active states from data (not just hardcoded ones)
-  const byStatus={};
-  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
-  const allActiveStates=Object.keys(byStatus);
-
-  // Order: known states first (in defined order), then new/unknown states alphabetically
-  const orderedLeft=[
-    ...KNOWN_ORDER.filter(s=>byStatus[s]&&!RIGHT_STATUSES.has(s)),
-    ...allActiveStates.filter(s=>!KNOWN_ORDER.includes(s)&&!RIGHT_STATUSES.has(s)).sort(),
-  ];
-  // Right column: only explicitly defined right-side statuses (no unknown states bleed in)
-  const orderedRight=Array.from(RIGHT_STATUSES).filter(s=>byStatus[s]);
-
-  // Bar: all active states proportionally
-  const cnt=s=>items.filter(d=>d.estado===s).length;
-  const barStates=allActiveStates.filter(s=>cnt(s)>0);
-  document.getElementById('bar-track').innerHTML=barStates.map(s=>
-    `<div class="bar-seg" style="width:${(cnt(s)/nActive*100).toFixed(1)}%;background:${getStateColor(s)}"></div>`
-  ).join('');
-  document.getElementById('bar-legend').innerHTML=barStates.map(s=>{
-    const label=STATUS_PILL[s]?STATUS_PILL[s][1]:s;
-    return `<div class="bl-item"><div class="bl-dot" style="background:${getStateColor(s)}"></div>${esc(label)} (${cnt(s)})</div>`;
-  }).join('');
-
-  document.getElementById('detail-title').textContent=`Iniciativas Ativas (${nActive})`;
-  document.getElementById('detail-sub').textContent=`Excluídos: Backlog (${nBacklog}) · Concluídos (${nClosed}) · Cancelados (${nCancel})`;
-  document.getElementById('col-left').innerHTML=orderedLeft.map(s=>renderGroup(s,byStatus[s])).join('');
-  document.getElementById('col-right').innerHTML=orderedRight.map(s=>renderGroup(s,byStatus[s])).join('');
-}
-
-// ── View mode toggle ──
+// ════════════════════════════════════════════════════════════
+// MODE
+// ════════════════════════════════════════════════════════════
 function setMode(m){
-  document.body.classList.toggle('mode-detail',m==='detalhada');
-  document.getElementById('btn-resumida').classList.toggle('active',m==='resumida');
-  document.getElementById('btn-detalhada').classList.toggle('active',m==='detalhada');
+  mode=m;
+  document.getElementById('tog-short').classList.toggle('active',m==='short');
+  document.getElementById('tog-long').classList.toggle('active',m==='long');
+  render(dashData);
 }
 
-// ══════════════════════════════════════════
-// CHANGELOG — GitHub-persisted comparison
-// ══════════════════════════════════════════
-function statePill(estado){
-  const c=getStateColor(estado);
-  return `<span class="chg-pill" style="background:${c}26;color:${c}">${esc(estado)}</span>`;
-}
+// ════════════════════════════════════════════════════════════
+// PDS — PARSE
+// ════════════════════════════════════════════════════════════
+function parseRows(wb){
+  const sheet=wb.Sheets['ASP']||wb.Sheets[wb.SheetNames[0]];
+  const raw=XLSX.utils.sheet_to_json(sheet,{header:1,raw:true,cellDates:true});
+  if(!raw.length) return [];
 
-// Compute changelog between two datasets
-function computeChangelog(prevData, newData){
-  if(!prevData||!newData) return [];
-  const prevItems={}, newItems={};
-  for(const d of prevData.items||[]) prevItems[d.item]=d;
-  for(const d of newData.items||[])  newItems[d.item]=d;
-  const changes=[];
-
-  // 1. Status changes
-  for(const id of Object.keys(newItems)){
-    const nw=newItems[id], pr=prevItems[id];
-    if(pr && pr.estado!==nw.estado)
-      changes.push({type:'state',item:id,tema:nw.tema,from:pr.estado,to:nw.estado});
+  let hi=0;
+  for(let i=0;i<Math.min(15,raw.length);i++){
+    if((raw[i]||[]).some(c=>typeof c==='string'&&/ambito|âmbito|tema|estado/i.test(c))){hi=i;break;}
   }
-  // 2. New active items
-  for(const id of Object.keys(newItems)){
-    if(!prevItems[id])
-      changes.push({type:'new',item:id,tema:newItems[id].tema,to:newItems[id].estado});
-  }
-  // 3. Items that left active
-  for(const id of Object.keys(prevItems)){
-    if(!newItems[id])
-      changes.push({type:'done',item:id,tema:prevItems[id].tema,from:prevItems[id].estado});
-  }
-  // 4. Field changes (team, jira, change_id, dt_train, dt_prod, ambito, tema)
-  const fieldDefs=[
-    {key:'team',      label:'Equipa'},
-    {key:'jira',      label:'Jira'},
-    {key:'change_id', label:'Change Id'},
-    {key:'dt_train',  label:'Data Train'},
-    {key:'dt_prod',   label:'Data Produção'},
-    {key:'ambito',    label:'Âmbito'},
-    {key:'tema',      label:'Tema'},
-  ];
-  for(const id of Object.keys(newItems)){
-    const nw=newItems[id], pr=prevItems[id];
-    if(!pr) continue;
-    for(const {key,label} of fieldDefs){
-      const vPrev=(pr[key]||'').trim();
-      const vNew =(nw[key]||'').trim();
-      if(vPrev!==vNew)
-        changes.push({type:'field',item:id,tema:nw.tema,field:label,from:vPrev,to:vNew});
-    }
-  }
-  // 5. New notes
-  for(const id of Object.keys(newItems)){
-    const nw=newItems[id], pr=prevItems[id];
-    if(!pr) continue;
-    const prevDates=new Set((pr.notes||[]).map(n=>n.date+'|'+n.text.slice(0,30)));
-    for(const note of (nw.notes||[]).filter(n=>!prevDates.has(n.date+'|'+n.text.slice(0,30))))
-      changes.push({type:'note',item:id,tema:nw.tema,date:note.date,text:note.text});
-  }
-  const typeOrder={state:0,new:1,done:2,field:3,note:4};
-  return changes.sort((a,b)=>typeOrder[a.type]-typeOrder[b.type]);
-}
-
-// Render changelog into the DOM
-function renderChangelog(changes, prevDateStr, generatedAt, importedFile, importedAt){
-  const wrap=document.getElementById('changelog-wrap');
-  const vsEl=document.getElementById('changelog-vs');
-  const cntEl=document.getElementById('changelog-count');
-  const itemsEl=document.getElementById('changelog-items');
-  const footerEl=document.getElementById('changelog-footer');
-  if(!wrap||!vsEl) return;
-
-  // Always show the section once we have something to say
-  wrap.classList.add('has-data');
-
-  let vsLabel='Versão anterior';
-  if(importedAt) vsLabel+=` · importado a ${importedAt}`;
-  if(prevDateStr) vsLabel+=` · sessão: ${prevDateStr}`;
-  vsEl.textContent=vsLabel;
-  // Show filename below
-  if(footerEl && importedFile) footerEl.textContent=`Ficheiro: ${importedFile}${generatedAt?' · gerado em '+generatedAt:''}`;
-  cntEl.textContent=changes.length===0 ? 'sem alterações' :
-    `${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`;
-
-  if(changes.length===0){
-    itemsEl.innerHTML=`<div class="changelog-empty">Nenhuma alteração detetada face à versão anterior.</div>`;
-  } else {
-    itemsEl.innerHTML=changes.map(c=>{
-      const t=c.tema&&c.tema.length>58?c.tema.slice(0,58)+'…':c.tema||'';
-      if(c.type==='state') return `<div class="chg-item state"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail">${statePill(c.from)}<span style="color:var(--dim)">→</span>${statePill(c.to)}</div></div></div>`;
-      if(c.type==='note')  return `<div class="chg-item note"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail" style="white-space:normal;line-height:1.5">${c.date?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;color:var(--c-qt)">${c.date}</span> `:''} ${esc(c.text||'')}</div></div></div>`;
-      if(c.type==='new')   return `<div class="chg-item new"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Nova iniciativa ativa →</span> ${statePill(c.to)}</div></div></div>`;
-      if(c.type==='done')  return `<div class="chg-item done"><div class="chg-dot"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">Saiu do acompanhamento →</span> ${statePill(c.from)}</div></div></div>`;
-      if(c.type==='field'){
-        const fv=v=>v?`<span style="font-family:'DM Mono',monospace;font-size:.56rem;background:#f5f6f8;border:1px solid #e0e2e8;border-radius:3px;padding:1px 5px">${esc(v)}</span>`:`<span style="color:var(--dim);font-size:.56rem;font-style:italic">vazio</span>`;
-        return `<div class="chg-item" style="background:rgba(99,102,241,.06);border-color:rgba(99,102,241,.25)"><div class="chg-dot" style="background:#6366f1"></div><div class="chg-body"><div class="chg-name">#${c.item} · ${esc(t)}</div><div class="chg-detail"><span style="color:var(--dim)">${esc(c.field)}:</span> ${fv(c.from)}<span style="color:var(--dim)">→</span>${fv(c.to)}</div></div></div>`;
-      }
-      return '';
-    }).join('');
-  }
-  if(!importedFile && generatedAt) footerEl.textContent=`Gerado em ${generatedAt}`;
-}
-
-// Load changelog from GitHub Pages (works for all viewers)
-async function loadChangelogFromGitHub(){
-  try{
-    const res=await fetch('./changelog.json?t='+Date.now());
-    if(!res.ok) return;
-    const cl=await res.json();
-    renderChangelog(cl.changes||[], cl.prevDateStr||'', cl.generatedAt||'', cl.prevMeta?.importedFile||'', cl.prevMeta?.importedAt||'');
-  }catch(e){ /* No changelog file yet — silent */ }
-}
-
-// ══════════════════════════════════════════
-// PPTX EXPORT (PptxGenJS browser)
-// ══════════════════════════════════════════
-async function exportPPTX(){
-  const btn=document.getElementById('btn-pptx');
-  btn.disabled=true; btn.textContent='A gerar...';
-  try{
-    const data=JSON.parse(document.getElementById('dashboard-data').textContent);
-    await buildPPTX(data);
-    showToast('✓ PPTX gerado e descarregado');
-  }catch(e){alert('Erro ao gerar PPTX: '+e.message);}
-  btn.disabled=false; btn.innerHTML='⬇ Exportar PPTX';
-}
-
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
-
-async function buildPPTX(data){
-  const prs=new PptxGenJS();
-  prs.layout='LAYOUT_16x9';
-  prs.title='AEGON – Ponto de Situação';
-
-  const{items,summary,dateStr}=data;
-  const C={bg:'f5f6f8',surf:'ffffff',surf2:'f0f1f4',brd:'e0e2e8',txt:'1a1d23',
-    mut:'6b7280',dim:'9ca3af',fhr:'C41E3A',
-    ip:'1d4ed8',qt:'2563eb',qa:'166534',pfh:'854d0e',pasp:'9a3412',
-    oh:'4b5563',biz:'6d28d9',cl:'166534',bl:'6b7280',cx:'9ca3af'};
-
-  const total=Object.values(summary).reduce((a,b)=>a+b,0);
-  const nActive=items.length,nClosed=summary['Closed']||0,nBacklog=summary['Backlog']||0,nCancel=summary['Canceled']||0;
-  const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
-  const nPFH =items.filter(d=>d.estado==='Pending FH').length;
-
-  const ms=()=>({type:'outer',color:'000000',blur:4,offset:1,angle:135,opacity:0.08});
-
-  // ── SLIDE 1 ──
-  const s1=prs.addSlide();
-  s1.background={color:C.bg};
-  s1.addShape(prs.shapes.RECTANGLE,{x:0,y:0,w:10,h:0.05,fill:{color:C.fhr},line:{color:C.fhr}});
-  // Logo
-  s1.addShape(prs.shapes.RECTANGLE,{x:0.35,y:0.2,w:0.4,h:0.4,fill:{color:C.fhr},line:{color:C.fhr},shadow:ms()});
-  s1.addText('FH',{x:0.35,y:0.2,w:0.4,h:0.4,fontSize:9,bold:true,color:'FFFFFF',align:'center',valign:'middle',margin:0});
-  s1.addText('AEGON  —  Ponto de Situação',{x:0.84,y:0.2,w:5.5,h:0.2,fontSize:13,bold:true,color:C.txt,fontFace:'Calibri',margin:0});
-  s1.addText('Iniciativas Tecnologia  ·  Future Healthcare',{x:0.84,y:0.41,w:5.5,h:0.14,fontSize:7.5,color:C.mut,fontFace:'Calibri',margin:0});
-  s1.addShape(prs.shapes.RECTANGLE,{x:8.4,y:0.2,w:1.25,h:0.2,fill:{color:C.surf},line:{color:C.brd,pt:1}});
-  s1.addText(dateStr,{x:8.4,y:0.2,w:1.25,h:0.2,fontSize:7,color:C.mut,align:'center',valign:'middle',fontFace:'Consolas',margin:0});
-  s1.addText(`${total} iniciativas · ${nActive} ativas`,{x:8.4,y:0.41,w:1.25,h:0.13,fontSize:6,color:C.dim,align:'center',fontFace:'Calibri',margin:0});
-
-  const cnt=s=>items.filter(d=>d.estado===s).length;
-
-  // ── Vista Focada layout (mirrors HTML dashboard at 70% centred) ──
-  // Slide is 10" x 5.625". Content area: y 0.65 → 5.42 = 4.77" tall
-  // Two columns centred at 70% width = 7" total, starting at x = 1.5"
-  const s1lx=1.5, s1rx=5.55;   // left col start, right col start
-  const s1lcw=3.85, s1rcw=2.85; // left col width, right col width
-  const s1cy=0.72;             // content top y
-  const s1cbot=5.38;           // content bottom y (above footer)
-
-  // ── LEFT COLUMN ──
-  // Hero card: big number + bar + legend
-  const s1heroH=1.85;
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1cy,w:s1lcw,h:s1heroH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-  // Big number
-  s1.addText(String(nActive),{x:s1lx+0.18,y:s1cy+0.12,w:1.2,h:0.7,fontSize:52,bold:true,color:C.txt,fontFace:'Calibri',margin:0,charSpacing:-2});
-  s1.addText('iniciativas ativas',{x:s1lx+1.45,y:s1cy+0.14,w:s1lcw-1.65,h:0.2,fontSize:9,color:C.mut,fontFace:'Calibri',margin:0});
-  s1.addText('em acompanhamento',{x:s1lx+1.45,y:s1cy+0.35,w:s1lcw-1.65,h:0.16,fontSize:7.5,color:C.dim,fontFace:'Calibri',margin:0});
-
-  // Bar — build proportional segments
-  const s1barX=s1lx+0.18, s1barY=s1cy+0.92, s1barW=s1lcw-0.36, s1barH=0.1;
-  const s1barOrder=['Pending ASP','QA Approved','QA Testing','In Progress','Pending FH','On Hold','Business Requirements'];
-  const s1barColors={'Pending ASP':C.pasp,'QA Approved':C.qa,'QA Testing':C.qt,'In Progress':C.ip,'Pending FH':C.pfh,'On Hold':C.oh,'Business Requirements':C.biz};
-  // background track
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1barX,y:s1barY,w:s1barW,h:s1barH,fill:{color:C.brd},line:{color:C.brd}});
-  let s1bx=s1barX;
-  for(const s of s1barOrder){
-    const n=cnt(s); if(!n)continue;
-    const segW=s1barW*(n/nActive);
-    s1.addShape(prs.shapes.RECTANGLE,{x:s1bx,y:s1barY,w:segW,h:s1barH,fill:{color:s1barColors[s]},line:{color:s1barColors[s]}});
-    s1bx+=segW;
-  }
-
-  // Legend with colored dots — build as rich text array
-  const s1legAll=s1barOrder.filter(s=>cnt(s)>0);
-  const s1barLabels={'Pending ASP':'Pendente AEGON','QA Approved':'QA Approved','QA Testing':'QA Testing','In Progress':'In Progress','Pending FH':'Pendente FH','On Hold':'On Hold','Business Requirements':'Business Req.'};
-  function makeLegRichText(states){
-    const parts=[];
-    states.forEach((s,i)=>{
-      const col=(s1barColors[s]||'8b949e');
-      const label=(s1barLabels[s]||s)+` (${cnt(s)})`;
-      if(i>0) parts.push({text:'   ',options:{color:C.mut,fontSize:6,fontFace:'Calibri'}});
-      parts.push({text:'● ',options:{color:col,fontSize:7,fontFace:'Calibri'}});
-      parts.push({text:label,options:{color:C.mut,fontSize:6,fontFace:'Calibri'}});
+  const hdr=(raw[hi]||[]).map(c=>String(c||'').toLowerCase().trim());
+  const col=(...names)=>{ for(const n of names){ const i=hdr.findIndex(h=>h.includes(n)); if(i>=0)return i; } return -1; };
+  const ci={
+    ambito:   col('âmbito','ambito'),
+    tema:     col('tema'),
+    dtProd:   col('data produção','data producao','dt entrega','data prod'),
+    estado:   col('estado'),
+    equipa:   col('team'),
+    obs:      col('observ'),
+    jira:     col('jira','nº jira'),
+    changeId: col('change id','change_id'),
+    dtTrain:  col('data train','dt train'),
+  };
+  const rows=[];
+  for(let i=hi+1;i<raw.length;i++){
+    const r=raw[i]; if(!r||!r.length) continue;
+    const estado=String(r[ci.estado]||'').trim(); if(!estado) continue;
+    rows.push({
+      ambito:  String(r[ci.ambito]||'').trim(),
+      tema:    String(r[ci.tema]||'').trim(),
+      dtProd:  cleanDate(r[ci.dtProd]),
+      estado,
+      equipa:  String(r[ci.equipa]||'').trim(),
+      obs:     String(r[ci.obs]||'').trim(),
+      jira:    String(r[ci.jira]||'').trim(),
+      changeId:String(r[ci.changeId]||'').trim(),
+      dtTrain: cleanDate(r[ci.dtTrain]),
     });
-    return parts;
   }
-  const s1legRow1=s1legAll.slice(0,4);
-  const s1legRow2=s1legAll.slice(4);
-  if(s1legRow1.length) s1.addText(makeLegRichText(s1legRow1),{x:s1barX,y:s1barY+0.13,w:s1barW,h:0.14,margin:0});
-  if(s1legRow2.length) s1.addText(makeLegRichText(s1legRow2),{x:s1barX,y:s1barY+0.27,w:s1barW,h:0.14,margin:0});
+  return rows;
+}
 
-  // ── Action cards: Pendente AEGON + Pendente FH ──
-  const s1acY=s1cy+s1heroH+0.1, s1acH=s1cbot-s1acY, s1acW=(s1lcw-0.12)/2;
-  // AEGON card
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1lx,y:s1acY,w:s1acW,h:s1acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-  s1.addText(String(nPASP),{x:s1lx+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pasp,fontFace:'Calibri',margin:0,charSpacing:-1});
-  s1.addText('Pendente AEGON',{x:s1lx+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
-  s1.addText('Ação requerida pelo cliente',{x:s1lx+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
-  // FH card
-  const s1acX2=s1lx+s1acW+0.12;
-  s1.addShape(prs.shapes.RECTANGLE,{x:s1acX2,y:s1acY,w:s1acW,h:s1acH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-  s1.addText(String(nPFH),{x:s1acX2+0.15,y:s1acY+0.12,w:s1acW-0.3,h:0.65,fontSize:42,bold:true,color:C.pfh,fontFace:'Calibri',margin:0,charSpacing:-1});
-  s1.addText('Pendente FH',{x:s1acX2+0.15,y:s1acY+0.75,w:s1acW-0.3,h:0.18,fontSize:8,color:C.mut,fontFace:'Calibri',margin:0,bold:true});
-  s1.addText('Ação interna requerida',{x:s1acX2+0.15,y:s1acY+0.93,w:s1acW-0.3,h:0.15,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0});
+// ════════════════════════════════════════════════════════════
+// PDS — RENDER
+// ════════════════════════════════════════════════════════════
+function render(data){
+  dashData=data;
+  const active  =data.filter(r=>!INACTIVE.has(r.estado));
+  const closed  =data.filter(r=>r.estado==='Closed'||r.estado==='Canceled').length;
+  const backlog =data.filter(r=>r.estado==='Backlog').length;
+  const pendASP =active.filter(r=>r.estado==='Pending ASP').length;
+  const pendFH  =active.filter(r=>r.estado==='Pending FH').length;
 
-  // ── RIGHT COLUMN: Total / Backlog / Concluídos ──
-  const s1statH=(s1cbot-s1cy-0.2)/3;
-  const s1stats=[
-    {num:total, lbl:'Total de Iniciativas', sub:'desde o início',  color:C.fhr},
-    {num:nBacklog,lbl:'Backlog',             sub:'Sem data de início',color:C.bl},
-    {num:nClosed, lbl:'Concluídos',          sub:`${Math.round(nClosed/total*100)}% do total`,color:C.cl},
-  ];
-  s1stats.forEach((st,i)=>{
-    const sy=s1cy+i*(s1statH+0.1);
-    s1.addShape(prs.shapes.RECTANGLE,{x:s1rx,y:sy,w:s1rcw,h:s1statH,fill:{color:C.surf},line:{color:C.brd,pt:0.75},shadow:ms()});
-    s1.addText(String(st.num),{x:s1rx+0.18,y:sy+0.1,w:1.1,h:s1statH-0.2,fontSize:40,bold:true,color:st.color,fontFace:'Calibri',margin:0,valign:'middle',charSpacing:-1});
-    s1.addText(st.lbl,{x:s1rx+s1rcw-1.6,y:sy+0.2,w:1.45,h:0.22,fontSize:9,bold:true,color:C.mut,fontFace:'Calibri',margin:0,align:'right'});
-    s1.addText(st.sub,{x:s1rx+s1rcw-1.6,y:sy+0.42,w:1.45,h:0.16,fontSize:7,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
-    // accent bar
-    s1.addShape(prs.shapes.RECTANGLE,{x:s1rx+s1rcw-0.45,y:sy+s1statH-0.1,w:0.3,h:0.04,fill:{color:st.color},line:{color:st.color}});
+  // State breakdown
+  const sc={};
+  active.forEach(r=>{sc[r.estado]=(sc[r.estado]||0)+1;});
+  const states=Object.entries(sc).sort(([a],[b])=>{
+    const oa=S_ORDER.indexOf(a),ob=S_ORDER.indexOf(b);
+    if(oa>-1&&ob>-1) return oa-ob;
+    if(oa>-1) return -1; if(ob>-1) return 1;
+    return a.localeCompare(b);
   });
-  // Footer
-  s1.addShape(prs.shapes.RECTANGLE,{x:0,y:5.42,w:10,h:0.2,fill:{color:C.surf},line:{color:C.surf}});
-  s1.addText(`Future Healthcare  ·  PDS Tecnologia  ·  ${dateStr}`,{x:0.35,y:5.44,w:7,h:0.13,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0});
-  s1.addText('1 / 2',{x:9.3,y:5.44,w:0.35,h:0.13,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
 
-  // ── SLIDE 2 ──
-  const s2=prs.addSlide();
-  s2.background={color:C.bg};
-  s2.addShape(prs.shapes.RECTANGLE,{x:0,y:0,w:10,h:0.05,fill:{color:C.fhr},line:{color:C.fhr}});
-  s2.addShape(prs.shapes.RECTANGLE,{x:0.35,y:0.15,w:0.34,h:0.34,fill:{color:C.fhr},line:{color:C.fhr}});
-  s2.addText('FH',{x:0.35,y:0.15,w:0.34,h:0.34,fontSize:8,bold:true,color:'FFFFFF',align:'center',valign:'middle',margin:0});
-  s2.addText(`Detalhe — Iniciativas Ativas  (${nActive})`,{x:0.78,y:0.15,w:7,h:0.18,fontSize:12,bold:true,color:C.txt,fontFace:'Calibri',margin:0});
-  s2.addText(`Excluídos: Backlog (${nBacklog})  ·  Concluídos (${nClosed})  ·  Cancelados (${nCancel})`,{x:0.78,y:0.34,w:7,h:0.13,fontSize:6.5,color:C.mut,fontFace:'Calibri',margin:0});
-  s2.addShape(prs.shapes.RECTANGLE,{x:8.4,y:0.15,w:1.25,h:0.19,fill:{color:C.surf},line:{color:C.brd,pt:1}});
-  s2.addText(dateStr,{x:8.4,y:0.15,w:1.25,h:0.19,fontSize:7,color:C.mut,align:'center',valign:'middle',fontFace:'Consolas',margin:0});
-  s2.addShape(prs.shapes.RECTANGLE,{x:4.92,y:0.58,w:0.01,h:4.78,fill:{color:C.brd},line:{color:C.brd}});
+  let bar='',leg='';
+  states.forEach(([s,c],i)=>{
+    const cl=sCol(s,i),pct=active.length?(c/active.length*100).toFixed(1):0;
+    bar+=`<div class="breakdown-seg" style="flex:${pct};background:${cl}"></div>`;
+    leg+=`<div class="leg-item"><div class="leg-dot" style="background:${cl}"></div>${s} (${c})</div>`;
+  });
 
-  function addPill(sl,x,y,label,color){
-    const w=label.length*0.063+0.22;
-    sl.addShape(prs.shapes.RECTANGLE,{x,y,w,h:0.15,fill:{color:C.surf2},line:{color,pt:0.5}});
-    sl.addText(label.toUpperCase(),{x,y,w,h:0.15,fontSize:5.5,bold:true,color,align:'center',valign:'middle',fontFace:'Calibri',margin:0});
-    return w;
-  }
-  function addRow(sl,x,y,num,ambito,tema,jiraId,rowW){
-    const rh=0.17;
-    sl.addText(String(num),{x,y,w:0.21,h:rh,fontSize:6,color:C.dim,fontFace:'Consolas',valign:'middle',margin:0});
-    sl.addShape(prs.shapes.RECTANGLE,{x:x+0.21,y:y+0.018,w:0.68,h:rh-0.036,fill:{color:C.surf2},line:{color:C.brd,pt:0.5}});
-    sl.addText(ambito,{x:x+0.21,y:y+0.018,w:0.68,h:rh-0.036,fontSize:5.5,color:C.mut,align:'center',valign:'middle',fontFace:'Calibri',margin:0});
-    const tW=jiraId?rowW-0.21-0.70-0.70:rowW-0.21-0.70;
-    sl.addText(tema,{x:x+0.93,y,w:tW,h:rh,fontSize:6.3,color:C.txt,valign:'middle',fontFace:'Calibri',margin:0});
-    if(jiraId){
-      sl.addShape(prs.shapes.RECTANGLE,{x:x+rowW-0.68,y:y+0.022,w:0.66,h:rh-0.044,fill:{color:'0d2136'},line:{color:C.qt,pt:0.5}});
-      sl.addText(jiraId,{x:x+rowW-0.68,y:y+0.022,w:0.66,h:rh-0.044,fontSize:5.6,color:C.qt,align:'center',valign:'middle',fontFace:'Consolas',margin:0,hyperlink:{url:'https://future-healthcare.atlassian.net/browse/'+jiraId}});
-    }
-    return rh;
-  }
-  function addGroup(sl,x,startY,label,color,rows,rowW){
-    const pw=addPill(sl,x,startY,label,color);
-    sl.addText(String(rows.length),{x:x+pw+0.07,y:startY,w:0.25,h:0.15,fontSize:6,color:C.dim,valign:'middle',fontFace:'Calibri',margin:0});
-    let cy=startY+0.17;
-    for(const r of rows){sl.addShape(prs.shapes.LINE,{x,y:cy,w:rowW,h:0,line:{color:C.brd,pt:0.4}});cy+=addRow(sl,x,cy,r.item,r.ambito,r.tema.substring(0,60),r.jira,rowW);}
-    return cy-startY+0.05;
-  }
+  document.getElementById('sec-kpi').innerHTML=`
+    <div class="kpi-card hero">
+      <div class="kpi-num">${active.length}</div>
+      <div class="kpi-label">Iniciativas Ativas</div>
+      <div class="breakdown-bar">${bar}</div>
+      <div class="breakdown-legend">${leg}</div>
+    </div>
+    <div class="kpi-card"><div class="kpi-num">${pendASP}</div><div class="kpi-label">Pendente AEGON</div><div class="kpi-sub">Pending ASP</div></div>
+    <div class="kpi-card"><div class="kpi-num">${pendFH}</div><div class="kpi-label">Pendente FH</div><div class="kpi-sub">Future Healthcare</div></div>
+    <div class="kpi-card"><div class="kpi-num">${backlog}</div><div class="kpi-label">Backlog</div><div class="kpi-sub">Não iniciadas</div></div>
+    <div class="kpi-card"><div class="kpi-num">${closed}</div><div class="kpi-label">Concluídos</div><div class="kpi-sub">Closed + Canceled</div></div>
+    <div class="kpi-card"><div class="kpi-num">${data.length}</div><div class="kpi-label">Total</div><div class="kpi-sub">Todas as iniciativas</div></div>
+  `;
 
-  // ── Slide 2: dynamic status discovery (mirrors HTML render logic) ──
-  const byStatus={};
-  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
-  const allStates=Object.keys(byStatus);
+  const si={};
+  states.forEach(([s],i)=>{si[s]=i;});
+  const sortedActive=[...active].sort((a,b)=>{
+    const ar=RIGHT.has(a.estado),br=RIGHT.has(b.estado);
+    if(ar!==br) return ar?1:-1;
+    const oa=S_ORDER.indexOf(a.estado),ob=S_ORDER.indexOf(b.estado);
+    if(oa>-1&&ob>-1) return oa-ob;
+    if(oa>-1) return -1; if(ob>-1) return 1;
+    return a.estado.localeCompare(b.estado);
+  });
 
-  // Known state config for PPTX (colour + label)
-  const KNOWN_COLOR={
-    'In Progress':C.ip,'QA Testing':C.qt,'QA Approved':C.qa,
-    'Pending FH':C.pfh,'Pending ASP':C.pasp,'On Hold':C.oh,
-    'Business Requirements':C.biz,
-  };
-  const KNOWN_LABEL={
-    'In Progress':'In Progress','QA Testing':'QA Testing','QA Approved':'QA Approved',
-    'Pending FH':'Pending FH','Pending ASP':'Pending AEGON / ASP',
-    'On Hold':'On Hold','Business Requirements':'Business Req.',
-  };
-  // Fallback palette for unknown states
-  const DYN_PALETTE=['a78bfa','34d399','f472b6','fb923c','38bdf8','facc15','4ade80','c084fc'];
-  let dynIdx=0; const dynMap={};
-  function getPPTXColor(s){
-    if(KNOWN_COLOR[s]) return KNOWN_COLOR[s];
-    if(!dynMap[s]) dynMap[s]=DYN_PALETTE[dynIdx++%DYN_PALETTE.length];
-    return dynMap[s];
-  }
-  function getPPTXLabel(s){ return KNOWN_LABEL[s]||s; }
+  const leftR=[],rightR=[];
+  sortedActive.forEach(r=>(RIGHT.has(r.estado)?rightR:leftR).push(r));
 
-  // Order: known states (left col order), then unknown alphabetically; right col = Pending ASP
-  const RIGHT_SET=new Set(['Pending ASP','Pending FH']);
-  const LEFT_ORDER=['In Progress','QA Testing','QA Approved','Business Requirements','On Hold'];
-  const orderedLeft=[
-    ...LEFT_ORDER.filter(s=>byStatus[s]&&!RIGHT_SET.has(s)),
-    ...allStates.filter(s=>!LEFT_ORDER.includes(s)&&!RIGHT_SET.has(s)).sort(),
-  ];
-  const orderedRight=allStates.filter(s=>RIGHT_SET.has(s));
+  document.getElementById('col-left').innerHTML =renderCol('Em Progresso',leftR,si);
+  document.getElementById('col-right').innerHTML=renderCol('Pendente ASP / FH',rightR,si);
 
-  const lx=0.35,lw=4.52; let ly=0.6;
-  for(const s of orderedLeft){
-    if(byStatus[s]) ly+=addGroup(s2,lx,ly,getPPTXLabel(s),getPPTXColor(s),byStatus[s],lw);
-  }
-
-  const rx=5.02,rw=4.62; let ry=0.6;
-  for(const s of orderedRight){
-    if(byStatus[s]) ry+=addGroup(s2,rx,ry,getPPTXLabel(s),getPPTXColor(s),byStatus[s],rw);
-  }
-
-  s2.addShape(prs.shapes.RECTANGLE,{x:0,y:5.42,w:10,h:0.2,fill:{color:C.surf},line:{color:C.surf}});
-  s2.addText(`Future Healthcare  ·  PDS Tecnologia  ·  ${dateStr}`,{x:0.35,y:5.44,w:7,h:0.13,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0});
-  s2.addText('2 / 2',{x:9.3,y:5.44,w:0.35,h:0.13,fontSize:6,color:C.dim,fontFace:'Calibri',margin:0,align:'right'});
-
-  const safeDateStr=(dateStr||'').replace(/\s*\/\s*/g,'-');
-  await prs.writeFile({fileName:`aegon-pds-${safeDateStr}.pptx`});
+  const cl=document.getElementById('sec-changelog');
+  if(mode==='long'&&changeLog.length){ cl.style.display=''; renderChangelog(changeLog,changesMeta); }
+  else cl.style.display='none';
 }
 
-// ══ Admin panel ══
-function toggleAdmin(){document.getElementById('admin-panel').classList.toggle('open');}
-const apDrop=document.getElementById('ap-drop');
-apDrop.addEventListener('dragover',e=>{e.preventDefault();apDrop.classList.add('drag-over');});
-apDrop.addEventListener('dragleave',()=>apDrop.classList.remove('drag-over'));
-apDrop.addEventListener('drop',e=>{e.preventDefault();apDrop.classList.remove('drag-over');if(e.dataTransfer.files[0])handleFile(e.dataTransfer.files[0]);});
-
-function setStatus(state,msg){
-  document.getElementById('ap-dot').className='ap-dot '+state;
-  document.getElementById('ap-status-txt').textContent=msg;
-  // Enable publish button and update step indicators when import succeeds
-  if(state==='ok'){
-    document.getElementById('btn-gh').disabled=false;
-    document.getElementById('gh-hint').style.display='none';
-    document.getElementById('step1-num').classList.add('done');
-    document.getElementById('btn-validate').textContent='✓ Excel validado — importar outro';
-    document.getElementById('btn-validate').style.borderColor='var(--c-qa)';
-    document.getElementById('btn-validate').style.color='var(--c-qa)';
-  } else if(state==='err'){
-    document.getElementById('btn-gh').disabled=true;
-    document.getElementById('gh-hint').textContent='Corrige o erro no passo 1 antes de publicar';
-    document.getElementById('gh-hint').style.display='block';
-  }
+function renderCol(title,rows,si){
+  if(!rows.length)
+    return `<div class="col-hdr">${title}</div><div style="font-size:.76rem;color:#9ca3af;padding:10px 0">Sem iniciativas</div>`;
+  return `<div class="col-hdr">${title} (${rows.length})</div>`+rows.map(r=>renderRow(r,si[r.estado]||0)).join('');
 }
 
+function renderRow(r,ci){
+  const col=sCol(r.estado,ci);
+  const jLink=r.jira
+    ?`<a class="row-jira" href="https://future-healthcare.atlassian.net/browse/${r.jira}" target="_blank">${r.jira}</a>`:'';
+  const tLate=r.dtTrain&&isLate(r.dtTrain)&&!['Train Testing','Ready for Go Live','Closed','Canceled'].includes(r.estado);
+  const pLate=r.dtProd&&isLate(r.dtProd)&&!['Closed','Canceled'].includes(r.estado);
+  const tChip=r.dtTrain?`<span class="chip ${tLate?'date-late':'train-chip'}">🚂 ${r.dtTrain}</span>`:'';
+  const pChip=r.dtProd?`<span class="chip ${pLate?'date-late':'prod-chip'}">🚀 ${r.dtProd}</span>`:'';
+  const cChip=r.changeId?`<span class="chip chip-changeid">${r.changeId}</span>`:'';
+  const obsHtml=r.obs?`<div class="row-notes">${r.obs.replace(/(\d{2}\/\d{2}\/\d{4})/g,'<span class="note-date">$1</span>')}</div>`:'';
+  const detail=mode==='long'?`<div class="row-detail">
+      <div class="meta-line">
+        ${r.equipa?`<span class="badge-team">${r.equipa}</span>`:''}
+        ${cChip}${tChip}${pChip}
+      </div>${obsHtml}</div>`:'';
+  return `<div class="row-card">
+    <div class="row-top">
+      <span class="row-scope">${r.ambito||'—'}</span>
+      <span class="row-theme">${r.tema||'—'}</span>
+      ${jLink}
+      <span class="state-badge" style="background:${col}">${r.estado}</span>
+    </div>${detail}
+  </div>`;
+}
+
+// ════════════════════════════════════════════════════════════
+// CHANGELOG
+// ════════════════════════════════════════════════════════════
+function computeChangelog(newD,prev){
+  const pm={},nm={};
+  (prev||[]).forEach(r=>{if(r.jira)pm[r.jira]=r;});
+  newD.forEach(r=>{if(r.jira)nm[r.jira]=r;});
+  const pA=new Set((prev||[]).filter(r=>!INACTIVE.has(r.estado)).map(r=>r.jira).filter(Boolean));
+  const nA=new Set(newD.filter(r=>!INACTIVE.has(r.estado)).map(r=>r.jira).filter(Boolean));
+  const ch=[];
+  nA.forEach(k=>{if(!pA.has(k)) ch.push({type:'nova',jira:k,r:nm[k]});});
+  pA.forEach(k=>{if(!nA.has(k)) ch.push({type:'saiu',jira:k,r:pm[k]});});
+  nA.forEach(k=>{
+    if(!pm[k]) return;
+    const p=pm[k],n=nm[k];
+    if(p.estado!==n.estado) ch.push({type:'estado',jira:k,r:n,from:p.estado,to:n.estado});
+    [['equipa','Equipa'],['jira','Jira'],['changeId','Change Id'],
+     ['dtTrain','Data Train'],['dtProd','Data Produção'],['ambito','Âmbito'],['tema','Tema']]
+    .forEach(([f,lbl])=>{ if(p[f]!==n[f]) ch.push({type:'campo',jira:k,r:n,field:lbl,from:p[f],to:n[f]}); });
+    if(p.obs!==n.obs&&n.obs&&n.obs.length>(p.obs||'').length)
+      ch.push({type:'nota',jira:k,r:n,note:n.obs});
+  });
+  const O={estado:0,nova:1,saiu:2,campo:3,nota:4};
+  return ch.sort((a,b)=>(O[a.type]||0)-(O[b.type]||0));
+}
+
+function renderChangelog(ch,meta){
+  if(!ch.length){document.getElementById('sec-changelog').innerHTML='';return;}
+  const DOT  ={estado:'#22c55e',nova:'#f97316',saiu:'#9ca3af',campo:'#6366f1',nota:'#3b82f6'};
+  const items=ch.map(c=>{
+    const k=c.jira||c.r?.ambito||'';
+    let body='',detail='';
+    if(c.type==='estado'){body=`<b>${k}</b> mudou de estado`;detail=`${c.from} → ${c.to}`;}
+    else if(c.type==='nova'){body=`<b>${k}</b> — ${c.r?.tema||''} entrou no ativo`;}
+    else if(c.type==='saiu'){body=`<b>${k}</b> — ${c.r?.tema||''} saiu do ativo`;}
+    else if(c.type==='campo'){body=`<b>${k}</b> ${c.field} alterado`;detail=`${c.from||'—'} → ${c.to||'—'}`;}
+    else if(c.type==='nota'){body=`<b>${k}</b> novas observações`;detail=c.note;}
+    return `<div class="cl-item">
+      <div class="cl-dot" style="background:${DOT[c.type]}"></div>
+      <div><div class="cl-body">${body}</div>${detail?`<div class="cl-detail">${detail}</div>`:''}</div>
+    </div>`;
+  }).join('');
+  const badge=meta?`<div class="cl-badge" style="background:#f0f1f4;color:#4b5563">
+    Versão anterior · importado a ${meta.prevDate} · sessão: ${meta.session}</div>`:'' ;
+  document.getElementById('sec-changelog').innerHTML=`
+    <div class="cl-header">📋 Notas de Alterações (${ch.length})</div>
+    ${badge}${items}
+    <div class="cl-footer">Ficheiro: ${meta?.file||''} · gerado em ${fmtNow()}</div>
+  `;
+}
+
+// ════════════════════════════════════════════════════════════
+// PDS — FILE HANDLER
+// ════════════════════════════════════════════════════════════
 function handleFile(file){
-  if(!file)return;
-  setStatus('loading','A ler o Excel...');
+  if(!file) return;
   const reader=new FileReader();
-  reader.onload=async e=>{
+  reader.onload=e=>{
     try{
       const wb=XLSX.read(e.target.result,{type:'array',cellDates:true});
-      const ws=wb.Sheets['ASP'];
-      if(!ws)throw new Error('Sheet "ASP" não encontrada.');
-      const rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,cellDates:true});
-      const newData=parseRows(rows);
-      const dateStr=document.getElementById('ap-date').value.trim()||(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();})();
-      newData.dateStr=dateStr;
-      const importedAt=(()=>{const n=new Date();return String(n.getDate()).padStart(2,'0')+'/'+String(n.getMonth()+1).padStart(2,'0')+'/'+n.getFullYear()+' às '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');})();
-      newData.importedFile=file.name;
-      newData.importedAt=importedAt;
-
-      // Get prev data from dashboard-data tag
-      // (already synced with GitHub data.json on page load — see init)
-      let prevData=null;
-      try{
-        const embedded=JSON.parse(document.getElementById('dashboard-data').textContent);
-        if(embedded&&embedded.items&&embedded.items.length>0) prevData=embedded;
-      }catch(e){}
-
-      // Compute and show changelog immediately
-      const changes=computeChangelog(prevData, newData);
-      const now=new Date();
-      const generatedAt=String(now.getDate()).padStart(2,'0')+'/'+String(now.getMonth()+1).padStart(2,'0')+'/'+now.getFullYear()+' às '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-      const prevMeta={dateStr:prevData?.dateStr||'',importedFile:prevData?.importedFile||'',importedAt:prevData?.importedAt|''};
-      _pendingChangelog={changes, prevDateStr: prevMeta.dateStr, prevMeta, generatedAt};
-
-      // Update dashboard with new data
-      document.getElementById('dashboard-data').textContent=JSON.stringify(newData,null,2);
-      render(newData);
-      renderChangelog(changes, prevData?.dateStr||'', generatedAt, prevData?.importedFile||'', prevData?.importedAt||'');
-
-      // Scroll to changelog so user sees it
-      setTimeout(()=>{
-        const cl=document.getElementById('changelog-wrap');
-        if(cl) cl.scrollIntoView({behavior:'smooth',block:'nearest'});
-      },300);
-
-      setStatus('ok',`✓ ${file.name} · ${newData.items.length} ativas · ${changes.length} alteraç${changes.length===1?'ão':'ões'} detetada${changes.length===1?'':'s'}`);
-    }catch(err){setStatus('err','✗ '+err.message);}
+      const newRows=parseRows(wb);
+      if(!newRows.length) throw new Error('Nenhuma linha lida. Verificar sheet ASP.');
+      const prev=[...dashData];
+      changeLog=computeChangelog(newRows,prev);
+      const sess=document.getElementById('inp-sess').value
+        ?cleanDate(new Date(document.getElementById('inp-sess').value+'T12:00:00'))
+        :cleanDate(new Date());
+      changesMeta={prevDate:fmtNow(),session:sess,file:file.name};
+      render(newRows);
+      setAdmStatus('pds',`✓ ${file.name} · ${newRows.filter(r=>!INACTIVE.has(r.estado)).length} ativas · ${changeLog.length} alterações`,'ok');
+      document.getElementById('btn-pub-pds').disabled=false;
+    }catch(err){setAdmStatus('pds','✗ '+err.message,'err');}
   };
   reader.readAsArrayBuffer(file);
 }
 
-function parseRows(rows){
-  const items=[],summary={};
-  // Detect column positions from header row (row 0)
-  const hdr=rows[0]||[];
-  function colIdx(names){
-    for(const n of names){
-      const i=hdr.findIndex(h=>h&&String(h).toLowerCase().includes(n.toLowerCase()));
-      if(i>=0) return i;
+// ════════════════════════════════════════════════════════════
+// EFFORT — PARSE TEMPO CSV
+// ════════════════════════════════════════════════════════════
+function parseTempoCSV(csvText){
+  const parsed=Papa.parse(csvText,{header:true,skipEmptyLines:true,transformHeader:h=>h.trim()});
+  const inits={};
+  let curInit='',curEpicKey='',curEpicName='';
+
+  for(const row of parsed.data){
+    const rawInit  =String(row['Initiative']||'').trim();
+    const epicRisk =String(row['Epic / Risk']||'').trim();
+    const user     =String(row['User']||'').trim();
+    const issType  =String(row['Issue Type Category']||'').trim();
+    const key      =String(row['Key']||'').trim();
+    const logged   =parseFloat(String(row['Logged']||'0').replace(',','.'))||0;
+
+    // Carry forward initiative
+    if(rawInit){ const gdp=extractGDP(rawInit); curInit=gdp||rawInit; }
+    if(!curInit) continue;
+
+    // Aggregate row (epic header): no user + no issueType
+    if(!user&&!issType){
+      if(key&&key.includes('-')){ curEpicKey=key; curEpicName=epicRisk; }
+      continue;
     }
-    return -1;
+
+    // Leaf row
+    if(logged<=0) continue;
+    const eName=epicRisk||curEpicName;
+    const epicId=curEpicKey||eName||'unknown';
+    const wt=issType||'Epic';
+
+    if(!inits[curInit]) inits[curInit]={key:curInit,totalHours:0,epics:{}};
+    const ini=inits[curInit];
+    if(!ini.epics[epicId]) ini.epics[epicId]={key:curEpicKey||'',name:eName,totalHours:0,workTypes:{}};
+    const ep=ini.epics[epicId];
+    ep.totalHours+=logged;
+    ep.workTypes[wt]=(ep.workTypes[wt]||0)+logged;
+    ini.totalHours+=logged;
   }
-  const iJira    = colIdx(['jira','nº jira']);
-  const iChange  = colIdx(['change id','change_id']);
-  const iObs     = colIdx(['observ']);
-  const iTeam    = colIdx(['team']);
-  const iEstado  = colIdx(['estado']);
-  const iAmbito  = colIdx(['âmbito','ambito']);
-  const iTema    = colIdx(['tema']);
-  const iDtProd  = colIdx(['data produção','data producao','dt entrega','data prod']);
-  const iDtTrain = colIdx(['data train','dt train']);
-  // Fallback to original fixed indices if headers not found
-  const fJira    = iJira   >=0 ? iJira   : 17;
-  const fChange  = iChange >=0 ? iChange : 18;
-  const fObs     = iObs    >=0 ? iObs    : 16;
-  const fTeam    = iTeam   >=0 ? iTeam   : 11;
-  const fEstado  = iEstado >=0 ? iEstado : 10;
-  const fAmbito  = iAmbito >=0 ? iAmbito : 1;
-  const fTema    = iTema   >=0 ? iTema   : 2;
-  const fDtProd  = iDtProd >=0 ? iDtProd : 9;
-
-  function cleanDate(v){
-    if(v===null||v===undefined||v==='') return '';
-    // Native Date object (from raw:true + cellDates:true)
-    if(v instanceof Date){
-      if(isNaN(v.getTime())) return '';
-      return String(v.getDate()).padStart(2,'0')+'/'
-           + String(v.getMonth()+1).padStart(2,'0')+'/'
-           + v.getFullYear();
-    }
-    // Excel serial number (e.g. 46123)
-    if(typeof v==='number'){
-      // Convert Excel serial to JS Date (Excel epoch: Jan 1 1900, but has leap year bug so offset by 25569 days from Unix epoch)
-      const d=new Date(Math.round((v-25569)*86400*1000));
-      if(!isNaN(d.getTime()))
-        return String(d.getUTCDate()).padStart(2,'0')+'/'
-             + String(d.getUTCMonth()+1).padStart(2,'0')+'/'
-             + d.getUTCFullYear();
-      return '';
-    }
-    const s=String(v).trim();
-    if(!s||s==='-'||s==='null'||s==='undefined') return '';
-    // Already DD/MM/YYYY
-    if(/^\d{2}\/\d{2}\/\d{4}$/.test(s)) return s;
-    // YYYY-MM-DD (ISO)
-    const iso=s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-    if(iso) return `${iso[3]}/${iso[2]}/${iso[1]}`;
-    // D/M/YYYY or DD-MM-YYYY
-    const dmy=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
-    if(dmy) return dmy[1].padStart(2,'0')+'/'+dmy[2].padStart(2,'0')+'/'+(dmy[3].length===2?'20'+dmy[3]:dmy[3]);
-    // JS Date string fallback
-    const d=new Date(s);
-    if(!isNaN(d.getTime()))
-      return String(d.getDate()).padStart(2,'0')+'/'
-           + String(d.getMonth()+1).padStart(2,'0')+'/'
-           + d.getFullYear();
-    return '';
-  }
-
-  for(let i=1;i<rows.length;i++){
-    const r=rows[i]; const item=parseInt(r[0]);
-    if(!item||isNaN(item))continue;
-    const estado=(r[fEstado]||'').trim();
-    summary[estado]=(summary[estado]||0)+1;
-    if(INACTIVE.has(estado))continue;
-    const obs=(r[fObs]||'').trim(); const notes=[];
-    for(const line of obs.split('\n')){
-      const t=line.trim(); if(!t)continue;
-      const m=t.match(/^(\d{8})\s*[-–]\s*(.*)/);
-      if(m){const d=m[1];notes.push({date:d.slice(0,2)+'/'+d.slice(2,4)+'/'+d.slice(4),text:m[2].trim()});}
-      else if(notes.length)notes[notes.length-1].text+=' '+t;
-      else notes.push({date:'',text:t});
-    }
-    items.push({
-      item, ambito:r[fAmbito]||'', tema:r[fTema]||'', estado,
-      team:(r[fTeam]||'').trim(),
-      dt_prod:  cleanDate(r[fDtProd]),
-      dt_train: iDtTrain>=0 ? cleanDate(r[iDtTrain]) : '',
-      jira:(r[fJira]||'').trim(),
-      change_id:(r[fChange]||'').trim(),
-      notes
-    });
-  }
-  return{items,summary};
+  return inits;
 }
 
-// ══════════════════════════════════════════
-// EXECUTIVE REPORT — AI-powered
-// ══════════════════════════════════════════
-function toggleExecReport(){
-  const wrap=document.getElementById('exec-report-wrap');
-  const tog=document.getElementById('exec-report-toggle');
-  if(!wrap) return;
-  wrap.classList.toggle('collapsed');
-  if(tog) tog.textContent=wrap.classList.contains('collapsed')?'▲':'▲';
-}
-
-function onExecReportEdit(){
-  const ta=document.getElementById('exec-report-text');
-  _execReportText=ta.value;
-  const data=JSON.parse(document.getElementById('dashboard-data').textContent);
-  renderExecReport(_execReportText, data.dateStr||'');
-}
-
-function renderExecReport(text, dateStr){
-  const wrap=document.getElementById('exec-report-wrap');
-  const display=document.getElementById('exec-report-display');
-  const badge=document.getElementById('exec-report-badge');
-  if(!wrap||!display) return;
-  if(!text||!text.trim()){wrap.classList.remove('has-report');return;}
-  wrap.classList.add('has-report');
-  if(badge&&dateStr) badge.textContent=dateStr;
-  const formatted=esc(text)
-    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\n/g,'<br>');
-  display.innerHTML=`<div class="exec-report-text-display">${formatted}</div>`;
-}
-
-function copyReportPrompt(){
-  const data=JSON.parse(document.getElementById('dashboard-data').textContent);
-  const items=data.items||[];
-  const summary=data.summary||{};
-  const nPASP=items.filter(d=>d.estado==='Pending ASP').length;
-  const nPFH =items.filter(d=>d.estado==='Pending FH').length;
-  const nClosed=summary['Closed']||0;
-  const nBacklog=summary['Backlog']||0;
-  const nTotal=Object.values(summary).reduce((a,b)=>a+b,0);
-  const byStatus={};
-  for(const d of items)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
-  const statusSummary=Object.entries(byStatus).sort((a,b)=>b[1].length-a[1].length)
-    .map(([s,arr])=>`${s}: ${arr.length}`).join(', ');
-  const overdueItems=items.filter(d=>{
-    const tl=d.dt_train&&isOverdue(d.dt_train)&&!TRAIN_DONE_STATES.has(d.estado);
-    const pl=d.dt_prod &&isOverdue(d.dt_prod) &&!PROD_DONE_STATES.has(d.estado);
-    return tl||pl;
-  });
-  const changes=(_pendingChangelog&&_pendingChangelog.changes)||[];
-  const fmtState=arr=>arr.length?arr.filter(c=>c.type==='state').map(c=>`• #${c.item} ${c.tema}: ${c.from} → ${c.to}`).join('\n'):'None';
-  const fmtNew  =arr=>arr.length?arr.filter(c=>c.type==='new').map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
-  const fmtDone =arr=>arr.length?arr.filter(c=>c.type==='done').map(c=>`• #${c.item} ${c.tema}`).join('\n'):'None';
-  const fmtOverdue=arr=>arr.length?arr.map(d=>`• #${d.item} ${d.tema}${d.dt_train?' (Train: '+d.dt_train+')':''}${d.dt_prod?' (Prod: '+d.dt_prod+')':''}`).join('\n'):'None';
-  const prompt=`Gera um Executive Report em inglês para a sessão semanal AEGON–Future Healthcare.
-
-SESSION: ${data.dateStr||'this week'}
-PORTFOLIO: Active: ${items.length} | Pending AEGON: ${nPASP} | Pending FH: ${nPFH} | Backlog: ${nBacklog} | Completed: ${nClosed}/${nTotal}
-STATUS: ${statusSummary}
-
-CHANGES SINCE LAST SESSION:
-State: ${fmtState(changes)}
-New: ${fmtNew(changes)}
-Done: ${fmtDone(changes)}
-Overdue milestones: ${fmtOverdue(overdueItems)}
-
-3 secções com **bold** labels (sem # headers, sem saudação):
-**Overall Status** — 2-3 frases sobre saúde do portfolio.
-**This Week's Progress** — 2-4 bullet points (•) com nºs das iniciativas.
-**Key Actions Required** — 2-3 bullet points (•) para ação da AEGON.
-Max 200 palavras. Tom executivo profissional em inglês.`;
-
-  navigator.clipboard.writeText(prompt).then(()=>{
-    const btn=document.getElementById('btn-gen-report');
-    const orig=btn.textContent;
-    btn.textContent='✓ Prompt copiado!';
-    btn.style.borderColor='var(--c-qa)';btn.style.color='var(--c-qa)';
-    setTimeout(()=>{btn.textContent=orig;btn.style.borderColor='';btn.style.color='';},2500);
-  }).catch(()=>alert('Copia manualmente:\n\n'+prompt));
-}
-
-async function generateExecReport(){
-  // Legacy: kept for backward compat — just calls copyReportPrompt
-  copyReportPrompt();
-}
-
-async function saveToGitHub(){
-  const owner=document.getElementById('gh-owner').value.trim();
-  const repo=document.getElementById('gh-repo').value.trim();
-  const token=document.getElementById('gh-token').value.trim();
-  if(!owner||!repo||!token){setStatus('err','Preenche owner, repo e token.');return;}
-  localStorage.setItem('gh-owner',owner); localStorage.setItem('gh-repo',repo); localStorage.setItem('gh-token',token);
-  setStatus('loading','A publicar no GitHub...');
-  document.getElementById('btn-gh').disabled=true;
-
-  try{
-    const headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'};
-    const base=`https://api.github.com/repos/${owner}/${repo}/contents/`;
-
-    // Helper: get SHA of existing file
-    async function getSha(path){
-      const r=await fetch(base+path,{headers});
-      if(r.ok){const j=await r.json();return j.sha||'';}
-      return '';
-    }
-    // Helper: put file
-    async function putFile(path, content, message, isBinary=false){
-      const sha=await getSha(path);
-      const b64=isBinary ? content : btoa(unescape(encodeURIComponent(content)));
-      const body={message, content:b64};
-      if(sha) body.sha=sha;
-      const r=await fetch(base+path,{method:'PUT',headers,body:JSON.stringify(body)});
-      if(!r.ok){const e=await r.json();throw new Error(path+': '+(e.message||r.status));}
-    }
-
-    const currentData=JSON.parse(document.getElementById('dashboard-data').textContent);
-    // Inject exec report text before saving
-    if(_execReportText) currentData.execReport=_execReportText;
-    // Update the embedded script tag so outerHTML captures it
-    document.getElementById('dashboard-data').textContent=JSON.stringify(currentData,null,2);
-    const dateStr=currentData.dateStr||'';
-    const commitMsg=`PDS: atualização ${dateStr}`;
-
-    // 1. Save index.html
-    await putFile('index.html', document.documentElement.outerHTML, commitMsg);
-
-    // 2. Save data.json (current snapshot — becomes "prev" on next import)
-    await putFile('data.json', JSON.stringify(currentData, null, 2), commitMsg);
-
-    // 3. Save changelog.json (so all viewers see the same changelog)
-    if(_pendingChangelog){
-      await putFile('changelog.json', JSON.stringify(_pendingChangelog, null, 2), commitMsg);
-    }
-
-    setStatus('ok','✓ Publicado! index.html + data.json + changelog.json · ~1 min.');
-    document.getElementById('step2-num').classList.add('done');
-    document.getElementById('gh-hint').textContent='Publicado com sucesso ✓';
-    document.getElementById('gh-hint').style.display='block';
-  }catch(err){
-    setStatus('err','✗ '+err.message);
-  }
-  document.getElementById('btn-gh').disabled=false;
-}
-
-// ── Init ──
-(function(){
-  // Admin mode: URL hash OR triple-click on FH logo
-  if(window.location.hash==='#admin'){
-    document.body.classList.add('admin-mode');
-    document.getElementById('btn-pptx').style.display='inline-flex';
-  }
-  // Triple-click on logo activates admin
-  let clickCount=0, clickTimer=null;
-  document.querySelector('.fh-logo').addEventListener('click',()=>{
-    clickCount++;
-    if(clickTimer)clearTimeout(clickTimer);
-    clickTimer=setTimeout(()=>clickCount=0,600);
-    if(clickCount>=3){
-      document.body.classList.add('admin-mode');
-      document.getElementById('btn-pptx').style.display='inline-flex';
-      clickCount=0;
-    }
-  });
-  const o=localStorage.getItem('gh-owner'),r=localStorage.getItem('gh-repo'),t=localStorage.getItem('gh-token');
-  if(o)document.getElementById('gh-owner').value=o;
-  if(r)document.getElementById('gh-repo').value=r;
-  if(t)document.getElementById('gh-token').value=t;
-  const n=new Date();
-  document.getElementById('ap-date').value=String(n.getDate()).padStart(2,'0')+' / '+String(n.getMonth()+1).padStart(2,'0')+' / '+n.getFullYear();
-
-  // Render with embedded data immediately (fast)
-  try{
-    const embeddedData=JSON.parse(document.getElementById('dashboard-data').textContent);
-    render(embeddedData);
-    // Load exec report if present in embedded data
-    if(embeddedData.execReport){
-      _execReportText=embeddedData.execReport;
-      renderExecReport(embeddedData.execReport, embeddedData.dateStr||'');
-      const ta=document.getElementById('exec-report-text');
-      if(ta) ta.value=embeddedData.execReport;
-    }
-  }catch(e){console.error(e);}
-
-  // Then fetch data.json from GitHub and silently update the embedded data tag
-  // so that when the user imports a new Excel, the comparison is against the
-  // latest PUBLISHED version — not the initial hardcoded 23/03 data
-  (async()=>{
+// ════════════════════════════════════════════════════════════
+// EFFORT — FILE HANDLER
+// ════════════════════════════════════════════════════════════
+function handleEffortFile(file){
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
     try{
-      const res=await fetch('./data.json?t='+Date.now());
-      if(res.ok){
-        const ghData=await res.json();
-        // Update the dashboard-data tag with the latest GitHub data
-        document.getElementById('dashboard-data').textContent=JSON.stringify(ghData,null,2);
-        // Re-render with GitHub data (may differ from embedded)
-        render(ghData);
-        // Load exec report from GitHub data
-        if(ghData.execReport){
-          _execReportText=ghData.execReport;
-          renderExecReport(ghData.execReport, ghData.dateStr||'');
-          const ta=document.getElementById('exec-report-text');
-          if(ta) ta.value=ghData.execReport;
-        }
-        console.log('✓ Dados sincronizados com data.json do GitHub:',ghData.dateStr);
-      }
-    }catch(e){
-      console.log('ℹ data.json não disponível — a usar dados embebidos');
-    }
-    // Load changelog from GitHub (visible to all viewers)
-    loadChangelogFromGitHub();
-  })();
-})();
-</script>
+      const inits=parseTempoCSV(e.target.result);
+      const nInits=Object.keys(inits).length;
+      if(!nInits) throw new Error('Nenhuma iniciativa GDP encontrada. Verificar formato CSV Tempo.');
+      const nEpics=Object.values(inits).reduce((s,i)=>s+Object.keys(i.epics).length,0);
+      const totalH=Object.values(inits).reduce((s,i)=>s+i.totalHours,0);
+      pendingEffort={importedAt:fmtNow(),fileName:file.name,initiatives:inits};
+      setAdmStatus('effort',`✓ ${file.name} · ${nInits} iniciativas · ${nEpics} epics · ${fmtH(totalH)}`,'ok');
+      document.getElementById('btn-pub-effort').disabled=false;
+      // Live preview on the effort tab
+      effortData=pendingEffort;
+      renderEffortTab(effortData);
+    }catch(err){setAdmStatus('effort','✗ '+err.message,'err');}
+  };
+  reader.readAsText(file,'UTF-8');
+}
 
-<app-ls-content ng-version="17.3.7"></app-ls-content><app-ls-content></app-ls-content><app-ls-content></app-ls-content>
-<app-ls-content></app-ls-content></body><app-ls-content></app-ls-content></html>
+// ════════════════════════════════════════════════════════════
+// EFFORT — RENDER TAB
+// ════════════════════════════════════════════════════════════
+function renderEffortTab(data){
+  if(!data||!data.initiatives){
+    document.getElementById('effort-banner').className='effort-banner no-data';
+    document.getElementById('effort-banner').innerHTML=`
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="7" stroke="#92400e" stroke-width="1.5"/>
+        <rect x="7.25" y="4" width="1.5" height="4.5" rx=".5" fill="#92400e"/>
+        <circle cx="8" cy="11" r=".8" fill="#92400e"/>
+      </svg>
+      Sem dados de esforço. Importe um CSV do Tempo no painel de gestão (triplo-clique no logo FH).
+    `;
+    document.getElementById('effort-body').style.display='none';
+    return;
+  }
+
+  // Banner with update date
+  document.getElementById('effort-banner').className='effort-banner';
+  document.getElementById('effort-banner').innerHTML=`
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="#dcfce7"/>
+      <path d="M5 8.5l2 2 4-4" stroke="#166534" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Dados de esforço atualizados em:
+    <strong style="color:#1a1d23;margin:0 3px">${data.importedAt}</strong>
+    · ${data.fileName}
+  `;
+  document.getElementById('effort-body').style.display='';
+
+  // Collect all work types
+  const allWTs=new Set();
+  Object.values(data.initiatives).forEach(i=>Object.values(i.epics).forEach(ep=>Object.keys(ep.workTypes).forEach(wt=>allWTs.add(wt))));
+
+  const fInit=document.getElementById('flt-init');
+  const fWT  =document.getElementById('flt-wt');
+  const curI =fInit.value, curW=fWT.value;
+
+  fInit.innerHTML='<option value="">Todas as iniciativas</option>'
+    +Object.keys(data.initiatives).sort().map(k=>{
+      const name=getPDSName(k);
+      return `<option value="${k}" ${k===curI?'selected':''}>${k}${name?' — '+name:''}</option>`;
+    }).join('');
+
+  fWT.innerHTML='<option value="">Todos os work types</option>'
+    +[...allWTs].sort().map(wt=>`<option value="${wt}" ${wt===curW?'selected':''}>${wt}</option>`).join('');
+
+  applyEffortFilters();
+}
+
+function applyEffortFilters(){
+  if(!effortData) return;
+  const fI=document.getElementById('flt-init').value;
+  const fW=document.getElementById('flt-wt').value;
+
+  const entries=Object.entries(effortData.initiatives).filter(([k])=>!fI||k===fI);
+
+  // Aggregate KPIs
+  let totalH=0; const wtTot={};
+  entries.forEach(([,ini])=>{
+    Object.values(ini.epics).forEach(ep=>{
+      Object.entries(ep.workTypes).forEach(([wt,h])=>{
+        if(fW&&wt!==fW) return;
+        totalH+=h; wtTot[wt]=(wtTot[wt]||0)+h;
+      });
+    });
+  });
+
+  const topWT=Object.entries(wtTot).sort(([,a],[,b])=>b-a);
+  const pills=topWT.map(([wt,h],i)=>{
+    const pct=totalH?(h/totalH*100).toFixed(0):0;
+    return `<span class="wt-pill-sm" style="background:${wtCol(wt,i)}">${wt} ${fmtH(h)} (${pct}%)</span>`;
+  }).join('');
+
+  document.getElementById('effort-kpis').innerHTML=`
+    <div class="eff-kpi"><div class="eff-kpi-num">${fmtH(totalH)}</div><div class="eff-kpi-label">Total Horas</div></div>
+    <div class="eff-kpi"><div class="eff-kpi-num">${entries.length}</div><div class="eff-kpi-label">Iniciativas</div></div>
+    <div class="eff-kpi"><div class="eff-kpi-num">${entries.reduce((s,[,i])=>s+Object.keys(i.epics).length,0)}</div><div class="eff-kpi-label">Epics</div></div>
+    <div class="eff-kpi wide"><div style="font-size:.72rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">Por Work Type</div><div class="wt-pills">${pills||'—'}</div></div>
+  `;
+
+  // Accordion
+  const html=entries.map(([key,ini])=>{
+    const name=getPDSName(key);
+    let initH=0;
+    const epicsHtml=Object.entries(ini.epics).map(([eid,ep])=>{
+      const filtered=Object.entries(ep.workTypes).filter(([wt])=>!fW||wt===fW);
+      if(!filtered.length) return '';
+      const epicH=filtered.reduce((s,[,h])=>s+h,0);
+      initH+=epicH;
+      const maxH=Math.max(...filtered.map(([,h])=>h));
+      const wtRows=filtered.sort(([,a],[,b])=>b-a).map(([wt,h],i)=>{
+        const barPct=maxH?(h/maxH*100).toFixed(1):0;
+        const pct=epicH?(h/epicH*100).toFixed(0):0;
+        return `<div class="wt-row">
+          <div class="wt-label" style="background:${wtCol(wt,i)}">${wt}</div>
+          <div class="wt-bar-wrap"><div class="wt-bar" style="width:${barPct}%;background:${wtCol(wt,i)}"></div></div>
+          <div class="wt-h">${fmtH(h)}</div>
+          <div class="wt-pct">${pct}%</div>
+        </div>`;
+      }).join('');
+      return `<div class="eff-epic">
+        <div class="eff-epic-hdr">
+          ${ep.key?`<span class="eff-epic-key">${ep.key}</span>`:''}
+          <span class="eff-epic-name">${ep.name||eid}</span>
+          <span class="eff-epic-h">${fmtH(epicH)}</span>
+        </div>
+        ${wtRows}
+      </div>`;
+    }).filter(Boolean).join('');
+
+    if(!initH) return '';
+
+    return `<div class="eff-init">
+      <div class="eff-init-hdr" onclick="toggleAccordion(this)">
+        <span class="eff-chev">▶</span>
+        <span class="eff-init-key">${key}</span>
+        <span class="eff-init-name">${name||''}</span>
+        <span class="eff-init-h">${fmtH(initH)}</span>
+      </div>
+      <div class="eff-init-body">${epicsHtml}</div>
+    </div>`;
+  }).filter(Boolean).join('');
+
+  document.getElementById('effort-list').innerHTML=html||
+    '<div style="font-size:.8rem;color:#9ca3af;padding:20px 0">Sem dados para os filtros selecionados.</div>';
+}
+
+function toggleAccordion(hdr){
+  const chev=hdr.querySelector('.eff-chev');
+  const body=hdr.nextElementSibling;
+  const open=body.classList.toggle('open');
+  chev.classList.toggle('open',open);
+}
+
+function clearEffortFilters(){
+  document.getElementById('flt-init').value='';
+  document.getElementById('flt-wt').value='';
+  applyEffortFilters();
+}
+
+function getPDSName(gdpKey){
+  const r=dashData.find(row=>row.jira===gdpKey);
+  return r?(r.tema||r.ambito||''):'';
+}
+
+// ════════════════════════════════════════════════════════════
+// GITHUB — HELPER
+// ════════════════════════════════════════════════════════════
+async function ghPut(user,repo,path,content,token,msg){
+  const url=`https://api.github.com/repos/${user}/${repo}/contents/${path}`;
+  const headers={'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+  let sha='';
+  try{ const r=await fetch(url,{headers}); if(r.ok){const j=await r.json();sha=j.sha;} }catch{}
+  const body=JSON.stringify({message:msg,content:toB64(content),...(sha?{sha}:{})});
+  const res=await fetch(url,{method:'PUT',headers,body});
+  if(!res.ok){const e=await res.json();throw new Error(e.message||'GitHub API error');}
+}
+
+// ════════════════════════════════════════════════════════════
+// GITHUB — PUBLISH PDS
+// ════════════════════════════════════════════════════════════
+async function saveToGitHub(){
+  const u=document.getElementById('inp-ghuser').value.trim();
+  const r=document.getElementById('inp-ghrepo').value.trim();
+  const t=document.getElementById('inp-ghtoken').value.trim();
+  if(!u||!r||!t){alert('Preencher Username, Repositório e Token.');return;}
+  localStorage.setItem('gh_user',u);localStorage.setItem('gh_repo',r);localStorage.setItem('gh_token',t);
+
+  const btn=document.getElementById('btn-pub-pds');
+  btn.disabled=true;btn.textContent='A publicar…';
+  try{
+    await ghPut(u,r,'data.json',JSON.stringify(dashData,null,2),t,'chore: update PDS data');
+    await ghPut(u,r,'changelog.json',JSON.stringify({changes:changeLog,meta:changesMeta,generatedAt:fmtNow()},null,2),t,'chore: update changelog');
+    await ghPut(u,r,'index.html',document.documentElement.outerHTML,t,'feat: update PDS dashboard');
+    setAdmStatus('pds','✓ Publicado com sucesso no GitHub Pages','ok');
+    btn.textContent='✓ Publicado!';
+    setTimeout(()=>{btn.textContent='☁️ Publicar Iniciativas no GitHub';btn.disabled=false;},3000);
+  }catch(err){
+    setAdmStatus('pds','✗ Erro: '+err.message,'err');
+    btn.textContent='☁️ Publicar Iniciativas no GitHub';btn.disabled=false;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// GITHUB — PUBLISH EFFORT (independent)
+// ════════════════════════════════════════════════════════════
+async function saveEffortToGitHub(){
+  const u=document.getElementById('inp-ghuser').value.trim()||localStorage.getItem('gh_user');
+  const r=document.getElementById('inp-ghrepo').value.trim()||localStorage.getItem('gh_repo');
+  const t=document.getElementById('inp-ghtoken').value.trim()||localStorage.getItem('gh_token');
+  if(!u||!r||!t){alert('Preencher credenciais GitHub na secção Iniciativas.');return;}
+
+  const btn=document.getElementById('btn-pub-effort');
+  btn.disabled=true;btn.textContent='A publicar…';
+  try{
+    const payload=JSON.stringify(pendingEffort||effortData,null,2);
+    await ghPut(u,r,'effort.json',payload,t,'chore: update effort data');
+    effortData=pendingEffort||effortData;
+    setAdmStatus('effort','✓ effort.json publicado com sucesso no GitHub Pages','ok');
+    btn.textContent='✓ Publicado!';
+    setTimeout(()=>{btn.textContent='☁️ Publicar Esforço no GitHub';btn.disabled=false;},3000);
+  }catch(err){
+    setAdmStatus('effort','✗ Erro: '+err.message,'err');
+    btn.textContent='☁️ Publicar Esforço no GitHub';btn.disabled=false;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// ADMIN
+// ════════════════════════════════════════════════════════════
+function showAdmin(){
+  isAdmin=true;
+  document.getElementById('admin-overlay').style.display='flex';
+  document.getElementById('btn-pptx').classList.add('vis');
+  const u=localStorage.getItem('gh_user'),r=localStorage.getItem('gh_repo'),t=localStorage.getItem('gh_token');
+  if(u) document.getElementById('inp-ghuser').value=u;
+  if(r) document.getElementById('inp-ghrepo').value=r;
+  if(t) document.getElementById('inp-ghtoken').value=t;
+  document.getElementById('inp-sess').value=new Date().toISOString().split('T')[0];
+}
+function hideAdmin(){ document.getElementById('admin-overlay').style.display='none'; }
+
+function logoClick(){
+  logoClicks++;
+  clearTimeout(logoTimer);
+  logoTimer=setTimeout(()=>{logoClicks=0;},700);
+  if(logoClicks>=3){logoClicks=0;showAdmin();}
+}
+
+function setAdmStatus(area,msg,type){
+  const el=document.getElementById(area+'-status');
+  if(!el) return;
+  el.className='adm-status '+type;
+  el.textContent=msg;
+}
+
+function setupDZ(id,handler){
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag');});
+  el.addEventListener('dragleave',()=>el.classList.remove('drag'));
+  el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag');const f=e.dataTransfer?.files?.[0];if(f)handler(f);});
+}
+
+// ════════════════════════════════════════════════════════════
+// PPTX
+// ════════════════════════════════════════════════════════════
+function buildPPTX(){
+  const pptx=new PptxGenJS();
+  pptx.layout='LAYOUT_WIDE';
+  const P={bg:'f5f6f8',surf:'ffffff',brd:'e0e2e8',txt:'1a1d23',mut:'6b7280',dim:'9ca3af',fhr:'C41E3A'};
+  const active=dashData.filter(r=>!INACTIVE.has(r.estado));
+  const closed=dashData.filter(r=>r.estado==='Closed'||r.estado==='Canceled').length;
+  const backlog=dashData.filter(r=>r.estado==='Backlog').length;
+  const pendASP=active.filter(r=>r.estado==='Pending ASP').length;
+  const pendFH=active.filter(r=>r.estado==='Pending FH').length;
+  const sc={};active.forEach(r=>{sc[r.estado]=(sc[r.estado]||0)+1;});
+  const states=Object.entries(sc);
+
+  // SLIDE 1 — Summary
+  const s1=pptx.addSlide();s1.background={color:P.bg};
+  s1.addText('AEGON · Ponto de Situação',{x:.3,y:.18,w:10,h:.5,fontSize:18,bold:true,color:P.txt,fontFace:'Arial'});
+  s1.addText(fmtNow(),{x:.3,y:.62,w:5,h:.28,fontSize:9,color:P.mut,fontFace:'Arial'});
+  s1.addText(String(active.length),{x:.3,y:.98,w:2.5,h:1.6,fontSize:72,bold:true,color:P.fhr,fontFace:'Arial'});
+  s1.addText('Iniciativas Ativas',{x:.3,y:2.5,w:3.5,h:.35,fontSize:11,bold:true,color:P.mut,fontFace:'Arial'});
+  let yL=3.0;
+  states.forEach(([s,c],i)=>{
+    const cl=sCol(s,i).replace('#','');
+    s1.addShape(pptx.ShapeType.rect,{x:.3,y:yL,w:.12,h:.12,fill:{color:cl},line:{color:cl}});
+    s1.addText(`${s} (${c})`,{x:.48,y:yL-.015,w:3.2,h:.17,fontSize:9,color:P.txt,fontFace:'Arial'});
+    yL+=.22;
+  });
+  const s1Cards=[
+    {l:'Pendente AEGON',v:pendASP},{l:'Pendente FH',v:pendFH},
+    {l:'Total',v:dashData.length},{l:'Backlog',v:backlog},{l:'Concluídos',v:closed}
+  ];
+  s1Cards.forEach((c,i)=>{
+    const x=4.4,y=1.0+i*0.95;
+    s1.addShape(pptx.ShapeType.rect,{x,y,w:3.2,h:.8,fill:{color:'ffffff'},line:{color:P.brd}});
+    s1.addText(String(c.v),{x,y:y+.06,w:3.2,h:.44,fontSize:22,bold:true,color:P.txt,align:'center',fontFace:'Arial'});
+    s1.addText(c.l,{x,y:y+.48,w:3.2,h:.26,fontSize:9,color:P.mut,align:'center',fontFace:'Arial'});
+  });
+
+  // SLIDE 2 — Initiative list
+  const s2=pptx.addSlide();s2.background={color:P.bg};
+  s2.addText('Iniciativas Ativas',{x:.3,y:.18,w:12,h:.4,fontSize:14,bold:true,color:P.txt,fontFace:'Arial'});
+  const leftR=active.filter(r=>!RIGHT.has(r.estado));
+  const rightR=active.filter(r=>RIGHT.has(r.estado));
+  const si2={};states.forEach(([s],i)=>{si2[s]=i;});
+  const addRow=(slide,x,w,y,r)=>{
+    const cl=sCol(r.estado,si2[r.estado]||0).replace('#','');
+    slide.addShape(pptx.ShapeType.rect,{x,y,w,h:.36,fill:{color:'ffffff'},line:{color:P.brd}});
+    slide.addShape(pptx.ShapeType.rect,{x,y,w:.04,h:.36,fill:{color:cl},line:{color:cl}});
+    slide.addText(`${r.ambito||'—'} · ${r.tema||'—'}`,{x:x+.08,y:y+.04,w:w-.65,h:.28,fontSize:8,color:P.txt,fontFace:'Arial'});
+    slide.addText(r.estado,{x:x+w-.62,y:y+.06,w:.58,h:.24,fontSize:7,bold:true,color:'ffffff',align:'center',fontFace:'Arial',fill:{color:cl}});
+  };
+  let yL2=.78,yR2=.78;
+  leftR.forEach(r=>{addRow(s2,.3,5.8,yL2,r);yL2+=.41;});
+  rightR.forEach(r=>{addRow(s2,6.5,5.8,yR2,r);yR2+=.41;});
+
+  const now=new Date();
+  pptx.writeFile({fileName:`aegon-pds-${pad(now.getDate())}-${pad(now.getMonth()+1)}-${now.getFullYear()}.pptx`});
+}
+
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+window.addEventListener('load',async()=>{
+  if(location.hash==='#admin') showAdmin();
+  document.getElementById('fh-logo').addEventListener('click',logoClick);
+  setupDZ('dz-pds',handleFile);
+  setupDZ('dz-effort',handleEffortFile);
+
+  // Embedded fallback
+  try{
+    const emb=JSON.parse(document.getElementById('dashboard-data').textContent||'[]');
+    if(Array.isArray(emb)&&emb.length) render(emb);
+  }catch{}
+
+  const base='https://claudiogualdino.github.io/aegon-pds-dashboard';
+
+  // Fetch PDS data
+  try{
+    const res=await fetch(base+'/data.json');
+    if(res.ok){const d=await res.json();if(Array.isArray(d)&&d.length) render(d);}
+  }catch{}
+
+  // Fetch effort data
+  try{
+    const res=await fetch(base+'/effort.json');
+    if(res.ok){effortData=await res.json();renderEffortTab(effortData);}
+    else renderEffortTab(null);
+  }catch{renderEffortTab(null);}
+});
+</script>
+</body>
+</html>
