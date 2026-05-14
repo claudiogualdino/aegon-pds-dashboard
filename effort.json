@@ -1,69 +1,91 @@
 {
-  "importedAt": "14/05/2026 às 10:56",
+  "importedAt": "14/05/2026 às 14:31",
   "fileName": "AEGON_Logged_Time_01_Jan_25_30_Apr_26 (1).csv",
-  "epics": {
+  "initiatives": {
     "GDP-635": {
       "key": "GDP-635",
-      "name": "[AM02-11] Debt Recovery – Insurers",
-      "totalHours": 177,
+      "name": "Evolutive Projects",
+      "totalHours": 118,
       "workTypes": {
-        "Epic": 177
+        "Sub-task": 112,
+        "Story": 6
       }
     },
     "GDP-1966": {
       "key": "GDP-1966",
-      "name": "TUW Get Status api - get QC status history & affected parts concatenated field",
-      "totalHours": 169.5,
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 113,
       "workTypes": {
-        "Epic": 169.5
+        "Story": 107,
+        "Specifications": 6
+      }
+    },
+    "GDP-1633": {
+      "key": "GDP-1633",
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 685,
+      "workTypes": {
+        "Epic": 11.5,
+        "Test": 16.5,
+        "Story": 649,
+        "Specifications": 8
       }
     },
     "GDP-1746": {
       "key": "GDP-1746",
-      "name": "Payment Entity Access Control",
-      "totalHours": 4872,
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 3248,
       "workTypes": {
-        "Epic": 4872
+        "Epic": 1,
+        "Test": 22.5,
+        "Story": 384.5,
+        "Specifications": 4,
+        "Product Increment": 2836
       }
     },
     "GDP-1749": {
       "key": "GDP-1749",
-      "name": "Company Process Approval - UW",
-      "totalHours": 339,
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 226,
       "workTypes": {
-        "Epic": 339
+        "Epic": 10,
+        "Test": 2.5,
+        "Sub-task": 3,
+        "Story": 209,
+        "Specifications": 1.5
       }
     },
     "GDP-1681": {
       "key": "GDP-1681",
-      "name": "Company Process Approval - change of status",
-      "totalHours": 294,
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 196,
       "workTypes": {
-        "Epic": 294
+        "Epic": 2.5,
+        "Test": 10.5,
+        "Story": 179,
+        "Specifications": 4
       }
     },
     "GDP-1667": {
       "key": "GDP-1667",
-      "name": "TUW API Service - add new fields & insured person context",
-      "totalHours": 168.75,
+      "name": "(PT) AEGON/SANTANDER",
+      "totalHours": 112.5,
       "workTypes": {
-        "Epic": 168.75
+        "Story": 104.5,
+        "Specifications": 8
       }
     },
     "GDP-1524": {
       "key": "GDP-1524",
-      "name": "Callback API Client Area - Encounter Changes (push notifications)",
-      "totalHours": 693.51,
+      "name": "(PT) AEGON/SANTANDER",
+      "totalHours": 652.34,
       "workTypes": {
-        "Epic": 693.51
-      }
-    },
-    "CREQ-136": {
-      "key": "CREQ-136",
-      "name": "API /contract-info/get/contract - add BenefitNumber in Response",
-      "totalHours": 117,
-      "workTypes": {
-        "Epic": 117
+        "Epic": 51,
+        "Meeting": 33.34,
+        "Task": 257,
+        "Specifications": 3,
+        "Story": 234,
+        "New Feature": 74
       }
     }
   }
