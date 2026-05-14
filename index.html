@@ -2038,15 +2038,25 @@ async function saveToGitHub(){
     }
 
     // Load effort.json from GitHub (separate from data.json)
-    try{
-      const efRes=await fetch('./effort.json?t='+Date.now());
-      if(efRes.ok){
-        effortData=await efRes.json();
-        renderEffortTab(effortData);
-      }
-    }catch(e){
-      console.log('ℹ effort.json não disponível — sem dados de esforço');
+    // Try relative URL first (GitHub Pages), then raw.githubusercontent.com (works locally)
+    const effortUrls=['./effort.json?t='+Date.now()];
+    const ghOwner=localStorage.getItem('gh-owner')||'claudiogualdino';
+    const ghRepo =localStorage.getItem('gh-repo') ||'aegon-pds-dashboard';
+    effortUrls.push(`https://raw.githubusercontent.com/${ghOwner}/${ghRepo}/main/effort.json?t=`+Date.now());
+    let effortLoaded=false;
+    for(const efUrl of effortUrls){
+      if(effortLoaded) break;
+      try{
+        const efRes=await fetch(efUrl);
+        if(efRes.ok){
+          effortData=await efRes.json();
+          renderEffortTab(effortData);
+          effortLoaded=true;
+          console.log('✓ effort.json carregado de',efUrl);
+        }
+      }catch(e){}
     }
+    if(!effortLoaded) console.log('ℹ effort.json não disponível — sem dados de esforço');
 
     // Load changelog from GitHub (visible to all viewers)
     loadChangelogFromGitHub();
@@ -2076,7 +2086,7 @@ function nowStr(){
 // ── TAB SWITCHING ─────────────────────────────────────────────
 function switchTab(t){
   document.getElementById('tab-pds').style.display    = t==='pds'    ? '' : 'none';
-  document.getElementById('tab-effort').style.display = t==='effort' ? '' : 'none';
+  document.getElementById('tab-effort').style.display = t==='effort' ? 'block' : 'none';
   document.getElementById('tbn-pds').classList.toggle('active',    t==='pds');
   document.getElementById('tbn-effort').classList.toggle('active', t==='effort');
 }
