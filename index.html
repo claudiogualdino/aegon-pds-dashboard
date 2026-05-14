@@ -2109,14 +2109,15 @@ function parseTempoCSV(csvText){
     const logged    =parseFloat(String(row['Logged']       ||'0').replace(',','.'))||0;
 
     if(!user){
-      const gdpMatch=key.match(/GDP-\d+/i);
-      if(gdpMatch){
-        // GDP initiative aggregate: start new block
-        curInit=gdpMatch[0].toUpperCase();
+      // Match ANY Jira-format key (GDP-XXX, CREQ-XXX, OB-XXX, etc.)
+      const jiraMatch=key.match(/^([A-Za-z]+-\d+)$/);
+      if(jiraMatch){
+        // Initiative aggregate: start new block for this key
+        curInit=jiraMatch[1].toUpperCase();
         curInitName=initiative||curInit;
         seenUserRows=false;
       } else if(seenUserRows){
-        // Non-GDP User="" row after user rows → block boundary, reset
+        // Non-Jira User="" row after user rows → block boundary, reset
         curInit='';
         seenUserRows=false;
       }
