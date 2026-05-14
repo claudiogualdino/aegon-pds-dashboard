@@ -2089,39 +2089,52 @@ function switchTab(t){
 }
 
 // ── EFFORT CSV PARSING (Tempo format) ─────────────────────────
-// Returns flat dict keyed by EPIC Jira key:
-//   { "GDP-635": { key, name, totalHours, workTypes: { Story: Xh, ... } } }
-// Initiative column is ignored — we group by Epic aggregate row Key.
+// Real CSV structure:
+//   Row type A: User="", Key="GDP-XXX"          → initiative aggregate (identifies the initiative)
+//   Row type B: User="", Key="",  Epic/Risk="X" → epic aggregate (sub-group, no key)
+//   Row type C: User="X", WorkType=""            → user subtotal (SKIP)
+//   Row type D: User="X", WorkType="Story"       → real worklog (SUM)
+// Column: "Work Item Type Category" (not "Issue Type Category")
 function parseTempoCSV(csvText){
   const parsed=Papa.parse(csvText,{header:true,skipEmptyLines:true,transformHeader:h=>h.trim()});
-  const epics={};
-  let curEpicKey='', curEpicName='';
+  const initiatives={};
+  let curInit='', curInitName='', curEpic='No Epic / Risk';
 
   for(const row of parsed.data){
-    const epicRisk=String(row['Epic / Risk']         ||'').trim();
-    const user    =String(row['User']                ||'').trim();
-    const issType =String(row['Issue Type Category'] ||'').trim();
-    const key     =String(row['Key']                 ||'').trim();
-    const logged  =parseFloat(String(row['Logged']   ||'0').replace(',','.'))||0;
+    const initiative=String(row['Initiative']              ||'').trim();
+    const epicRisk  =String(row['Epic / Risk']             ||'').trim();
+    const user      =String(row['User']                    ||'').trim();
+    const workType  =String(row['Work Item Type Category'] ||'').trim();
+    const key       =String(row['Key']                     ||'').trim();
+    const logged    =parseFloat(String(row['Logged']       ||'0').replace(',','.'))||0;
 
-    // Rows WITHOUT user are aggregates (initiative, epic, or sub-group headers)
-    // Update epic context if this row has a key containing '-'
     if(!user){
-      if(key && key.includes('-')){ curEpicKey=key; curEpicName=epicRisk||key; }
+      // Aggregate row — identify type by Key
+      const gdpMatch=key.match(/GDP-\d+/i);
+      if(gdpMatch){
+        // Initiative aggregate: Key=GDP-XXX
+        curInit=gdpMatch[0].toUpperCase();
+        curInitName=initiative||curInit;
+        curEpic='No Epic / Risk';
+      } else if(epicRisk && curInit){
+        // Epic aggregate: has Epic/Risk name, no GDP key
+        curEpic=epicRisk;
+      }
       continue;
     }
-    // User is set — skip user-level subtotals (IssueType="" = cumulative subtotal, not a real worklog)
-    if(!issType) continue;
-    // Genuine individual worklog: User≠"" AND IssueType≠""
-    if(logged<=0||!curEpicKey) continue;
-    const wt=issType||'Epic';
 
-    if(!epics[curEpicKey])
-      epics[curEpicKey]={key:curEpicKey,name:curEpicName,totalHours:0,workTypes:{}};
-    epics[curEpicKey].totalHours+=logged;
-    epics[curEpicKey].workTypes[wt]=(epics[curEpicKey].workTypes[wt]||0)+logged;
+    // User is set — skip subtotals (no WorkType)
+    if(!workType) continue;
+    if(logged<=0||!curInit) continue;
+
+    // Genuine worklog: User≠"" AND WorkType≠""
+    if(!initiatives[curInit])
+      initiatives[curInit]={key:curInit,name:curInitName,totalHours:0,workTypes:{}};
+    const ini=initiatives[curInit];
+    ini.totalHours+=logged;
+    ini.workTypes[workType]=(ini.workTypes[workType]||0)+logged;
   }
-  return epics;
+  return initiatives;
 }
 
 // ── EFFORT FILE HANDLER ───────────────────────────────────────
@@ -2131,35 +2144,36 @@ function handleEffortFile(file){
   const reader=new FileReader();
   reader.onload=e=>{
     try{
-      const allEpics=parseTempoCSV(e.target.result);
-      const nAll=Object.keys(allEpics).length;
+      const allInits=parseTempoCSV(e.target.result);
+      const nAll=Object.keys(allInits).length;
 
-      // Get AEGON initiative keys (jira field of each item)
+      // Filter: keep only initiatives whose key matches AEGON items (jira field)
       let aegonKeys=new Set();
       try{
         const d=JSON.parse(document.getElementById('dashboard-data').textContent);
         aegonKeys=new Set((d.items||[]).map(i=>i.jira).filter(Boolean));
       }catch{}
 
-      // Filter: keep only epics whose key is an AEGON initiative (GDP-XXX in items)
-      const epics={};
+      const inits={};
       if(aegonKeys.size>0){
-        Object.entries(allEpics).forEach(([k,v])=>{ if(aegonKeys.has(k)) epics[k]=v; });
+        Object.entries(allInits).forEach(([k,v])=>{ if(aegonKeys.has(k)) inits[k]=v; });
       } else {
-        Object.assign(epics,allEpics); // fallback: no filter if items not loaded
+        Object.assign(inits,allInits);
       }
 
-      const nKept=Object.keys(epics).length;
+      const nKept=Object.keys(inits).length;
       const ignored=nAll-nKept;
       if(!nKept) throw new Error(
-        `Nenhum epic AEGON encontrado no CSV. ${nAll} epics no ficheiro, nenhum coincide com as ${aegonKeys.size} iniciativas GDP. Verificar se o CSV é do projeto AEGON.`
+        `Nenhuma iniciativa AEGON encontrada. ${nAll} iniciativas no CSV, `+
+        `${aegonKeys.size} no dashboard. Certifica que o data.json está carregado antes de importar o CSV.`
       );
 
-      const totalH=Object.values(epics).reduce((s,ep)=>s+ep.totalHours,0);
-      pendingEffort={importedAt:nowStr(),fileName:file.name,epics};
+      const totalH=Object.values(inits).reduce((s,i)=>s+i.totalHours,0);
+      pendingEffort={importedAt:nowStr(),fileName:file.name,initiatives:inits};
       setEffortApStatus('ok',
-        `✓ ${file.name} · ${nKept} epics AEGON · ${fmtH(totalH)}`+
-        (ignored>0?` · ${ignored} não-AEGON ignorados`:'')
+        `✓ ${file.name} · ${nKept} iniciativas AEGON · ${fmtH(totalH)}`+
+        (ignored>0?` (${ignored} não-AEGON ignoradas)`:'')+
+        (aegonKeys.size===0?' ⚠ sem filtro (carregar data.json primeiro)':'')
       );
       document.getElementById('btn-effort-gh').disabled=false;
       document.getElementById('effort-ap-drop-lbl').textContent='✓ '+file.name;
@@ -2190,15 +2204,15 @@ function getInitName(gdpKey){
 }
 
 function renderEffortTab(data){
-  const banner=document.getElementById('effort-banner');
+  const banner    =document.getElementById('effort-banner');
   const filtersRow=document.getElementById('effort-filters-row');
-  const kpisEl=document.getElementById('effort-kpis');
-  const expRow=document.getElementById('effort-expand-row');
+  const kpisEl    =document.getElementById('effort-kpis');
+  const expRow    =document.getElementById('effort-expand-row');
 
-  if(!data||!data.epics||!Object.keys(data.epics).length){
+  if(!data||!data.initiatives||!Object.keys(data.initiatives).length){
     banner.className='effort-banner no-data';
     banner.innerHTML=`<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#f0883e" stroke-width="1.5"/><rect x="7.25" y="4" width="1.5" height="4.5" rx=".5" fill="#f0883e"/><circle cx="8" cy="11" r=".75" fill="#f0883e"/></svg>
-      Sem dados de esforço. Importe um CSV do Tempo no painel de gestão (⚙️ botão inferior direito).`;
+      Sem dados de esforço. Importe um CSV do Tempo no painel de gestão.`;
     filtersRow.style.display='none'; kpisEl.style.display='none';
     if(expRow) expRow.style.display='none';
     document.getElementById('effort-list').innerHTML='';
@@ -2212,37 +2226,33 @@ function renderEffortTab(data){
   filtersRow.style.display=''; kpisEl.style.display='';
   if(expRow) expRow.style.display='flex';
 
-  // Populate epic filter (GDP-XXX — name from dashboard)
   const fltInit=document.getElementById('effort-flt-init');
   const curI=fltInit.value;
-  fltInit.innerHTML='<option value="">Todos os epics AEGON</option>'
-    +Object.keys(data.epics).sort().map(k=>{
-      const name=getInitName(k);
-      return `<option value="${k}" ${k===curI?'selected':''}>${k}${name?' — '+name.slice(0,40):''}</option>`;
+  fltInit.innerHTML='<option value="">Todas as iniciativas AEGON</option>'
+    +Object.keys(data.initiatives).sort().map(k=>{
+      const name=getInitName(k)||data.initiatives[k].name||'';
+      return `<option value="${k}" ${k===curI?'selected':''}>${k}${name?' — '+name.slice(0,38):''}</option>`;
     }).join('');
 
   applyEffortFilters();
 }
 
 function applyEffortFilters(){
-  if(!effortData||!effortData.epics) return;
+  if(!effortData||!effortData.initiatives) return;
   const fI=document.getElementById('effort-flt-init').value;
+  const entries=Object.entries(effortData.initiatives).filter(([k])=>!fI||k===fI);
 
-  const entries=Object.entries(effortData.epics).filter(([k])=>!fI||k===fI);
-
-  // Collect work types for consistent colouring
+  // Collect all work types for consistent colouring
   const wtSet=new Set();
-  entries.forEach(([,ep])=>Object.keys(ep.workTypes).forEach(wt=>wtSet.add(wt)));
+  entries.forEach(([,ini])=>Object.keys(ini.workTypes).forEach(wt=>wtSet.add(wt)));
   const wtList=[...wtSet];
   const wtColorMap={};
   wtList.forEach((wt,i)=>{wtColorMap[wt]=wtColor(wt,i);});
 
-  const totalH=entries.reduce((s,[,ep])=>s+ep.totalHours,0);
-  const grandTotal=Object.values(effortData.epics).reduce((s,ep)=>s+ep.totalHours,0);
-
-  // KPI: work type totals
+  const totalH=entries.reduce((s,[,ini])=>s+ini.totalHours,0);
+  const grandTotal=Object.values(effortData.initiatives).reduce((s,ini)=>s+ini.totalHours,0);
   const wtTot={};
-  entries.forEach(([,ep])=>Object.entries(ep.workTypes).forEach(([wt,h])=>{
+  entries.forEach(([,ini])=>Object.entries(ini.workTypes).forEach(([wt,h])=>{
     wtTot[wt]=(wtTot[wt]||0)+h;
   }));
   const topWT=Object.entries(wtTot).sort(([,a],[,b])=>b-a);
@@ -2253,33 +2263,32 @@ function applyEffortFilters(){
 
   document.getElementById('effort-kpis').innerHTML=`
     <div class="eff-kpi"><div class="eff-kpi-num">${fmtH(totalH)}</div><div class="eff-kpi-lbl">Total Horas</div></div>
-    <div class="eff-kpi"><div class="eff-kpi-num">${entries.length}</div><div class="eff-kpi-lbl">Epics AEGON</div></div>
+    <div class="eff-kpi"><div class="eff-kpi-num">${entries.length}</div><div class="eff-kpi-lbl">Iniciativas</div></div>
     <div class="eff-kpi wide"><div class="eff-kpi-lbl" style="margin-bottom:6px">Por Work Type</div><div class="wt-pills-row">${pills||'—'}</div></div>`;
   document.getElementById('effort-ctr').textContent=
-    `${entries.length} de ${Object.keys(effortData.epics).length} epics`;
+    `${entries.length} de ${Object.keys(effortData.initiatives).length} iniciativas`;
 
-  // Sort by hours desc
+  // Sort by total hours desc
   const sorted=[...entries].sort(([,a],[,b])=>b.totalHours-a.totalHours);
 
-  // Build accordion — one row per AEGON epic
-  const html=sorted.map(([key,ep])=>{
-    const name=getInitName(key)||ep.name||key;
-    const pct=grandTotal?(ep.totalHours/grandTotal*100).toFixed(0)+'%':'—';
+  const html=sorted.map(([key,ini])=>{
+    const name=getInitName(key)||ini.name||key;
+    const pct=grandTotal?(ini.totalHours/grandTotal*100).toFixed(0)+'%':'—';
+    const maxH=Math.max(...Object.values(ini.workTypes));
     // Mini stacked bar
-    const maxH=Math.max(...Object.values(ep.workTypes));
-    const miniSegs=Object.entries(ep.workTypes).sort(([,a],[,b])=>b-a).map(([wt,h])=>
-      `<div class="eff-mini-seg" style="flex:${ep.totalHours?(h/ep.totalHours*100).toFixed(1):0};background:${wtColorMap[wt]||'#8b949e'}" title="${wt}: ${fmtH(h)}"></div>`
+    const miniSegs=Object.entries(ini.workTypes).sort(([,a],[,b])=>b-a).map(([wt,h])=>
+      `<div class="eff-mini-seg" style="flex:${ini.totalHours?(h/ini.totalHours*100).toFixed(1):0};background:${wtColorMap[wt]||'#8b949e'}" title="${wt}: ${fmtH(h)}"></div>`
     ).join('');
     // Work type rows
-    const wtRows=Object.entries(ep.workTypes).sort(([,a],[,b])=>b-a).map(([wt,h])=>{
+    const wtRows=Object.entries(ini.workTypes).sort(([,a],[,b])=>b-a).map(([wt,h])=>{
       const barPct=maxH?(h/maxH*100).toFixed(1):0;
-      const pctEp=ep.totalHours?(h/ep.totalHours*100).toFixed(0):0;
+      const pctIni=ini.totalHours?(h/ini.totalHours*100).toFixed(0):0;
       const col=wtColorMap[wt]||'#8b949e';
       return `<div class="eff-wt-row">
         <div class="eff-wt-label" style="background:${col}">${wt}</div>
         <div class="eff-wt-bar-wrap"><div class="eff-wt-bar" style="width:${barPct}%;background:${col}"></div></div>
         <div class="eff-wt-h">${fmtH(h)}</div>
-        <div class="eff-wt-pct">${pctEp}%</div>
+        <div class="eff-wt-pct">${pctIni}%</div>
       </div>`;
     }).join('');
 
@@ -2292,7 +2301,7 @@ function applyEffortFilters(){
         <span class="eff-init-name">${name}</span>
         <div class="eff-mini-bar">${miniSegs}</div>
         <span class="eff-init-pct">${pct}</span>
-        <span class="eff-init-hours">${fmtH(ep.totalHours)}</span>
+        <span class="eff-init-hours">${fmtH(ini.totalHours)}</span>
       </div>
       <div class="eff-init-body open">${wtRows}</div>
     </div>`;
