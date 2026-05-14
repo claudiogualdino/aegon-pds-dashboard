@@ -2145,13 +2145,33 @@ function handleEffortFile(file){
   const reader = new FileReader();
   reader.onload = e => {
     try{
-      const inits = parseTempoCSV(e.target.result);
+      const allInits = parseTempoCSV(e.target.result);
+
+      // ── Filter: only keep initiatives that exist in the AEGON dashboard items ──
+      let aegonKeys = new Set();
+      try{
+        const d=JSON.parse(document.getElementById('dashboard-data').textContent);
+        aegonKeys=new Set((d.items||[]).map(i=>i.jira).filter(Boolean));
+      }catch{}
+
+      const inits = {};
+      if(aegonKeys.size > 0){
+        Object.entries(allInits).forEach(([k,v])=>{ if(aegonKeys.has(k)) inits[k]=v; });
+      } else {
+        // Fallback: keep all if dashboard items not yet loaded
+        Object.assign(inits, allInits);
+      }
+
       const nInits = Object.keys(inits).length;
-      if(!nInits) throw new Error('Nenhuma iniciativa GDP encontrada. Verificar formato CSV Tempo.');
+      const nAll   = Object.keys(allInits).length;
+      if(!nInits) throw new Error(`Nenhuma iniciativa AEGON encontrada no CSV (${nAll} total no ficheiro, nenhuma coincide com as ${aegonKeys.size} iniciativas do dashboard).`);
+
       const nEpics = Object.values(inits).reduce((s,i)=>s+Object.keys(i.epics).length,0);
       const totalH = Object.values(inits).reduce((s,i)=>s+i.totalHours,0);
+      const filtered = nAll - nInits;
+
       pendingEffort = {importedAt:nowStr(), fileName:file.name, initiatives:inits};
-      setEffortApStatus('ok',`✓ ${file.name} · ${nInits} iniciativas · ${nEpics} epics · ${fmtH(totalH)}`);
+      setEffortApStatus('ok',`✓ ${file.name} · ${nInits} iniciativas AEGON · ${nEpics} epics · ${fmtH(totalH)}${filtered>0?' ('+filtered+' não-AEGON ignoradas)':''}`);
       document.getElementById('btn-effort-gh').disabled = false;
       document.getElementById('effort-ap-drop-lbl').textContent = '✓ ' + file.name;
       // Live preview on effort tab
