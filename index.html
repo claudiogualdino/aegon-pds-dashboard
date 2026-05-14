@@ -2105,7 +2105,8 @@ function parseTempoCSV(csvText){
     const epicRisk  =String(row['Epic / Risk']             ||'').trim();
     const user      =String(row['User']                    ||'').trim();
     const workType  =String(row['Work Item Type Category'] ||'').trim();
-    const key       =String(row['Key']                     ||'').trim();
+    const worklog   =String(row['Worklog']                  ||'').trim();
+    const key       =String(row['Key']                      ||'').trim();
     const logged    =parseFloat(String(row['Logged']       ||'0').replace(',','.'))||0;
 
     if(!user){
