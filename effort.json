@@ -1,5 +1,5 @@
 {
-  "importedAt": "14/05/2026 às 14:49",
+  "importedAt": "15/05/2026 às 00:19",
   "fileName": "AEGON_Logged_Time_01_Jan_25_30_Apr_26 (2).csv",
   "initiatives": {
     "GDP-1962": {
@@ -44,15 +44,12 @@
     "GDP-1746": {
       "key": "GDP-1746",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 4012.19,
+      "totalHours": 206,
       "workTypes": {
-        "Epic": 34.25,
+        "Epic": 0.5,
         "Test": 11.25,
-        "Story": 228.19000000000003,
-        "Specifications": 2,
-        "Initiative": 2045.42,
-        "Project": 249.08,
-        "Product Increment": 1442
+        "Story": 192.25,
+        "Specifications": 2
       }
     },
     "GDP-1749": {
@@ -90,14 +87,13 @@
     "GDP-1524": {
       "key": "GDP-1524",
       "name": "(PT) AEGON/SANTANDER",
-      "totalHours": 326.16999999999996,
+      "totalHours": 231.17,
       "workTypes": {
-        "Epic": 25.5,
+        "Epic": 23,
         "Meeting": 16.67,
         "Task": 128.5,
         "Specifications": 1.5,
-        "Story": 117,
-        "New Feature": 37
+        "Story": 61.5
       }
     }
   }
