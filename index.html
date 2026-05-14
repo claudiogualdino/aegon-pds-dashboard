@@ -2098,41 +2098,38 @@ function switchTab(t){
 function parseTempoCSV(csvText){
   const parsed=Papa.parse(csvText,{header:true,skipEmptyLines:true,transformHeader:h=>h.trim()});
   const initiatives={};
-  let curInit='', curInitName='', curEpic='No Epic / Risk';
+  let curInit='', curInitName='', seenUserRows=false;
 
   for(const row of parsed.data){
     const initiative=String(row['Initiative']              ||'').trim();
-    const epicRisk  =String(row['Epic / Risk']             ||'').trim();
     const user      =String(row['User']                    ||'').trim();
     const workType  =String(row['Work Item Type Category'] ||'').trim();
-    const worklog   =String(row['Worklog']                  ||'').trim();
-    const key       =String(row['Key']                      ||'').trim();
+    const worklog   =String(row['Worklog']                 ||'').trim();
+    const key       =String(row['Key']                     ||'').trim();
     const logged    =parseFloat(String(row['Logged']       ||'0').replace(',','.'))||0;
 
     if(!user){
-      // Aggregate row — identify type by Key
       const gdpMatch=key.match(/GDP-\d+/i);
       if(gdpMatch){
-        // Initiative aggregate: Key=GDP-XXX
+        // GDP initiative aggregate: start new block
         curInit=gdpMatch[0].toUpperCase();
         curInitName=initiative||curInit;
-        curEpic='No Epic / Risk';
-      } else if(epicRisk && curInit){
-        // Epic aggregate: has Epic/Risk name, no GDP key
-        curEpic=epicRisk;
+        seenUserRows=false;
+      } else if(seenUserRows){
+        // Non-GDP User="" row after user rows → block boundary, reset
+        curInit='';
+        seenUserRows=false;
       }
+      // else: first User="" before any user rows in block → ignore (not a boundary)
       continue;
     }
 
-    // User is set — skip subtotals:
-    //   Type="" → user subtotal
-    //   Type≠"" but Worklog="" → type-level subtotal (another aggregate level)
-    //   Type≠"" and Worklog≠"" → genuine individual worklog
-    if(!workType) continue;
-    if(!worklog) continue;   // ← type-level subtotal, skip
+    // User is set
+    seenUserRows=true;
+    if(!workType || !worklog) continue;  // skip all subtotal rows
     if(logged<=0||!curInit) continue;
 
-    // Genuine worklog: User≠"" AND WorkType≠""
+    // Genuine individual worklog: User≠"" AND WorkType≠"" AND Worklog≠""
     if(!initiatives[curInit])
       initiatives[curInit]={key:curInit,name:curInitName,totalHours:0,workTypes:{}};
     const ini=initiatives[curInit];
