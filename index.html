@@ -2104,13 +2104,15 @@ function parseTempoCSV(csvText){
     const key     =String(row['Key']                 ||'').trim();
     const logged  =parseFloat(String(row['Logged']   ||'0').replace(',','.'))||0;
 
-    // Aggregate row (epic header): User="" and IssueType=""
-    if(!user&&!issType){
-      if(key&&key.includes('-')){ curEpicKey=key; curEpicName=epicRisk||key; }
+    // Aggregate row (epic header): User="" AND IssueType=""
+    // Also skip user-level subtotals: User≠"" but IssueType="" (these are cumulative subtotals, not real worklogs)
+    if(!user || !issType){
+      // Update epic context only from genuine epic headers (no user, no issType, has a key with '-')
+      if(!user && !issType && key && key.includes('-')){ curEpicKey=key; curEpicName=epicRisk||key; }
       continue;
     }
 
-    // Leaf row — actual worklog
+    // Genuine worklog: User≠"" AND IssueType≠""
     if(logged<=0||!curEpicKey) continue;
     const wt=issType||'Epic';
 
