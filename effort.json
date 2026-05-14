@@ -1,22 +1,24 @@
 {
-  "importedAt": "15/05/2026 às 00:19",
-  "fileName": "AEGON_Logged_Time_01_Jan_25_30_Apr_26 (2).csv",
+  "importedAt": "15/05/2026 às 00:38",
+  "fileName": "AEGON_Logged_Time_01_Jan_25_15_May_26.csv",
   "initiatives": {
     "GDP-1962": {
       "key": "GDP-1962",
       "name": "Evolutive Projects",
-      "totalHours": 16.25,
+      "totalHours": 20.5,
       "workTypes": {
         "Epic": 0.25,
-        "Story": 14.75,
+        "Test": 0.5,
+        "Story": 18.5,
         "Specifications": 1.25
       }
     },
     "GDP-635": {
       "key": "GDP-635",
       "name": "Evolutive Projects",
-      "totalHours": 59,
+      "totalHours": 59.5,
       "workTypes": {
+        "Epic": 0.5,
         "Sub-task": 56,
         "Story": 3
       }
@@ -24,54 +26,63 @@
     "GDP-1966": {
       "key": "GDP-1966",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 56.5,
+      "totalHours": 72.5,
       "workTypes": {
-        "Story": 53.5,
+        "Story": 69.5,
         "Specifications": 3
       }
     },
     "GDP-1633": {
       "key": "GDP-1633",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 342.5,
+      "totalHours": 363.5,
       "workTypes": {
         "Epic": 5.75,
-        "Test": 8.25,
-        "Story": 324.5,
+        "Test": 10.25,
+        "Story": 343.5,
         "Specifications": 4
       }
     },
     "GDP-1746": {
       "key": "GDP-1746",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 206,
+      "totalHours": 213,
       "workTypes": {
         "Epic": 0.5,
-        "Test": 11.25,
-        "Story": 192.25,
+        "Test": 15,
+        "Story": 195.5,
         "Specifications": 2
+      }
+    },
+    "GDP-599": {
+      "key": "GDP-599",
+      "name": "(PT) Evolutive Maintenance & Support",
+      "totalHours": 1.5,
+      "workTypes": {
+        "Epic": 0.5,
+        "Specifications": 1
       }
     },
     "GDP-1749": {
       "key": "GDP-1749",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 113,
+      "totalHours": 125.25,
       "workTypes": {
         "Epic": 5,
-        "Test": 1.25,
+        "Test": 2.5,
         "Sub-task": 1.5,
-        "Story": 104.5,
+        "Story": 115.5,
         "Specifications": 0.75
       }
     },
     "GDP-1681": {
       "key": "GDP-1681",
       "name": "(PT) Evolutive Maintenance & Support",
-      "totalHours": 98,
+      "totalHours": 100.75,
       "workTypes": {
         "Epic": 1.25,
-        "Test": 5.25,
-        "Story": 89.5,
+        "Test": 7,
+        "Story": 90.5,
         "Specifications": 2
       }
     },
@@ -84,6 +95,14 @@
         "Specifications": 4
       }
     },
+    "CREQ-176": {
+      "key": "CREQ-176",
+      "name": "(PT) AEGON/SANTANDER",
+      "totalHours": 5.5,
+      "workTypes": {
+        "Epic": 5.5
+      }
+    },
     "GDP-1524": {
       "key": "GDP-1524",
       "name": "(PT) AEGON/SANTANDER",
@@ -94,6 +113,23 @@
         "Task": 128.5,
         "Specifications": 1.5,
         "Story": 61.5
+      }
+    },
+    "CREQ-136": {
+      "key": "CREQ-136",
+      "name": "(PT) AEGON/SANTANDER",
+      "totalHours": 39,
+      "workTypes": {
+        "Epic": 2,
+        "New Feature": 37
+      }
+    },
+    "GDP-1530": {
+      "key": "GDP-1530",
+      "name": "(PT) AEGON/SANTANDER",
+      "totalHours": 16,
+      "workTypes": {
+        "Story": 16
       }
     }
   }
