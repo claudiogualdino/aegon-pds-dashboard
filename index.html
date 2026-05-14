@@ -2123,8 +2123,12 @@ function parseTempoCSV(csvText){
       continue;
     }
 
-    // User is set — skip subtotals (no WorkType)
+    // User is set — skip subtotals:
+    //   Type="" → user subtotal
+    //   Type≠"" but Worklog="" → type-level subtotal (another aggregate level)
+    //   Type≠"" and Worklog≠"" → genuine individual worklog
     if(!workType) continue;
+    if(!worklog) continue;   // ← type-level subtotal, skip
     if(logged<=0||!curInit) continue;
 
     // Genuine worklog: User≠"" AND WorkType≠""
