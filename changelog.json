@@ -1,52 +1,43 @@
 {
   "changes": [
     {
-      "type": "state",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "from": "QA Testing",
-      "to": "QA Approved"
-    },
-    {
-      "type": "state",
+      "type": "field",
       "item": "19",
       "tema": "Valores Acima do Plafond",
-      "from": "Pending FH",
-      "to": "Business Requirements"
+      "field": "Jira",
+      "from": "GDP-1787",
+      "to": "GDP-599"
     },
     {
-      "type": "new",
+      "type": "field",
+      "item": "55",
+      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
+      "field": "Jira",
+      "from": "GDP-1543",
+      "to": "GDP-1633"
+    },
+    {
+      "type": "field",
+      "item": "56",
+      "tema": "Melhorias Subscrição ASP - SMS Token",
+      "field": "Jira",
+      "from": "GDP-1544",
+      "to": "GDP-1633"
+    },
+    {
+      "type": "field",
       "item": "57",
       "tema": "Medical Network Search - Service not required",
-      "to": "Train Testing"
-    },
-    {
-      "type": "note",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "10/05/2026",
-      "text": "Aguarda aprovação release QA Global e passagem a Train"
-    },
-    {
-      "type": "note",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "date": "10/05/2026",
-      "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
-    },
-    {
-      "type": "note",
-      "item": "68",
-      "tema": "Histórico de Estados",
-      "date": "10/05/2026",
-      "text": "Está em tech review. Aguardamos ok para testes."
+      "field": "Jira",
+      "from": "GDP-1546",
+      "to": "CREQ-176"
     }
   ],
-  "prevDateStr": "04 / 05 / 2026",
+  "prevDateStr": "10 / 05 / 2026",
   "prevMeta": {
-    "dateStr": "04 / 05 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 04052026.xlsx",
+    "dateStr": "10 / 05 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 11052026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "10/05/2026 às 18:48"
+  "generatedAt": "14/05/2026 às 11:32"
 }
