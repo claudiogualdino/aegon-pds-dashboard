@@ -4,7 +4,7 @@
       "item": 1,
       "ambito": "Produto",
       "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "estado": "Pending FH",
+      "estado": "Business Requirements",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "agendada sessão interna para 11/05/2026"
+          "date": "18/05/2026",
+          "text": "Sessão interna realizada. Requirements em preparação e avalição de plano de implementação."
         }
       ]
     },
@@ -46,25 +46,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "24/04/2026",
-          "text": "AEGON ainda não respondeu com data fim dos testes de Dev - Train"
-        }
-      ]
-    },
-    {
-      "item": 16,
-      "ambito": "Subscrição",
-      "tema": "Lateralidades nas Exclusões",
-      "estado": "Train Testing",
-      "team": "IBG",
-      "dt_prod": "",
-      "dt_train": "13/04/2026",
-      "jira": "GDP-1966",
-      "change_id": "HELP-24758",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "em Train Testing para AEGON poder testar"
+          "date": "18/05/2026",
+          "text": "DEV AEGON -> TRAIN FH ok e fechado. Aguardamos ainda data para iniciar testes PRE AEGON -> TRAIN FH"
         }
       ]
     },
@@ -267,8 +250,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "04/05/2026",
-          "text": "agendada sessão para clarificação do plano de implementação e entrega da funcionalidade"
+          "date": "18/05/2026",
+          "text": "Necessário implementar [GE06-12] Odoo Integration - Debt Recovery. Sessão interna com Raquel e Financeira para revisão de prioridade para definir plano de entrega da feature."
         }
       ]
     },
@@ -303,23 +286,6 @@
         {
           "date": "24/04/2026",
           "text": "Já está em QA testing. Previsto passagem a Train a 04/05/2026"
-        }
-      ]
-    },
-    {
-      "item": 57,
-      "ambito": "Área Pessoal",
-      "tema": "Medical Network Search - Service not required",
-      "estado": "Train Testing",
-      "team": "CI",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "CREQ-176",
-      "change_id": "HELP-22259",
-      "notes": [
-        {
-          "date": "10/05/2026",
-          "text": "em testes com AEGON"
         }
       ]
     },
@@ -410,20 +376,18 @@
     }
   ],
   "summary": {
-    "Pending FH": 1,
+    "Business Requirements": 3,
     "Backlog": 16,
-    "Closed": 26,
-    "Business Requirements": 2,
+    "Closed": 28,
     "Canceled": 2,
     "Pending ASP": 11,
-    "Train Testing": 2,
     "QA Approved": 1,
     "QA Testing": 4,
     "Dev Testing": 1,
     "In Progress": 2
   },
-  "dateStr": "14 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 14052026.xlsx",
-  "importedAt": "14/05/2026 às 11:32",
+  "dateStr": "18 / 05 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 18052026.xlsx",
+  "importedAt": "18/05/2026 às 00:54",
   "execReport": "**Overall Status**\nThe AEGON technology initiative portfolio remains active with 24 ongoing initiatives across all delivery stages. Of these, 11 are pending AEGON's action — representing the primary bottleneck — while FH holds 1 item internally. Portfolio completion stands at 38% (26 of 68 total initiatives). Several Train milestone dates have slipped, requiring attention ahead of the next release window.\n\n**This Week's Progress**\n• #17 Pre-Authorizations & Reimbursements flow advanced to QA Approved — awaiting QA Global release approval before moving to Train\n• #19 Valores Acima do Plafond moved from Pending FH into Business Requirements; requirements document due for AEGON review by 14 May\n• #57 Medical Network Search – Service Not Required entered Train Testing and is now available for AEGON validation\n• #68 Histórico de Estados completed tech review; awaiting sign-off to begin testing\n\n**Key Actions Required**\n• AEGON — 11 initiatives remain in Pending ASP status, several with no response for extended periods (e.g. #25 Data de Início do Risco since Feb, #15 Test Environment Alignment with production date now 10 months overdue)\n• AEGON — Train testing validation required for #57 Medical Network Search and #16 Lateralidades nas Exclusões, both currently available in Train environment\n• AEGON — Review and sign-off on requirements for #19 Valores Acima do Plafond before 14 May to maintain delivery timeline"
 }
