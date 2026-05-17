@@ -1,43 +1,51 @@
 {
   "changes": [
     {
-      "type": "field",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "field": "Jira",
-      "from": "GDP-1787",
-      "to": "GDP-599"
+      "type": "state",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "from": "Pending FH",
+      "to": "Business Requirements"
     },
     {
-      "type": "field",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "field": "Jira",
-      "from": "GDP-1543",
-      "to": "GDP-1633"
+      "type": "done",
+      "item": "16",
+      "tema": "Lateralidades nas Exclusões",
+      "from": "Train Testing"
     },
     {
-      "type": "field",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "field": "Jira",
-      "from": "GDP-1544",
-      "to": "GDP-1633"
-    },
-    {
-      "type": "field",
+      "type": "done",
       "item": "57",
       "tema": "Medical Network Search - Service not required",
-      "field": "Jira",
-      "from": "GDP-1546",
-      "to": "CREQ-176"
+      "from": "Train Testing"
+    },
+    {
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "18/05/2026",
+      "text": "Sessão interna realizada. Requirements em preparação e avalição de plano de implementação."
+    },
+    {
+      "type": "note",
+      "item": "15",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "date": "18/05/2026",
+      "text": "DEV AEGON -> TRAIN FH ok e fechado. Aguardamos ainda data para iniciar testes PRE AEGON -> TRAIN FH"
+    },
+    {
+      "type": "note",
+      "item": "43",
+      "tema": "Processo de Recuperação da Divida",
+      "date": "18/05/2026",
+      "text": "Necessário implementar [GE06-12] Odoo Integration - Debt Recovery. Sessão interna com Raquel e Financeira para revisão de prioridade para definir plano de entrega da feature."
     }
   ],
-  "prevDateStr": "10 / 05 / 2026",
+  "prevDateStr": "14 / 05 / 2026",
   "prevMeta": {
-    "dateStr": "10 / 05 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 11052026.xlsx",
+    "dateStr": "14 / 05 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 14052026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "14/05/2026 às 11:32"
+  "generatedAt": "18/05/2026 às 00:54"
 }
