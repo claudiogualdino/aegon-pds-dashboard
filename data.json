@@ -46,8 +46,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "18/05/2026",
-          "text": "DEV AEGON -> TRAIN FH ok e fechado. Aguardamos ainda data para iniciar testes PRE AEGON -> TRAIN FH"
+          "date": "25/05/2026",
+          "text": "AEGON reportou erros de timeouts. Solicitada ação de Infraestrutura para analisar."
         }
       ]
     },
@@ -55,7 +55,7 @@
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "QA Approved",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -72,7 +72,7 @@
       "item": 18,
       "ambito": "FH2.0",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "QA Testing",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -97,8 +97,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "10/05/2026",
-          "text": "Iniciamos definição de requisitos. Até dia 14/05/2026 teremos doc requisitos para validação com AEGON"
+          "date": "25/05/2026",
+          "text": "Requisitos entregues. Aguarda Plano de Implementação"
         }
       ]
     },
@@ -106,7 +106,7 @@
       "item": 23,
       "ambito": "FH2.0",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Dev Testing",
+      "estado": "Dev Approved",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "28/04/2026",
@@ -114,8 +114,8 @@
       "change_id": "HELP-22268",
       "notes": [
         {
-          "date": "17/04/2026",
-          "text": "Está em dev testing."
+          "date": "25/05/2026",
+          "text": "Aprovado em Dev. Aguarda data para QA Global"
         }
       ]
     },
@@ -140,7 +140,7 @@
       "item": 26,
       "ambito": "FH2.0",
       "tema": "Acesso Detalhe da Factura",
-      "estado": "QA Testing",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -242,7 +242,7 @@
       "item": 43,
       "ambito": "Sinistros",
       "tema": "Processo de Recuperação da Divida",
-      "estado": "In Progress",
+      "estado": "On Hold",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -250,8 +250,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "18/05/2026",
-          "text": "Necessário implementar [GE06-12] Odoo Integration - Debt Recovery. Sessão interna com Raquel e Financeira para revisão de prioridade para definir plano de entrega da feature."
+          "date": "25/05/2026",
+          "text": "Componente FH só será implementada/retomada a partir de 20/076/2026. Aguardo um plano mais claro desta componente, assim como da componente financeira/integração Odoo"
         }
       ]
     },
@@ -259,7 +259,7 @@
       "item": 55,
       "ambito": "Subscrição",
       "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "estado": "QA Testing",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -276,7 +276,7 @@
       "item": 56,
       "ambito": "Subscrição",
       "tema": "Melhorias Subscrição ASP - SMS Token",
-      "estado": "QA Testing",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "04/05/2026",
@@ -369,8 +369,8 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "10/05/2026",
-          "text": "Está em tech review. Aguardamos ok para testes."
+          "date": "25/05/2026",
+          "text": "Dev refused, voltou para implementação"
         }
       ]
     }
@@ -381,25 +381,13 @@
     "Closed": 28,
     "Canceled": 2,
     "Pending ASP": 11,
-    "QA Approved": 1,
-    "QA Testing": 4,
-    "Dev Testing": 1,
-    "In Progress": 2
+    "Train Testing": 5,
+    "Dev Approved": 1,
+    "On Hold": 1,
+    "In Progress": 1
   },
-  "dateStr": "18 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 18052026.xlsx",
-  "importedAt": "18/05/2026 às 00:54",
-  "execReport": "Overall Status — The portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). With 0 items Pending FH and 11 Pending AEGON, the critical path is currently on AEGON's side. The main concern is 7 overdue milestones requiring immediate attention to avoid further slippage.
-This Week's Progress —
-
-Closed initiative #16 (Lateralidades nas Exclusões) — moved to Done
-Closed initiative #57 (Medical Network Search) — moved to Done
-Initiative #1 (Aumento de Capital & Alteração de Coberturas – PRO RATA) advanced from Pending FH to Business Requirements, unblocking design work
-Active pipeline holds steady: 4 in QA Testing, 3 in Business Requirements, 2 In Progress, 1 QA Approved, 1 in Dev Testing
-
-Key Actions Required —
-
-Unblock the 11 initiatives currently Pending ASP — these represent the largest queue and are gating downstream delivery
-Realign training and production dates for the 7 overdue milestones (#15, #17, #18, #23, #26, #55, #56), with priority on the four with Train dates of 04/05/2026
-Confirm new target date for initiative #15 (Alinhamento dos Ambientes de Teste), overdue since 30/06/2025 and a prerequisite for several QA-stage items"
+  "dateStr": "24 / 05 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 25052026.xlsx",
+  "importedAt": "24/05/2026 às 23:37",
+  "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
