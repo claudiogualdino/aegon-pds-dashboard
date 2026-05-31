@@ -8,10 +8,11 @@
       "to": "In Progress"
     },
     {
-      "type": "done",
+      "type": "state",
       "item": "11",
       "tema": "Alteração Subscrição | QC por Produto",
       "from": "Business Requirements"
+      "to": "Backlog"
     },
     {
       "type": "field",
