@@ -29,6 +29,13 @@
       "date": "29/05/2026",
       "text": "Está em progresso. Prevemos para testes até dia 30/06"
     }
+    {
+      "type": "note",
+      "item": "15",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "date": "29/05/2026",
+      "text": "Continuamos sem resposta/análise sobre erros timeouts Train FH. Tema já escalou no Banco/Onecare porque têm ambiente DEV inoperacional."
+    }
   ],
   "prevDateStr": "24 / 05 / 2026",
   "prevMeta": {
