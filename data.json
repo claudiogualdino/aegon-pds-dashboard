@@ -8,29 +8,12 @@
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
-      "jira": "",
+      "jira": "GDP-668",
       "change_id": "HELP-22263",
       "notes": [
         {
           "date": "18/05/2026",
           "text": "Sessão interna realizada. Requirements em preparação e avalição de plano de implementação."
-        }
-      ]
-    },
-    {
-      "item": 11,
-      "ambito": "Subscrição",
-      "tema": "Alteração Subscrição | QC por Produto",
-      "estado": "Business Requirements",
-      "team": "CORE/IBG",
-      "dt_prod": "",
-      "dt_train": "",
-      "jira": "",
-      "change_id": "HELP-25214",
-      "notes": [
-        {
-          "date": "10/04/2026",
-          "text": "MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica"
         }
       ]
     },
@@ -89,7 +72,7 @@
       "item": 19,
       "ambito": "FH2.0",
       "tema": "Valores Acima do Plafond",
-      "estado": "Business Requirements",
+      "estado": "In Progress",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -97,8 +80,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "25/05/2026",
-          "text": "Requisitos entregues. Aguarda Plano de Implementação"
+          "date": "29/05/2026",
+          "text": "Está em progresso. Prevemos para testes até dia 30/06"
         }
       ]
     },
@@ -376,18 +359,18 @@
     }
   ],
   "summary": {
-    "Business Requirements": 3,
-    "Backlog": 16,
+    "Business Requirements": 1,
+    "Backlog": 18,
     "Closed": 28,
     "Canceled": 2,
     "Pending ASP": 11,
     "Train Testing": 5,
+    "In Progress": 2,
     "Dev Approved": 1,
-    "On Hold": 1,
-    "In Progress": 1
+    "On Hold": 1
   },
-  "dateStr": "24 / 05 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 25052026.xlsx",
-  "importedAt": "24/05/2026 às 23:37",
+  "dateStr": "01 / 06 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 29052026.xlsx",
+  "importedAt": "01/06/2026 às 00:16",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
