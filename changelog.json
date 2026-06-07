@@ -2,6 +2,13 @@
   "changes": [
     {
       "type": "state",
+      "item": "64",
+      "tema": "TUW por coberturas",
+      "from": "Closed",
+      "to": "Canceled"
+    },
+    {
+      "type": "state",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
       "from": "Train Testing",
