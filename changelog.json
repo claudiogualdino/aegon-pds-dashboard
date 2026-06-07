@@ -107,6 +107,13 @@
     },
     {
       "type": "note",
+      "item": "64",
+      "tema": "TUW por coberturas",
+      "date": "05/06/2026",
+      "text": "Duplicado do item 11, e por erro foi dado como concluído em vez de cancelado. Foi retificado"
+    },
+    {
+      "type": "note",
       "item": "15",
       "tema": "Alinhamento dos Ambientes de Teste",
       "date": "05/06/2026",
