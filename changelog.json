@@ -18,21 +18,21 @@
       "type": "state",
       "item": "26",
       "tema": "Acesso Detalhe da Factura",
-      "from": "Ready for Go live"
+      "from": "Ready for Go live",
       "to": "Closed"
     },
     {
       "type": "state",
       "item": "55",
       "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "from": "Ready for Go live"
+      "from": "Ready for Go live",
       "to": "Closed"
     },
     {
       "type": "state",
       "item": "56",
       "tema": "Melhorias Subscrição ASP - SMS Token",
-      "from": "Ready for Go live"
+      "from": "Ready for Go live",
       "to": "Closed"
     },
     {
