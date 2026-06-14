@@ -29,8 +29,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "05/06/2026",
-          "text": "Continuamos sem resposta/análise sobre erros timeouts Train FH. Tema já escalou no Banco/Onecare porque têm ambiente DEV inoperacional"
+          "date": "12/06/2026",
+          "text": "Decorreram sessões com AEGON para testar o modelo de chamada utilizado. Apesar de usarem chamadas sequenciais ainda persistem timeouts. Vamos fazer nova sessão esta semana para tentar fechar o tema."
         }
       ]
     },
@@ -38,7 +38,7 @@
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "estado": "Ready for Go live",
+      "estado": "Pending ASP",
       "team": "CORE",
       "dt_prod": "09/06/2026",
       "dt_train": "04/05/2026",
@@ -46,8 +46,8 @@
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "05/06/2026",
-          "text": "Deploy em Produção a 09/06/2026"
+          "date": "12/06/2026",
+          "text": "Alinhar com AEGON data de arranque operacional"
         }
       ]
     },
@@ -55,7 +55,7 @@
       "item": 18,
       "ambito": "FH2.0",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "Ready for Go live",
+      "estado": "Pending ASP",
       "team": "CORE",
       "dt_prod": "09/06/2026",
       "dt_train": "04/05/2026",
@@ -63,8 +63,8 @@
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "05/06/2026",
-          "text": "Deploy em Produção a 09/06/2026"
+          "date": "12/06/2026",
+          "text": "Alinhar com AEGON data de arranque operacional"
         }
       ]
     },
@@ -116,23 +116,6 @@
         {
           "date": "10/02/2026",
           "text": "sem qualquer feedback da ASP"
-        }
-      ]
-    },
-    {
-      "item": 26,
-      "ambito": "FH2.0",
-      "tema": "Acesso Detalhe da Factura",
-      "estado": "Ready for Go live",
-      "team": "CORE",
-      "dt_prod": "09/06/2026",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1746",
-      "change_id": "HELP-22258",
-      "notes": [
-        {
-          "date": "05/06/2026",
-          "text": "Deploy em Produção a 09/06/2026"
         }
       ]
     },
@@ -239,40 +222,6 @@
       ]
     },
     {
-      "item": 55,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "estado": "Ready for Go live",
-      "team": "CORE",
-      "dt_prod": "09/06/2026",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1633",
-      "change_id": "HELP-22255",
-      "notes": [
-        {
-          "date": "05/06/2026",
-          "text": "Deploy em Produção a 09/06/2026"
-        }
-      ]
-    },
-    {
-      "item": 56,
-      "ambito": "Subscrição",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "estado": "Ready for Go live",
-      "team": "CORE",
-      "dt_prod": "09/06/2026",
-      "dt_train": "04/05/2026",
-      "jira": "GDP-1633",
-      "change_id": "HELP-22256",
-      "notes": [
-        {
-          "date": "05/06/2026",
-          "text": "Deploy em Produção a 09/06/2026"
-        }
-      ]
-    },
-    {
       "item": 59,
       "ambito": "Área Pessoal",
       "tema": "API /contract-info/get/contract - add BenefitNumber",
@@ -361,17 +310,16 @@
   "summary": {
     "Business Requirements": 1,
     "Backlog": 18,
-    "Closed": 27,
+    "Closed": 30,
     "Canceled": 3,
-    "Pending ASP": 10,
-    "Ready for Go live": 5,
+    "Pending ASP": 12,
     "In Progress": 2,
     "Dev Approved": 1,
     "Pending FH": 1,
     "On Hold": 1
   },
-  "dateStr": "07 / 06 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 05062026.xlsx",
-  "importedAt": "07/06/2026 às 23:59",
+  "dateStr": "15 / 06 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 12062026.xlsx",
+  "importedAt": "15/06/2026 às 00:18",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
