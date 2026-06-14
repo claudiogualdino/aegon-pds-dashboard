@@ -2,171 +2,63 @@
   "changes": [
     {
       "type": "state",
-      "item": "64",
-      "tema": "TUW por coberturas",
-      "from": "Closed",
-      "to": "Canceled"
-    },
-    {
-      "type": "state",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "from": "Train Testing",
-      "to": "Ready for Go live"
+      "from": "Ready for Go live",
+      "to": "Pending ASP"
     },
     {
       "type": "state",
       "item": "18",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "from": "Train Testing",
-      "to": "Ready for Go live"
+      "from": "Ready for Go live",
+      "to": "Pending ASP"
     },
     {
-      "type": "state",
+      "type": "done",
       "item": "26",
       "tema": "Acesso Detalhe da Factura",
-      "from": "Train Testing",
-      "to": "Ready for Go live"
+      "from": "Ready for Go live"
     },
     {
-      "type": "state",
-      "item": "42",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "from": "Pending ASP",
-      "to": "Pending FH"
-    },
-    {
-      "type": "state",
+      "type": "done",
       "item": "55",
       "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "from": "Train Testing",
-      "to": "Ready for Go live"
+      "from": "Ready for Go live"
     },
     {
-      "type": "state",
+      "type": "done",
       "item": "56",
       "tema": "Melhorias Subscrição ASP - SMS Token",
-      "from": "Train Testing",
-      "to": "Ready for Go live"
-    },
-    {
-      "type": "field",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "field": "Data Produção",
-      "from": "",
-      "to": "09/06/2026"
-    },
-    {
-      "type": "field",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "field": "Data Produção",
-      "from": "",
-      "to": "09/06/2026"
-    },
-    {
-      "type": "field",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "field": "Data Produção",
-      "from": "",
-      "to": "09/06/2026"
-    },
-    {
-      "type": "field",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "field": "Data Produção",
-      "from": "",
-      "to": "09/06/2026"
-    },
-    {
-      "type": "field",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "field": "Data Produção",
-      "from": "",
-      "to": "09/06/2026"
-    },
-    {
-      "type": "field",
-      "item": "59",
-      "tema": "API /contract-info/get/contract - add BenefitNumber",
-      "field": "Data Produção",
-      "from": "",
-      "to": "23/10/2025"
-    },
-    {
-      "type": "field",
-      "item": "62",
-      "tema": "TUW API Service - add new fields & insured person",
-      "field": "Data Produção",
-      "from": "",
-      "to": "27/01/2026"
-    },
-    {
-      "type": "note",
-      "item": "64",
-      "tema": "TUW por coberturas",
-      "date": "05/06/2026",
-      "text": "Duplicado do item 11, e por erro foi dado como concluído em vez de cancelado. Foi retificado"
+      "from": "Ready for Go live"
     },
     {
       "type": "note",
       "item": "15",
       "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "05/06/2026",
-      "text": "Continuamos sem resposta/análise sobre erros timeouts Train FH. Tema já escalou no Banco/Onecare porque têm ambiente DEV inoperacional"
+      "date": "12/06/2026",
+      "text": "Decorreram sessões com AEGON para testar o modelo de chamada utilizado. Apesar de usarem chamadas sequenciais ainda persistem timeouts. Vamos fazer nova sessão esta semana para tentar fechar o tema."
     },
     {
       "type": "note",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "05/06/2026",
-      "text": "Deploy em Produção a 09/06/2026"
+      "date": "12/06/2026",
+      "text": "Alinhar com AEGON data de arranque operacional"
     },
     {
       "type": "note",
       "item": "18",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "date": "05/06/2026",
-      "text": "Deploy em Produção a 09/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "date": "05/06/2026",
-      "text": "Deploy em Produção a 09/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "42",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "date": "05/06/2026",
-      "text": "Temos um conjunto de dúvidas para clarificar. Sessão interna para dia 18/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "date": "05/06/2026",
-      "text": "Deploy em Produção a 09/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "date": "05/06/2026",
-      "text": "Deploy em Produção a 09/06/2026"
+      "date": "12/06/2026",
+      "text": "Alinhar com AEGON data de arranque operacional"
     }
   ],
-  "prevDateStr": "01 / 06 / 2026",
+  "prevDateStr": "07 / 06 / 2026",
   "prevMeta": {
-    "dateStr": "01 / 06 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 29052026.xlsx",
+    "dateStr": "07 / 06 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 05062026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "07/06/2026 às 23:59"
+  "generatedAt": "15/06/2026 às 00:18"
 }
