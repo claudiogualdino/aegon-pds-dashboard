@@ -4,7 +4,7 @@
       "item": 1,
       "ambito": "Produto",
       "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "estado": "Business Requirements",
+      "estado": "In Progress",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "18/05/2026",
-          "text": "Sessão interna realizada. Requirements em preparação e avalição de plano de implementação."
+          "date": "19/06/2026",
+          "text": "Está em progresso. Planeado estar em dev testing até dia 30/06/2026"
         }
       ]
     },
@@ -29,8 +29,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "12/06/2026",
-          "text": "Decorreram sessões com AEGON para testar o modelo de chamada utilizado. Apesar de usarem chamadas sequenciais ainda persistem timeouts. Vamos fazer nova sessão esta semana para tentar fechar o tema."
+          "date": "19/06/2026",
+          "text": "Semana anterior focados no erro de Produção. Vamos, esta semana, tentar encerrar o tema. Rever dados de histórico anonimizados que podem originar o erro, e garantir testes com dados mais atuais."
         }
       ]
     },
@@ -80,8 +80,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "29/05/2026",
-          "text": "Está em progresso. Prevemos para testes até dia 30/06"
+          "date": "19/06/2026",
+          "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
         }
       ]
     },
@@ -89,7 +89,7 @@
       "item": 23,
       "ambito": "FH2.0",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "Dev Approved",
+      "estado": "QA Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "28/04/2026",
@@ -97,8 +97,8 @@
       "change_id": "HELP-22268",
       "notes": [
         {
-          "date": "25/05/2026",
-          "text": "Aprovado em Dev. Aguarda data para QA Global"
+          "date": "19/06/2026",
+          "text": "Está em testes QA Global"
         }
       ]
     },
@@ -108,14 +108,14 @@
       "tema": "Data de Inicio do Risco",
       "estado": "Pending ASP",
       "team": "IBG",
-      "dt_prod": "",
+      "dt_prod": "18/06/2026",
       "dt_train": "",
       "jira": "",
       "change_id": "",
       "notes": [
         {
-          "date": "10/02/2026",
-          "text": "sem qualquer feedback da ASP"
+          "date": "19/06/2026",
+          "text": "Feature alinhada com AEGON e considerada concluída"
         }
       ]
     },
@@ -199,8 +199,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "05/06/2026",
-          "text": "Temos um conjunto de dúvidas para clarificar. Sessão interna para dia 18/06/2026"
+          "date": "19/06/2026",
+          "text": "Sessão interna dia 25/06/2026 para apresentar nova versão do ESFO e garantir documentação técnica atualizada para partilha com AEGON"
         }
       ]
     },
@@ -301,25 +301,24 @@
       "change_id": "HELP-24759",
       "notes": [
         {
-          "date": "25/05/2026",
-          "text": "Dev refused, voltou para implementação"
+          "date": "19/06/2026",
+          "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
         }
       ]
     }
   ],
   "summary": {
-    "Business Requirements": 1,
+    "In Progress": 3,
     "Backlog": 18,
     "Closed": 30,
     "Canceled": 3,
     "Pending ASP": 12,
-    "In Progress": 2,
-    "Dev Approved": 1,
+    "QA Testing": 1,
     "Pending FH": 1,
     "On Hold": 1
   },
-  "dateStr": "15 / 06 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 12062026.xlsx",
-  "importedAt": "15/06/2026 às 00:18",
+  "dateStr": "21 / 06 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
+  "importedAt": "21/06/2026 às 15:47",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
