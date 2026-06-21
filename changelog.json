@@ -2,66 +2,81 @@
   "changes": [
     {
       "type": "state",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "from": "Ready for Go live",
-      "to": "Pending ASP"
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "from": "Business Requirements",
+      "to": "In Progress"
     },
     {
       "type": "state",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "from": "Ready for Go live",
-      "to": "Pending ASP"
+      "item": "23",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "from": "Dev Approved",
+      "to": "QA Testing"
     },
     {
-      "type": "state",
-      "item": "26",
-      "tema": "Acesso Detalhe da Factura",
-      "from": "Ready for Go live",
-      "to": "Closed"
+      "type": "field",
+      "item": "25",
+      "tema": "Data de Inicio do Risco",
+      "field": "Data Produção",
+      "from": "",
+      "to": "18/06/2026"
     },
     {
-      "type": "state",
-      "item": "55",
-      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
-      "from": "Ready for Go live",
-      "to": "Closed"
-    },
-    {
-      "type": "state",
-      "item": "56",
-      "tema": "Melhorias Subscrição ASP - SMS Token",
-      "from": "Ready for Go live",
-      "to": "Closed"
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "19/06/2026",
+      "text": "Está em progresso. Planeado estar em dev testing até dia 30/06/2026"
     },
     {
       "type": "note",
       "item": "15",
       "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "12/06/2026",
-      "text": "Decorreram sessões com AEGON para testar o modelo de chamada utilizado. Apesar de usarem chamadas sequenciais ainda persistem timeouts. Vamos fazer nova sessão esta semana para tentar fechar o tema."
+      "date": "19/06/2026",
+      "text": "Semana anterior focados no erro de Produção. Vamos, esta semana, tentar encerrar o tema. Rever dados de histórico anonimizados que podem originar o erro, e garantir testes com dados mais atuais."
     },
     {
       "type": "note",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "12/06/2026",
-      "text": "Alinhar com AEGON data de arranque operacional"
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "date": "19/06/2026",
+      "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
     },
     {
       "type": "note",
-      "item": "18",
-      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "date": "12/06/2026",
-      "text": "Alinhar com AEGON data de arranque operacional"
+      "item": "23",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "date": "19/06/2026",
+      "text": "Está em testes QA Global"
+    },
+    {
+      "type": "note",
+      "item": "25",
+      "tema": "Data de Inicio do Risco",
+      "date": "19/06/2026",
+      "text": "Feature alinhada com AEGON e considerada concluída"
+    },
+    {
+      "type": "note",
+      "item": "42",
+      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
+      "date": "19/06/2026",
+      "text": "Sessão interna dia 25/06/2026 para apresentar nova versão do ESFO e garantir documentação técnica atualizada para partilha com AEGON"
+    },
+    {
+      "type": "note",
+      "item": "68",
+      "tema": "Histórico de Estados",
+      "date": "19/06/2026",
+      "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
     }
   ],
-  "prevDateStr": "07 / 06 / 2026",
+  "prevDateStr": "15 / 06 / 2026",
   "prevMeta": {
-    "dateStr": "07 / 06 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 05062026.xlsx",
+    "dateStr": "15 / 06 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 12062026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "15/06/2026 às 00:18"
+  "generatedAt": "21/06/2026 às 15:47"
 }
