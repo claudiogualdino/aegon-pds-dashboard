@@ -1,82 +1,17 @@
 {
   "changes": [
     {
-      "type": "state",
-      "item": "1",
-      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "from": "Business Requirements",
-      "to": "In Progress"
-    },
-    {
-      "type": "state",
-      "item": "23",
-      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "from": "Dev Approved",
-      "to": "QA Testing"
-    },
-    {
-      "type": "field",
+      "type": "done",
       "item": "25",
       "tema": "Data de Inicio do Risco",
-      "field": "Data Produção",
-      "from": "",
-      "to": "18/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "1",
-      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "date": "19/06/2026",
-      "text": "Está em progresso. Planeado estar em dev testing até dia 30/06/2026"
-    },
-    {
-      "type": "note",
-      "item": "15",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "19/06/2026",
-      "text": "Semana anterior focados no erro de Produção. Vamos, esta semana, tentar encerrar o tema. Rever dados de histórico anonimizados que podem originar o erro, e garantir testes com dados mais atuais."
-    },
-    {
-      "type": "note",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "date": "19/06/2026",
-      "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
-    },
-    {
-      "type": "note",
-      "item": "23",
-      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "date": "19/06/2026",
-      "text": "Está em testes QA Global"
-    },
-    {
-      "type": "note",
-      "item": "25",
-      "tema": "Data de Inicio do Risco",
-      "date": "19/06/2026",
-      "text": "Feature alinhada com AEGON e considerada concluída"
-    },
-    {
-      "type": "note",
-      "item": "42",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "date": "19/06/2026",
-      "text": "Sessão interna dia 25/06/2026 para apresentar nova versão do ESFO e garantir documentação técnica atualizada para partilha com AEGON"
-    },
-    {
-      "type": "note",
-      "item": "68",
-      "tema": "Histórico de Estados",
-      "date": "19/06/2026",
-      "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
+      "from": "Pending ASP"
     }
   ],
-  "prevDateStr": "15 / 06 / 2026",
+  "prevDateStr": "21 / 06 / 2026",
   "prevMeta": {
-    "dateStr": "15 / 06 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 12062026.xlsx",
+    "dateStr": "21 / 06 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "21/06/2026 às 15:47"
+  "generatedAt": "21/06/2026 às 15:57"
 }
