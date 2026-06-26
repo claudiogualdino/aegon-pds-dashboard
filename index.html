@@ -619,6 +619,7 @@ body.admin-mode #admin-fab{display:flex;}
 
 /* ══ EFFORT TAB ══ */
 #tab-effort{display:none;padding:1.5rem;max-width:1200px;margin:0 auto}
+#tab-inactive{display:none}
 .effort-banner{padding:10px 16px;border-radius:8px;font-size:.8rem;margin-bottom:18px;
   display:flex;align-items:center;gap:10px}
 .effort-banner.no-data{background:#2d1f1f;color:#f0883e;border:1px solid #3d2a2a}
@@ -710,7 +711,8 @@ body.admin-mode #admin-fab{display:flex;}
 
 <!-- ══ TAB NAVIGATION ══ -->
 <nav class="tab-nav">
-  <button class="tab-nav-btn active" id="tbn-pds" onclick="switchTab('pds')">📊 Ponto de Situação</button>
+  <button class="tab-nav-btn active" id="tbn-pds" onclick="switchTab('pds')">📊 Iniciativas Ativas</button>
+  <button class="tab-nav-btn" id="tbn-inactive" onclick="switchTab('inactive')">📁 Iniciativas Inativas</button>
   <button class="tab-nav-btn" id="tbn-effort" onclick="switchTab('effort')">💼 Custo por Iniciativa</button>
 </nav>
 
@@ -873,6 +875,75 @@ body.admin-mode #admin-fab{display:flex;}
 
 </div><!-- /main-layout -->
 </div><!-- /tab-pds -->
+
+<!-- ══ INACTIVE TAB (Backlog / Concluídas / Canceladas) ══ -->
+<div id="tab-inactive">
+<div class="main-layout">
+
+  <!-- SECÇÃO 1: RESUMO GERAL — INATIVAS -->
+  <div>
+    <div class="panel-section-lbl">Resumo Geral — Inativas</div>
+    <div class="resumo-row">
+
+      <!-- Hero: inativas -->
+      <div class="sum-hero">
+        <div class="sum-hero-top">
+          <div class="sum-big" id="in-hero-num">0</div>
+          <div class="sum-big-lbl">iniciativas inativas<br>
+            <span style="color:var(--dim);font-size:11px">Backlog · Concluídas · Canceladas</span>
+          </div>
+        </div>
+        <div class="bar-track" id="in-bar-track"></div>
+        <div class="bar-legend" id="in-bar-legend"></div>
+      </div>
+
+      <!-- Backlog -->
+      <div class="stat-card bl">
+        <div class="stat-num" id="n-in-backlog">0</div>
+        <div class="stat-lbl">Backlog</div>
+        <div class="stat-sub">sem data de início</div>
+      </div>
+
+      <!-- Concluídas -->
+      <div class="stat-card cl">
+        <div class="stat-num" id="n-in-closed">0</div>
+        <div class="stat-lbl">Concluídas</div>
+        <div class="stat-sub" id="pct-in-closed">0% do total</div>
+      </div>
+
+      <!-- Canceladas -->
+      <div class="stat-card">
+        <div class="stat-num" id="n-in-canceled" style="color:#b91c1c">0</div>
+        <div class="stat-lbl">Canceladas</div>
+        <div class="stat-sub">descontinuadas</div>
+      </div>
+
+      <!-- Total Inativas -->
+      <div class="stat-card tot">
+        <div class="stat-num" id="n-in-total">0</div>
+        <div class="stat-lbl">Total Inativas</div>
+        <div class="stat-sub" id="pct-in-inactive">0% do total geral</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECÇÃO 2: LISTA DE INATIVAS -->
+  <section class="panel-right">
+    <div class="detail-header">
+      <div class="detail-title-area">
+        <h3 id="in-detail-title">Iniciativas Inativas (0)</h3>
+        <p id="in-detail-sub">Estados: Backlog · Concluídas · Canceladas</p>
+      </div>
+    </div>
+    <div class="detail-cols">
+      <div class="dcol" id="in-col-left"></div>
+      <div class="dcol" id="in-col-right"></div>
+    </div>
+  </section>
+
+</div><!-- /main-layout -->
+</div><!-- /tab-inactive -->
 
 <!-- ══ EFFORT TAB ══ -->
 <div id="tab-effort">
@@ -1481,6 +1552,62 @@ function render(data){
   document.getElementById('detail-sub').textContent=`Excluídos: Backlog (${nBacklog}) · Concluídos (${nClosed}) · Cancelados (${nCancel})`;
   document.getElementById('col-left').innerHTML=orderedLeft.map(s=>renderGroup(s,byStatus[s])).join('');
   document.getElementById('col-right').innerHTML=orderedRight.map(s=>renderGroup(s,byStatus[s])).join('');
+
+  // Render the inactive tab from the same dataset (additive — does not touch active tab)
+  renderInactive(data);
+}
+
+// ── Render: Iniciativas Inativas (Backlog / Closed / Canceled) ──
+function renderInactive(data){
+  const summary=data.summary||{};
+  const inactiveItems=data.inactiveItems||[];
+  const total=Object.values(summary).reduce((a,b)=>a+b,0);
+  const nBacklog=summary['Backlog']||0, nClosed=summary['Closed']||0, nCancel=summary['Canceled']||0;
+  const nInactive=nBacklog+nClosed+nCancel;
+  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
+
+  set('in-hero-num',nInactive);
+  set('n-in-backlog',nBacklog);
+  set('n-in-closed',nClosed);
+  set('n-in-canceled',nCancel);
+  set('n-in-total',nInactive);
+  set('pct-in-closed',`${total?Math.round(nClosed/total*100):0}% do total`);
+  set('pct-in-inactive',`${total?Math.round(nInactive/total*100):0}% do total geral`);
+  set('in-detail-title',`Iniciativas Inativas (${nInactive})`);
+  set('in-detail-sub',`Estados: Backlog (${nBacklog}) · Concluídas (${nClosed}) · Canceladas (${nCancel})`);
+
+  // breakdown bar + legend
+  const segs=[
+    {n:nBacklog,c:'#6b7280',lbl:'Backlog'},
+    {n:nClosed, c:'#166534',lbl:'Concluídas'},
+    {n:nCancel, c:'#b91c1c',lbl:'Canceladas'},
+  ].filter(s=>s.n>0);
+  const bt=document.getElementById('in-bar-track');
+  const bl=document.getElementById('in-bar-legend');
+  if(bt) bt.innerHTML=segs.map(s=>`<div class="bar-seg" style="width:${nInactive?(s.n/nInactive*100).toFixed(1):0}%;background:${s.c}"></div>`).join('');
+  if(bl) bl.innerHTML=segs.map(s=>`<div class="bl-item"><div class="bl-dot" style="background:${s.c}"></div>${s.lbl} (${s.n})</div>`).join('');
+
+  // group items by state (reuses renderRow — same card format as active tab)
+  const byStatus={};
+  for(const d of inactiveItems)(byStatus[d.estado]=byStatus[d.estado]||[]).push(d);
+  const group=(state,label,style,suffix)=>{
+    const arr=byStatus[state]||[];
+    if(!arr.length) return '';
+    return `<div class="dgroup"><div class="dg-hd"><span class="dpill" style="${style}">${esc(label)}</span><span class="dg-cnt">${arr.length}${suffix?' · '+suffix:''}</span></div><div class="ditems">${arr.map(renderRow).join('')}</div></div>`;
+  };
+  const bkStyle='background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db';
+  const clStyle='background:#dcfce7;color:#166534;border:1px solid #86efac';
+  const cnStyle='background:#fee2e2;color:#991b1b;border:1px solid #fca5a5';
+  const colL=document.getElementById('in-col-left');
+  const colR=document.getElementById('in-col-right');
+
+  if(!inactiveItems.length){
+    if(colL) colL.innerHTML=`<div style="padding:24px;border:1px dashed var(--brd);border-radius:10px;color:var(--mut);font-size:13px;text-align:center;line-height:1.5">Sem detalhe de iniciativas inativas nos dados atuais. As contagens acima já refletem os dados publicados.<br>Importa o Excel mais recente no painel de gestão (⚙️) e republica para preencher esta lista.</div>`;
+    if(colR) colR.innerHTML='';
+    return;
+  }
+  if(colL) colL.innerHTML=group('Backlog','Backlog',bkStyle,'sem data de início')+group('Canceled','Canceladas',cnStyle,'descontinuadas');
+  if(colR) colR.innerHTML=group('Closed','Concluídas',clStyle,'em produção');
 }
 
 // ── View mode toggle ──
@@ -1909,7 +2036,7 @@ function handleFile(file){
 }
 
 function parseRows(rows){
-  const items=[],summary={};
+  const items=[],inactiveItems=[],summary={};
   // Detect column positions from header row (row 0)
   const hdr=rows[0]||[];
   function colIdx(names){
@@ -1981,7 +2108,6 @@ function parseRows(rows){
     if(!item||isNaN(item))continue;
     const estado=(r[fEstado]||'').trim();
     summary[estado]=(summary[estado]||0)+1;
-    if(INACTIVE.has(estado))continue;
     const obs=(r[fObs]||'').trim(); const notes=[];
     for(const line of obs.split('\n')){
       const t=line.trim(); if(!t)continue;
@@ -1990,7 +2116,7 @@ function parseRows(rows){
       else if(notes.length)notes[notes.length-1].text+=' '+t;
       else notes.push({date:'',text:t});
     }
-    items.push({
+    const rec={
       item, ambito:r[fAmbito]||'', tema:r[fTema]||'', estado,
       team:(r[fTeam]||'').trim(),
       dt_prod:  cleanDate(r[fDtProd]),
@@ -1998,9 +2124,11 @@ function parseRows(rows){
       jira:(r[fJira]||'').trim(),
       change_id:(r[fChange]||'').trim(),
       notes
-    });
+    };
+    if(INACTIVE.has(estado)) inactiveItems.push(rec);
+    else items.push(rec);
   }
-  return{items,summary};
+  return{items,summary,inactiveItems};
 }
 
 // ══════════════════════════════════════════
@@ -2260,10 +2388,12 @@ function nowStr(){
 
 // ── TAB SWITCHING ─────────────────────────────────────────────
 function switchTab(t){
-  document.getElementById('tab-pds').style.display    = t==='pds'    ? '' : 'none';
-  document.getElementById('tab-effort').style.display = t==='effort' ? 'block' : 'none';
-  document.getElementById('tbn-pds').classList.toggle('active',    t==='pds');
-  document.getElementById('tbn-effort').classList.toggle('active', t==='effort');
+  document.getElementById('tab-pds').style.display      = t==='pds'      ? '' : 'none';
+  document.getElementById('tab-inactive').style.display = t==='inactive' ? '' : 'none';
+  document.getElementById('tab-effort').style.display   = t==='effort'   ? 'block' : 'none';
+  document.getElementById('tbn-pds').classList.toggle('active',      t==='pds');
+  document.getElementById('tbn-inactive').classList.toggle('active', t==='inactive');
+  document.getElementById('tbn-effort').classList.toggle('active',   t==='effort');
 }
 
 // ── EFFORT CSV PARSING (Tempo format) ─────────────────────────
