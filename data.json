@@ -275,7 +275,7 @@
     {
       "item": 68,
       "ambito": "Subscrição",
-      "tema": "Histórico de Estados",
+      "tema": "TUW Histórico de Estados",
       "estado": "In Progress",
       "team": "IBG",
       "dt_prod": "",
@@ -300,8 +300,900 @@
     "Pending FH": 1,
     "On Hold": 1
   },
-  "dateStr": "21 / 06 / 2026",
+  "inactiveItems": [
+    {
+      "item": 2,
+      "ambito": "Produto",
+      "tema": "Cartão virtual como cartão preferencial",
+      "estado": "Backlog",
+      "team": "IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Sem qualquer update da ASP desde Outubro 2024"
+        }
+      ]
+    },
+    {
+      "item": 3,
+      "ambito": "Produto",
+      "tema": "Cartão virtual 2ª via",
+      "estado": "Backlog",
+      "team": "IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Sem qualquer update da ASP desde Outubro 2024"
+        }
+      ]
+    },
+    {
+      "item": 4,
+      "ambito": "Produto",
+      "tema": "Nutrição/Psicologia/Medicinas Alternativas (Pesquisa da Rede) - Estratégia da Rede Médica e Rede de Saúde e Bem Estar",
+      "estado": "Backlog",
+      "team": "Business",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "22/02/2026",
+          "text": "Foi colocado em backlog novamente porque, após validação com Ana Rodrigues, este tema não é prioritário para a FH e não será implementado em 2026."
+        }
+      ]
+    },
+    {
+      "item": 5,
+      "ambito": "Produto",
+      "tema": "CUF Santander | Informação de Utilização",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "01/01/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 6,
+      "ambito": "Produto",
+      "tema": "Rede Médica Onecare | Disponibilizar no site ",
+      "estado": "Closed",
+      "team": "SUPPORT",
+      "dt_prod": "01/01/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 7,
+      "ambito": "Produto",
+      "tema": "ONECARE | Medicinas Alternativas copagamento",
+      "estado": "Closed",
+      "team": "CORE",
+      "dt_prod": "01/03/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 8,
+      "ambito": "Subscrição",
+      "tema": "Sara | Eficiência do Processo",
+      "estado": "Closed",
+      "team": "CORE/IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Estamos a realizar sessões semanais Core e UW team. Estão sendo criadas tarefas Jira à medida que vamos analisando os pontos de melhoria"
+        }
+      ]
+    },
+    {
+      "item": 9,
+      "ambito": "Subscrição",
+      "tema": "Link QC no email de Reforço",
+      "estado": "Closed",
+      "team": "CORE/WKF",
+      "dt_prod": "29/01/2026",
+      "dt_train": "",
+      "jira": "GDP-1396",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "30/01/2026",
+          "text": "instalado em Produção dia 29/01/2026. Inicitativa encerrada!"
+        }
+      ]
+    },
+    {
+      "item": 10,
+      "ambito": "Subscrição",
+      "tema": "Alteração Subscrição | Novo Slot \" Assim que possível\"",
+      "estado": "Closed",
+      "team": "CORE/IBG",
+      "dt_prod": "21/08/2025",
+      "dt_train": "",
+      "jira": "GDP-1526",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Implementado em QA por FH AEGON identificou erro na implementação. CLEVA necessita de efetuar correções. Tema tem se arrastado 2 meses, com erros do lado da AEGON/CLEVA que não permite fechar 02.07.2025 - Ver quem fez 28.07.2025 - AEGON confirmou que em Frontoffice o teste que fez está OK, mas têm de testar em Backoffice, sendo que não tem data. Susana vai dando feedback."
+        }
+      ]
+    },
+    {
+      "item": 11,
+      "ambito": "Subscrição",
+      "tema": "Alteração Subscrição | QC por Produto",
+      "estado": "Backlog",
+      "team": "CORE/IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "HELP-25214",
+      "notes": [
+        {
+          "date": "10/04/2026",
+          "text": "MunichRe confirma que podemos enviar coberturas distintas por QC e teremos resposta especifica"
+        }
+      ]
+    },
+    {
+      "item": 12,
+      "ambito": "Subscrição",
+      "tema": "ONECARE | Alteração Subscrição | Reabertura de QC ",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "01/02/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Implementado em QA por FH em Janeiro 25. Não houve qualquer implementação da AEGON, que suspendeu o desenvolvimento após a nossa entrega em QA. Avaliar se poderemos colocar em Produção sem impacto"
+        }
+      ]
+    },
+    {
+      "item": 13,
+      "ambito": "Subscrição",
+      "tema": "Questionário médico - Dados intermédios (dados de acompanhamento)",
+      "estado": "Canceled",
+      "team": "IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "",
+          "text": "ASP não detalhou requisitos e acordamos encerrar pedido."
+        }
+      ]
+    },
+    {
+      "item": 14,
+      "ambito": "FH2.0",
+      "tema": "Configuração de Planos de Beneficios | Melhorias Passagem a Produção",
+      "estado": "Backlog",
+      "team": "ARCH",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "10/02/2026",
+          "text": "Sem qualquer evolução, não havendo previsão de implementação no curto/médio prazo"
+        },
+        {
+          "date": "22/03/2026",
+          "text": "foi colocado em backlog por não existir prioridade e previsão de execução desta iniciativa"
+        }
+      ]
+    },
+    {
+      "item": 16,
+      "ambito": "Subscrição",
+      "tema": "Lateralidades nas Exclusões",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "14/05/2026",
+      "dt_train": "13/04/2026",
+      "jira": "GDP-1966",
+      "change_id": "HELP-24758",
+      "notes": [
+        {
+          "date": "18/05/2026",
+          "text": "Deploy em Produção dia 14/05/2026"
+        }
+      ]
+    },
+    {
+      "item": 20,
+      "ambito": "FH2.0",
+      "tema": "Máscara Onecare Prestadores | FH2.0",
+      "estado": "Closed",
+      "team": "SUPPORT",
+      "dt_prod": "01/03/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 21,
+      "ambito": "FH2.0",
+      "tema": "API Integração de Sinistros",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "01/03/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 22,
+      "ambito": "FH2.0",
+      "tema": "Monitorização APIs",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "01/02/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 24,
+      "ambito": "FH2.0",
+      "tema": "Capital Bi-Anual",
+      "estado": "Closed",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema que ficou de revisão da equipa de Operações porque não havia definição de requisitos. Estando em backlog e prioridade baixa não foi revisto."
+        }
+      ]
+    },
+    {
+      "item": 25,
+      "ambito": "FH2.0",
+      "tema": "Data de Inicio do Risco",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "18/06/2026",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "19/06/2026",
+          "text": "Feature alinhada com AEGON e considerada concluída"
+        }
+      ]
+    },
+    {
+      "item": 26,
+      "ambito": "FH2.0",
+      "tema": "Acesso Detalhe da Factura",
+      "estado": "Closed",
+      "team": "CORE",
+      "dt_prod": "09/06/2026",
+      "dt_train": "04/05/2026",
+      "jira": "GDP-1746",
+      "change_id": "HELP-22258",
+      "notes": [
+        {
+          "date": "05/06/2026",
+          "text": "Deploy em Produção a 09/06/2026"
+        }
+      ]
+    },
+    {
+      "item": 27,
+      "ambito": "FH2.0",
+      "tema": "Power BI",
+      "estado": "Backlog",
+      "team": "Reporting",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema ainda pendente de análise conjunta FH AEGON."
+        }
+      ]
+    },
+    {
+      "item": 28,
+      "ambito": "Área Pessoal",
+      "tema": "Reembolsos Automatizados | API v2",
+      "estado": "Closed",
+      "team": "CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "24/06/2025",
+          "text": "Entra em Prod dia 24/06"
+        },
+        {
+          "date": "16/06/2025",
+          "text": "AEGON já implementou as alterações necessárias para consumir API V2 Reembolsos. Testes AEGON PRE PROD ok. Aguardamos data de go live, ainda durante o mês de Junho"
+        }
+      ]
+    },
+    {
+      "item": 29,
+      "ambito": "Área Pessoal",
+      "tema": "SMS após submissão de despesa sem delay",
+      "estado": "Closed",
+      "team": "CORE/CI",
+      "dt_prod": "01/04/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 30,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Chat",
+      "estado": "Backlog",
+      "team": "CI/IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema levantado pelo OneCare, mas que ficou em standby, não sendo prioritário"
+        }
+      ]
+    },
+    {
+      "item": 31,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Pedido de Esclarecimentos",
+      "estado": "Backlog",
+      "team": "CI/IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema levantado pelo OneCare, mas que ficou em standby, não sendo prioritário"
+        }
+      ]
+    },
+    {
+      "item": 33,
+      "ambito": "Área Pessoal",
+      "tema": "Documentação Visivel para o Cliente (Informação Adicional)",
+      "estado": "Closed",
+      "team": "CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "API FH já suporta e está do lado da ASP efetuar alterações que permitam consumir as aPIs FH. Tivemos sessão de trabalho com AEGON no final de Maio/25. Ficaram de avaliar com SALES e definir requisitos de alterações da área de Cliente MyAEGON"
+        }
+      ]
+    },
+    {
+      "item": 35,
+      "ambito": "Área Pessoal",
+      "tema": "Reembolsos | Lista de coberturas por produto",
+      "estado": "Backlog",
+      "team": "CORE/CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema levantado pelo OneCare, mas que ficou em standby, não sendo prioritário"
+        }
+      ]
+    },
+    {
+      "item": 37,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Subserviços e Especialidades iguais na marcação de consulta e na Rede Médica ",
+      "estado": "Backlog",
+      "team": "CORE/CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema levantado pelo OneCare, mas que ficou em standby, não sendo prioritário"
+        }
+      ]
+    },
+    {
+      "item": 39,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Marcação de Consultas Campo Editável Cliente",
+      "estado": "Closed",
+      "team": "CI",
+      "dt_prod": "01/02/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 40,
+      "ambito": "Área Pessoal",
+      "tema": "ONECARE | Simulador de Custos",
+      "estado": "Backlog",
+      "team": "CORE/CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Feature Roadmap FH mas ainda pendente de Calendarização - GDP-1390"
+        },
+        {
+          "date": "24/10/2025",
+          "text": "Pendente de sessão com AEGON. Em planeamento com equipa Corporate"
+        },
+        {
+          "date": "22/03/2026",
+          "text": "foi colocado em backlog por não existir prioridade e previsão de execução desta iniciativa"
+        }
+      ]
+    },
+    {
+      "item": 41,
+      "ambito": "Área Pessoal",
+      "tema": "E-mail a formalizar Consultas Presenciais",
+      "estado": "Closed",
+      "team": "SUPPORT",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Emails de comunicação ao Cliente após marcação de consulta já existem e já foram partilhados todos os templates com ASP. Aguardamos validação para poder encerrrar pedido. Sem feedback desde Dezembro 2024"
+        }
+      ]
+    },
+    {
+      "item": 44,
+      "ambito": "Sinistros",
+      "tema": "Medicinina Preventiva | Revisão Processo (Marcação/ Bianual)",
+      "estado": "Backlog",
+      "team": "CORE/CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Sem qualquer update da ASP desde Janeiro 2025"
+        }
+      ]
+    },
+    {
+      "item": 45,
+      "ambito": "Sinistros",
+      "tema": "Pré-Existências | Revisão Processo de Aceitação",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Em revisão pela equipa de Operações para rever requisitos"
+        }
+      ]
+    },
+    {
+      "item": 46,
+      "ambito": "Sinistros",
+      "tema": "Saúde | Reembolsos | Correções",
+      "estado": "Closed",
+      "team": "WKF",
+      "dt_prod": "01/04/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 47,
+      "ambito": "Comunicação Clientes",
+      "tema": "Comunicações por Produto ONECARE / SAFECARE",
+      "estado": "Closed",
+      "team": "WKF",
+      "dt_prod": "03/07/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Em testes WKF. Fechar até 03/07/2025"
+        }
+      ]
+    },
+    {
+      "item": 48,
+      "ambito": "Comunicação Clientes",
+      "tema": "Comunicações em Inglês*",
+      "estado": "Backlog",
+      "team": "CORE/WKF",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema não prioritário e de grande complexidade, não está previsto avançar com requisitos. Tema levantado pelo OneCare mas ASP não deu seguimento. Fica em standby"
+        }
+      ]
+    },
+    {
+      "item": 49,
+      "ambito": "Projecto Sinistros",
+      "tema": "Saúde || XML || AdjustReason",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "16/06/2025",
+          "text": "Tema clarificado com AEGON e fica responsabilidade da AEGON adaptar-se. Informação partilhada a 27/05/2025. Evelina respondondeu em 30.06.2025 a concluir o tema."
+        }
+      ]
+    },
+    {
+      "item": 50,
+      "ambito": "Projecto Sinistros",
+      "tema": "Saúde || XML || Extra Payment Reason",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "03/07/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "24/06/2025",
+          "text": "deploy em QA a 25/06"
+        },
+        {
+          "date": "16/06/2025",
+          "text": "Em curso a implementação. Entrega testes semana 16/06 - OB-1519"
+        }
+      ]
+    },
+    {
+      "item": 51,
+      "ambito": "Projecto Sinistros",
+      "tema": "Saúde || Projecto Integração Sinistros || Erro ADV0023",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "03/07/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "24/06/2025",
+          "text": "deploy em QA a 25062025"
+        },
+        {
+          "date": "16/06/2025",
+          "text": "Em curso a implementação. Entrega testes semana 16/06 - CREQ-125"
+        }
+      ]
+    },
+    {
+      "item": 52,
+      "ambito": "Projecto Sinistros",
+      "tema": "Saúde || Projecto Integração Sinistros || Contagem de erros via email incoerente com a informação no core ASP",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "01/03/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": []
+    },
+    {
+      "item": 53,
+      "ambito": "Projecto Sinistros",
+      "tema": "Saúde || Fecho Contas || Pagamentos Cobertura 0 e 9 (n.a. e acesso)",
+      "estado": "Closed",
+      "team": "IBG",
+      "dt_prod": "03/07/2025",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "24/06/2025",
+          "text": "implementado mas em testes unitários. Em QA até dia 26/06"
+        },
+        {
+          "date": "16/06/2025",
+          "text": "Em curso a implementação. Entrega testes semana 23/06 - CREQ-125"
+        }
+      ]
+    },
+    {
+      "item": 54,
+      "ambito": "Subscrição",
+      "tema": "Melhorias Subscrição ASP - SMS Reminder",
+      "estado": "Closed",
+      "team": "WKF",
+      "dt_prod": "31/07/2025",
+      "dt_train": "",
+      "jira": "GDP-1545",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "",
+          "text": "Criado GDP em 26-06-2025 - Analisar pedido e resposta (20 jun) a questões que não se encontravam devidamente clarificadas, por forma a verificar se podemos dar seguimento a analise tecnica"
+        }
+      ]
+    },
+    {
+      "item": 55,
+      "ambito": "Subscrição",
+      "tema": "Melhorias Subscrição ASP - Change Contact Method to Online",
+      "estado": "Closed",
+      "team": "CORE",
+      "dt_prod": "09/06/2026",
+      "dt_train": "04/05/2026",
+      "jira": "GDP-1633",
+      "change_id": "HELP-22255",
+      "notes": [
+        {
+          "date": "05/06/2026",
+          "text": "Deploy em Produção a 09/06/2026"
+        }
+      ]
+    },
+    {
+      "item": 56,
+      "ambito": "Subscrição",
+      "tema": "Melhorias Subscrição ASP - SMS Token",
+      "estado": "Closed",
+      "team": "CORE",
+      "dt_prod": "09/06/2026",
+      "dt_train": "04/05/2026",
+      "jira": "GDP-1633",
+      "change_id": "HELP-22256",
+      "notes": [
+        {
+          "date": "05/06/2026",
+          "text": "Deploy em Produção a 09/06/2026"
+        }
+      ]
+    },
+    {
+      "item": 57,
+      "ambito": "Área Pessoal",
+      "tema": "Medical Network Search - Service not required",
+      "estado": "Closed",
+      "team": "CI",
+      "dt_prod": "14/05/2026",
+      "dt_train": "",
+      "jira": "CREQ-176",
+      "change_id": "HELP-22259",
+      "notes": [
+        {
+          "date": "18/05/2026",
+          "text": "Deploy em Produção dia 14/05/2026"
+        }
+      ]
+    },
+    {
+      "item": 58,
+      "ambito": "Comunicação Clientes",
+      "tema": "Appointment Request Setup - Service available by Partnership/Company",
+      "estado": "Backlog",
+      "team": "CI",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "GDP-1547",
+      "change_id": "HELP-22260",
+      "notes": [
+        {
+          "date": "",
+          "text": "Criado a 27/06/2025. Para análise de estimativa alto nível e definição de prioridade"
+        },
+        {
+          "date": "08/09/2025",
+          "text": "Revisto com CORE que sendo configuração por Parceiro e com impacto apenas na AC (porque Fhnet deve continuar a ser possível marcar consulta para todos os subserviços) temos de rever implementação do ponto de vista da AC, com equipa de CI"
+        }
+      ]
+    },
+    {
+      "item": 60,
+      "ambito": "FH2.0",
+      "tema": "FH OneCare Mask - Homepage List Card - Only OneCare Card",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "GDP -1665",
+      "change_id": "HELP-22264",
+      "notes": [
+        {
+          "date": "",
+          "text": "Criado a 11/08/2025. Para análise de estimativa alto nível e definição de prioridade"
+        },
+        {
+          "date": "08/09/2025",
+          "text": "Revisto com Core para relacionar esta tarefa com tarefa \"Acesso Detalhe da Factura\", porque tem sinergias de desenvolvimento"
+        }
+      ]
+    },
+    {
+      "item": 61,
+      "ambito": "Subscrição",
+      "tema": "TUW list - FH report - add info Exclusions & Penalties & Refusals",
+      "estado": "Closed",
+      "team": "Reporting",
+      "dt_prod": "27/01/2026",
+      "dt_train": "",
+      "jira": "GDP-1666",
+      "change_id": "HELP-22266",
+      "notes": [
+        {
+          "date": "",
+          "text": "Criado a 11/08/2025. Para análise de estimativa alto nível e definição de prioridade"
+        },
+        {
+          "date": "08/09/2025",
+          "text": "Tratando-se de medida temporária e especifica do parceiro, vamos avançar com pedido junto da equipa de Reporting, para criação de report especifico e definição da rotina de envio, a acordar com parceiro"
+        },
+        {
+          "date": "31/10/2025",
+          "text": "Planeado entregar listagem até 12/11/25"
+        },
+        {
+          "date": "09/01/2026",
+          "text": "Estamos a avaliar com ASP  melhor forma de disponibilizar o report, tendo em conta os dados sensíveis que constam no report"
+        }
+      ]
+    },
+    {
+      "item": 63,
+      "ambito": "FH2.0",
+      "tema": "FH Gestão de Prestadores - Validação Código Postal",
+      "estado": "Canceled",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "HELP-22151",
+      "notes": [
+        {
+          "date": "10/05/2026",
+          "text": "Fhnet já valida códigos postais no frontend. Mas permite adicionar cod postal caso o user pretenda. Clarificado com AEGON"
+        }
+      ]
+    },
+    {
+      "item": 64,
+      "ambito": "Subscrição",
+      "tema": "TUW por coberturas",
+      "estado": "Canceled",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "05/06/2026",
+          "text": "duplicado do item 11, e por erro foi dado como concluído em vez de cancelado. Foi retificado"
+        }
+      ]
+    },
+    {
+      "item": 66,
+      "ambito": "Área Pessoal",
+      "tema": "Timeouts MyAEGON",
+      "estado": "Closed",
+      "team": "INFRAS/ARCH",
+      "dt_prod": "14/01/2026",
+      "dt_train": "",
+      "jira": "IBG-372",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "09/11/2025",
+          "text": "Melhoria implementada. AEGON já testou. Encontramos alguns ajustes necessários ainda a fazer. Esta semana vamos analisar e estimar as alterações"
+        },
+        {
+          "date": "17/11/2025",
+          "text": "Aguardamos ainda análise e estimativa das alterações a efetuar para poder avançar para Produção."
+        },
+        {
+          "date": "09/01/2026",
+          "text": "Validado e aprovado pela AEGON. Em alinhamento com equipa de CI para podermos avançar para train/prod"
+        }
+      ]
+    },
+    {
+      "item": 69,
+      "ambito": "FH2.0",
+      "tema": "Relacionar elegibilidades",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "29/05/2026",
+          "text": "Saúde || XML || Relacionar Elegibilidades. Autorizações. Reembolsos"
+        }
+      ]
+    }
+  ],
+  "dateStr": "26 / 06 / 2026",
   "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
-  "importedAt": "21/06/2026 às 15:57",
+  "importedAt": "26/06/2026 às 15:56",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
