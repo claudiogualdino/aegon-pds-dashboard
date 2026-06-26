@@ -2389,7 +2389,7 @@ function nowStr(){
 // ── TAB SWITCHING ─────────────────────────────────────────────
 function switchTab(t){
   document.getElementById('tab-pds').style.display      = t==='pds'      ? '' : 'none';
-  document.getElementById('tab-inactive').style.display = t==='inactive' ? '' : 'none';
+  document.getElementById('tab-inactive').style.display = t==='inactive' ? 'block' : 'none';
   document.getElementById('tab-effort').style.display   = t==='effort'   ? 'block' : 'none';
   document.getElementById('tbn-pds').classList.toggle('active',      t==='pds');
   document.getElementById('tbn-inactive').classList.toggle('active', t==='inactive');
