@@ -1,10 +1,12 @@
 {
   "changes": [
     {
-      "type": "done",
-      "item": "25",
-      "tema": "Data de Inicio do Risco",
-      "from": "Pending ASP"
+      "type": "field",
+      "item": "68",
+      "tema": "TUW Histórico de Estados",
+      "field": "Tema",
+      "from": "Histórico de Estados",
+      "to": "TUW Histórico de Estados"
     }
   ],
   "prevDateStr": "21 / 06 / 2026",
@@ -13,5 +15,5 @@
     "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "21/06/2026 às 15:57"
+  "generatedAt": "26/06/2026 às 15:56"
 }
