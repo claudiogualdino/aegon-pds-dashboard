@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "19/06/2026",
-          "text": "Está em progresso. Planeado estar em dev testing até dia 30/06/2026"
+          "date": "03/07/2026",
+          "text": "Implementado mas em Tech Review. Aguardamos disponilização para dev testing"
         }
       ]
     },
@@ -29,8 +29,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "19/06/2026",
-          "text": "Semana anterior focados no erro de Produção. Vamos, esta semana, tentar encerrar o tema. Rever dados de histórico anonimizados que podem originar o erro, e garantir testes com dados mais atuais."
+          "date": "03/07/2026",
+          "text": "já efetuamos a revisão dos dados do ambiente. Já demos indicação para avançar com conexão Pre AEGON e Train FH. Aguardamos data da AEGON"
         }
       ]
     },
@@ -46,8 +46,8 @@
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "12/06/2026",
-          "text": "Alinhar com AEGON data de arranque operacional"
+          "date": "03/07/2026",
+          "text": "- Reunião operacional com AEGON agendada para final de Julho para acordar lançamento operacional"
         }
       ]
     },
@@ -63,8 +63,8 @@
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "12/06/2026",
-          "text": "Alinhar com AEGON data de arranque operacional"
+          "date": "03/07/2026",
+          "text": "- Reunião operacional com AEGON agendada para final de Julho para acordar lançamento operacional"
         }
       ]
     },
@@ -72,7 +72,7 @@
       "item": 19,
       "ambito": "FH2.0",
       "tema": "Valores Acima do Plafond",
-      "estado": "In Progress",
+      "estado": "Dev Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -80,8 +80,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "19/06/2026",
-          "text": "Permanece em progresso. Já foram efetuados testes em dev mas com erros identificados e regressou a dev"
+          "date": "03/07/2026",
+          "text": "feature disponibilizada para Dev Testing"
         }
       ]
     },
@@ -89,16 +89,16 @@
       "item": 23,
       "ambito": "FH2.0",
       "tema": "Autorização || Estado FH NET - Histórico de Utilização",
-      "estado": "QA Testing",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
-      "dt_train": "28/04/2026",
+      "dt_train": "03/07/2026",
       "jira": "GDP-1962",
       "change_id": "HELP-22268",
       "notes": [
         {
-          "date": "19/06/2026",
-          "text": "Está em testes QA Global"
+          "date": "03/07/2026",
+          "text": "Aprovado em QA e está em Train Testing"
         }
       ]
     },
@@ -174,7 +174,7 @@
       "item": 42,
       "ambito": "Área Pessoal",
       "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "estado": "Pending FH",
+      "estado": "Pending ASP",
       "team": "IBG",
       "dt_prod": "",
       "dt_train": "",
@@ -182,8 +182,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "19/06/2026",
-          "text": "Sessão interna dia 25/06/2026 para apresentar nova versão do ESFO e garantir documentação técnica atualizada para partilha com AEGON"
+          "date": "03/07/2026",
+          "text": "Partilhada doc técnica da nova versão da API."
         }
       ]
     },
@@ -200,7 +200,7 @@
       "notes": [
         {
           "date": "25/05/2026",
-          "text": "Componente FH só será implementada/retomada a partir de 20/076/2026. Aguardo um plano mais claro desta componente, assim como da componente financeira/integração Odoo"
+          "text": "Componente FH só será implementada/retomada a partir de 20/07/2026. Aguardo um plano mais claro desta componente, assim como da componente financeira/integração Odoo"
         }
       ]
     },
@@ -291,13 +291,13 @@
     }
   ],
   "summary": {
-    "In Progress": 3,
+    "In Progress": 2,
     "Backlog": 18,
     "Closed": 31,
     "Canceled": 3,
-    "Pending ASP": 11,
-    "QA Testing": 1,
-    "Pending FH": 1,
+    "Pending ASP": 12,
+    "Dev Testing": 1,
+    "Train Testing": 1,
     "On Hold": 1
   },
   "inactiveItems": [
@@ -1192,8 +1192,8 @@
       ]
     }
   ],
-  "dateStr": "26 / 06 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
-  "importedAt": "26/06/2026 às 15:56",
+  "dateStr": "06 / 07 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 03072026.xlsx",
+  "importedAt": "06/07/2026 às 01:20",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
