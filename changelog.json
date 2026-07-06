@@ -1,19 +1,89 @@
 {
   "changes": [
     {
+      "type": "state",
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "from": "In Progress",
+      "to": "Dev Testing"
+    },
+    {
+      "type": "state",
+      "item": "23",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "from": "QA Testing",
+      "to": "Train Testing"
+    },
+    {
+      "type": "state",
+      "item": "42",
+      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
+      "from": "Pending FH",
+      "to": "Pending ASP"
+    },
+    {
       "type": "field",
-      "item": "68",
-      "tema": "TUW Histórico de Estados",
-      "field": "Tema",
-      "from": "Histórico de Estados",
-      "to": "TUW Histórico de Estados"
+      "item": "23",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "field": "Data Train",
+      "from": "28/04/2026",
+      "to": "03/07/2026"
+    },
+    {
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "03/07/2026",
+      "text": "Implementado mas em Tech Review. Aguardamos disponilização para dev testing"
+    },
+    {
+      "type": "note",
+      "item": "15",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "date": "03/07/2026",
+      "text": "já efetuamos a revisão dos dados do ambiente. Já demos indicação para avançar com conexão Pre AEGON e Train FH. Aguardamos data da AEGON"
+    },
+    {
+      "type": "note",
+      "item": "17",
+      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
+      "date": "03/07/2026",
+      "text": "- Reunião operacional com AEGON agendada para final de Julho para acordar lançamento operacional"
+    },
+    {
+      "type": "note",
+      "item": "18",
+      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
+      "date": "03/07/2026",
+      "text": "- Reunião operacional com AEGON agendada para final de Julho para acordar lançamento operacional"
+    },
+    {
+      "type": "note",
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "date": "03/07/2026",
+      "text": "feature disponibilizada para Dev Testing"
+    },
+    {
+      "type": "note",
+      "item": "23",
+      "tema": "Autorização || Estado FH NET - Histórico de Utilização",
+      "date": "03/07/2026",
+      "text": "Aprovado em QA e está em Train Testing"
+    },
+    {
+      "type": "note",
+      "item": "42",
+      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
+      "date": "03/07/2026",
+      "text": "Partilhada doc técnica da nova versão da API."
     }
   ],
-  "prevDateStr": "21 / 06 / 2026",
+  "prevDateStr": "26 / 06 / 2026",
   "prevMeta": {
-    "dateStr": "21 / 06 / 2026",
+    "dateStr": "26 / 06 / 2026",
     "importedFile": "PDS Iniciativas Tecnologia 19062026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "26/06/2026 às 15:56"
+  "generatedAt": "06/07/2026 às 01:20"
 }
