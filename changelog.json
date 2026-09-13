@@ -1,102 +1,46 @@
 {
   "changes": [
     {
-      "type": "state",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "from": "In Progress",
-      "to": "Dev Approved"
-    },
-    {
-      "type": "state",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "from": "On Hold",
-      "to": "Pending FH"
-    },
-    {
-      "type": "state",
-      "item": "65",
-      "tema": "API Get Claims - timeouts - improvements",
-      "from": "Pending ASP",
-      "to": "Pending FH"
-    },
-    {
-      "type": "state",
-      "item": "68",
-      "tema": "TUW Histórico de Estados",
-      "from": "In Progress",
-      "to": "Dev Testing"
-    },
-    {
       "type": "note",
       "item": "1",
       "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
-      "date": "04/09/2026",
-      "text": "Ainda em dev. Previsto testes em dev para 21/09/2026"
+      "date": "11/09/2026",
+      "text": "On hold à espera de testes/validação conjunta com TD (Arch Team)"
     },
     {
       "type": "note",
       "item": "15",
       "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "04/09/2026",
-      "text": "Limpeza de dados trouxe problemas. Estamos a tentar corrigir o último relacionado com Questionários Clinicos em duplicado"
+      "date": "11/09/2026",
+      "text": "Erro de QCs Clinicos corrigido. Em aberto integração de apólices e imagem de cartão. A acompanhar com support team (DJ e IN)"
     },
     {
       "type": "note",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "04/09/2026",
-      "text": "Reunição operacional já aconteceu. Aguardamos ok da AEGON para arrancar"
+      "date": "11/09/2026",
+      "text": "arrancou a 07/09 mas as notificações/alerta só incidem sobre novos processos. AEGON pediu suspensão para revisão do processo."
     },
     {
       "type": "note",
       "item": "18",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "date": "04/09/2026",
-      "text": "Reunição operacional já aconteceu. Aguardamos ok da AEGON para arrancar"
+      "date": "11/09/2026",
+      "text": "Opercações FH indicou dependencia de 3 tickets para arrancar com este processo. HELP-22255;HELP-22256;HELP-22371"
     },
     {
       "type": "note",
       "item": "19",
       "tema": "Valores Acima do Plafond",
-      "date": "04/09/2026",
-      "text": "Aguarda data para avançar para QA componente Core. Ainda aguardamos término da componente Claims api IBG, previsto para 10/09"
-    },
-    {
-      "type": "note",
-      "item": "42",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "date": "04/09/2026",
-      "text": "Ainda sem resposta, voltamos a reforçar"
-    },
-    {
-      "type": "note",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "date": "04/09/2026",
-      "text": "Ainda aguardamos plano de implementação da equipa de IBG"
-    },
-    {
-      "type": "note",
-      "item": "65",
-      "tema": "API Get Claims - timeouts - improvements",
-      "date": "04/09/2026",
-      "text": "aguarda a estabilização do ambiente de Train"
-    },
-    {
-      "type": "note",
-      "item": "68",
-      "tema": "TUW Histórico de Estados",
-      "date": "04/09/2026",
-      "text": "está em testes de dev"
+      "date": "11/09/2026",
+      "text": "Aguarda data para avançar para QA componente Core. Componente Claims api IBG implementada e aguarda testes em Dev"
     }
   ],
-  "prevDateStr": "02 / 08 / 2026",
+  "prevDateStr": "04 / 09 / 2026",
   "prevMeta": {
-    "dateStr": "02 / 08 / 2026",
-    "importedFile": "PDS tickets AEGON_31072026.xlsx",
+    "dateStr": "04 / 09 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 04092026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "04/09/2026 às 13:10"
+  "generatedAt": "13/09/2026 às 16:53"
 }
