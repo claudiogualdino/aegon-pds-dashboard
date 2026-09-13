@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "04/09/2026",
-          "text": "Ainda em dev. Previsto testes em dev para 21/09/2026"
+          "date": "11/09/2026",
+          "text": "On hold à espera de testes/validação conjunta com TD (Arch Team)"
         }
       ]
     },
@@ -29,8 +29,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "04/09/2026",
-          "text": "Limpeza de dados trouxe problemas. Estamos a tentar corrigir o último relacionado com Questionários Clinicos em duplicado"
+          "date": "11/09/2026",
+          "text": "Erro de QCs Clinicos corrigido. Em aberto integração de apólices e imagem de cartão. A acompanhar com support team (DJ e IN)"
         }
       ]
     },
@@ -46,8 +46,8 @@
       "change_id": "HELP-22257",
       "notes": [
         {
-          "date": "04/09/2026",
-          "text": "Reunição operacional já aconteceu. Aguardamos ok da AEGON para arrancar"
+          "date": "11/09/2026",
+          "text": "arrancou a 07/09 mas as notificações/alerta só incidem sobre novos processos. AEGON pediu suspensão para revisão do processo."
         }
       ]
     },
@@ -63,8 +63,8 @@
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "04/09/2026",
-          "text": "Reunição operacional já aconteceu. Aguardamos ok da AEGON para arrancar"
+          "date": "11/09/2026",
+          "text": "Opercações FH indicou dependencia de 3 tickets para arrancar com este processo. HELP-22255;HELP-22256;HELP-22371"
         }
       ]
     },
@@ -80,8 +80,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "04/09/2026",
-          "text": "Aguarda data para avançar para QA componente Core. Ainda aguardamos término da componente Claims api IBG, previsto para 10/09"
+          "date": "11/09/2026",
+          "text": "Aguarda data para avançar para QA componente Core. Componente Claims api IBG implementada e aguarda testes em Dev"
         }
       ]
     },
@@ -1192,8 +1192,8 @@
       ]
     }
   ],
-  "dateStr": "04 / 09 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 04092026.xlsx",
-  "importedAt": "04/09/2026 às 13:10",
+  "dateStr": "12 / 09 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 11092026.xlsx",
+  "importedAt": "13/09/2026 às 16:53",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
