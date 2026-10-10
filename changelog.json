@@ -1,46 +1,32 @@
 {
   "changes": [
     {
-      "type": "state",
-      "item": "15",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "from": "Pending FH",
-      "to": "Pending ASP"
-    },
-    {
-      "type": "state",
-      "item": "17",
-      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "from": "Pending ASP",
-      "to": "Pending FH"
-    },
-    {
-      "type": "note",
-      "item": "15",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "date": "25/09/2026",
-      "text": "Erros resolvidos. Aguardamos feedback da AEGON/Cleva. Esperamos ter feedback esta semana para fechar esta iniciativa"
-    },
-    {
       "type": "note",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "25/09/2026",
-      "text": "arrancou a 07/09 mas as notificações/alerta só incidem sobre novos processos. AEGON pediu suspensão para revisão do processo. Temos de rever notificações para duplicados HELP-28068."
+      "date": "09/10/2026",
+      "text": "Notificações para duplicados HELP-28068 - WKF team - entrega para dev testing 15/12/2026"
     },
     {
       "type": "note",
-      "item": "42",
-      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
-      "date": "25/09/2026",
-      "text": "Recebemos questões AEGON e já devolvemos a resposta e propusemos Reunião conjunto para se avançar"
+      "item": "43",
+      "tema": "Processo de Recuperação da Divida",
+      "date": "09/10/2026",
+      "text": "CORE implementa sprint 14/10 -03/11. Integração componente financeira fica para F2"
+    },
+    {
+      "type": "note",
+      "item": "67",
+      "tema": "Migração V2 Reembolsos OneCare",
+      "date": "09/10/2026",
+      "text": "OneCare já se encontra em fase de testes"
     }
   ],
-  "prevDateStr": "12 / 09 / 2026",
+  "prevDateStr": "27 / 09 / 2026",
   "prevMeta": {
-    "dateStr": "12 / 09 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 11092026.xlsx",
+    "dateStr": "27 / 09 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 25092026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "27/09/2026 às 23:52"
+  "generatedAt": "10/10/2026 às 23:22"
 }
