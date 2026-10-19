@@ -1,32 +1,61 @@
 {
   "changes": [
     {
+      "type": "state",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "from": "In Progress",
+      "to": "Dev Testing"
+    },
+    {
+      "type": "field",
+      "item": "17",
+      "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
+      "field": "Equipa",
+      "from": "CORE",
+      "to": "CORE/WKF"
+    },
+    {
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "17/10/2026",
+      "text": "waiting for dev testing"
+    },
+    {
+      "type": "note",
+      "item": "15",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "date": "17/10/2026",
+      "text": "new errors pending HF-239; HF-240; HF-247, HF-248"
+    },
+    {
       "type": "note",
       "item": "17",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
-      "date": "09/10/2026",
-      "text": "Notificações para duplicados HELP-28068 - WKF team - entrega para dev testing 15/12/2026"
+      "date": "17/10/2026",
+      "text": "duplicate encounters notification HELP-28068 - WKF team - implemented only at 15/12/2026"
     },
     {
       "type": "note",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "date": "09/10/2026",
-      "text": "CORE implementa sprint 14/10 -03/11. Integração componente financeira fica para F2"
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "date": "17/10/2026",
+      "text": "waiting Global QA data. Test both CORE & IBG"
     },
     {
       "type": "note",
-      "item": "67",
-      "tema": "Migração V2 Reembolsos OneCare",
-      "date": "09/10/2026",
-      "text": "OneCare já se encontra em fase de testes"
+      "item": "68",
+      "tema": "TUW Histórico de Estados",
+      "date": "17/10/2026",
+      "text": "waiting for dev testing"
     }
   ],
-  "prevDateStr": "27 / 09 / 2026",
+  "prevDateStr": "10 / 10 / 2026",
   "prevMeta": {
-    "dateStr": "27 / 09 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 25092026.xlsx",
+    "dateStr": "10 / 10 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 09102026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "10/10/2026 às 23:22"
+  "generatedAt": "19/10/2026 às 09:22"
 }
