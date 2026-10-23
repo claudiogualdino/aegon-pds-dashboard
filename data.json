@@ -18,23 +18,6 @@
       ]
     },
     {
-      "item": 15,
-      "ambito": "FH2.0",
-      "tema": "Alinhamento dos Ambientes de Teste",
-      "estado": "Pending ASP",
-      "team": "INFRAS",
-      "dt_prod": "30/06/2025",
-      "dt_train": "",
-      "jira": "GDP-1530",
-      "change_id": "",
-      "notes": [
-        {
-          "date": "17/10/2026",
-          "text": "new errors pending HF-239; HF-240; HF-247, HF-248"
-        }
-      ]
-    },
-    {
       "item": 17,
       "ambito": "FH2.0",
       "tema": "Fluxo de Pré-Autorizações e Reembolsos com a Companhia",
@@ -55,16 +38,16 @@
       "item": 18,
       "ambito": "FH2.0",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "estado": "Pending ASP",
-      "team": "CORE",
+      "estado": "Pending FH",
+      "team": "CORE/WKF",
       "dt_prod": "09/06/2026",
       "dt_train": "04/05/2026",
       "jira": "GDP-1749",
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "11/09/2026",
-          "text": "Opercações FH indicou dependencia de 3 tickets para arrancar com este processo. HELP-22255;HELP-22256;HELP-22371"
+          "date": "",
+          "text": "23/10/2026 - HELP-26649 waiting for effort and implementation plan"
         }
       ]
     },
@@ -174,7 +157,7 @@
       "item": 43,
       "ambito": "Sinistros",
       "tema": "Processo de Recuperação da Divida",
-      "estado": "Pending FH",
+      "estado": "In Progress",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -275,12 +258,13 @@
   ],
   "summary": {
     "Dev Testing": 2,
-    "Backlog": 18,
-    "Closed": 32,
+    "Backlog": 20,
+    "Closed": 33,
     "Canceled": 3,
-    "Pending ASP": 10,
     "Pending FH": 3,
-    "Dev Approved": 1
+    "Dev Approved": 1,
+    "Pending ASP": 8,
+    "In Progress": 1
   },
   "inactiveItems": [
     {
@@ -490,6 +474,23 @@
         {
           "date": "22/03/2026",
           "text": "foi colocado em backlog por não existir prioridade e previsão de execução desta iniciativa"
+        }
+      ]
+    },
+    {
+      "item": 15,
+      "ambito": "FH2.0",
+      "tema": "Alinhamento dos Ambientes de Teste",
+      "estado": "Closed",
+      "team": "INFRAS",
+      "dt_prod": "23/10/2026",
+      "dt_train": "",
+      "jira": "GDP-1530",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "",
+          "text": "23/10/2026 - the environemnt is up. We have 2 issues in support to solve, but the initiative we should consider as closed"
         }
       ]
     },
@@ -1189,10 +1190,44 @@
           "text": "Saúde || XML || Relacionar Elegibilidades. Autorizações. Reembolsos"
         }
       ]
+    },
+    {
+      "item": 70,
+      "ambito": "FH2.0",
+      "tema": "Reanálise e duplicação de QCs",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "19/10/2026",
+          "text": "Adicionado ao backlog"
+        }
+      ]
+    },
+    {
+      "item": 71,
+      "ambito": "FH2.0",
+      "tema": "Auditoria log Participating Status",
+      "estado": "Backlog",
+      "team": "CORE",
+      "dt_prod": "",
+      "dt_train": "",
+      "jira": "",
+      "change_id": "",
+      "notes": [
+        {
+          "date": "22/10/2026",
+          "text": "Adicionao ao backlog"
+        }
+      ]
     }
   ],
-  "dateStr": "19 / 10 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 17102026.xlsx",
-  "importedAt": "19/10/2026 às 09:22",
+  "dateStr": "23 / 10 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 23102026.xlsx",
+  "importedAt": "23/10/2026 às 17:01",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
