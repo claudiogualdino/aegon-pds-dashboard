@@ -1,66 +1,18 @@
 {
   "changes": [
     {
-      "type": "state",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "from": "Dev Approved",
-      "to": "QA Approved"
-    },
-    {
-      "type": "state",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "from": "In Progress",
-      "to": "On Hold"
-    },
-    {
-      "type": "state",
-      "item": "68",
-      "tema": "TUW Histórico de Estados",
-      "from": "Dev Testing",
-      "to": "Train Testing"
-    },
-    {
-      "type": "done",
-      "item": "65",
-      "tema": "API Get Claims - timeouts - improvements",
-      "from": "Pending FH"
-    },
-    {
       "type": "note",
-      "item": "19",
-      "tema": "Valores Acima do Plafond",
-      "date": "30/10/2026",
-      "text": "Core QA approved. Waiting by IBG status update"
-    },
-    {
-      "type": "note",
-      "item": "43",
-      "tema": "Processo de Recuperação da Divida",
-      "date": "30/10/2026",
-      "text": "Moved to sprint 04/11 - 24/11"
-    },
-    {
-      "type": "note",
-      "item": "67",
-      "tema": "Migração V2 Reembolsos OneCare",
-      "date": "30/10/2026",
-      "text": "Planned to be deployed in Prod at february 2027"
-    },
-    {
-      "type": "note",
-      "item": "68",
-      "tema": "TUW Histórico de Estados",
-      "date": "30/10/2026",
-      "text": "Train Testing. AEGON already informed and shared all technical info to test it"
+      "item": "18",
+      "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
+      "date": "23/10/2026",
+      "text": "HELP-26649 waiting for effort and implementation plan"
     }
   ],
-  "prevDateStr": "23 / 10 / 2026",
+  "prevDateStr": "01 / 11 / 2026",
   "prevMeta": {
-    "dateStr": "23 / 10 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 23102026.xlsx",
+    "dateStr": "01 / 11 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 30102026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "01/11/2026 às 19:00"
+  "generatedAt": "08/11/2026 às 23:25"
 }
