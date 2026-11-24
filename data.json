@@ -12,8 +12,8 @@
       "change_id": "HELP-22263",
       "notes": [
         {
-          "date": "17/10/2026",
-          "text": "waiting for dev testing"
+          "date": "20/11/2026",
+          "text": "Dev testing"
         }
       ]
     },
@@ -46,7 +46,7 @@
       "change_id": "HELP-22371",
       "notes": [
         {
-          "date": "23/10/2026",
+          "date": "01/11/2026",
           "text": "HELP-26649 waiting for effort and implementation plan"
         }
       ]
@@ -55,7 +55,7 @@
       "item": 19,
       "ambito": "FH2.0",
       "tema": "Valores Acima do Plafond",
-      "estado": "QA Approved",
+      "estado": "Train Testing",
       "team": "CORE",
       "dt_prod": "",
       "dt_train": "",
@@ -63,8 +63,8 @@
       "change_id": "HELP-22261",
       "notes": [
         {
-          "date": "30/10/2026",
-          "text": "Core QA approved. Waiting by IBG status update"
+          "date": "20/11/2026",
+          "text": "Train Testing. Validation FH and plan tests with AEGON (get claims api)"
         }
       ]
     },
@@ -81,7 +81,7 @@
       "notes": [
         {
           "date": "09/01/2026",
-          "text": "Já está em Produção desde inicio de 12/25 do lado da FH. ASP ainda não se adaptou"
+          "text": "Deployed at 12/25. ASP need to adopt new api"
         }
       ]
     },
@@ -98,7 +98,7 @@
       "notes": [
         {
           "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
+          "text": "FH API already support this feature. ASP need to adopt new api"
         }
       ]
     },
@@ -115,7 +115,7 @@
       "notes": [
         {
           "date": "16/06/2025",
-          "text": "API FH já suporta e está do lado da ASP efetuar alterações"
+          "text": "FH API already support this feature. ASP need to adopt new api"
         }
       ]
     },
@@ -132,7 +132,7 @@
       "notes": [
         {
           "date": "09/01/2026",
-          "text": "Em Produção desde inicio de Dezembro do lado da FH. ASP ainda não se adaptou"
+          "text": "Deployed at 12/25. ASP need to adopt new api"
         }
       ]
     },
@@ -149,7 +149,7 @@
       "notes": [
         {
           "date": "25/09/2026",
-          "text": "Recebemos questões AEGON e já devolvemos a resposta e propusemos Reunião conjunto para se avançar"
+          "text": "AEGON doubts clarified and shared technical documentation. Available to schedule a technical meeting to move forward"
         }
       ]
     },
@@ -165,8 +165,8 @@
       "change_id": "",
       "notes": [
         {
-          "date": "30/10/2026",
-          "text": "Moved to sprint 04/11 - 24/11"
+          "date": "20/11/2026",
+          "text": "moved to sprint 25/11/26 -15/12/26"
         }
       ]
     },
@@ -183,7 +183,7 @@
       "notes": [
         {
           "date": "24/10/2025",
-          "text": "Instalado no dia 23/10 fechado do lado da FH"
+          "text": "Deployed at 23/10"
         }
       ]
     },
@@ -200,7 +200,7 @@
       "notes": [
         {
           "date": "24/10/2025",
-          "text": "Instalado no dia 23/10. Fechado do lado da FH"
+          "text": "Deployed at 23/10"
         }
       ]
     },
@@ -245,10 +245,9 @@
     "Closed": 34,
     "Canceled": 3,
     "Pending FH": 2,
-    "QA Approved": 1,
+    "Train Testing": 2,
     "Pending ASP": 8,
-    "On Hold": 1,
-    "Train Testing": 1
+    "On Hold": 1
   },
   "inactiveItems": [
     {
@@ -1227,8 +1226,8 @@
       ]
     }
   ],
-  "dateStr": "08 / 11 / 2026",
-  "importedFile": "PDS Iniciativas Tecnologia 06112026.xlsx",
-  "importedAt": "08/11/2026 às 23:25",
+  "dateStr": "24 / 11 / 2026",
+  "importedFile": "PDS Iniciativas Tecnologia 20112026.xlsx",
+  "importedAt": "24/11/2026 às 21:23",
   "execReport": "Overall Status — Portfolio remains healthy with 22 active initiatives and 28 of 68 completed (41%). Delivery momentum is strong this week, with five items reaching Train Testing. The main constraint is now on AEGON's side: 11 initiatives are Pending ASP, representing half of the active portfolio.\nThis Week's Progress\n\nFive initiatives advanced to Train Testing: #17 (Pré-Autorizações e Reembolsos), #18 (Subscrição Clínica FHnet), #26 (Acesso Detalhe da Factura), #55 (ASP Change Contact Method) and #56 (ASP SMS Token)\n#23 (Autorização — Histórico de Utilização FH NET) progressed from Dev Testing to Dev Approved\n#43 (Processo de Recuperação da Dívida) was moved from In Progress to On Hold pending alignment\n\nKey Actions Required\n\nPrioritise the 11 initiatives in Pending ASP — these are the primary bottleneck to portfolio throughput and to converting the five new Train Testing items into production\nProvide direction on #43 to resume execution and exit On Hold status\nReschedule and address the overdue milestones on #15 (Alinhamento dos Ambientes, Prod due 30/06/2025) and #23 (Train Testing originally due 28/04/2026)\nOpus 4.7 Adaptive"
 }
