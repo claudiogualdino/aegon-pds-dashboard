@@ -1,18 +1,95 @@
 {
   "changes": [
     {
+      "type": "state",
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "from": "QA Approved",
+      "to": "Train Testing"
+    },
+    {
+      "type": "note",
+      "item": "1",
+      "tema": "Jornada de Cliente | Aumento de Capital & Alteração coberturas - PRO RATA",
+      "date": "20/11/2026",
+      "text": "Dev testing"
+    },
+    {
       "type": "note",
       "item": "18",
       "tema": "Subscrição Clínica - Comunicação com Companhia pelo FHnet",
-      "date": "23/10/2026",
+      "date": "01/11/2026",
       "text": "HELP-26649 waiting for effort and implementation plan"
+    },
+    {
+      "type": "note",
+      "item": "19",
+      "tema": "Valores Acima do Plafond",
+      "date": "20/11/2026",
+      "text": "Train Testing. Validation FH and plan tests with AEGON (get claims api)"
+    },
+    {
+      "type": "note",
+      "item": "32",
+      "tema": "Timeline de Reembolsos ",
+      "date": "09/01/2026",
+      "text": "Deployed at 12/25. ASP need to adopt new api"
+    },
+    {
+      "type": "note",
+      "item": "34",
+      "tema": "ONECARE | Autorizações | Informação com detalhe",
+      "date": "16/06/2025",
+      "text": "FH API already support this feature. ASP need to adopt new api"
+    },
+    {
+      "type": "note",
+      "item": "36",
+      "tema": "Redes por Produto do Cliente",
+      "date": "16/06/2025",
+      "text": "FH API already support this feature. ASP need to adopt new api"
+    },
+    {
+      "type": "note",
+      "item": "38",
+      "tema": "ONECARE | Reembolsos Filas Submetidos e Criados",
+      "date": "09/01/2026",
+      "text": "Deployed at 12/25. ASP need to adopt new api"
+    },
+    {
+      "type": "note",
+      "item": "42",
+      "tema": "ONECARE | Notificações push com alteração de processos (callbacks API)",
+      "date": "25/09/2026",
+      "text": "AEGON doubts clarified and shared technical documentation. Available to schedule a technical meeting to move forward"
+    },
+    {
+      "type": "note",
+      "item": "43",
+      "tema": "Processo de Recuperação da Divida",
+      "date": "20/11/2026",
+      "text": "moved to sprint 25/11/26 -15/12/26"
+    },
+    {
+      "type": "note",
+      "item": "59",
+      "tema": "API /contract-info/get/contract - add BenefitNumber",
+      "date": "24/10/2025",
+      "text": "Deployed at 23/10"
+    },
+    {
+      "type": "note",
+      "item": "62",
+      "tema": "TUW API Service - add new fields & insured person",
+      "date": "24/10/2025",
+      "text": "Deployed at 23/10"
     }
   ],
-  "prevDateStr": "01 / 11 / 2026",
+  "prevDateStr": "08 / 11 / 2026",
   "prevMeta": {
-    "dateStr": "01 / 11 / 2026",
-    "importedFile": "PDS Iniciativas Tecnologia 30102026.xlsx",
+    "dateStr": "08 / 11 / 2026",
+    "importedFile": "PDS Iniciativas Tecnologia 06112026.xlsx",
     "importedAt": 0
   },
-  "generatedAt": "08/11/2026 às 23:25"
+  "generatedAt": "24/11/2026 às 21:23"
 }
